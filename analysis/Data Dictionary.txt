@@ -5,3 +5,8 @@ extra options - varchar(255)
 Prices - double (calculated by business logic)
 class - varchar(255)
 seatsAvailability - boolean
+applicableDiscounts - varchar(255)
+numOfDaysBeforeDepart - integer
+management dashboard - ManagementDashboard
+key performance indicators - varchar(255)
+route - varchar(255)
