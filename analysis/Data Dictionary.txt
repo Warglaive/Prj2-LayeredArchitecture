@@ -10,3 +10,6 @@ numOfDaysBeforeDepart - integer
 management dashboard - ManagementDashboard
 key performance indicators - varchar(255)
 route - varchar(255)
+totalRevenue - double
+numberOfTicketsSold - integer
+optionsStatistics - double
