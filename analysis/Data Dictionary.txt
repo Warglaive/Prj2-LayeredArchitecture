@@ -1,0 +1,7 @@
+salesEmployees - Employee
+available flights - varchar(255)
+booking - varchar(255)
+extra options - varchar(255)
+Prices - double (calculated by business logic)
+class - varchar(255)
+seatsAvailability - boolean
