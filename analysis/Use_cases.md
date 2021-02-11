@@ -61,3 +61,45 @@
 | Result |Planner created a route |
 | Exceptions | Plane cannot be removed from service if it is planned for an upcoming route  |
 | Extensions | N/A  |
+
+| Name | View analytics |
+| --- | --- |
+| Actor | Administrator |
+| Description | Administrator opens the analytics of a plane|
+| Precondition |  Administrator must be logged in|
+| Scenario | 1. Administrator selects the planefleet option <br> 2. System shows all planes <br> 3. Administrator selects view plane <br> 4. System displays all analytics available for the plane |
+| Result | Administrator sees all the analytics |
+| Exceptions | Analytics can not be displayed if there is no data available |
+| Extensions | N/A  |
+
+## Salesman
+| Name | Edit ticket |
+| --- | --- |
+| Actor | Salesman |
+| Description | Salesman edits a ticket |
+| Precondition | Salesman must be logged in |
+| Scenario | 1. Salesman goes to the tickets section <br> 2. System shows all tickets available <br> 3. Salesman selects edit ticket <br> 4. System displays options for editing a ticket <br> 5. Salesman changed the ticket options <br> 6. System accepts the changes and returns to the tickets section |
+| Result | The ticket is edited |
+| Exceptions | The ticket can not be edited if you have invalid data |
+| Extensions | N/A |
+
+| Name | Add discount |
+| --- | --- |
+| Actor | Salesman |
+| Description | Salesman adds a discount |
+| Precondition | Salesman must be logged in |
+| Scenario | 1. Salesman goes to the tickets section <br> 2. System shows all tickets available <br> 3. Salesman selects add discount <br> 4. System displays options for adding a discount <br> 5. Salesman puts in information for the discount <br> 6. System validates the discount and returns to the tickets section |
+| Result | The discount is added |
+| Exceptions | The discount can not be added with an invalid price or code |
+| Extensions | N/A |
+
+| Name | Edit discount |
+| --- | --- |
+| Actor | Salesman |
+| Description | Salesman edits a discount |
+| Precondition | Salesman must be logged in |
+| Scenario | 1. Salesman goes to the tickets section <br> 2. System shows all tickets available <br> 3. Salesman selects edit discount <br> 4. System displays options for editing a discount <br> 5. Salesman changed the discount options <br> 6. System accepts the changes and returns to the tickets section |
+| Result | The discount is edited |
+| Exceptions | The discount can not be edited if you have invalid data |
+| Extensions | N/A |
+
