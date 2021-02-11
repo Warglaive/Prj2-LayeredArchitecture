@@ -29,3 +29,35 @@
 | Result |Customer changed a ticket |
 | Exceptions |TBD  |
 | Extensions | N/A  |
+
+## Planner
+| Name | Create route |
+| --- | --- |
+| Actor | Planner |
+| Description | Planner Creates Route|
+| Precondition |  Planner must be logged in|
+| Scenario | 1. Planner selects route option <br> 2. System shows current routes. <br> 3. Planner selects create new route <br> 4. System starts new route steps. <br> 5. Planner selects start and ending location. <br> 6. System accepts route and returns to mainscreen. |
+| Result |Planner created a route |
+| Exceptions |TBD  |
+| Extensions | N/A  |
+
+| Name | Set plane to route |
+| --- | --- |
+| Actor | Planner |
+| Description | Planner sets plane to Route|
+| Precondition |  Planner must be logged in|
+| Scenario | 1. Planner selects route option <br> 2. System shows current routes. <br> 3. Planner selects edit route <br> 4. System starts edit route steps. <br> 5. Planner selects set plane to route. <br> 6. System displays plane selection screen. <br> 7. Planner sets plane to route. <br> 8. System accepts edit to route and returns to mainscreen. |
+| Result |Planner added plane to route |
+| Exceptions |TBD  |
+| Extensions | N/A  |
+
+## Administrator
+| Name | Manage airplanes|
+| --- | --- |
+| Actor | Administrator |
+| Description | Administrator manages plane fleet|
+| Precondition |  Administrator must be logged in|
+| Scenario | 1. Administrator selects planefleet option <br> 2. System shows all planes. <br> 3. Administrator selects edit on a plane <br> 4. System displays options for editing selected plane. <br> 5. Administrator edits plane and saves <br> 6. System accepts plane edit and returns to mainscreen. |
+| Result |Planner created a route |
+| Exceptions | Plane cannot be removed from service if it is planned for an upcoming route  |
+| Extensions | N/A  |
