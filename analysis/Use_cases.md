@@ -30,6 +30,17 @@
 | Exceptions |TBD  |
 | Extensions | N/A  |
 
+| Name | Customer canceles Ticket |
+| --- | --- |
+| Actor | Customer |
+| Description | Customer wants to cancel a Ticket|
+| Precondition |  Customer must be logged in and must have bought a ticket|
+| Scenario | 1.	Actor decides to cancel a booked ticket <br> 2.	Actor opens overview of orders <br> 3. System provides overview of all orders <br> 4. Actor chooses the order which he want to cancel <br> 5. System offers opportunity to cancel ticket 6. Actor chooses option <br> 7. System cancels ticket |
+| Result |Customer canceles a ticket successfully |
+| Exceptions | Actor is blocked <br> Ticket cannot be cancelled anymore |
+| Extensions | N/A  |
+
+
 ## Planner
 | Name | Create route |
 | --- | --- |
@@ -72,6 +83,26 @@
 | Exceptions | Analytics can not be displayed if there is no data available |
 | Extensions | N/A  |
 
+| Name | Delete a ticket |
+| --- | --- |
+| Actor | Administrator or Salesman |
+| Description | Administrator/Salesman wants to delete a ticket|
+| Precondition |  Administrator/Salesman must be logged in|
+| Scenario | 1.	Actor decides to delete a ticket  <br> 2. System provides overview with all tickets <br> 3. System offers opportunity to choose and delete the ticket <br> 4. Actor chooses the option <br> 5. System gives opportunity to choose reason <br> 6. Actor enters valid information and confirms |
+| Result | Administrator sees all the analytics |
+| Exceptions | Ticket is deleted successfully |
+| Extensions | N/A  |
+
+| Name | Block user |
+| --- | --- |
+| Actor | Administrator wants to block a customer |
+| Description | As an administrator, I want to block a customer or salesman |
+| Precondition |  Administrator must be logged in <br> Customer has not paid a ticket once <br> Salesman has published invalid tickets twice or more |
+| Scenario | 1.	Actor decides to block a customer/salesman <br> 2. Actor searches for customer/salesman <br> 3. System displays results <br> 4. Actor chooses the customer who should be blocked <br> 5. System provides opportunity to block selected person <br> 6. Actor chooses the option <br> 7. System blocks selected person |
+| Result | Administrator has blocked user successfully |
+| Exceptions | TBD |
+| Extensions | N/A  |
+
 ## Salesman
 | Name | Edit ticket |
 | --- | --- |
@@ -103,3 +134,22 @@
 | Exceptions | The discount can not be edited if you have invalid data |
 | Extensions | N/A |
 
+| Name | Put ticket on sale |
+| --- | --- |
+| Actor | Salesman |
+| Description | Salesman wants to put a ticket on sale |
+| Precondition | Salesman must be logged in |
+| Scenario | 1.	Actor decides to put a ticket on sale <br> 2. System offers opportunity to put a ticket on sale <br> 3. Actor chooses the option <br> 4. System gives opportunity to enter information about the ticket <br> 5. Actor enters valid information about the ticket <br> 6. System adds the ticket in to system |
+| Result | Ticket is put on sale successfully |
+| Exceptions | Salesman is blocked <br> Information about ticket is incomplete |
+| Extensions | N/A |
+
+| Name | Log in |
+| --- | --- |
+| Actor | Salesman/Administrator/Customer |
+| Description | Actor wants to log in |
+| Precondition | Actor must have an account and valid sign in data |
+| Scenario | 1.	Actor opens system <br> 2. Enters valid log in data <br> 3. System validates and processes log in |
+| Result | Actor is loggend in successfully|
+| Exceptions | Actor is blocked |
+| Extensions | N/A |
