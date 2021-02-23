@@ -1,5 +1,5 @@
 # The Sales manager
-###### As a sales manager I would like an overview of all performance indicators on a dashboard. For example the revenue at certain routes and revenue numbers. current tickets sold and so on.
+##### As a sales manager I would like an overview of all performance indicators on a dashboard. For example the revenue at certain routes and revenue numbers. current tickets sold and so on.
 --
 
 # The Sales Officer
