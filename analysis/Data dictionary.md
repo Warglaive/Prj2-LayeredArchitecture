@@ -1,4 +1,4 @@
-airline company – AirlineCompany\ 
+airline company – AirlineCompany\
 A company that provides air transport services for traveling passengers and freight.
 
 flight tickets – Integer\
