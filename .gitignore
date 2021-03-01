@@ -23,3 +23,6 @@
 hs_err_pid*
 *.docx
 .DS_Store
+*.vbak
+*.lck
+*.bak_000f
