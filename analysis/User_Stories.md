@@ -8,7 +8,7 @@ As a route manager I want to create new routes these routes consist of a Start a
 As a fleet manager I want to be able to add planes to the fleet. change their status if the plane needs service. Also we need to be able to remove the plane from service if it gets decommisioned.
 
 # The Maintenance Operator <br>
-As the maintenance Operator I want to keep maintenance logs on the planes such as
+As the maintenance Operator I want to keep maintenance logs on the planes such as and be able to return their status to operational as soon as a plane gets out of maintenance. Also I want to be able to review previous maintenance logs on a plane.
 
 # The Sales manager <br>
 As a sales manager I would like an overview of all performance indicators on a dashboard. For example the revenue at certain routes and revenue numbers. current tickets sold and and yearly financials.
@@ -18,6 +18,3 @@ As a sales officer I would like to be able to register new upcoming flights and 
 
 # The Sales employee <br>
 As a sales employee I want to lookup available flights and create bookings for my customers for one or more people a specific flight a booking can have paid extra options price needs to be calculated because they are subject to change. We are working in a team with multiple people selling flights at the same time so your system needs to be able to coop with that(Potentially booking the same seats at the same time)
-
-# The Ground operator <br>
-tbd 
