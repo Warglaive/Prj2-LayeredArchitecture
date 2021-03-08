@@ -62,47 +62,6 @@
 | Exceptions |TBD  |
 | Extensions | N/A  |
 
-## Administrator
-| Name | Manage airplanes|
-| --- | --- |
-| Actor | Administrator |
-| Description | Administrator manages plane fleet|
-| Precondition |  Administrator must be logged in|
-| Scenario | 1. Administrator selects planefleet option <br> 2. System shows all planes. <br> 3. Administrator selects edit on a plane <br> 4. System displays options for editing selected plane. <br> 5. Administrator edits plane and saves <br> 6. System accepts plane edit and returns to mainscreen. |
-| Result |Planner created a route |
-| Exceptions | Plane cannot be removed from service if it is planned for an upcoming route  |
-| Extensions | N/A  |
-
-| Name | View analytics |
-| --- | --- |
-| Actor | Administrator |
-| Description | Administrator opens the analytics of a plane|
-| Precondition |  Administrator must be logged in|
-| Scenario | 1. Administrator selects the planefleet option <br> 2. System shows all planes <br> 3. Administrator selects view plane <br> 4. System displays all analytics available for the plane |
-| Result | Administrator sees all the analytics |
-| Exceptions | Analytics can not be displayed if there is no data available |
-| Extensions | N/A  |
-
-| Name | Delete a ticket |
-| --- | --- |
-| Actor | Administrator or Salesman |
-| Description | Administrator/Salesman wants to delete a ticket|
-| Precondition |  Administrator/Salesman must be logged in|
-| Scenario | 1.	Actor decides to delete a ticket  <br> 2. System provides overview with all tickets <br> 3. System offers opportunity to choose and delete the ticket <br> 4. Actor chooses the option <br> 5. System gives opportunity to choose reason <br> 6. Actor enters valid information and confirms |
-| Result | Administrator sees all the analytics |
-| Exceptions | Ticket is deleted successfully |
-| Extensions | N/A  |
-
-| Name | Block user |
-| --- | --- |
-| Actor | Administrator wants to block a customer |
-| Description | As an administrator, I want to block a customer or salesman |
-| Precondition |  Administrator must be logged in <br> Customer has not paid a ticket once <br> Salesman has published invalid tickets twice or more |
-| Scenario | 1.	Actor decides to block a customer/salesman <br> 2. Actor searches for customer/salesman <br> 3. System displays results <br> 4. Actor chooses the customer who should be blocked <br> 5. System provides opportunity to block selected person <br> 6. Actor chooses the option <br> 7. System blocks selected person |
-| Result | Administrator has blocked user successfully |
-| Exceptions | TBD |
-| Extensions | N/A  |
-
 ## Salesman
 | Name | Edit ticket |
 | --- | --- |
