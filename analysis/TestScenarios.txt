@@ -5,19 +5,16 @@
 | Description | Verify "Show tickets available" functionality |
 | Pre-steps | Login
 | Test steps | 
-
-	1. Customer selects time/date and destination/return for trip.
+	1. Customer selects time/date and destination and or return for trip.
 	Expected : Customer can select time/date and destination/return for trip.
 	2. Customer selects tickets and seats.
 	Expected: Customer can select tickets and seats.
 	3. Customer pays and fills documents.
 	Expected: Customer can pay and fill documents.
-	
-	
-	
+	4. Customer submits documents.
+	Expected: Customer receives tickets/boardingpasses.
 	|
-| Exppected Result | ??? |
-| Exceptions | ??  |
+| Exceptions | InvalidDocuments, PaymentFailed  |
 
 
 
