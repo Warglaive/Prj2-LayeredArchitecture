@@ -50,7 +50,20 @@
 | Exceptions | Invalid input arguments |
 
 
-
+| --- | --- |
+| Test ID | 4 |
+| Test Case | Customer canceles Ticket |
+| Description | Verify "Customer canceles Ticket" functionality |
+| Pre-steps | 1. Login, 2. Order a Ticket |
+| Test steps | 
+	1. Customer selects bookings in profile
+	Expected: Customer receives all bookings.
+	2. Customer selects specific booking.
+	Expected: Customer receives a selected specific booking.
+	3. Customer selects "cancel ticket" option.
+	Expected: Customer receives confirmation that cancel ticket is successfull.
+	|
+| Exceptions | Invalid input arguments |
 
 
 
