@@ -76,11 +76,24 @@
 	Expected: Planner receives current routes.
 	2. Planner selects "create new Route" option.
 	3. Planner provides arguments(start and end locations).
-	Expected: New route is created and returned to Planner.
-	
-	|
+	Expected: New route is created and returned to Planner. |
 | Exceptions |  Invalid arguments |
 
+| --- | --- |
+| Test ID | 6 |
+| Test Case | Set plane to route |
+| Description | Verify "Set plane to route" functionality |
+| Pre-steps | 1. Login |
+| Test steps | 
+	1. Planner selects "view current routes" option.
+	Expected: Planner receives current routes.
+	2. Planner selects "edit route".
+	3. Planner sets plane to new alredy created route.
+	Expected: 
+	3. Planner
+	Expected: 
+	|
+| Exceptions |  Invalid arguments |
 
 
 
