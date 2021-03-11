@@ -1,4 +1,35 @@
-## Customer
+## Customer Tests
+| --- | --- |
+| Test ID | 1 |
+| Test Case | Order a Ticket |
+| Description | Verify "Show tickets available" functionality |
+| Pre-steps | Login
+| Test steps | 
+	1. Customer object invokes "ShowTicketsAvailable"
+	
+	
+	
+	|
+| Exppected Result | ??? |
+| Exceptions | ??  |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 1. Test "Customer Orders a Ticket".
 2. Test "Customer accesses Ticket".
 3. Test "Customer changes Ticket".
