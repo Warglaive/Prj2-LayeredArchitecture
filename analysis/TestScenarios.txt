@@ -42,9 +42,12 @@
 	Expected: Customer receives all bookings.
 	2. Customer selects specific booking.
 	Expected: Customer receives a selected specific booking.
-	
+	3. Customer selects "change tickets" option.
+	4. Customer inputs new dates/seats/etc arguments.
+	5. Customer pays and accepts.
+	Expected: Customer receives new tickets.
 	|
-| Exceptions |  |
+| Exceptions | Invalid input arguments |
 
 
 
