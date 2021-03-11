@@ -88,10 +88,10 @@
 	1. Planner selects "view current routes" option.
 	Expected: Planner receives current routes.
 	2. Planner selects "edit route".
-	3. Planner sets plane to new alredy created route.
-	Expected: 
-	3. Planner
-	Expected: 
+	3. Planner selects "set plane to route"
+	Expected: Planner receives planes view.
+	4. Planner sets plane to new alredy created route.
+	Expected: Planner receives status message.
 	|
 | Exceptions |  Invalid arguments |
 
