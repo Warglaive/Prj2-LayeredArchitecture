@@ -14,7 +14,7 @@
 	4. Customer submits documents.
 	Expected: Customer receives tickets/boardingpasses.
 	|
-| Exceptions | InvalidDocuments, PaymentFailed  |
+| Exceptions | InvalidDocuments, PaymentFailed |
 
 | --- | --- |
 | Test ID | 2 |
@@ -27,9 +27,8 @@
 	2. Customer selects specific booking.
 	Expected: Customer receives a selected specific booking.
 	3. Customer choses to download tickets
-	Expected: Customer receives tickets.
-	|
-| Exceptions |  |
+	Expected: Customer receives tickets. |
+| Exceptions |
 
 
 | --- | --- |
@@ -63,7 +62,10 @@
 	3. Customer selects "cancel ticket" option.
 	Expected: Customer receives confirmation that cancel ticket is successfull.
 	|
-| Exceptions | Invalid input arguments |
+| Exceptions | Ticket cannot be cancelled anymore |
+
+
+## Planner Tests
 
 
 
