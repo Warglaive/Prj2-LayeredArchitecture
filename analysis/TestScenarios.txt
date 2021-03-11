@@ -5,7 +5,13 @@
 | Description | Verify "Show tickets available" functionality |
 | Pre-steps | Login
 | Test steps | 
-	1. Customer object invokes "ShowTicketsAvailable"
+
+	1. Customer selects time/date and destination/return for trip.
+	Expected : Customer can select time/date and destination/return for trip.
+	2. Customer selects tickets and seats.
+	Expected: Customer can select tickets and seats.
+	3. Customer pays and fills documents.
+	Expected: Customer can pay and fill documents.
 	
 	
 	
