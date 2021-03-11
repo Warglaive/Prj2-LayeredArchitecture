@@ -26,11 +26,8 @@
 	Expected: Customer receives all bookings.
 	2. Customer selects specific booking.
 	Expected: Customer receives a selected specific booking.
-	
-	
-	
-	
-	
+	3. Customer choses to download tickets
+	Expected: Customer receives tickets.
 	|
 | Exceptions |  |
 
