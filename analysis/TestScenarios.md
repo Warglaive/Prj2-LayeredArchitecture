@@ -12,7 +12,7 @@
 	Expected: Actor can log in.
 	|
 | Exceptions |  registration constraints not fulfilled(short pass, illegal characters, etc. |
-
+<br>
 
 
 ## Customer Tests
