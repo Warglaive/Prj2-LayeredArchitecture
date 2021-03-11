@@ -98,8 +98,7 @@
 ## SalesOfficer Tests
 | --- | --- |
 | Test ID | 7 |
-| Test Case | Edit ticket
- |
+| Test Case | Edit ticket |
 | Description | Verify "Edit ticket" functionality |
 | Pre-steps | 1. Login |
 | Test steps | 
@@ -111,6 +110,22 @@
 	Expected: Status message (successfull or not).
 	|
 | Exceptions |  Invalid arguments |
+
+| --- | --- |
+| Test ID | 8 |
+| Test Case | Add discount |
+| Description | Verify "Add discount" functionality |
+| Pre-steps | 1. Login |
+| Test steps | 
+	1. SalesOfficer selects "view all tickets"
+	Expected: SalesOfficer receives all tickets.
+	2. SalesOfficer selects "add discount".
+	Expected: SalesOfficer receives details about selected ticket.
+	3. SalesOfficer selects "add discount" option for selected ticket.
+	4. SalesOfficer inputs discount arguments.
+	Expected: Status message (successfull or not).
+	|
+| Exceptions |  Invalid arguments(discount can not be above specified % or number |
 
 
 
