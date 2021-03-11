@@ -1,5 +1,6 @@
 ## General Functionality
 | --- | --- |
+
 | Test ID | 0 |
 | Test Case | Log in |
 | Description | Verify "Log in" functionality |
