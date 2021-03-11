@@ -48,7 +48,6 @@
 	|
 | Exceptions | Invalid input arguments |
 
-
 | --- | --- |
 | Test ID | 4 |
 | Test Case | Customer canceles Ticket |
@@ -67,6 +66,20 @@
 
 ## Planner Tests
 
+| --- | --- |
+| Test ID | 5 |
+| Test Case | Planner Create route |
+| Description | Verify "Planner Create route" functionality |
+| Pre-steps | 1. Login |
+| Test steps | 
+	1. Planner selects "view current routes" option.
+	Expected: Planner receives current routes.
+	2. Planner selects "create new Route" option.
+	3. Planner provides arguments(start and end locations).
+	Expected: New route is created and returned to Planner.
+	
+	|
+| Exceptions |  Invalid arguments |
 
 
 
