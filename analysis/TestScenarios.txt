@@ -144,6 +144,21 @@
 | Exceptions |  Invalid arguments(discount can not be above specified % or number |
 
 
+| --- | --- |
+| Test ID | 10 |
+| Test Case | Put ticket on sale |
+| Description | Verify "Put ticket on sale" functionality |
+| Pre-steps | 1. Login |
+| Test steps | 
+	1. SalesOfficer selects "view all tickets"
+	Expected: SalesOfficer receives all tickets.
+	1. SalesOfficer selects "put a ticket on sale".
+	0. SalesOfficer inputs arguments about "ticketOnSale".
+	Expected: SalesOfficer receives Status message (successfull or not).
+	
+	|
+| Exceptions |  Invalid arguments(discount can not be above specified % or number |
+
 
 
 
