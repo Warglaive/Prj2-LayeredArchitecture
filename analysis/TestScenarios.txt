@@ -16,6 +16,26 @@
 	|
 | Exceptions | InvalidDocuments, PaymentFailed  |
 
+| --- | --- |
+| Test ID | 2 |
+| Test Case | Customer accesses Ticket |
+| Description | Verify "Customer access a Ticket" functionality |
+| Pre-steps | 1. Login, 2. Order a Ticket |
+| Test steps | 
+	1. Customer selects bookings in profile
+	Expected: Customer receives all bookings.
+	2. Customer selects specific booking.
+	Expected: Customer receives a selected specific booking.
+	
+	
+	
+	
+	
+	|
+| Exceptions |  |
+
+
+
 
 
 
