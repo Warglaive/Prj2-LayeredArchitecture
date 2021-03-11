@@ -1,5 +1,4 @@
 ## General Functionality
------------- | -------------
  Test ID | 0 
  Test Case | Log in 
  Description | Verify "Log in" functionality 
@@ -15,8 +14,6 @@
 
 
 ## Customer Tests
------------- | -------------
-
 | Test ID | 1 
 | Test Case | Order a Ticket |
 | Description | Verify "Show tickets available" functionality |
@@ -33,7 +30,6 @@
 	|
 | Exceptions | InvalidDocuments, PaymentFailed |
 
-| --- | --- |
 | Test ID | 2 |
 | Test Case | Customer accesses Ticket |
 | Description | Verify "Customer access a Ticket" functionality |
@@ -48,7 +44,6 @@
 | Exceptions |
 
 
-| --- | --- |
 | Test ID | 3 |
 | Test Case | Customer changes Ticket |
 | Description | Verify "Customer changes Ticket" functionality |
@@ -65,7 +60,7 @@
 	|
 | Exceptions | Invalid input arguments |
 
-| --- | --- |
+
 | Test ID | 4 |
 | Test Case | Customer canceles Ticket |
 | Description | Verify "Customer canceles Ticket" functionality |
