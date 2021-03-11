@@ -95,6 +95,21 @@
 	|
 | Exceptions |  Invalid arguments |
 
+## SalesOfficer Tests
+| --- | --- |
+| Test ID | 7 |
+| Test Case | Edit ticket
+ |
+| Description | Verify "Edit ticket" functionality |
+| Pre-steps | 1. Login |
+| Test steps | 
+	1. SalesOfficer selects "view all tickets"
+	Expected: SalesOfficer receives all tickets.
+	2. SalesOfficer selects "edit ticket".
+	Expected: SalesOfficer receives details about selected ticket.
+	3. 
+	|
+| Exceptions |  Invalid arguments |
 
 
 
