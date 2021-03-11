@@ -1,5 +1,5 @@
 ## General Functionality
-| --- | --- |
+------------ | -------------
 
 | Test ID | 0 |
 | Test Case | Log in |
@@ -16,7 +16,8 @@
 
 
 ## Customer Tests
-| --- | --- |
+------------ | -------------
+
 | Test ID | 1 |
 | Test Case | Order a Ticket |
 | Description | Verify "Show tickets available" functionality |
