@@ -107,7 +107,8 @@
 	Expected: SalesOfficer receives all tickets.
 	2. SalesOfficer selects "edit ticket".
 	Expected: SalesOfficer receives details about selected ticket.
-	3. 
+	3. SalesOfficer edit ticket.
+	Expected: Status message (successfull or not).
 	|
 | Exceptions |  Invalid arguments |
 
