@@ -1,3 +1,19 @@
+## General Functionality
+| --- | --- |
+| Test ID | 0 |
+| Test Case | Log in |
+| Description | Verify "Log in" functionality |
+| Pre-steps | None |
+| Test steps | 
+	1. Actor starts the application.
+	Expected: Actor receives an input form.
+	2. Actor provides input data.
+	Expected: Actor can log in.
+	|
+| Exceptions |  registration constraints not fulfilled(short pass, illegal characters, etc. |
+
+
+
 ## Customer Tests
 | --- | --- |
 | Test ID | 1 |
@@ -155,9 +171,8 @@
 	1. SalesOfficer selects "put a ticket on sale".
 	0. SalesOfficer inputs arguments about "ticketOnSale".
 	Expected: SalesOfficer receives Status message (successfull or not).
-	
 	|
-| Exceptions |  Invalid arguments(discount can not be above specified % or number |
+| Exceptions |  Invalid arguments |
 
 
 
