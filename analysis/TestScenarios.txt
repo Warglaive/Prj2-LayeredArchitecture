@@ -1,24 +1,23 @@
 ## General Functionality
 ------------ | -------------
-
-| Test ID | 0 |
-| Test Case | Log in |
-| Description | Verify "Log in" functionality |
-| Pre-steps | None |
-| Test steps | 
+ Test ID | 0 
+ Test Case | Log in 
+ Description | Verify "Log in" functionality 
+ Pre-steps | None 
+ Test steps |
 	1. Actor starts the application.
 	Expected: Actor receives an input form.
 	2. Actor provides input data.
 	Expected: Actor can log in.
-	|
-| Exceptions |  registration constraints not fulfilled(short pass, illegal characters, etc. |
+	
+ Exceptions |  registration constraints not fulfilled(short pass, illegal characters, etc. 
 <br>
 
 
 ## Customer Tests
 ------------ | -------------
 
-| Test ID | 1 |
+| Test ID | 1 
 | Test Case | Order a Ticket |
 | Description | Verify "Show tickets available" functionality |
 | Pre-steps | Login
