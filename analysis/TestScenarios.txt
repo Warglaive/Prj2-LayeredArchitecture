@@ -127,6 +127,22 @@
 	|
 | Exceptions |  Invalid arguments(discount can not be above specified % or number |
 
+| --- | --- |
+| Test ID | 9 |
+| Test Case | Edit discount |
+| Description | Verify "Edit discount" functionality |
+| Pre-steps | 1. Login |
+| Test steps | 
+	1. SalesOfficer selects "view all tickets"
+	Expected: SalesOfficer receives all tickets.
+	2. SalesOfficer selects "add discount".
+	Expected: SalesOfficer receives details about selected ticket.
+	3. SalesOfficer selects "edit discount" option for selected ticket.
+	4. SalesOfficer inputs discount arguments.
+	Expected: Status message (successfull or not).
+	|
+| Exceptions |  Invalid arguments(discount can not be above specified % or number |
+
 
 
 
