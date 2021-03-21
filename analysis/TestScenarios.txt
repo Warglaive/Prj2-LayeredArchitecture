@@ -119,7 +119,8 @@
 | Test Case | Customer accesses Ticket VALID |
 | Description | Verify "Customer access a Ticket" functionality |
 | Pre-steps | 1. Login, 2. Order a Ticket |
-| Test steps | 1. Customer selects "view bookings" option in user profile<br> 
+| Test steps | 
+	1. Customer selects "view bookings" option in user profile<br> 
 	Expected: Customer receives all bookings as list.<br> 
 	2. Customer selects specific booking available on the list.<br> 
 	Expected: Customer receives a selected specific booking.<br>
