@@ -119,7 +119,12 @@
 | Test Case | Customer accesses Ticket VALID |
 | Description | Verify "Customer access a Ticket" functionality |
 | Pre-steps | 1. Login, 2. Order a Ticket |
-| Test steps | 1. Customer selects bookings in profile<br> Expected: Customer receives all bookings.<br> 2. Customer selects specific booking.<br> Expected: Customer receives a selected specific booking.<br> 3. Customer choses to download tickets<br> Expected: Customer receives tickets. |
+| Test steps | 1. Customer selects bookings in profile<br> 
+	Expected: Customer receives all bookings.<br> 
+	2. Customer selects specific booking.<br> 
+	Expected: Customer receives a selected specific booking.<br>
+	3. Customer choses to download tickets<br> 
+	Expected: Customer receives tickets. |
 | Exceptions | |
 
 
