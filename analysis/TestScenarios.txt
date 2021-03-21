@@ -52,10 +52,6 @@
 	Expected: Actor receives SalesOfficer Login View |
 <br>
 
-
-
-
-
 |Test ID | 0 |
 | --- | --- |
 |Test Case | Log in as Role: SalesOfficer INVALID|
