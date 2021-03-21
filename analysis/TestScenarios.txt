@@ -87,6 +87,33 @@
 
 | Exceptions | Invalid Card credentials, fake name or something |
 
+
+
+| Test ID | 1 |
+| --- | --- |
+| Test Case | Order a Ticket as Customer INVALID |
+| Description | Verify "Show tickets available" functionality |
+| Pre-steps | Login
+| Test steps | 
+	1. Actor selected "Order ticket" button.
+	Expected: A order ticket form is returned to the actor.
+	2. Actor selects "choose dates" field.
+	Expected: a Calendar form is returned to the actor.( Or manual input, to be decided with respect to complexity)
+	3. Actor clicks on departure date(21/03/2021).
+	Expected: A list with all available flights with departure hours for this date is returned to the actor.
+	4. Actor selects 14:00 o'clock.
+	5. Actor fills full name "Svetoslav Stoyanov".
+	6. Actor fills ID Card credentials "999999999".
+	7. Actor clicks "Submit" button.
+	Expected: Thrown Exception with message "No such ID card credentials".
+
+| Exceptions | Invalid Card credentials, fake name or something |
+
+
+
+
+
+
 | Test ID | 2 |
 | --- | --- |
 | Test Case | Customer accesses Ticket |
