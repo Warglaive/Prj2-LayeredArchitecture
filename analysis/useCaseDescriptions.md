@@ -62,50 +62,50 @@
 | Exceptions |TBD  |
 | Extensions | N/A  |
 
-## Salesman
+## Sales Officer
 | Name | Edit ticket |
 | --- | --- |
-| Actor | Salesman |
-| Description | Salesman edits a ticket |
-| Precondition | Salesman must be logged in |
-| Scenario | 1. Salesman goes to the tickets section <br> 2. System shows all tickets available <br> 3. Salesman selects edit ticket <br> 4. System displays options for editing a ticket <br> 5. Salesman changed the ticket options <br> 6. System accepts the changes and returns to the tickets section |
+| Actor | Sales Officer |
+| Description | Sales Officer edits a ticket |
+| Precondition | Sales Officer must be logged in |
+| Scenario | 1. Sales Officer goes to the tickets section <br> 2. System shows all tickets available <br> 3. Sales Officer selects edit ticket <br> 4. System displays options for editing a ticket <br> 5. Sales Officer changed the ticket options <br> 6. System accepts the changes and returns to the tickets section |
 | Result | The ticket is edited |
 | Exceptions | The ticket can not be edited if you have invalid data |
 | Extensions | N/A |
 
 | Name | Add discount |
 | --- | --- |
-| Actor | Salesman |
-| Description | Salesman adds a discount |
-| Precondition | Salesman must be logged in |
-| Scenario | 1. Salesman goes to the tickets section <br> 2. System shows all tickets available <br> 3. Salesman selects add discount <br> 4. System displays options for adding a discount <br> 5. Salesman puts in information for the discount <br> 6. System validates the discount and returns to the tickets section |
+| Actor | Sales Officer |
+| Description | Sales Officer adds a discount |
+| Precondition | Sales Officer must be logged in |
+| Scenario | 1. Sales Officer goes to the tickets section <br> 2. System shows all tickets available <br> 3. Sales Officer selects add discount <br> 4. System displays options for adding a discount <br> 5. Sales Officer puts in information for the discount <br> 6. System validates the discount and returns to the tickets section |
 | Result | The discount is added |
 | Exceptions | The discount can not be added with an invalid price or code |
 | Extensions | N/A |
 
 | Name | Edit discount |
 | --- | --- |
-| Actor | Salesman |
-| Description | Salesman edits a discount |
-| Precondition | Salesman must be logged in |
-| Scenario | 1. Salesman goes to the tickets section <br> 2. System shows all tickets available <br> 3. Salesman selects edit discount <br> 4. System displays options for editing a discount <br> 5. Salesman changed the discount options <br> 6. System accepts the changes and returns to the tickets section |
+| Actor | Sales Officer |
+| Description | Sales Officer edits a discount |
+| Precondition | Sales Officer must be logged in |
+| Scenario | 1. Sales Officer goes to the tickets section <br> 2. System shows all tickets available <br> 3. Sales Officer selects edit discount <br> 4. System displays options for editing a discount <br> 5. Sales Officer changed the discount options <br> 6. System accepts the changes and returns to the tickets section |
 | Result | The discount is edited |
 | Exceptions | The discount can not be edited if you have invalid data |
 | Extensions | N/A |
 
 | Name | Put ticket on sale |
 | --- | --- |
-| Actor | Salesman |
-| Description | Salesman wants to put a ticket on sale |
-| Precondition | Salesman must be logged in |
+| Actor | Sales Officer |
+| Description | Sales Officer wants to put a ticket on sale |
+| Precondition | Sales Officer must be logged in |
 | Scenario | 1.	Actor decides to put a ticket on sale <br> 2. System offers opportunity to put a ticket on sale <br> 3. Actor chooses the option <br> 4. System gives opportunity to enter information about the ticket <br> 5. Actor enters valid information about the ticket <br> 6. System adds the ticket in to system |
 | Result | Ticket is put on sale successfully |
-| Exceptions | Salesman is blocked <br> Information about ticket is incomplete |
+| Exceptions | Sales Officer is blocked <br> Information about ticket is incomplete |
 | Extensions | N/A |
 
 | Name | Log in |
 | --- | --- |
-| Actor | Salesman/Administrator/Customer |
+| Actor | Sales Officer/ Customer |
 | Description | Actor wants to log in |
 | Precondition | Actor must have an account and valid sign in data |
 | Scenario | 1.	Actor opens system <br> 2. Enters valid log in data <br> 3. System validates and processes log in |
