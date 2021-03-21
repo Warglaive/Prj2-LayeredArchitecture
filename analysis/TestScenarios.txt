@@ -69,10 +69,20 @@
 ## Customer Tests
 | Test ID | 1 |
 | --- | --- |
-| Test Case | Order a Ticket |
+| Test Case | Order a Ticket as Customer VALID |
 | Description | Verify "Show tickets available" functionality |
 | Pre-steps | Login
-| Test steps | 1. Customer selects time/date and destination and or return for trip.<br> 
+| Test steps | 
+	1. Actor selected "Order ticket" button.
+	Expected: A order ticket form is returned to the actor.
+	2. Actor selects "choose dates" field.
+	Expected: a Calendar form is returned to the actor.( Or manual input, to be decided with respect to complexity)
+	3. Actor clicks on departure date(21/03/2021).
+	Expected: A list with all available flights with departure hours for this date is returned to the actor.
+	4. Actor selects 14:00 o'clock.
+	5. Actor fills full name "Svetoslav Stoyanov".
+	6. Actor fills ID Card credentials "0123456789"
+	
 	Expected : Customer can select time/date and destination/return for trip.<br> 
 	2. Customer selects tickets and seats.<br> 
 	Expected: Customer can select tickets and seats.<br> 
