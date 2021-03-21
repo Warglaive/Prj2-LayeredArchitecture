@@ -149,8 +149,7 @@
 	7. Customer fills full name "Svetoslav Stoyanov".
 	8. Customer fills ID Card credentials "0123456789".
 	9. Customer clicks "Submit" button.
-	Expected: Customer receives UPDATED ticket details as View/String.
-	|
+	Expected: Customer receives UPDATED ticket details as View/String.|
 | Exceptions | Invalid input arguments |
 
 
