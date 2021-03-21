@@ -85,7 +85,7 @@
 	7. Actor clicks "Submit" button.
 	Expected: Order saved in database and returned on request as object.
 
-| Exceptions | InvalidDocuments, PaymentFailed |
+| Exceptions | Invalid Card credentials, fake name or something |
 
 | Test ID | 2 |
 | --- | --- |
