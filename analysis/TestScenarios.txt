@@ -11,8 +11,9 @@
 	Expected: Actor receives an register input form.<br> 
 	2. Actor fills username with "Daniel".
 	3. Actor fills email with "daniel@gmail.com".
-	4. Actor fills password with "12345678_AsD"
-	5. Actor clicks "Submit" button.<br> 
+	4. Actor fills password with "12345678_AsD".
+	5. Actor selects role "SalesOfficer" from a dropdown menu.
+	6. Actor clicks "Submit" button.<br> 
 	Expected: Entry successfully created into the database and returned on request.  |
 |Exceptions |  registration constraints not fulfilled(short pass, illegal characters, etc. |
 
@@ -30,7 +31,7 @@
 	3. Actor fills email with "daniel@gmail.com".
 	4. Actor fills password with "123"
 	5. Actor clicks "Submit" button.<br> 
-	Expected: Test failed: Exception expected with message "invalid password". |
+	Expected: Test failed: Exception thrown expected with message "invalid password". |
 |Exceptions |  registration constraints not fulfilled(short pass, illegal characters, etc. |
 
 
@@ -43,9 +44,9 @@
 
 |Test ID | 0 |
 | --- | --- |
-|Test Case | Log in as Role: SalesOfficer |
+|Test Case | Log in as Role: SalesOfficer VALID|
 |Description | Verify "Log in" functionality |
-|Pre-steps | None |
+|Pre-steps | Register |
 |Test steps | 
 	1. Actor starts the application.<br> 
 	Expected: Actor receives an input form.<br> 
