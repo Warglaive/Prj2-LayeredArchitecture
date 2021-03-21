@@ -81,15 +81,9 @@
 	Expected: A list with all available flights with departure hours for this date is returned to the actor.
 	4. Actor selects 14:00 o'clock.
 	5. Actor fills full name "Svetoslav Stoyanov".
-	6. Actor fills ID Card credentials "0123456789"
-	
-	Expected : Customer can select time/date and destination/return for trip.<br> 
-	2. Customer selects tickets and seats.<br> 
-	Expected: Customer can select tickets and seats.<br> 
-	3. Customer pays and fills documents.<br> 
-	Expected: Customer can pay and fill documents.<br> 
-	4. Customer submits documents.<br> 
-	Expected: Customer receives tickets/boardingpasses.<br> |
+	6. Actor fills ID Card credentials "0123456789".
+	7. Actor clicks "Submit" button.
+	Expected: Order saved in database and returned on request as object.
 
 | Exceptions | InvalidDocuments, PaymentFailed |
 
