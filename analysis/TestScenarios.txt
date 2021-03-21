@@ -8,7 +8,7 @@
 |Test steps | 
 	1. Actor starts the application.<br>
 	2. Actor clicks "Register" button.
-	Expected: Actor receives an register input form.<br> 
+	Expected: Actor receives register input form.<br> 
 	2. Actor fills username with "Daniel".
 	3. Actor fills email with "daniel@gmail.com".
 	4. Actor fills password with "12345678_AsD".
@@ -26,7 +26,7 @@
 |Test steps | 
 	1. Actor starts the application.<br>
 	2. Actor clicks "Register" button.
-	Expected: Actor receives an register input form.<br> 
+	Expected: Actor receives register input form.<br> 
 	2. Actor fills username with "Daniel".
 	3. Actor fills email with "daniel@gmail.com".
 	4. Actor fills password with "123"
@@ -38,11 +38,6 @@
 
 
 
-
-
-
-
-
 |Test ID | 0 |
 | --- | --- |
 |Test Case | Log in as Role: SalesOfficer VALID|
@@ -50,10 +45,11 @@
 |Pre-steps | Register |
 |Test steps | 
 	1. Actor starts the application.<br> 
-	Expected: Actor receives an input form.<br> 
-	2.Actor fills username with "
-	2. Actor provides input data.<br> 
-	Expected: Actor can log in. |
+	Expected: Actor receives login input form.<br> 
+	2. Actor fills username with "Daniel".
+	3. Actor fills password with "12345678_AsD".
+	4. Actor clicks "submit" button. 
+	Expected: Actor receives SalesOfficer Login View |
 |Exceptions |  registration constraints not fulfilled(short pass, illegal characters, etc. |
 <br>
 
