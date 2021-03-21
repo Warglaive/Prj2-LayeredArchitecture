@@ -125,16 +125,32 @@
 	2. Customer selects specific booking available on the list.<br> 
 	Expected: Customer receives a selected specific booking.<br>
 	3. Customer choses to download tickets<br> 
-	Expected: Customer receives tickets as PDF. |
+	Expected: Customer receives tickets as PDF/String. |
 | Exceptions | |
 
 
 | Test ID | 3 |
 | --- | --- |
 | Test Case | Customer changes Ticket |
-| Description | Verify "Customer changes Ticket" functionality |
+| Description | Verify "Customer changes Ticket" functionality VALID|
 | Pre-steps | 1. Login, 2. Order a Ticket |
-| Test steps | 1. Customer selects bookings in profile<br> Expected: Customer receives all bookings.<br> 2. Customer selects specific booking.<br> Expected: Customer receives a selected specific booking.<br> 3. Customer selects "change tickets" option.<br> 4. Customer inputs new dates/seats/etc arguments.<br> 5. Customer pays and accepts.<br> Expected: Customer receives new tickets.<br> |
+| Test steps | 
+	1. Customer selects "view all bookings" option in user profile<br> 
+	Expected: Customer receives a list of all bookings.<br> 
+	2. Customer selects a specific booking.<br> 
+	Expected: Customer receives a view of specific booking.<br> 
+	3. Customer selects "change tickets" option.<br> 
+	Expected: Customer receives a form to input new ticket info.
+	4. Customer selects "choose dates" field.
+	Expected: a Calendar form is returned to the actor.( Or manual input, to be decided with respect to complexity)
+	5. Customer clicks on departure date(21/03/2021).
+	Expected: A list with all available flights with departure hours for this date is returned to the actor.
+	6. Customer selects 14:00 o'clock.
+	7. Customer fills full name "Svetoslav Stoyanov".
+	8. Customer fills ID Card credentials "0123456789".
+	9. Customer clicks "Submit" button.
+	Expected: Customer receives UPDATED ticket details as View/String.
+	|
 | Exceptions | Invalid input arguments |
 
 
