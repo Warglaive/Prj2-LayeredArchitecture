@@ -70,7 +70,7 @@
 | Test ID | 1 |
 | --- | --- |
 | Test Case | Order a Ticket as Customer VALID |
-| Description | Verify "Show tickets available" functionality |
+| Description | Verify "Order a Ticket" functionality |
 | Pre-steps | Login
 | Test steps | 
 	1. Actor selected "Order ticket" button.
@@ -92,7 +92,7 @@
 | Test ID | 1 |
 | --- | --- |
 | Test Case | Order a Ticket as Customer INVALID |
-| Description | Verify "Show tickets available" functionality |
+| Description | Verify "Order a Ticket" functionality |
 | Pre-steps | Login
 | Test steps | 
 	1. Actor selected "Order ticket" button.
@@ -116,7 +116,7 @@
 
 | Test ID | 2 |
 | --- | --- |
-| Test Case | Customer accesses Ticket |
+| Test Case | Customer accesses Ticket VALID |
 | Description | Verify "Customer access a Ticket" functionality |
 | Pre-steps | 1. Login, 2. Order a Ticket |
 | Test steps | 1. Customer selects bookings in profile<br> Expected: Customer receives all bookings.<br> 2. Customer selects specific booking.<br> Expected: Customer receives a selected specific booking.<br> 3. Customer choses to download tickets<br> Expected: Customer receives tickets. |
