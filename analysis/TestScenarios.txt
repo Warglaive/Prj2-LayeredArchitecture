@@ -1,10 +1,57 @@
 ## General Functionality
+
+|Test ID | -2 |
+| --- | --- |
+|Test Case | Create account(Register) for SalesOfficer VALID|
+|Description |  |
+|Pre-steps | None |
+|Test steps | 
+	1. Actor starts the application.<br>
+	2. Actor clicks "Register" button.
+	Expected: Actor receives an register input form.<br> 
+	2. Actor fills username with "Daniel".
+	3. Actor fills email with "daniel@gmail.com".
+	4. Actor fills password with "12345678_AsD"
+	5. Actor clicks "Submit" button.<br> 
+	Expected: Entry successfully created into the database and returned on request.  |
+|Exceptions |  registration constraints not fulfilled(short pass, illegal characters, etc. |
+
+
+|Test ID | -1 |
+| --- | --- |
+|Test Case | Create account(Register) for SalesOfficer INVALID|
+|Description |  |
+|Pre-steps | None |
+|Test steps | 
+	1. Actor starts the application.<br>
+	2. Actor clicks "Register" button.
+	Expected: Actor receives an register input form.<br> 
+	2. Actor fills username with "Daniel".
+	3. Actor fills email with "daniel@gmail.com".
+	4. Actor fills password with "123"
+	5. Actor clicks "Submit" button.<br> 
+	Expected: Test failed: Exception expected with message "invalid password". |
+|Exceptions |  registration constraints not fulfilled(short pass, illegal characters, etc. |
+
+
+
+
+
+
+
+
+
 |Test ID | 0 |
 | --- | --- |
-|Test Case | Log in |
+|Test Case | Log in as Role: SalesOfficer |
 |Description | Verify "Log in" functionality |
 |Pre-steps | None |
-|Test steps | 1. Actor starts the application.<br> Expected: Actor receives an input form.<br> 2. Actor provides input data.<br> Expected: Actor can log in. |
+|Test steps | 
+	1. Actor starts the application.<br> 
+	Expected: Actor receives an input form.<br> 
+	2.Actor fills username with "
+	2. Actor provides input data.<br> 
+	Expected: Actor can log in. |
 |Exceptions |  registration constraints not fulfilled(short pass, illegal characters, etc. |
 <br>
 
