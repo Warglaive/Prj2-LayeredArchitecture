@@ -50,9 +50,25 @@
 	3. Actor fills password with "12345678_AsD".
 	4. Actor clicks "submit" button. 
 	Expected: Actor receives SalesOfficer Login View |
-|Exceptions |  registration constraints not fulfilled(short pass, illegal characters, etc. |
 <br>
 
+
+
+
+
+|Test ID | 0 |
+| --- | --- |
+|Test Case | Log in as Role: SalesOfficer INVALID|
+|Description | Verify "Log in" functionality |
+|Pre-steps | Register |
+|Test steps | 
+	1. Actor starts the application.<br> 
+	Expected: Actor receives login input form.<br> 
+	2. Actor fills username with "DanieLLLLLWrong".
+	3. Actor fills password with "123".
+	4. Actor clicks "submit" button. 
+	Expected: Actor receives "Invalid credentials" message |
+<br>
 
 ## Customer Tests
 | Test ID | 1 |
