@@ -72,7 +72,15 @@
 | Test Case | Order a Ticket |
 | Description | Verify "Show tickets available" functionality |
 | Pre-steps | Login
-| Test steps | 1. Customer selects time/date and destination and or return for trip.<br> Expected : Customer can select time/date and destination/return for trip.<br> 2. Customer selects tickets and seats.<br> Expected: Customer can select tickets and seats.<br> 3. Customer pays and fills documents.<br> Expected: Customer can pay and fill documents.<br> 4. Customer submits documents.<br> Expected: Customer receives tickets/boardingpasses.<br> |
+| Test steps | 1. Customer selects time/date and destination and or return for trip.<br> 
+	Expected : Customer can select time/date and destination/return for trip.<br> 
+	2. Customer selects tickets and seats.<br> 
+	Expected: Customer can select tickets and seats.<br> 
+	3. Customer pays and fills documents.<br> 
+	Expected: Customer can pay and fill documents.<br> 
+	4. Customer submits documents.<br> 
+	Expected: Customer receives tickets/boardingpasses.<br> |
+
 | Exceptions | InvalidDocuments, PaymentFailed |
 
 | Test ID | 2 |
