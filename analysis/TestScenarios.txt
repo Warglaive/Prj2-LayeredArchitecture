@@ -30,7 +30,8 @@
 	2. Actor fills username with "Daniel".
 	3. Actor fills email with "daniel@gmail.com".
 	4. Actor fills password with "123"
-	5. Actor clicks "Submit" button.<br> 
+	5. Actor selects role "SalesOfficer" from a dropdown menu.
+	6. Actor clicks "Submit" button.<br> 
 	Expected: Test failed: Exception thrown expected with message "invalid password". |
 |Exceptions |  registration constraints not fulfilled(short pass, illegal characters, etc. |
 
