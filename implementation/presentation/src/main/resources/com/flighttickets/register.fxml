@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="372.0" prefWidth="538.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.flighttickets.RegisterController">
+   <children>
+      <Label alignment="CENTER" layoutX="-1.0" layoutY="36.0" prefHeight="17.0" prefWidth="538.0" text="Login" textAlignment="CENTER">
+         <font>
+            <Font size="55.0" />
+         </font>
+      </Label>
+      <Label fx:id="usernameLbl" layoutX="105.0" layoutY="121.0" text="Username:" />
+      <TextField fx:id="usernameTbx" layoutX="269.0" layoutY="117.0" promptText="Username" />
+      <Label fx:id="passwordLbl" layoutX="105.0" layoutY="164.0" text="Password:" />
+      <TextField fx:id="passwordTbx" layoutX="269.0" layoutY="160.0" promptText="Password" />
+      <Button fx:id="registerBtn" layoutX="238.0" layoutY="298.0" mnemonicParsing="false" onAction="#handleRegister" text="Register" />
+      <Label fx:id="emailLbl" layoutX="105.0" layoutY="203.0" text="Email:" />
+      <TextField fx:id="emailTbx" layoutX="269.0" layoutY="199.0" promptText="Email" />
+      <Label fx:id="addressLbl" layoutX="105.0" layoutY="246.0" text="Address:" />
+      <TextField fx:id="addressTbx" layoutX="269.0" layoutY="242.0" promptText="Address" />
+   </children>
+</AnchorPane>
