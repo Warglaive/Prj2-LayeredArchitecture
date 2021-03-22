@@ -6,9 +6,7 @@
 |Description |  |
 |Pre-steps | None |
 |Test steps | 
-	1. Actor starts the application.<br>
-	2. Actor clicks "Register" button.
-	Expected: Actor receives register input form.<br> 
+	1. Actor starts the application.<br>2. Actor clicks "Register" button.<br>Expected: Actor receives register input form.<br> 
 	2. Actor fills username with "Daniel".
 	3. Actor fills email with "daniel@gmail.com".
 	4. Actor fills password with "12345678_AsD".
@@ -16,8 +14,6 @@
 	6. Actor clicks "Submit" button.<br> 
 	Expected: Entry successfully created into the database and returned on request.  |
 |Exceptions |  registration constraints not fulfilled(short pass, illegal characters, etc. |
-
-
 |Test ID | -1 |
 | --- | --- |
 |Test Case | Create account(Register) for SalesOfficer INVALID|
@@ -151,9 +147,7 @@
 	9. Customer clicks "Submit" button.
 	Expected: Customer receives UPDATED ticket details as View/String.|
 | Exceptions | Invalid input arguments |
-
-////////////////MULTANI TODO:
-
+MULTANI TODO:
 | Test ID | 4 |
 | --- | --- |
 | Test Case | Customer canceles Ticket |
