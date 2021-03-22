@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="582.0" prefWidth="802.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.flighttickets.EditTicketController">
+   <children>
+      <Label alignment="CENTER" layoutX="-1.0" layoutY="36.0" prefHeight="81.0" prefWidth="802.0" text="Edit tickets" textAlignment="CENTER">
+         <font>
+            <Font size="55.0" />
+         </font>
+      </Label>
+      <TextField fx:id="searchTbx" layoutX="106.0" layoutY="117.0" prefHeight="25.0" prefWidth="560.0" promptText="search" />
+      <Label fx:id="searchLbl" layoutX="14.0" layoutY="121.0" prefHeight="17.0" prefWidth="90.0" text="Search:" />
+      <TableView fx:id="ticketTbl" layoutX="6.0" layoutY="155.0" prefHeight="386.0" prefWidth="793.0">
+        <columns>
+          <TableColumn fx:id="ticketIdColumn" prefWidth="75.0" text="Ticket id" />
+          <TableColumn fx:id="locationsColumn" prefWidth="202.0" text="Locations" />
+            <TableColumn fx:id="priceColumn" prefWidth="75.0" text="price" />
+            <TableColumn fx:id="discountColumn" prefWidth="75.0" text="discount" />
+        </columns>
+      </TableView>
+      <Button fx:id="deleteTicketBtn" layoutX="707.0" layoutY="543.0" mnemonicParsing="false" onAction="#DeleteTicketDiag" text="delete ticket" />
+      <Button fx:id="searchBtn" layoutX="675.0" layoutY="117.0" mnemonicParsing="false" onAction="#search" prefHeight="25.0" prefWidth="118.0" text="Search" />
+      <Button fx:id="editBtn" layoutX="14.0" layoutY="543.0" mnemonicParsing="false" onAction="#editTicketPopup" text="Edit ticket" />
+      <Button fx:id="addDiscountBtn" layoutX="95.0" layoutY="543.0" mnemonicParsing="false" onAction="#addDiscountDiag" text="Add discount" />
+      <Button fx:id="editDiscountBtn" layoutX="189.0" layoutY="543.0" mnemonicParsing="false" onAction="#editDiscountDiag" text="Edit discount" />
+   </children>
+</AnchorPane>
