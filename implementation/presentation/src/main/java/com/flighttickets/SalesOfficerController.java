@@ -2,7 +2,13 @@ package com.flighttickets;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class SalesOfficerController {
 
@@ -17,7 +23,7 @@ public class SalesOfficerController {
 
     @FXML
     void editTicketScreen(ActionEvent event) {
-
+        openStage("editTicket");
     }
 
     @FXML
@@ -28,6 +34,20 @@ public class SalesOfficerController {
     @FXML
     void registerFlightScreen(ActionEvent event) {
 
+    }
+
+    void openStage(String name){
+        Parent root;
+        try {
+            root = FXMLLoader.load(App.class.getResource(name+".fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("My New Stage Title");
+            stage.setScene(new Scene(root, 802, 582));
+            stage.show();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }
