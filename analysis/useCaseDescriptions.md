@@ -4,7 +4,7 @@
 | Actor | Customer |
 | Description | Customer Orders a Ticket|
 | Precondition |  Customer must be logged in|
-| Scenario | 1. Customer selects time/date and destination/return for trip <br> 2. System shows tickets available and pricing. <br> 3. Customer selects tickets and seats <br> 4. System starts payment and validation steps. <br> 5. Customer pays and fills documents. <br> 6. After acceptance system sends confirmation to customer with tickets/boardingpasses |
+| Scenario | 1. Customer selects time/date and destination/return for trip <br> 2. System shows tickets available and pricing. <br> 3. Customer selects tickets and seats <br>  4. System asks for documents <br> 5. Customer fills documents. <br>6. System asks and accepts (fake) payment. <br> 7. After acceptance system sends confirmation to customer with tickets/boardingpasses |
 | Result |Customer booked a ticket |
 | Exceptions |TBD  |
 | Extensions | N/A  |
@@ -19,6 +19,7 @@
 | Result |Customer accesses a ticket |
 | Exceptions |TBD  |
 | Extensions | N/A  |
+|Booking | A (collection of) ticket(s)|
 
 | Name | Customer changes Ticket |
 | --- | --- |
