@@ -1,0 +1,272 @@
+## General Functionality
+
+|Test ID | -2 |
+| --- | --- |
+|Test Case | Create account(Register) for SalesOfficer VALID|
+|Description |  |
+|Pre-steps | None |
+|Test steps | 
+	1. Actor starts the application.<br>
+	2. Actor clicks "Register" button.
+	Expected: Actor receives register input form.<br> 
+	2. Actor fills username with "Daniel".
+	3. Actor fills email with "daniel@gmail.com".
+	4. Actor fills password with "12345678_AsD".
+	5. Actor selects role "SalesOfficer" from a dropdown menu.
+	6. Actor clicks "Submit" button.<br> 
+	Expected: Entry successfully created into the database and returned on request.  |
+|Exceptions |  registration constraints not fulfilled(short pass, illegal characters, etc. |
+
+
+|Test ID | -1 |
+| --- | --- |
+|Test Case | Create account(Register) for SalesOfficer INVALID|
+|Description |  |
+|Pre-steps | None |
+|Test steps | 
+	1. Actor starts the application.<br>
+	2. Actor clicks "Register" button.
+	Expected: Actor receives register input form.<br> 
+	2. Actor fills username with "Daniel".
+	3. Actor fills email with "daniel@gmail.com".
+	4. Actor fills password with "123"
+	5. Actor selects role "SalesOfficer" from a dropdown menu.
+	6. Actor clicks "Submit" button.<br> 
+	Expected: Test failed: Exception thrown expected with message "invalid password". |
+|Exceptions |  registration constraints not fulfilled(short pass, illegal characters, etc. |
+
+
+
+
+|Test ID | 0 |
+| --- | --- |
+|Test Case | Log in as Role: SalesOfficer VALID|
+|Description | Verify "Log in" functionality |
+|Pre-steps | Register |
+|Test steps | 
+	1. Actor starts the application.<br> 
+	Expected: Actor receives login input form.<br> 
+	2. Actor fills username with "Daniel".
+	3. Actor fills password with "12345678_AsD".
+	4. Actor clicks "submit" button. 
+	Expected: Actor receives SalesOfficer Login View |
+<br>
+
+|Test ID | 0 |
+| --- | --- |
+|Test Case | Log in as Role: SalesOfficer INVALID|
+|Description | Verify "Log in" functionality |
+|Pre-steps | Register |
+|Test steps | 
+	1. Actor starts the application.<br> 
+	Expected: Actor receives login input form.<br> 
+	2. Actor fills username with "DanieLLLLLWrong".
+	3. Actor fills password with "123".
+	4. Actor clicks "submit" button. 
+	Expected: Actor receives "Invalid credentials" message |
+<br>
+
+## Customer Tests
+| Test ID | 1 |
+| --- | --- |
+| Test Case | Order a Ticket as Customer VALID |
+| Description | Verify "Order a Ticket" functionality |
+| Pre-steps | Login
+| Test steps | 
+	1. Actor selected "Order ticket" button.
+	Expected: A order ticket form is returned to the actor.
+	2. Actor selects "choose dates" field.
+	Expected: a Calendar form is returned to the actor.( Or manual input, to be decided with respect to complexity)
+	3. Actor clicks on departure date(21/03/2021).
+	Expected: A list with all available flights with departure hours for this date is returned to the actor.
+	4. Actor selects 14:00 o'clock.
+	5. Actor fills full name "Svetoslav Stoyanov".
+	6. Actor fills ID Card credentials "0123456789".
+	7. Actor clicks "Submit" button.
+	Expected: Order saved in database and returned on request as object.
+
+| Exceptions | Invalid Card credentials, fake name or something |
+
+
+
+| Test ID | 1 |
+| --- | --- |
+| Test Case | Order a Ticket as Customer INVALID |
+| Description | Verify "Order a Ticket" functionality |
+| Pre-steps | Login
+| Test steps | 
+	1. Actor selected "Order ticket" button.
+	Expected: A order ticket form is returned to the actor.
+	2. Actor selects "choose dates" field.
+	Expected: a Calendar form is returned to the actor.( Or manual input, to be decided with respect to complexity)
+	3. Actor clicks on departure date(21/03/2021).
+	Expected: A list with all available flights with departure hours for this date is returned to the actor.
+	4. Actor selects 14:00 o'clock.
+	5. Actor fills full name "Svetoslav Stoyanov".
+	6. Actor fills ID Card credentials "999999999".
+	7. Actor clicks "Submit" button.
+	Expected: Thrown Exception with message "No such ID card credentials".
+
+| Exceptions | Invalid Card credentials, fake name or something |
+
+
+
+
+
+
+| Test ID | 2 |
+| --- | --- |
+| Test Case | Customer accesses Ticket VALID |
+| Description | Verify "Customer access a Ticket" functionality |
+| Pre-steps | 1. Login, 2. Order a Ticket |
+| Test steps | 
+	1. Customer selects "view bookings" option in user profile<br> 
+	Expected: Customer receives all bookings as list.<br> 
+	2. Customer selects specific booking available on the list.<br> 
+	Expected: Customer receives a selected specific booking.<br>
+	3. Customer choses to download tickets<br> 
+	Expected: Customer receives tickets as PDF/String. |
+| Exceptions | |
+
+
+| Test ID | 3 |
+| --- | --- |
+| Test Case | Customer changes Ticket |
+| Description | Verify "Customer changes Ticket" functionality VALID|
+| Pre-steps | 1. Login, 2. Order a Ticket |
+| Test steps | 
+	1. Customer selects "view all bookings" option in user profile<br> 
+	Expected: Customer receives a list of all bookings.<br> 
+	2. Customer selects a specific booking.<br> 
+	Expected: Customer receives a view of specific booking.<br> 
+	3. Customer selects "change tickets" option.<br> 
+	Expected: Customer receives a form to input new ticket info.
+	4. Customer selects "choose dates" field.
+	Expected: a Calendar form is returned to the actor.( Or manual input, to be decided with respect to complexity)
+	5. Customer clicks on departure date(21/03/2021).
+	Expected: A list with all available flights with departure hours for this date is returned to the actor.
+	6. Customer selects 14:00 o'clock.
+	7. Customer fills full name "Svetoslav Stoyanov".
+	8. Customer fills ID Card credentials "0123456789".
+	9. Customer clicks "Submit" button.
+	Expected: Customer receives UPDATED ticket details as View/String.|
+| Exceptions | Invalid input arguments |
+
+////////////////MULTANI TODO:
+
+| Test ID | 4 |
+| --- | --- |
+| Test Case | Customer canceles Ticket |
+| Description | Verify "Customer canceles Ticket" functionality |
+| Pre-steps | 1. Login, 2. Order a Ticket |
+| Test steps |
+    1. Customer selects bookings in profile <br> 
+    Expected: Customer receives all bookings. <br>
+	2. Customer selects specific booking to Berlin in Germany. <br>
+	Expected: Customer receives the selected specific booking to Berlin in Germany. <br>
+	3. Customer selects "cancel ticket" option. <br>
+	Expected: Customer receives confirmation that cancellation of ticket to Berlin in Germany is successfull. |
+| Exceptions | Ticket cannot be cancelled anymore |
+
+
+## Planner Tests
+
+| Test ID | 5 |
+| --- | --- |
+| Test Case | Planner Create route |
+| Description | Verify "Planner Create route" functionality |
+| Pre-steps | 1. Login |
+| Test steps | 
+	1. Planner selects "view current routes" option. <br>
+ 	Expected: Planner receives current routes. <br> 
+	2. Planner selects "create new Route" option. <br>
+	3. Planner provides arguments(start and end locations). <br>
+		Start: Berlin, Germany
+		End:   Munich, Germany
+	Expected: New route from Berlin to Munich is created and returned to Planner.<br>  |
+| Exceptions |  Invalid arguments |
+
+| Test ID | 6 |
+| --- | --- |
+| Test Case | Set plane to route |
+| Description | Verify "Set plane to route" functionality |
+| Pre-steps | 1. Login |
+| Test steps | 
+	1. Planner selects "view current routes" option. <br> 
+	Expected: Planner receives current routes. <br> 
+	2. Planner selects "edit route". <br> 
+	Selected route: Berlin to Munich <br>
+	3. Planner selects "set plane to route" for the chosen route <br> 
+	Expected: Planner receives planes view. <br> 
+	4. Planner sets plane to the route. <br> 
+	Selected plane: Airbus A300
+	Expected: Planner receives status message. <br> |
+| Exceptions |  Invalid arguments |
+
+## SalesOfficer Tests
+| Test ID | 7 |
+| --- | --- |
+| Test Case | Edit ticket |
+| Description | Verify "Edit ticket" functionality |
+| Pre-steps | 1. Login |
+| Test steps | 
+	1. SalesOfficer selects "view all tickets" <br> 
+	Expected: SalesOfficer receives all tickets. <br> 
+	2. SalesOfficer selects "edit ticket" for Ticket from Berlin to Munich <br> 	
+	Expected: SalesOfficer receives details about selected ticket. <br> 
+	3. SalesOfficer edits ticket in its takeoff time. <br>
+	Old Time: 13:00h <br>
+	New Time: 14:00h <br>
+	Expected: Status message (successfull or not). <br> |
+| Exceptions |  Invalid arguments |
+
+| Test ID | 8 |
+| --- | --- |
+| Test Case | Add discount |
+| Description | Verify "Add discount" functionality |
+| Pre-steps | 1. Login |
+| Test steps | 
+	1. SalesOfficer selects "view all tickets" <br> 
+	Expected: SalesOfficer receives all tickets. <br> 
+	2. SalesOfficer selects "add discount" for Ticket from Berlin to Munich. <br> 
+	Expected: SalesOfficer receives details about selected ticket. <br> 
+	3. SalesOfficer selects "add discount" option for selected ticket. <br> 
+	Expected: SalesOfficer gets possibility to add discount <br>
+	4. SalesOfficer inputs discount arguments. <br>
+	Discount amount : 10%
+	Expected: Status message (successfull or not). <br> |
+| Exceptions |  Invalid arguments(discount can not be above specified % or number |
+
+| Test ID | 9 |
+| --- | --- |
+| Test Case | Edit discount |
+| Description | Verify "Edit discount" functionality |
+| Pre-steps | 1. Login |
+| Test steps | 
+	1. SalesOfficer selects "view all tickets" <br> 
+	Expected: SalesOfficer receives all tickets. <br> 
+	2. SalesOfficer selects "add discount" for Ticket Berlin to Munich. <br> 
+	Expected: SalesOfficer receives details about selected ticket. <br> 
+	3. SalesOfficer selects "edit discount" option for selected ticket. <br> 
+	Expected: SalesOfficer gets possibility to edit discount <br>
+	4. SalesOfficer inputs discount arguments. <br> 
+	Old discount: 10%
+	New discount: 13%
+	Expected: Status message (successfull or not). <br> |
+| Exceptions |  Invalid arguments(discount can not be above specified % or number |
+
+
+| Test ID | 10 |
+| --- | --- |
+| Test Case | Put ticket on sale |
+| Description | Verify "Put ticket on sale" functionality |
+| Pre-steps | 1. Login |
+| Test steps | 
+	1. SalesOfficer selects "view all tickets" <br> 
+	Expected: SalesOfficer receives all tickets. <br> 
+	2. SalesOfficer selects "put a ticket on sale" for Ticket Berlin to Munich <br> 
+	Expected: SalesOfficer gets possibility to write down the price of the ticket. <br>
+	3. SalesOfficer inputs arguments about "ticketOnSale". <br> 
+	Price: 95€ <br>
+	Expected: SalesOfficer receives Status message (successfull or not). <br> |
+| Exceptions |  Invalid arguments |
