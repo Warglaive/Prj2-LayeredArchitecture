@@ -113,3 +113,13 @@
 | Result | Actor is loggend in successfully|
 | Exceptions | Actor is blocked |
 | Extensions | N/A |
+
+| Name | Register |
+| --- | --- |
+| Actor | Customer |
+| Description | Actor wants to register account |
+| Precondition | Actor does not have an account yet |
+| Scenario | 1.	Actor opens system <br> 2. Actor chooses to register a new account  <br> 3. System shows form to register a new customer <br> 4. System asks for customer data like a name, password and email adress <br> 5. Customer enters name, password and email adress and clicks next <br> 6. System returns conformation of new registered account |
+| Result | Actor registered successfully|
+| Exceptions | Actor is blocked |
+| Extensions | N/A |
