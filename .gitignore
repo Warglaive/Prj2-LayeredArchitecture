@@ -68,5 +68,12 @@ analysis/PRJ2_Flight_Tickets.vpp.bak_002d
 *.vpp.bak
 *.bak_002d
 *.vpp.bak_*
-.idea*
+target/
+*.class
+*.jar
+*.war
+*.ear
+*.logs
+*.iml
+.idea/
 presentation.iml
