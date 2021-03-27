@@ -19,11 +19,11 @@
         <Label fx:id="lastNameLabel" layoutX="113.0" layoutY="188.0" text="Last Name:" />
         <TextField fx:id="lastNameTextBox" layoutX="292.0" layoutY="184.0" promptText="Last Name" />
 
-        <Label fx:id="emailLabel" layoutX="113.0" layoutY="270.0" text="Email:" />
-        <TextField fx:id="emailTextBox" layoutX="292.0" layoutY="266.0" promptText="Email" />
+        <Label fx:id="emailLabel" layoutX="121.0" layoutY="233.0" text="Email:" />
+        <TextField fx:id="emailTextBox" layoutX="292.0" layoutY="229.0" promptText="Email" />
 
-        <Label fx:id="passwordLabel" layoutX="113.0" layoutY="231.0" text="Password:" />
-        <TextField fx:id="passwordTextBox" layoutX="292.0" layoutY="227.0" promptText="Password" />
+        <Label fx:id="passwordLabel" layoutX="118.0" layoutY="267.0" text="Password:" />
+        <TextField fx:id="passwordTextBox" layoutX="292.0" layoutY="275.0" promptText="Password" />
 
         
         <Label fx:id="addressLabel" layoutX="113.0" layoutY="313.0" text="Address:" />
