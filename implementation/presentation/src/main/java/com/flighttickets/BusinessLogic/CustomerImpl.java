@@ -1,6 +1,7 @@
 package com.flighttickets.BusinessLogic;
 
 import com.flighttickets.Entities.Customer;
+import com.flighttickets.Persistance.RegisteredUsers;
 
 public class CustomerImpl implements Customer {
     private String firstName;
@@ -19,6 +20,7 @@ public class CustomerImpl implements Customer {
         this.password = password;
         this.address = address;
 
-        
+        RegisteredUsers registeredUsers = new RegisteredUsers();
+        registeredUsers.add(this);
     }
 }
