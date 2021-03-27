@@ -4,6 +4,9 @@ import com.flighttickets.Entities.Customer;
 import com.flighttickets.Persistance.RegisteredUsers;
 
 public class CustomerImpl implements Customer {
+    /**
+     * Fields to be used to encrypt pass, validate names etc.
+     */
     private String firstName;
     private String lastName;
     private String email;
@@ -21,6 +24,6 @@ public class CustomerImpl implements Customer {
 
 
         this.registeredUsers = new RegisteredUsers();
-        registeredUsers.add(new CustomerImpl(firstName, lastName, email, password, address));
+        registeredUsers.add(this);
     }
 }

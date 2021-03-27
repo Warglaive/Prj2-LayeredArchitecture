@@ -8,13 +8,13 @@ import java.util.List;
 public class RegisteredUsers {
     private List<Customer> registered;
 
-    void RegisteredUsers() {
-        this.registered = new ArrayList<>();
+    public RegisteredUsers() {
+        this.registered = new ArrayList<Customer>();
     }
 
     public void add(Customer customer) {
         //TODO: Add safety
-
+        System.out.println("Add reached");
         this.registered.add(customer);
     }
 }
