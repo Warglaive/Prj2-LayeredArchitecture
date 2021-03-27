@@ -18,26 +18,45 @@ public class RegisterController {
         this.customerImpl = new CustomerImpl();
     }
 
+    /**
+     * First Name get from view
+     */
     @FXML
-    private Label usernameLabel;
+    private Label firstNameLabel;
 
     @FXML
-    private TextField usernameTextBox;
+    private TextField firstNameTextBox;
 
+    /**
+     * Last Name get from view
+     */
+    @FXML
+    private Label lastNameLabel;
+
+    @FXML
+    private TextField lastNameTextBox;
+
+    /**
+     * Email get from view
+     */
+    @FXML
+    private Label emailLabel;
+
+    @FXML
+    private TextField emailTextBox;
+
+    /**
+     * Password get from view
+     */
     @FXML
     private Label passwordLabel;
 
     @FXML
     private TextField passwordTextBox;
 
-    @FXML
-    private Button registerButton;
-
-    @FXML
-    private Label emailLabel;
-
-    @FXML
-    private TextField emailTextBox;
+    /**
+     * Address get from view
+     */
 
     @FXML
     private Label addressLabel;
@@ -46,8 +65,13 @@ public class RegisterController {
     private TextField addressTextBox;
 
     @FXML
+    private Button registerButton;
+
+
+    @FXML
     void handleRegister(ActionEvent event) throws IOException {
-        App.setRoot("login");
+        this.customerImpl.
+                App.setRoot("login");
     }
 
 }
