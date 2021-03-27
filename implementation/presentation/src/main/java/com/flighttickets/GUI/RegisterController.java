@@ -64,6 +64,9 @@ public class RegisterController {
     @FXML
     private TextField addressTextBox;
 
+    /**
+     * Button to provide ActionEvent on click
+     */
     @FXML
     private Button registerButton;
 
