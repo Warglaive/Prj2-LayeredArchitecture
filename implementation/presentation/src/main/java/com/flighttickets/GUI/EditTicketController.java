@@ -1,4 +1,4 @@
-package com.flighttickets;
+package com.flighttickets.GUI;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

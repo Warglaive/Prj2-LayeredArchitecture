@@ -1,5 +1,6 @@
-package com.flighttickets;
+package com.flighttickets.GUI;
 
+import com.flighttickets.App;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -8,7 +9,7 @@ import javafx.scene.control.TextField;
 
 import java.io.IOException;
 
-public class LoginController {
+public class RegisterController {
 
     @FXML
     private Label usernameLbl;
@@ -23,11 +24,23 @@ public class LoginController {
     private TextField passwordTbx;
 
     @FXML
-    private Button loginBtn;
+    private Button registerBtn;
 
     @FXML
-    void handleLogin(ActionEvent event) throws IOException {
-        App.setRoot("salesOfficer");
+    private Label emailLbl;
+
+    @FXML
+    private TextField emailTbx;
+
+    @FXML
+    private Label addressLbl;
+
+    @FXML
+    private TextField addressTbx;
+
+    @FXML
+    void handleRegister(ActionEvent event) throws IOException {
+        App.setRoot("login");
     }
 
 }

@@ -1,7 +1,8 @@
-package com.flighttickets;
+package com.flighttickets.GUI;
 
 import java.io.IOException;
 
+import com.flighttickets.App;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
