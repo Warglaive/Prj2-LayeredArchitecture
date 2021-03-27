@@ -14,14 +14,15 @@
          </font>
       </Label>
       <Label fx:id="usernameLbl" layoutX="113.0" layoutY="188.0" text="Last Name:" />
-      <TextField fx:id="usernameTbx" layoutX="277.0" layoutY="184.0" promptText="Username" />
+      <TextField fx:id="usernameTbx" layoutX="292.0" layoutY="184.0" promptText="Last Name" />
       <Label fx:id="passwordLbl" layoutX="113.0" layoutY="231.0" text="Password:" />
-      <TextField fx:id="passwordTbx" layoutX="277.0" layoutY="227.0" promptText="Password" />
+      <TextField fx:id="passwordTbx" layoutX="292.0" layoutY="227.0" promptText="Password" />
       <Button fx:id="registerBtn" layoutX="239.0" layoutY="358.0" mnemonicParsing="false" onAction="#handleRegister" text="Register" />
       <Label fx:id="emailLbl" layoutX="113.0" layoutY="270.0" text="Email:" />
-      <TextField fx:id="emailTbx" layoutX="277.0" layoutY="266.0" promptText="Email" />
+      <TextField fx:id="emailTbx" layoutX="292.0" layoutY="266.0" promptText="Email" />
       <Label fx:id="addressLbl" layoutX="113.0" layoutY="313.0" text="Address:" />
-      <TextField fx:id="addressTbx" layoutX="277.0" layoutY="309.0" promptText="Address" />
-      <Label layoutX="113.0" layoutY="134.0" text="First Name:" />
+      <TextField fx:id="addressTbx" layoutX="292.0" layoutY="309.0" promptText="Address" />
+      <Label layoutX="114.0" layoutY="143.0" text="First Name:" />
+      <TextField layoutX="292.0" layoutY="139.0" promptText="First Name:" />
    </children>
 </AnchorPane>
