@@ -73,8 +73,17 @@ public class RegisterController {
 
     @FXML
     void handleRegister(ActionEvent event) throws IOException {
-        this.customerImpl.
-                App.setRoot("login");
+        //Get values from textBoxes
+        String firstName = firstNameTextBox.getText();
+        String lastName = lastNameTextBox.getText();
+        String email = emailTextBox.getText();
+        String password = passwordTextBox.getText();
+        String address = addressTextBox.getText();
+
+        //register new Customer
+        this.customerImpl.register(firstName, lastName, email, password, address);
+        //send customer to Login view
+        App.setRoot("login");
     }
 
 }
