@@ -81,6 +81,7 @@ public class RegisterController {
         String address = addressTextBox.getText();
 
         //register new Customer
+        this.customerImpl = new CustomerImpl();
         this.customerImpl.register(firstName, lastName, email, password, address);
         //send customer to Login view
         App.setRoot("login");

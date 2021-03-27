@@ -18,5 +18,7 @@ public class CustomerImpl implements Customer {
         //TODO: Encrypt
         this.password = password;
         this.address = address;
+
+        
     }
 }
