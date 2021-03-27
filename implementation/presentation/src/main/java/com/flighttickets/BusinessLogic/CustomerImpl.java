@@ -9,10 +9,9 @@ public class CustomerImpl implements Customer {
     private String email;
     private String password;
     private String address;
+    RegisteredUsers registeredUsers;
 
-
-    @Override
-    public void register(String firstName, String lastName, String email, String password, String address) {
+    public CustomerImpl(String firstName, String lastName, String email, String password, String address) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -20,7 +19,8 @@ public class CustomerImpl implements Customer {
         this.password = password;
         this.address = address;
 
-        RegisteredUsers registeredUsers = new RegisteredUsers();
-        registeredUsers.add(this);
+
+        this.registeredUsers = new RegisteredUsers();
+        registeredUsers.add(new CustomerImpl(firstName, lastName, email, password, address));
     }
 }
