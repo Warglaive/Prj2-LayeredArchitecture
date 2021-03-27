@@ -17,7 +17,7 @@
       <TextField fx:id="usernameTbx" layoutX="292.0" layoutY="184.0" promptText="Last Name" />
       <Label fx:id="passwordLbl" layoutX="113.0" layoutY="231.0" text="Password:" />
       <TextField fx:id="passwordTbx" layoutX="292.0" layoutY="227.0" promptText="Password" />
-      <Button fx:id="registerBtn" layoutX="239.0" layoutY="358.0" mnemonicParsing="false" onAction="#handleRegister" text="Register" />
+      <Button fx:id="registerBtn" layoutX="219.0" layoutY="358.0" mnemonicParsing="false" onAction="#handleRegister" prefHeight="25.0" prefWidth="92.0" text="Register" />
       <Label fx:id="emailLbl" layoutX="113.0" layoutY="270.0" text="Email:" />
       <TextField fx:id="emailTbx" layoutX="292.0" layoutY="266.0" promptText="Email" />
       <Label fx:id="addressLbl" layoutX="113.0" layoutY="313.0" text="Address:" />
