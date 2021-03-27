@@ -12,31 +12,31 @@ import java.io.IOException;
 public class RegisterController {
 
     @FXML
-    private Label usernameLbl;
+    private Label usernameLabel;
 
     @FXML
-    private TextField usernameTbx;
+    private TextField usernameTextBox;
 
     @FXML
-    private Label passwordLbl;
+    private Label passwordLabel;
 
     @FXML
-    private TextField passwordTbx;
+    private TextField passwordTextBox;
 
     @FXML
-    private Button registerBtn;
+    private Button registerButton;
 
     @FXML
-    private Label emailLbl;
+    private Label emailLabel;
 
     @FXML
-    private TextField emailTbx;
+    private TextField emailTextBox;
 
     @FXML
-    private Label addressLbl;
+    private Label addressLabel;
 
     @FXML
-    private TextField addressTbx;
+    private TextField addressTextBox;
 
     @FXML
     void handleRegister(ActionEvent event) throws IOException {
