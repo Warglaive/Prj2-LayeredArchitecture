@@ -6,24 +6,34 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="458.0" prefWidth="538.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.flighttickets.GUI.RegisterController">
-   <children>
-      <Label alignment="CENTER" layoutX="-1.0" layoutY="36.0" prefHeight="17.0" prefWidth="538.0" text="Register" textAlignment="CENTER">
-         <font>
-            <Font size="55.0" />
-         </font>
-      </Label>
-      <Label layoutX="114.0" layoutY="143.0" text="First Name:" />
-      <TextField layoutX="292.0" layoutY="139.0" promptText="First Name:" />
-      <Label fx:id="usernameLbl" layoutX="113.0" layoutY="188.0" text="Last Name:" />
-      <TextField fx:id="usernameTbx" layoutX="292.0" layoutY="184.0" promptText="Last Name" />
-      <Label fx:id="passwordLbl" layoutX="113.0" layoutY="231.0" text="Email:" />
-      <TextField fx:id="passwordTbx" layoutX="292.0" layoutY="227.0" promptText="Email" />
-      <Button fx:id="registerBtn" layoutX="219.0" layoutY="358.0" mnemonicParsing="false" onAction="#handleRegister" prefHeight="25.0" prefWidth="92.0" text="Register" />
-      <Label fx:id="emailLbl" layoutX="113.0" layoutY="270.0" text="Password:" />
-      <TextField fx:id="emailTbx" layoutX="292.0" layoutY="266.0" promptText="Password" />
-      <Label fx:id="addressLbl" layoutX="113.0" layoutY="313.0" text="Address:" />
-      <TextField fx:id="addressTbx" layoutX="292.0" layoutY="309.0" promptText="Address" />
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="458.0"
+            prefWidth="538.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.flighttickets.GUI.RegisterController">
+    <children>
+        <Label alignment="CENTER" layoutX="-1.0" layoutY="36.0" prefHeight="17.0" prefWidth="538.0" text="Register"
+               textAlignment="CENTER">
+            <font>
+                <Font size="55.0"/>
+            </font>
+        </Label>
+        <Label fx:id="firstNameLabel" layoutX="114.0" layoutY="143.0" text="First Name:"/>
+        <TextField fx:id="firstNameTextBox" layoutX="292.0" layoutY="139.0" promptText="First Name:"/>
 
-   </children>
+        <Label fx:id="lastNameLabel" layoutX="113.0" layoutY="188.0" text="Last Name:"/>
+        <TextField fx:id="lastNameTextBox" layoutX="292.0" layoutY="184.0" promptText="Last Name"/>
+
+        <Label fx:id="emailLabel" layoutX="113.0" layoutY="270.0" text="Email:"/>
+        <TextField fx:id="emailTextBox" layoutX="292.0" layoutY="266.0" promptText="Email"/>
+
+        <Label fx:id="passwordLabel" layoutX="113.0" layoutY="231.0" text="Password:"/>
+        <TextField fx:id="passwordTextBox" layoutX="292.0" layoutY="227.0" promptText="Password"/>
+
+        
+        <Label fx:id="addressLabel" layoutX="113.0" layoutY="313.0" text="Address:"/>
+        <TextField fx:id="addressTextBox" layoutX="292.0" layoutY="309.0" promptText="Address"/>
+
+        <Button fx:id="registerButton" layoutX="219.0" layoutY="358.0" mnemonicParsing="false"
+                onAction="#handleRegister" prefHeight="25.0" prefWidth="92.0" text="Register"/>
+
+    </children>
 </AnchorPane>
