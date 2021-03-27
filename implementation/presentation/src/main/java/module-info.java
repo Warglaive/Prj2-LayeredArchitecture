@@ -12,4 +12,9 @@ module com.flighttickets {
 
     exports com.flighttickets.BusinessLogic;
     opens com.flighttickets.BusinessLogic to javafx.fxml;
+
+
+    exports com.flighttickets.Persistance;
+    opens com.flighttickets.Persistance to javafx.fxml;
+
 }
