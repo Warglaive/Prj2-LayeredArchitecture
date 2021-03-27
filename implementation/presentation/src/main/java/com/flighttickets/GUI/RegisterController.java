@@ -1,6 +1,8 @@
 package com.flighttickets.GUI;
 
 import com.flighttickets.App;
+import com.flighttickets.BusinessLogic.CustomerImpl;
+import com.flighttickets.Entities.Customer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -10,6 +12,11 @@ import javafx.scene.control.TextField;
 import java.io.IOException;
 
 public class RegisterController {
+    Customer customerImpl;
+
+    void RegisterController() {
+        this.customerImpl = new CustomerImpl();
+    }
 
     @FXML
     private Label usernameLabel;
