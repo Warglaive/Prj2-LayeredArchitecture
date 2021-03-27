@@ -9,7 +9,7 @@ public class RegisteredUsers {
     private List<Customer> registered;
 
     public RegisteredUsers() {
-        this.registered = new ArrayList<Customer>();
+        this.registered = new ArrayList<>();
     }
 
     public void add(Customer customer) {
