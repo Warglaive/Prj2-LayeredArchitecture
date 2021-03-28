@@ -6,15 +6,29 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RegisteredUsers {
-    private List<Customer> registered;
+    private final List<Customer> registered;
 
+    /**
+     * Create new list of customers
+     */
     public RegisteredUsers() {
         this.registered = new ArrayList<>();
     }
 
+    /**
+     *
+     * @param customer
+     */
     public void add(Customer customer) {
         //TODO: Add safety
-        System.out.println("Add reached");
         this.registered.add(customer);
+    }
+
+    /**
+     *
+     * @return
+     */
+    public List<Customer> getAll() {
+        return this.registered;
     }
 }
