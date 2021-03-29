@@ -58,10 +58,20 @@ public class RegisterController {
     private TextField addressTextBox;
 
     /**
-     * Button to provide ActionEvent on click
+     * Buttons to provide ActionEvent on click
      */
     @FXML
     private Button registerButton;
+    @FXML
+    private Button backBtn;
+
+    @FXML
+    private Button loginBtn;
+
+    @FXML
+    void backBtnHandler(ActionEvent event) throws IOException{
+        App.setRoot("main");
+    }
 
 
     @FXML
@@ -78,5 +88,8 @@ public class RegisterController {
         //send customer to Login view
         App.setRoot("login");
     }
-
+    @FXML
+    void loginBtnHandler(ActionEvent event) throws IOException{
+        App.setRoot("login");
+    }
 }

@@ -17,10 +17,10 @@ import java.util.List;
 public class LoginController {
 
     @FXML
-    private Label usernameLbl;
+    private Label emailLbl;
 
     @FXML
-    private TextField usernameTbx;
+    private TextField emailTbx;
 
     @FXML
     private Label passwordLbl;
@@ -32,11 +32,21 @@ public class LoginController {
     @FXML
     private Button loginBtn;
 
+    @FXML
+    private Button registerBtn;
+
+    @FXML
+    private Button backBtn;
+
+    @FXML
+    void handleBack(ActionEvent event) throws IOException{
+            App.setRoot("main");
+    }
 
     @FXML
     void handleLogin(ActionEvent event) throws IOException {
-        String userInpt = usernameTbx.getText();
-        //TODO Username should be Email / treat it that way! - jl
+        String userInpt = emailTbx.getText();
+        //TODO email validation
         String passInpt = passwordTbx.getText();
         LoginImpl login = new LoginImpl();
         System.out.println(login.getLoginLevel(userInpt, passInpt));
@@ -52,4 +62,8 @@ public class LoginController {
         }
     }
 
+    @FXML
+    void handleRegister(ActionEvent event) throws IOException {
+        App.setRoot("register");
+    }
 }
