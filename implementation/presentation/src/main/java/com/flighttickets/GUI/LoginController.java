@@ -2,6 +2,9 @@ package com.flighttickets.GUI;
 
 import com.flighttickets.App;
 import com.flighttickets.BusinessLogic.CustomerImpl;
+import com.flighttickets.BusinessLogic.LoginImpl;
+import com.flighttickets.Entities.Customer;
+import com.flighttickets.Persistance.RegisteredUsers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -9,6 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
+import java.util.List;
 
 public class LoginController {
 
@@ -28,18 +32,23 @@ public class LoginController {
     @FXML
     private Button loginBtn;
 
+
     @FXML
     void handleLogin(ActionEvent event) throws IOException {
-        String user = usernameTbx.getText();
-        String passw = passwordTbx.getText();
-        if(user.equals("admin") && passw.equals("admin")){
+        String userInpt = usernameTbx.getText();
+        //TODO Username should be Email / treat it that way! - jl
+        String passInpt = passwordTbx.getText();
+        LoginImpl login = new LoginImpl();
+        System.out.println(login.getLoginLevel(userInpt, passInpt));
+
+        if(login.getLoginLevel(userInpt, passInpt) == 2){
             App.setRoot("salesOfficer");
-        } else if(user.equals("customer") && passw.equals("customer")) {
+        } else if(login.getLoginLevel(userInpt, passInpt) == 1) {
             //TODO create customer main menu - jl
             App.setRoot("editTicket");
         } else {
             //TODO Implement wrong username error thrown in fxml - jl
-            App.setRoot("login");
+            App.setRoot("main");
         }
     }
 
