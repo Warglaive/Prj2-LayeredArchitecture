@@ -15,6 +15,6 @@ public class CustomerImplTest {
         String password = "pass";
         String address = "adr";
         Customer customer = new CustomerImpl(firstName, lastName, email, password, address);
-        assertThat(customer).isExactlyInstanceOf(CustomerImpl.class);
+        assertThat(customer).as("customer object created properly").isExactlyInstanceOf(CustomerImpl.class);
     }
 }

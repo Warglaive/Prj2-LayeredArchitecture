@@ -9,7 +9,7 @@ public class RegisteredUsers {
     private final List<Customer> registered;
 
     /**
-     * Create new list of customers
+     * Create new list of registered customers
      */
     public RegisteredUsers() {
         this.registered = new ArrayList<>();
@@ -18,6 +18,7 @@ public class RegisteredUsers {
     /**
      *
      * @param customer
+     * add customer to list of registered customers
      */
     public void add(Customer customer) {
         //TODO: Add safety
@@ -26,7 +27,7 @@ public class RegisteredUsers {
 
     /**
      *
-     * @return
+     * @return all already registered customers
      */
     public List<Customer> getAll() {
         return this.registered;

@@ -11,45 +11,29 @@ import javafx.scene.control.TextField;
 import java.io.IOException;
 
 public class RegisterController {
-    /**
-     * First Name get from view
-     */
     @FXML
     private Label firstNameLabel;
 
     @FXML
     private TextField firstNameTextBox;
 
-    /**
-     * Last Name get from view
-     */
     @FXML
     private Label lastNameLabel;
 
     @FXML
     private TextField lastNameTextBox;
 
-    /**
-     * Email get from view
-     */
     @FXML
     private Label emailLabel;
 
     @FXML
     private TextField emailTextBox;
 
-    /**
-     * Password get from view
-     */
     @FXML
     private Label passwordLabel;
 
     @FXML
     private TextField passwordTextBox;
-
-    /**
-     * Address get from view
-     */
 
     @FXML
     private Label addressLabel;
@@ -57,9 +41,6 @@ public class RegisterController {
     @FXML
     private TextField addressTextBox;
 
-    /**
-     * Buttons to provide ActionEvent on click
-     */
     @FXML
     private Button registerButton;
     @FXML

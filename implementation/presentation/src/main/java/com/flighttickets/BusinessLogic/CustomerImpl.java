@@ -14,6 +14,14 @@ public class CustomerImpl implements Customer {
     private String address;
     RegisteredUsers registeredUsers;
 
+    /**
+     * create customer object
+     * @param firstName
+     * @param lastName
+     * @param email
+     * @param password
+     * @param address
+     */
     public CustomerImpl(String firstName, String lastName, String email, String password, String address) {
         this.firstName = firstName;
         this.lastName = lastName;
