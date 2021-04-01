@@ -8,6 +8,7 @@ import com.flighttickets.Persistance.RegisteredUsers;
  */
 public class LoginImpl {
 
+
     //TODO Implement actual customers instead of shooting in one blank
 //    Customer cust = new CustomerImpl("test", "test", "Customer", "test", "test");
 //    Customer salesOfficer = new CustomerImpl("SalesOfficer", "test", "SalesOfficer", "test", "test");
