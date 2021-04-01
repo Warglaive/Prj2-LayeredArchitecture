@@ -5,9 +5,19 @@ import com.flighttickets.Entities.Customer;
 import java.util.List;
 
 public class CustomerStorageServiceImpl implements CustomerStorageService {
+
+    private final List<Customer> registered;
+
+    public CustomerStorageServiceImpl(List<Customer> registered) {
+        this.registered = registered;
+    }
+
+    /**
+     * @param customer Add customer to list of registeredCustomers
+     */
     @Override
     public void add(Customer customer) {
-
+        this.registered.add(customer);
     }
 
     @Override
