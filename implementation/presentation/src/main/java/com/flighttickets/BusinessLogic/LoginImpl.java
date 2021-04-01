@@ -11,7 +11,6 @@ public class LoginImpl {
 //    Customer cust = new CustomerImpl("test", "test", "Customer", "test", "test");
 //    Customer salesOfficer = new CustomerImpl("SalesOfficer", "test", "SalesOfficer", "test", "test");
 //    Customer admin = new CustomerImpl("Admin", "test", "Admin", "test", "test");
-    RegisteredUsers registeredUsers;
 
     //getloginCredits
     public int getLoginLevel(String email, String passw){
