@@ -4,7 +4,7 @@
 | Actor | Customer |
 | Description | Customer Orders a Ticket|
 | Precondition |  Customer must be logged in|
-| Scenario | 1. Customer selects time/date and destination/return for trip <br> 2. System shows tickets available and pricing. <br> 3. Customer selects tickets and seats <br>  4. System asks for documents <br> 5. Customer fills documents. <br>6. System asks and accepts (fake) payment. <br> 7. After acceptance system sends confirmation to customer with tickets/boardingpasses |
+| Scenario | 1. Customer selects time/date and destination/return for trip <br> 2. System shows tickets available and pricing. <br> 3. Customer selects tickets and seats <br>  4. System asks for documents <br> 5. Customer fills documents. <br>6. System asks for payment method <br> 7. System accepts (fake) payment. <br> 8. After acceptance system sends confirmation to customer with tickets/boardingpasses |
 | Result |Customer booked a ticket |
 | Exceptions |TBD  |
 | Extensions | N/A  |
@@ -26,7 +26,7 @@
 | Actor | Customer |
 | Description | Customer changes Ticket|
 | Precondition |  Customer must be logged in|
-| Scenario | 1. Customer selects bookings in profile <br> 2. System shows bookings <br> 3. Customer selects specific booking <br> 4. System shows selected seats and tickets. <br> 5. Customer choses to change ticket(s). <br> 6. System shows gives option to change tickets. <br> 7. customer changes tickets dates/seats/etc <br> 8. System calculates fees/discount for new ticket(s) <br> 9. Customer pays and accepts. <br> 10. System swaps tickets and sends conformation |
+| Scenario | 1. Customer selects bookings in profile <br> 2. System shows bookings <br> 3. Customer selects specific booking <br> 4. System shows selected seats and tickets. <br> 5. Customer choses to change ticket(s). <br> 6. System shows gives option to change tickets. <br> 7. Customer changes tickets dates/seats/etc <br> 8. System calculates fees/discount for new ticket(s) <br> 9. Customer pays and accepts. <br> 10. System swaps tickets and sends conformation |
 | Result |Customer changed a ticket |
 | Exceptions |TBD  |
 | Extensions | N/A  |
@@ -36,9 +36,9 @@
 | Actor | Customer |
 | Description | Customer wants to cancel a Ticket|
 | Precondition |  Customer must be logged in and must have bought a ticket|
-| Scenario | 1.	Actor decides to cancel a booked ticket <br> 2.	Actor opens overview of orders <br> 3. System provides overview of all orders <br> 4. Actor chooses the order which he want to cancel <br> 5. System offers opportunity to cancel ticket 6. Actor chooses option <br> 7. System cancels ticket |
+| Scenario | 1.	Actor decides to cancel a booked ticket <br> 2.	Actor opens overview of orders <br> 3. System provides overview of all orders <br> 4. Actor chooses the order which he want to cancel <br> 5. System offers opportunity to cancel ticket <br> 6. Actor chooses option <br> 7. System cancels ticket |
 | Result |Customer canceles a ticket successfully |
-| Exceptions | Actor is blocked <br> Ticket cannot be cancelled anymore |
+| Exceptions | 6. Actor is blocked and cannot do it <br> 7. Ticket cannot be cancelled anymore, go back to step 3 |
 | Extensions | N/A  |
 
 
@@ -48,7 +48,7 @@
 | Actor | Planner |
 | Description | Planner Creates Route|
 | Precondition |  Planner must be logged in|
-| Scenario | 1. Planner selects route option <br> 2. System shows current routes. <br> 3. Planner selects create new route <br> 4. System starts new route steps. <br> 5. Planner selects start and ending location. <br> 6. System accepts route and returns to mainscreen. |
+| Scenario | 1. Planner selects route option <br> 2. System shows current routes. <br> 3. Planner selects create new route <br> 4. System starts new route steps. <br> 5. Planner selects start and ending location. <br> 6. System accepts route returns to mainscreen. |
 | Result |Planner created a route |
 | Exceptions |TBD  |
 | Extensions | N/A  |
@@ -71,7 +71,7 @@
 | Precondition | Sales Officer must be logged in |
 | Scenario | 1. Sales Officer goes to the tickets section <br> 2. System shows all tickets available <br> 3. Sales Officer selects edit ticket <br> 4. System displays options for editing a ticket <br> 5. Sales Officer changed the ticket options <br> 6. System accepts the changes and returns to the tickets section |
 | Result | The ticket is edited |
-| Exceptions | The ticket can not be edited if you have invalid data |
+| Exceptions | 5. ticket can not be edited if you have invalid data, gob back to step 4 |
 | Extensions | N/A |
 
 | Name | Add discount |
@@ -81,7 +81,7 @@
 | Precondition | Sales Officer must be logged in |
 | Scenario | 1. Sales Officer goes to the tickets section <br> 2. System shows all tickets available <br> 3. Sales Officer selects add discount <br> 4. System displays options for adding a discount <br> 5. Sales Officer puts in information for the discount <br> 6. System validates the discount and returns to the tickets section |
 | Result | The discount is added |
-| Exceptions | The discount can not be added with an invalid price or code |
+| Exceptions | 5. The discount can not be added with an invalid price or code, go back to step 4 |
 | Extensions | N/A |
 
 | Name | Edit discount |
@@ -91,7 +91,7 @@
 | Precondition | Sales Officer must be logged in |
 | Scenario | 1. Sales Officer goes to the tickets section <br> 2. System shows all tickets available <br> 3. Sales Officer selects edit discount <br> 4. System displays options for editing a discount <br> 5. Sales Officer changed the discount options <br> 6. System accepts the changes and returns to the tickets section |
 | Result | The discount is edited |
-| Exceptions | The discount can not be edited if you have invalid data |
+| Exceptions | 5. The discount can not be edited if you have invalid data, go back to step 4 |
 | Extensions | N/A |
 
 | Name | Put ticket on sale |
@@ -101,7 +101,7 @@
 | Precondition | Sales Officer must be logged in |
 | Scenario | 1.	Actor decides to put a ticket on sale <br> 2. System offers opportunity to put a ticket on sale <br> 3. Actor chooses the option <br> 4. System gives opportunity to enter information about the ticket <br> 5. Actor enters valid information about the ticket <br> 6. System adds the ticket in to system |
 | Result | Ticket is put on sale successfully |
-| Exceptions | Sales Officer is blocked <br> Information about ticket is incomplete |
+| Exceptions | 2. Sales Officer is blocked and cannot do it <br> 5. Information about ticket is invalid, go back to step 4 |
 | Extensions | N/A |
 
 | Name | Log in |
@@ -109,9 +109,9 @@
 | Actor | Sales Officer/ Customer |
 | Description | Actor wants to log in |
 | Precondition | Actor must have an account and valid sign in data |
-| Scenario | 1.	Actor opens system <br> 2. Enters valid log in data <br> 3. System validates and processes log in |
+| Scenario | 1.	Actor opens system <br> 2. Enters valid log in data <br> 3. System validates input <br> 4. System processes log in |
 | Result | Actor is loggend in successfully|
-| Exceptions | Actor is blocked |
+| Exceptions | 3. Actor is blocked, go back to step 2 <br> 3. Input is wrong, go back step 2 |
 | Extensions | N/A |
 
 | Name | Register |
@@ -119,7 +119,7 @@
 | Actor | Customer |
 | Description | Actor wants to register account |
 | Precondition | Actor does not have an account yet |
-| Scenario | 1.	Actor opens system <br> 2. Actor chooses to register a new account  <br> 3. System shows form to register a new customer <br> 4. System asks for customer data like a name, password and email address <br> 5. Customer enters name, password and email adress and clicks next <br> 6. System returns conformation of new registered account |
+| Scenario | 1.	Actor opens system <br> 2. Actor chooses to register a new account  <br> 3. System shows form to register a new customer <br> 4. System asks for customer data like a name, password and email address <br> 5. Customer enters name, password and email adress and clicks next <br> 6. System validates input <br> 7. System returns conformation of new registered account |
 | Result | Actor registered successfully|
-| Exceptions | Actor is blocked |
+| Exceptions | 6. Actor has already an account, go back to step 3 <br> 6. Input is invalid, go back to step 3 |
 | Extensions | N/A |
