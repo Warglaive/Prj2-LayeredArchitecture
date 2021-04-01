@@ -27,6 +27,6 @@ public class CustomerStorageServiceImpl implements CustomerStorageService {
          *   for each entry in resultSet, make customer object using factory method in CustomerManager.
          *   For now, simulate DB result:
          */
-        return null;
+        return this.registered;
     }
 }
