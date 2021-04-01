@@ -1,10 +1,7 @@
 package com.flighttickets.GUI;
 
 import com.flighttickets.App;
-import com.flighttickets.BusinessLogic.CustomerImpl;
 import com.flighttickets.BusinessLogic.LoginImpl;
-import com.flighttickets.Entities.Customer;
-import com.flighttickets.Persistance.RegisteredUsers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -12,7 +9,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
-import java.util.List;
 
 public class LoginController {
 

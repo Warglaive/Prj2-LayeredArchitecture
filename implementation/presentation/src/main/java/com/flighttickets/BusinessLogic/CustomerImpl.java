@@ -1,7 +1,6 @@
 package com.flighttickets.BusinessLogic;
 
 import com.flighttickets.Entities.Customer;
-import com.flighttickets.Persistance.RegisteredUsers;
 
 public class CustomerImpl implements Customer {
     /**
@@ -12,7 +11,6 @@ public class CustomerImpl implements Customer {
     private String email;
     private String password;
     private String address;
-    RegisteredUsers registeredUsers;
 
     /**
      * create customer object
@@ -22,16 +20,13 @@ public class CustomerImpl implements Customer {
      * @param password
      * @param address
      */
+    //TODO: Encrypt and add validation to each
     public CustomerImpl(String firstName, String lastName, String email, String password, String address) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        //TODO: Encrypt
+
         this.password = password;
         this.address = address;
-
-
-        this.registeredUsers = new RegisteredUsers();
-        registeredUsers.add(this);
     }
 }

@@ -1,7 +1,5 @@
 package com.flighttickets.BusinessLogic;
 
-import com.flighttickets.Entities.Customer;
-import com.flighttickets.Persistance.RegisteredUsers;
 /**
  *
  * @author JasperLamers jasper.lamers@student.fontys.nl 3375544

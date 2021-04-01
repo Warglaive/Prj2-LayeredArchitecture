@@ -2,7 +2,6 @@ package PersistanceTest;
 
 import com.flighttickets.BusinessLogic.CustomerImpl;
 import com.flighttickets.Entities.Customer;
-import com.flighttickets.Persistance.RegisteredUsers;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
