@@ -5,5 +5,4 @@ import com.flighttickets.Persistance.PersistenceAPI;
 
 public interface BusinessLogicImplementationFactory {
     BusinessLogicAPIImpl getBusinessLogicImpl(PersistenceAPI persistenceAPI);
-
 }
