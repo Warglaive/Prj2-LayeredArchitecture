@@ -4,7 +4,7 @@ import com.flighttickets.Entities.CustomerManager;
 import com.flighttickets.Persistance.PersistenceAPI;
 
 public class BusinessLogicAPIImpl implements BusinessLogicAPI {
-    
+
     final PersistenceAPI persistenceAPI;
 
     public BusinessLogicAPIImpl(PersistenceAPI persistenceAPI) {
