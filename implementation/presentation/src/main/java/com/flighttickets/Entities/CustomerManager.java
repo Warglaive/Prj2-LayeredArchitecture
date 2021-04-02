@@ -1,5 +1,7 @@
 package com.flighttickets.Entities;
 
+import com.flighttickets.Persistance.CustomerStorageService;
+
 public interface CustomerManager {
     /**
      * @param firstName
@@ -16,4 +18,9 @@ public interface CustomerManager {
      * @return Customer
      */
     Customer add(Customer customer);
+
+    /**
+     * setter for CustomerStorageService
+     */
+    void setCustomerStorageService(CustomerStorageService customerStorageService);
 }

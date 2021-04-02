@@ -3,7 +3,9 @@ package com.flighttickets.GUI;
 import com.flighttickets.App;
 import com.flighttickets.BusinessLogic.CustomerImpl;
 import com.flighttickets.BusinessLogic.CustomerManagerImpl;
+import com.flighttickets.Entities.Customer;
 import com.flighttickets.Entities.CustomerManager;
+import com.flighttickets.Persistance.CustomerStorageServiceImpl;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -72,7 +74,9 @@ public class CustomerController {
         String address = addressTextBox.getText();
 
         //register new Customer
-        this.customerManager.createCustomer(firstName, lastName, email, password, address);
+        Customer customer = this.customerManager.createCustomer(firstName, lastName, email, password, address);
+        this.customerManager.setCustomerStorageService(new CustomerStorageServiceImpl(customerManager));
+        this.customerManager.add(customer);
         //send customer to Login view
         App.setRoot("login");
     }

@@ -1,6 +1,12 @@
 package com.flighttickets;
 
 
+import com.flighttickets.BusinessLogic.BusinessLogicAPI;
+import com.flighttickets.BusinessLogic.BusinessLogicAPIImpl;
+import com.flighttickets.BusinessLogic.Factories.BusinessLogicImplementationFactory;
+import com.flighttickets.BusinessLogic.Factories.BusinessLogicImplementationFactoryImpl;
+import com.flighttickets.Persistance.PersistenceAPI;
+import com.flighttickets.Persistance.PersistenceAPIImpl;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -33,6 +39,9 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {
+        //TODO: Implement factories
+        PersistenceAPI persistenceAPI = new PersistenceAPIImpl();
+        BusinessLogicAPI businesslogicAPI = new BusinessLogicAPIImpl(persistenceAPI);
         launch();
     }
 
