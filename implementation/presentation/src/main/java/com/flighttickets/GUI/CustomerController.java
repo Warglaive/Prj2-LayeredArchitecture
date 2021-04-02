@@ -2,6 +2,8 @@ package com.flighttickets.GUI;
 
 import com.flighttickets.App;
 import com.flighttickets.BusinessLogic.CustomerImpl;
+import com.flighttickets.BusinessLogic.CustomerManagerImpl;
+import com.flighttickets.Entities.CustomerManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -10,7 +12,7 @@ import javafx.scene.control.TextField;
 
 import java.io.IOException;
 
-public class RegisterController {
+public class CustomerController {
     @FXML
     private Label firstNameLabel;
 
@@ -50,10 +52,15 @@ public class RegisterController {
     private Button loginBtn;
 
     @FXML
-    void backBtnHandler(ActionEvent event) throws IOException{
+    void backBtnHandler(ActionEvent event) throws IOException {
         App.setRoot("main");
     }
 
+    CustomerManager customerManager;
+
+    public CustomerController() {
+        this.customerManager = new CustomerManagerImpl();
+    }
 
     @FXML
     void handleRegister(ActionEvent event) throws IOException {
@@ -65,12 +72,13 @@ public class RegisterController {
         String address = addressTextBox.getText();
 
         //register new Customer
-        CustomerImpl customer = new CustomerImpl(firstName, lastName, email, password, address);
+        this.customerManager.createCustomer(firstName, lastName, email, password, address);
         //send customer to Login view
         App.setRoot("login");
     }
+
     @FXML
-    void loginBtnHandler(ActionEvent event) throws IOException{
+    void loginBtnHandler(ActionEvent event) throws IOException {
         App.setRoot("login");
     }
 }

@@ -1,15 +1,21 @@
 package com.flighttickets.Persistance;
 
 import com.flighttickets.Entities.Customer;
+import com.flighttickets.Entities.CustomerManager;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CustomerStorageServiceImpl implements CustomerStorageService {
 
+
+    private final CustomerManager customerManager;
     private final List<Customer> registered;
 
-    public CustomerStorageServiceImpl(List<Customer> registered) {
-        this.registered = registered;
+    public CustomerStorageServiceImpl(CustomerManager customerManager) {
+        this.registered = new ArrayList<>();
+
+        this.customerManager = customerManager;
     }
 
     /**

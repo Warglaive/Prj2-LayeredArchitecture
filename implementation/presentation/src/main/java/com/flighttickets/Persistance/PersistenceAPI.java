@@ -9,19 +9,8 @@ import com.flighttickets.Entities.CustomerManager;
  */
 
 public interface PersistenceAPI {
-    /**
-     * Get CustomerStorageService.
-     * Provides a storage object that knows how to store and retrieve customers.
-     * Implemented by a default method, to enable creation of customized
-     * PersistenceFacade implementations with limited services, for test purposes.
-     *
-     * @param customerManager
-     * @return CustomerStorageService object that knows how to store and retrieve customers.
-     */
-    default CustomerStorageService getCustomerStorageService(CustomerManager customerManager) {
-        return null;
-    }
 
+    CustomerStorageService getCustomerStorageService(CustomerManager customerManager);
     // This interface can be extended with all services that need to be made
     // available to the business logic, e.g. to store Products:
     //

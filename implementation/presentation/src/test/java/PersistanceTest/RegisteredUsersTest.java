@@ -1,3 +1,4 @@
+/*
 package PersistanceTest;
 
 import com.flighttickets.BusinessLogic.CustomerImpl;
@@ -31,3 +32,4 @@ public class RegisteredUsersTest {
         assertThat(getAllList.contains(c)).as("Customer properly added").isTrue();
     }
 }
+*/
