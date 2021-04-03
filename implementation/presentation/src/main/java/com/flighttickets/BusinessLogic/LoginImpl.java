@@ -1,5 +1,8 @@
 package com.flighttickets.BusinessLogic;
 
+import com.flighttickets.Entities.Customer;
+import com.flighttickets.Entities.CustomerManager;
+
 /**
  *
  * @author JasperLamers jasper.lamers@student.fontys.nl 3375544
@@ -11,6 +14,8 @@ public class LoginImpl {
 //    Customer cust = new CustomerImpl("test", "test", "Customer", "test", "test");
 //    Customer salesOfficer = new CustomerImpl("SalesOfficer", "test", "SalesOfficer", "test", "test");
 //    Customer admin = new CustomerImpl("Admin", "test", "Admin", "test", "test");
+    CustomerManager custManager;
+
 
     //getloginCredits
     public int getLoginLevel(String email, String passw){

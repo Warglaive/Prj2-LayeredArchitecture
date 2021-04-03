@@ -4,6 +4,8 @@ import com.flighttickets.Entities.Customer;
 import com.flighttickets.Entities.CustomerManager;
 import com.flighttickets.Persistance.CustomerStorageService;
 
+import java.util.List;
+
 public class CustomerManagerImpl implements CustomerManager {
 
     private CustomerStorageService customerStorageService;
@@ -18,6 +20,14 @@ public class CustomerManagerImpl implements CustomerManager {
     public Customer add(Customer customer) {
         this.customerStorageService.add(customer);
         return customer;
+    }
+
+    @Override
+    public Customer get(String email, String password) {
+        List<Customer> customerList = this.customerStorageService.getAll();
+        //for (customerList.)
+        //return list of customers with this username/password
+        return null;
     }
 
     @Override

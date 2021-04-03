@@ -20,6 +20,12 @@ public interface CustomerManager {
     Customer add(Customer customer);
 
     /**
+     * @param password,email
+     * @return Customer
+     */
+    Customer get(String email, String password);
+
+    /**
      * setter for CustomerStorageService
      */
     void setCustomerStorageService(CustomerStorageService customerStorageService);
