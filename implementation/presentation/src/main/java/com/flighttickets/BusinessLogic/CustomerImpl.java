@@ -31,7 +31,7 @@ public class CustomerImpl implements Customer {
         this.address = address;
     }
 
-    public String getFirstName() {
+   /* public String getFirstName() {
         return firstName;
     }
 
@@ -69,5 +69,5 @@ public class CustomerImpl implements Customer {
 
     public void setAddress(String address) {
         this.address = address;
-    }
+    }*/
 }
