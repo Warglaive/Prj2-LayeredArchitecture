@@ -42,10 +42,8 @@ public class LoginController {
     @FXML
     void handleLogin(ActionEvent event) throws IOException {
         String userInpt = emailTbx.getText();
-        //TODO email validation
         String passInpt = passwordTbx.getText();
         LoginImpl login = new LoginImpl();
-        System.out.println(login.getLoginLevel(userInpt, passInpt));
 
         if(login.getLoginLevel(userInpt, passInpt) == 2){
             App.setRoot("salesOfficer");

@@ -72,9 +72,10 @@ public class CustomerController {
         String email = emailTextBox.getText();
         String password = passwordTextBox.getText();
         String address = addressTextBox.getText();
+        int level = 1; //TODO Customer gets stuck level needs changing in implementation(or not ;) )  - JL
 
         //register new Customer
-        Customer customer = this.customerManager.createCustomer(firstName, lastName, email, password, address);
+        Customer customer = this.customerManager.createCustomer(firstName, lastName, email, password, address, level);
         this.customerManager.setCustomerStorageService(new CustomerStorageServiceImpl(customerManager));
         this.customerManager.add(customer);
         //send customer to Login view

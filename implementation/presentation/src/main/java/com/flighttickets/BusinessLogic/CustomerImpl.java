@@ -11,6 +11,7 @@ public class CustomerImpl implements Customer {
     private String email;
     private String password;
     private String address;
+    private int level;
 
 
     /**
@@ -21,17 +22,19 @@ public class CustomerImpl implements Customer {
      * @param email
      * @param password
      * @param address
+     * @param level
      */
     //TODO: Encrypt and add validation to each
-    public CustomerImpl(String firstName, String lastName, String email, String password, String address) {
+    public CustomerImpl(String firstName, String lastName, String email, String password, String address, int level) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
         this.address = address;
+        this.level = level;
     }
 
-   /* public String getFirstName() {
+    public String getFirstName() {
         return firstName;
     }
 
@@ -67,7 +70,11 @@ public class CustomerImpl implements Customer {
         return address;
     }
 
+    public int getLevel() {
+        return level;
+    }
+
     public void setAddress(String address) {
         this.address = address;
-    }*/
+    }
 }

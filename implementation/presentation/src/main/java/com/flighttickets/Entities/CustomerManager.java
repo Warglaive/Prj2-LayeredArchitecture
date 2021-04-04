@@ -9,9 +9,10 @@ public interface CustomerManager {
      * @param email
      * @param password
      * @param address
+     * @param level
      * @return Customer
      */
-    Customer createCustomer(String firstName, String lastName, String email, String password, String address);
+    Customer createCustomer(String firstName, String lastName, String email, String password, String address, int level);
 
     /**
      * @param customer
@@ -23,7 +24,7 @@ public interface CustomerManager {
      * @param password,email
      * @return Customer
      */
-    Customer get(String email, String password);
+    int getUser(String email, String password);
 
     /**
      * setter for CustomerStorageService

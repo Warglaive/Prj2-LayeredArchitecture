@@ -2,6 +2,8 @@ package com.flighttickets.BusinessLogic;
 
 import com.flighttickets.Entities.Customer;
 import com.flighttickets.Entities.CustomerManager;
+import com.flighttickets.Persistance.CustomerStorageService;
+import com.flighttickets.Persistance.CustomerStorageServiceImpl;
 
 /**
  *
@@ -9,16 +11,10 @@ import com.flighttickets.Entities.CustomerManager;
  */
 public class LoginImpl {
 
-
-    //TODO Implement actual customers instead of shooting in one blank
-//    Customer cust = new CustomerImpl("test", "test", "Customer", "test", "test");
-//    Customer salesOfficer = new CustomerImpl("SalesOfficer", "test", "SalesOfficer", "test", "test");
-//    Customer admin = new CustomerImpl("Admin", "test", "Admin", "test", "test");
-    CustomerManager custManager;
-
-
+    CustomerManager customerManager;
     //getloginCredits
     public int getLoginLevel(String email, String passw){
+
         if(email.equals("Admin") && passw.equals("test")){
             return 3;
         } else if(email.equals("SalesOfficer") && passw.equals("test")){
