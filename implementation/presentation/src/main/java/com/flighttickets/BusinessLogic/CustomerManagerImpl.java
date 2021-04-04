@@ -24,9 +24,9 @@ public class CustomerManagerImpl implements CustomerManager {
     }
 
     @Override
-    public int getUser(String email, String password) {
-        //List<Customer> customerList = this.customerStorageService.getAll();
-        return 1;
+    public Customer getUser(String email, String password) {
+        //TODO should return a full customer -JL
+        return null;
     }
 
     @Override

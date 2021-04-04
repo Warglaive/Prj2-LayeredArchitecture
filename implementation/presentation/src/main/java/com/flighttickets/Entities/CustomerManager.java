@@ -24,7 +24,7 @@ public interface CustomerManager {
      * @param password,email
      * @return Customer
      */
-    int getUser(String email, String password);
+    Customer getUser(String email, String password);
 
     /**
      * setter for CustomerStorageService
