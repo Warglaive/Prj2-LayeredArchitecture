@@ -37,14 +37,6 @@ public class CustomerManagerImpl implements CustomerManager {
     public Customer getByEmail(String email) throws ClassNotFoundException {
 
         Customer c = this.customerStorageService.getByEmail(email);
-
-        //Gets a list of allCustomers -JL
-        /*List<Customer> allCust = this.customerStorageService.getAll();*/
-        //Cycles through all customers looking for customer with email/pass NOT Done
-       /* for (int i = 0; i < allCust.size(); i++) {
-            System.out.println(allCust.get(i));
-        }*/
-        //TODO If i were to change this to something static it still wont work - JL
         return c;
     }
 

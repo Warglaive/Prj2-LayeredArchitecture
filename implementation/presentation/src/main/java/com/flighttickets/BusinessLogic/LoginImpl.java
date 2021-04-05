@@ -18,7 +18,7 @@ public class LoginImpl implements CustomerManager {
     CustomerManager customerManager;
 
     public int getLoginLevel(String email, String passw) {
-        //TODO Asking the customerManager.getUser for anything always returns null even when changing the direct return value - JL
+        //TODO Remove - Depricated file - JL
         //System.out.println(customerManager.getUser(email, passw));
         //This implementation should return the customer after looking into persistance
         Customer admin = new CustomerImpl("Admin", "AlsoAdmin", "Admin@test.nl", "test", "Mook", 3);
