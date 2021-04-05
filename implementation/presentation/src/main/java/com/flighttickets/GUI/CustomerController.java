@@ -98,16 +98,16 @@ public class CustomerController {
 
     @FXML
     void handleLogin(ActionEvent event) throws IOException {
-        String userInpt = this.emailTextBox.getText();
-        String passInpt = this.passwordTextBox.getText();
-        //Take current user
-        this.customerManager.getUser();
+        String loginEmail = this.emailTextBox.getText();
+        String loginPassword = this.passwordTextBox.getText();
+        //Take current user and pass it to the view
+        Customer loggedInCustomer = this.customerManager.login(loginEmail, loginPassword);
         //
         this.customerManager.
 
-        if (login.getLoginLevel(userInpt, passInpt) == 2) {
+        if (login.getLoginLevel(loginEmail, loginPassword) == 2) {
             App.setRoot("salesOfficer");
-        } else if (login.getLoginLevel(userInpt, passInpt) == 1) {
+        } else if (login.getLoginLevel(loginEmail, loginPassword) == 1) {
             //TODO create customer main menu - jl
             App.setRoot("editTicket");
         } else {

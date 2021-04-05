@@ -41,7 +41,7 @@ public class CustomerManagerImpl implements CustomerManager {
     }
 
     @FXML
-    public void login(String email, String password){
+    public Customer login(String email, String password){
         Customer customerToBeLoggedIn = this.getUser(email, password);
         
     }

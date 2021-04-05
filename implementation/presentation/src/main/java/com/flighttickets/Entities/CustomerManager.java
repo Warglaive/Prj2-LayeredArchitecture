@@ -30,4 +30,6 @@ public interface CustomerManager {
      * setter for CustomerStorageService
      */
     void setCustomerStorageService(CustomerStorageService customerStorageService);
+
+    Customer login(String email, String password);
 }
