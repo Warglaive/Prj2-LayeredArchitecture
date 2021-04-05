@@ -34,8 +34,7 @@ public class CustomerManagerImpl implements CustomerManager {
         return customer;
     }
 
-    @Override
-    public Customer getUser(String email, String password) {
+    public Customer getByEmail(String email) throws ClassNotFoundException {
 
         Customer c = this.customerStorageService.getByEmail(email);
 
@@ -50,8 +49,8 @@ public class CustomerManagerImpl implements CustomerManager {
     }
 
     @FXML
-    public Customer login(String email, String password) {
-        Customer customerToBeLoggedIn = this.getUser(email, password);
+    public Customer login(String email, String password) throws ClassNotFoundException {
+        Customer customerToBeLoggedIn = this.getByEmail(email);
         //Check user level and return proper view
         return customerToBeLoggedIn;
     }

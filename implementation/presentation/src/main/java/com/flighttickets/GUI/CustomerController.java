@@ -96,7 +96,7 @@ public class CustomerController {
     }
 
     @FXML
-    void handleLogin(ActionEvent event) throws IOException {
+    void handleLogin(ActionEvent event) throws IOException, ClassNotFoundException {
         String loginEmail = this.emailTextBox.getText();
         String loginPassword = this.passwordTextBox.getText();
         //Take current user and pass it to the view

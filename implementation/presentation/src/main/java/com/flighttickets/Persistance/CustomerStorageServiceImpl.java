@@ -37,7 +37,12 @@ public class CustomerStorageServiceImpl implements CustomerStorageService {
     }
 
     @Override
-    public Customer getByEmail(String email) {
-        return (Customer) this.registered.stream().filter(x -> x.getEmail().equals(email));
+    public Customer getByEmail(String email) throws ClassNotFoundException {
+        for (var c : this.registered) {
+            if (c.getEmail().equals(email)) {
+                return c;
+            }
+        }
+        throw new ClassNotFoundException("No such customer");
     }
 }

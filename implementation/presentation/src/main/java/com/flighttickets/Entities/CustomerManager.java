@@ -24,12 +24,12 @@ public interface CustomerManager {
      * @param password,email
      * @return Customer
      */
-    Customer getUser(String email, String password);
+    Customer getByEmail(String email) throws ClassNotFoundException;
 
     /**
      * setter for CustomerStorageService
      */
     void setCustomerStorageService(CustomerStorageService customerStorageService);
     CustomerStorageService getCustomerStorageService();
-    Customer login(String email, String password);
+    Customer login(String email, String password) throws ClassNotFoundException;
 }
