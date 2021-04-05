@@ -35,4 +35,9 @@ public class CustomerStorageServiceImpl implements CustomerStorageService {
          */
         return this.registered;
     }
+
+    @Override
+    public Customer getByEmail(String email) {
+        return (Customer) this.registered.stream().filter(x -> x.getEmail().equals(email));
+    }
 }

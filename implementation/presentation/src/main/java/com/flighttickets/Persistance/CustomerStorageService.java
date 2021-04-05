@@ -16,4 +16,5 @@ public interface CustomerStorageService {
      * @return
      */
     List<Customer> getAll();
+    Customer getByEmail(String email);
 }

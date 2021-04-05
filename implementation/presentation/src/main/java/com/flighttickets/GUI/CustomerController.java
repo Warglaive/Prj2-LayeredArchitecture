@@ -4,7 +4,6 @@ import com.flighttickets.App;
 import com.flighttickets.BusinessLogic.BusinessLogicAPIImpl;
 import com.flighttickets.BusinessLogic.CustomerImpl;
 import com.flighttickets.BusinessLogic.CustomerManagerImpl;
-import com.flighttickets.BusinessLogic.LoginImpl;
 import com.flighttickets.Entities.Customer;
 import com.flighttickets.Entities.CustomerManager;
 import com.flighttickets.Persistance.CustomerStorageServiceImpl;
@@ -103,9 +102,8 @@ public class CustomerController {
         //Take current user and pass it to the view
         Customer loggedInCustomer = this.customerManager.login(loginEmail, loginPassword);
         //
-        this.customerManager.
 
-        if (login.getLoginLevel(loginEmail, loginPassword) == 2) {
+    /*    if (loggedInCustomer.getLevel() == 2) {
             App.setRoot("salesOfficer");
         } else if (login.getLoginLevel(loginEmail, loginPassword) == 1) {
             //TODO create customer main menu - jl
@@ -113,7 +111,7 @@ public class CustomerController {
         } else {
             //TODO Implement wrong username error thrown in fxml - jl
             App.setRoot("main");
-        }
+        }*/
     }
 
     /**

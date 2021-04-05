@@ -30,19 +30,23 @@ public class CustomerManagerImpl implements CustomerManager {
 
     @Override
     public Customer getUser(String email, String password) {
+
+        Customer c = this.customerStorageService.getByEmail(email);
+
         //Gets a list of allCustomers -JL
-        List<Customer> allCust = this.customerStorageService.getAll();
+        /*List<Customer> allCust = this.customerStorageService.getAll();*/
         //Cycles through all customers looking for customer with email/pass NOT Done
-        for (int i = 0; i < allCust.size(); i++) {
+       /* for (int i = 0; i < allCust.size(); i++) {
             System.out.println(allCust.get(i));
-        }
+        }*/
         //TODO If i were to change this to something static it still wont work - JL
-        return null;
+        return c;
     }
 
     @FXML
-    public Customer login(String email, String password){
+    public Customer login(String email, String password) {
         Customer customerToBeLoggedIn = this.getUser(email, password);
-        
+        //Check user level and return proper view
+        return customerToBeLoggedIn;
     }
 }

@@ -1,3 +1,4 @@
+/*
 package com.flighttickets.BusinessLogic;
 
 import com.flighttickets.Entities.Customer;
@@ -7,9 +8,11 @@ import com.flighttickets.Persistance.CustomerStorageServiceImpl;
 
 import java.util.List;
 
+*/
 /**
  * @author JasperLamers jasper.lamers@student.fontys.nl 3375544
- */
+ *//*
+
 public class LoginImpl implements CustomerManager {
 
     CustomerManager customerManager;
@@ -54,3 +57,4 @@ public class LoginImpl implements CustomerManager {
 
     }
 }
+*/

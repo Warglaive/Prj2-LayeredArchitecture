@@ -1,7 +1,7 @@
+/*
 package com.flighttickets.GUI;
 
 import com.flighttickets.App;
-import com.flighttickets.BusinessLogic.LoginImpl;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -61,3 +61,4 @@ public class LoginController {
         App.setRoot("register");
     }
 }
+*/
