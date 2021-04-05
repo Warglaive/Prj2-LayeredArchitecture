@@ -50,6 +50,7 @@ public class CustomerManagerImpl implements CustomerManager {
 
     @FXML
     public Customer login(String email, String password) throws ClassNotFoundException {
+        //TODO: Implement
         Customer customerToBeLoggedIn = this.getByEmail(email);
         //Check user level and return proper view
         return customerToBeLoggedIn;
