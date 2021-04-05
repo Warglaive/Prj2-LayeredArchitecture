@@ -5,15 +5,21 @@ import com.flighttickets.Entities.CustomerManager;
 import com.flighttickets.Persistance.CustomerStorageService;
 import javafx.fxml.FXML;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class CustomerManagerImpl implements CustomerManager {
 
     private CustomerStorageService customerStorageService;
 
     public void setCustomerStorageService(CustomerStorageService customerStorageService) {
         this.customerStorageService = customerStorageService;
+    }
+
+    /**
+     * Test helper method
+     *
+     * @return
+     */
+    public CustomerStorageService getCustomerStorageService() {
+        return customerStorageService;
     }
 
     @Override
