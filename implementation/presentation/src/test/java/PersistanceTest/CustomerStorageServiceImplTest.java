@@ -10,6 +10,9 @@ import org.assertj.core.api.ThrowableAssert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.*;
 
 public class CustomerStorageServiceImplTest {
@@ -41,5 +44,26 @@ public class CustomerStorageServiceImplTest {
         //get customer
         Customer expected = this.storageService.getByEmail(email);
         assertThat(actual).isEqualToComparingFieldByField(expected);
+    }
+
+    @Test
+    void getAllTest() {
+        //create new customers
+        Customer first = new CustomerImpl("1", "1", "1", "1", "1", 1);
+        Customer second = new CustomerImpl("2", "2", "2", "2", "2", 2);
+        Customer third = new CustomerImpl("3", "3", "3", "3", "3", 3);
+        //add customers to Storage
+        this.storageService.add(first);
+        this.storageService.add(second);
+        this.storageService.add(third);
+        //Add customers to expected list
+        List<Customer> expected = new ArrayList<>();
+        expected.add(first);
+        expected.add(second);
+        expected.add(third);
+        //get all actual Customers from the storageService
+        List<Customer> actual = this.storageService.getAll();
+        //Compare expected list getAll result List
+        assertThat(actual).hasSameElementsAs(expected);
     }
 }
