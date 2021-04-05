@@ -31,7 +31,7 @@
 
         <Button fx:id="registerButton" layoutX="314.0" layoutY="358.0" mnemonicParsing="false" onAction="#handleRegister" prefHeight="25.0" prefWidth="92.0" text="Register" />
       <Button fx:id="backBtn" layoutX="145.0" layoutY="358.0" mnemonicParsing="false" onAction="#backBtnHandler" text="Back" />
-      <Button fx:id="loginBtn" layoutX="228.0" layoutY="358.0" mnemonicParsing="false" onAction="#loginBtnHandler" text="Login" />
+      <Button fx:id="submitButton" layoutX="228.0" layoutY="358.0" mnemonicParsing="false" onAction="#loginBtnHandler" text="Login" />
 
     </children>
 </AnchorPane>

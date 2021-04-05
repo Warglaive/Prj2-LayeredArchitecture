@@ -8,14 +8,13 @@ import com.flighttickets.Persistance.CustomerStorageServiceImpl;
 import java.util.List;
 
 /**
- *
  * @author JasperLamers jasper.lamers@student.fontys.nl 3375544
  */
-public class LoginImpl {
+public class LoginImpl implements CustomerManager {
 
     CustomerManager customerManager;
 
-    public int getLoginLevel(String email, String passw){
+    public int getLoginLevel(String email, String passw) {
         //TODO Asking the customerManager.getUser for anything always returns null even when changing the direct return value - JL
         //System.out.println(customerManager.getUser(email, passw));
         //This implementation should return the customer after looking into persistance
@@ -24,15 +23,34 @@ public class LoginImpl {
         Customer customer = new CustomerImpl("Customer", "Customer", "Customer@test.nl", "test", "Mook", 1);
         //Should be result
         admin.getLevel();
-        if(email.equals("Admin") && passw.equals("test")){
+        if (email.equals("Admin") && passw.equals("test")) {
             return 3;
-        } else if(email.equals("SalesOfficer") && passw.equals("test")){
+        } else if (email.equals("SalesOfficer") && passw.equals("test")) {
             return 2;
-        } else if(email.equals("Customer") && passw.equals("test")) {
+        } else if (email.equals("Customer") && passw.equals("test")) {
             return 1;
         }
         return 0;
         //if customer doesnt exist or is blocked return 0
     }
 
+    @Override
+    public Customer createCustomer(String firstName, String lastName, String email, String password, String address, int level) {
+        return null;
+    }
+
+    @Override
+    public Customer add(Customer customer) {
+        return null;
+    }
+
+    @Override
+    public Customer getUser(String email, String password) {
+        return null;
+    }
+
+    @Override
+    public void setCustomerStorageService(CustomerStorageService customerStorageService) {
+
+    }
 }

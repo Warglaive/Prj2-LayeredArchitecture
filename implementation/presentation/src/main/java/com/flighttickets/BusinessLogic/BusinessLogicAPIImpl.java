@@ -17,4 +17,5 @@ public class BusinessLogicAPIImpl implements BusinessLogicAPI {
         customerManager.setCustomerStorageService(this.persistenceAPI.getCustomerStorageService(customerManager));
         return customerManager;
     }
+
 }
