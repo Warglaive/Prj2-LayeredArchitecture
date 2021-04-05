@@ -43,6 +43,6 @@ public class CustomerStorageServiceImpl implements CustomerStorageService {
                 return c;
             }
         }
-        throw new ClassNotFoundException("No such customer");
+        throw new ClassNotFoundException("No customer with such email address");
     }
 }
