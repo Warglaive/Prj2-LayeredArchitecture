@@ -16,13 +16,14 @@ public class LoginImpl {
     CustomerManager customerManager;
 
     public int getLoginLevel(String email, String passw){
-
+        //TODO Asking the customerManager.getUser for anything always returns null even when changing the direct return value - JL
         //System.out.println(customerManager.getUser(email, passw));
         //This implementation should return the customer after looking into persistance
-//        Customer admin = new CustomerImpl("Admin", "AlsoAdmin", "Admin@test.nl", "test", "Mook", 3);
-//        Customer sales = new CustomerImpl("SalesOfficer", "SalesOfficer", "SalesOfficer@test.nl", "test", "Mook", 2);
-//        Customer customer = new CustomerImpl("Customer", "Customer", "Customer@test.nl", "test", "Mook", 1);
-//
+        Customer admin = new CustomerImpl("Admin", "AlsoAdmin", "Admin@test.nl", "test", "Mook", 3);
+        Customer sales = new CustomerImpl("SalesOfficer", "SalesOfficer", "SalesOfficer@test.nl", "test", "Mook", 2);
+        Customer customer = new CustomerImpl("Customer", "Customer", "Customer@test.nl", "test", "Mook", 1);
+        //Should be result
+        admin.getLevel();
         if(email.equals("Admin") && passw.equals("test")){
             return 3;
         } else if(email.equals("SalesOfficer") && passw.equals("test")){

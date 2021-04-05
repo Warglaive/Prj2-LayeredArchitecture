@@ -25,7 +25,13 @@ public class CustomerManagerImpl implements CustomerManager {
 
     @Override
     public Customer getUser(String email, String password) {
-        //TODO should return a full customer -JL
+        //Gets a list of allCustomers -JL
+        List<Customer> allCust = this.customerStorageService.getAll();
+        //Cycles through all customers looking for customer with email/pass NOT Done
+        for (int i = 0; i < allCust.size(); i++) {
+            System.out.println(allCust.get(i));
+        }
+        //TODO If i were to change this to something static it still wont work - JL
         return null;
     }
 
