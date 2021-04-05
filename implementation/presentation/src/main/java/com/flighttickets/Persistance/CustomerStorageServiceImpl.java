@@ -9,6 +9,7 @@ import java.util.List;
 public class CustomerStorageServiceImpl implements CustomerStorageService {
 
 
+    //TODO: Remove unused CustomerManager
     private final CustomerManager customerManager;
     private final List<Customer> registered;
 

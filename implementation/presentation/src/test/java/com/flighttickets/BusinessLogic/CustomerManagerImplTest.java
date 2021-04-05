@@ -48,6 +48,27 @@ public class CustomerManagerImplTest {
                 .isExactlyInstanceOf(CustomerImpl.class);
     }
 
+
+    @Test
+    void getByEmailTest() throws ClassNotFoundException {
+        String firstName = "1";
+        String lastName = "1";
+        String email = "1";
+        String password = "1";
+        String address = "1";
+        int level = 2;
+        //create new customer
+        Customer actual = this.customerManager.createCustomer(firstName, lastName, email, password, address, level);
+        //add customer to Storage
+        this.customerManager.add(actual);
+        //get customer
+        String emailExpected = actual.getEmail();
+        Customer expected = this.customerManager.getByEmail(emailExpected);
+        assertThat(actual).isEqualToComparingFieldByField(expected);
+    }
+
+
+
     @Test
     void addTest() throws ClassNotFoundException {
         String firstName = "1";
@@ -87,4 +108,5 @@ public class CustomerManagerImplTest {
         assertThatThrownBy(code).isExactlyInstanceOf(ClassNotFoundException.class).hasMessage("No customer with such email address");
 
     }
+    //TODO: add test for login method
 }
