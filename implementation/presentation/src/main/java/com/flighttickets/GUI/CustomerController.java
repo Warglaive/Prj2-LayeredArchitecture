@@ -67,7 +67,6 @@ public class CustomerController implements Initializable {
     private Button submitButton;
 
 
-
     /**
      * CustomerManager - register/login and other customer ops.
      */
@@ -84,6 +83,13 @@ public class CustomerController implements Initializable {
         this.customerManager.setCustomerStorageService(new CustomerStorageServiceImpl(this.customerManager));
 
     }
+
+    /**
+     * ComboBox filler
+     *
+     * @param url
+     * @param resources
+     */
     @Override
     public void initialize(URL url, ResourceBundle resources) {
 //        ObservableList<String> accountTypes = FXCollections.observableArrayList();
@@ -128,15 +134,20 @@ public class CustomerController implements Initializable {
     }
 
     /**
-     * button that sends the user to Login view
+     * button that sends the user to Login view from Register view
      */
     @FXML
     void loginBtnHandler(ActionEvent event) throws IOException {
         App.setRoot("login");
     }
 
-
-    public void backBtnHandler(ActionEvent actionEvent) throws IOException {
+    /**
+     * returns to "main" view
+     *
+     * @param actionEvent
+     * @throws IOException
+     */
+    public void backBtnHandler(ActionEvent event) throws IOException {
         App.setRoot("main");
     }
 }
