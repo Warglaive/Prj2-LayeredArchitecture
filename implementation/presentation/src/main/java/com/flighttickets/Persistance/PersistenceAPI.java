@@ -10,6 +10,8 @@ import com.flighttickets.Entities.CustomerManager;
 
 public interface PersistenceAPI {
 
+
+    //TODO: Remove CustomerManager
     CustomerStorageService getCustomerStorageService(CustomerManager customerManager);
     // This interface can be extended with all services that need to be made
     // available to the business logic, e.g. to store Products:
