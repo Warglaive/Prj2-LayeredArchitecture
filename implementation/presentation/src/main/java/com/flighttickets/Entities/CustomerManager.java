@@ -21,7 +21,7 @@ public interface CustomerManager {
     Customer add(Customer customer);
 
     /**
-     * @param password,email
+     * @param email
      * @return Customer
      */
     Customer getByEmail(String email) throws ClassNotFoundException;
