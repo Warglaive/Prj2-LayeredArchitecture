@@ -10,7 +10,7 @@
 <?import javafx.collections.FXCollections?>
 <?import java.lang.String?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="372.0" prefWidth="538.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.flighttickets.GUI.LoginController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="372.0" prefWidth="538.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.flighttickets.GUI.CustomerController">
    <children>
       <Label alignment="CENTER" layoutX="-1.0" layoutY="36.0" prefHeight="17.0" prefWidth="538.0" text="Login" textAlignment="CENTER">
          <font>
@@ -23,7 +23,7 @@
 
       <Button fx:id="loginBtn" layoutX="372.0" layoutY="310.0" mnemonicParsing="false" onAction="#handleLogin" text="Login" />
       <Button fx:id="registerBtn" layoutX="239.0" layoutY="310.0" mnemonicParsing="false" onAction="#handleRegister" text="Register" />
-      <Button fx:id="backBtn" layoutX="111.0" layoutY="310.0" mnemonicParsing="false" onAction="#handleBack" text="Back" />
+      <Button fx:id="backBtn" layoutX="111.0" layoutY="310.0" mnemonicParsing="false" onAction="#backBtnHandler" text="Back" />
       <PasswordField fx:id="passwordTbx" layoutX="269.0" layoutY="217.0" promptText="password" />
       <Label fx:id="AccountTypeLbl" layoutX="107.0" layoutY="265.0" text="Account type:" />
       <ComboBox fx:id="AccountTypeCbx" layoutX="269.0" layoutY="261.0" prefWidth="150.0" />
