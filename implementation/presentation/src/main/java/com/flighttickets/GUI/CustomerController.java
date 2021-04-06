@@ -2,8 +2,6 @@ package com.flighttickets.GUI;
 
 import com.flighttickets.App;
 import com.flighttickets.BusinessLogic.BusinessLogicAPIImpl;
-import com.flighttickets.BusinessLogic.CustomerImpl;
-import com.flighttickets.BusinessLogic.CustomerManagerImpl;
 import com.flighttickets.Entities.Customer;
 import com.flighttickets.Entities.CustomerManager;
 import com.flighttickets.Persistance.CustomerStorageServiceImpl;
@@ -57,7 +55,7 @@ public class CustomerController {
     private Button submitButton;
 
     @FXML
-    void backBtnHandler(ActionEvent event) throws IOException {
+    void backButtonHandler(ActionEvent event) throws IOException {
         App.setRoot("main");
     }
 

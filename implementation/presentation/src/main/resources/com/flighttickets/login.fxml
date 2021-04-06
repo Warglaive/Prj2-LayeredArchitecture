@@ -19,6 +19,6 @@
       <TextField fx:id="passwordTextBox" layoutX="269.0" layoutY="217.0" promptText="password" />
       <Button fx:id="submitButton" layoutX="372.0" layoutY="285.0" mnemonicParsing="false" onAction="#handleLogin" text="Login" />
       <Button fx:id="registerBtn" layoutX="245.0" layoutY="285.0" mnemonicParsing="false" onAction="#handleRegister" text="Register" />
-      <Button fx:id="backBtn" layoutX="109.0" layoutY="285.0" mnemonicParsing="false" onAction="#backBtnHandler" text="Back" />
+      <Button fx:id="backBtn" layoutX="109.0" layoutY="285.0" mnemonicParsing="false" onAction="#backButtonHandler" text="Back" />
    </children>
 </AnchorPane>
