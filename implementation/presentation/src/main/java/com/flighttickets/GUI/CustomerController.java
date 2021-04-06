@@ -9,15 +9,19 @@ import com.flighttickets.Entities.CustomerManager;
 import com.flighttickets.Persistance.CustomerStorageServiceImpl;
 import com.flighttickets.Persistance.PersistenceAPI;
 import com.flighttickets.Persistance.PersistenceAPIImpl;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.fxml.Initializable;
+import javafx.scene.control.*;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class CustomerController {
+public class CustomerController implements Initializable {
     @FXML
     private Label firstNameLabel;
 
@@ -40,13 +44,19 @@ public class CustomerController {
     private Label passwordLabel;
 
     @FXML
-    private TextField passwordTextBox;
+    private PasswordField passwordTextBox;
 
     @FXML
     private Label addressLabel;
 
     @FXML
     private TextField addressTextBox;
+
+    @FXML
+    private ComboBox<String> accountTypeCbx;
+
+    @FXML
+    private Label accountTypeLbl;
 
     @FXML
     private Button registerButton;
@@ -56,10 +66,7 @@ public class CustomerController {
     @FXML
     private Button submitButton;
 
-    @FXML
-    void backBtnHandler(ActionEvent event) throws IOException {
-        App.setRoot("main");
-    }
+
 
     /**
      * CustomerManager - register/login and other customer ops.
@@ -76,6 +83,12 @@ public class CustomerController {
         this.customerManager = this.businessLogicAPI.getCustomerManager();
         this.customerManager.setCustomerStorageService(new CustomerStorageServiceImpl(this.customerManager));
 
+    }
+    @Override
+    public void initialize(URL url, ResourceBundle resources) {
+        ObservableList<String> accountTypes = FXCollections.observableArrayList();
+        accountTypes.addAll("Customer", "SalesOfficer", "Admin");
+        accountTypeCbx.setItems(accountTypes);
     }
 
     @FXML
@@ -123,4 +136,7 @@ public class CustomerController {
     }
 
 
+    public void backBtnHandler(ActionEvent actionEvent) throws IOException {
+        App.setRoot("main");
+    }
 }
