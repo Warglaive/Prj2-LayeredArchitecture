@@ -60,6 +60,7 @@ public class CustomerController implements Initializable {
 
     @FXML
     private Button registerButton;
+
     @FXML
     private Button backBtn;
 
