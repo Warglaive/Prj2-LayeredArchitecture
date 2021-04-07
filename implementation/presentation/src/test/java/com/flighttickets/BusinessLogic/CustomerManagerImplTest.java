@@ -44,6 +44,7 @@ public class CustomerManagerImplTest {
         String password = "1";
         String address = "1";
         int level = 2;
+        //Check if it is not null rather than .class
         assertThat(this.customerManager.createCustomer(firstName, lastName, email, password, address, level))
                 .isExactlyInstanceOf(CustomerImpl.class);
     }
@@ -64,6 +65,7 @@ public class CustomerManagerImplTest {
         //get customer
         String emailExpected = actual.getEmail();
         Customer expected = this.customerManager.getByEmail(emailExpected);
+        //.usingRecursiveComparison()
         assertThat(actual).isEqualToComparingFieldByField(expected);
     }
 
