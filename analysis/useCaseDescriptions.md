@@ -109,7 +109,7 @@
 | Actor | Sales Officer/ Customer |
 | Description | Actor wants to log in |
 | Precondition | Actor must have an account and valid sign in data |
-| Scenario | 1.	Actor opens system <br> 2. Enters valid log in data <br> 3. System validates input <br> 4. System processes log in |
+| Scenario | 1.	Actor opens system <br> 2. Enters valid log in data (correct email address, password with at least one uppercase letter, number, special character)<br> 3. System validates input if requirements are fulfilled <br> 4. System processes log in |
 | Result | Actor is loggend in successfully|
 | Exceptions | 3. Actor is blocked, go back to step 2 <br> 3. Input is wrong, go back step 2 |
 | Extensions | N/A |
@@ -119,7 +119,7 @@
 | Actor | Customer |
 | Description | Actor wants to register account |
 | Precondition | Actor does not have an account yet |
-| Scenario | 1.	Actor opens system <br> 2. Actor chooses to register a new account  <br> 3. System shows form to register a new customer <br> 4. System asks for customer data like a name, password and email address <br> 5. Customer enters name, password and email adress and clicks next <br> 6. System validates input <br> 7. System returns conformation of new registered account |
+| Scenario | 1.	Actor opens system <br> 2. Actor chooses to register a new account  <br> 3. System shows form to register a new customer <br> 4. System asks for customer data like a name, password and email address <br> 5. Customer enters name, password and email adress and clicks next <br> 6. System validates input if requirements(correct email adress,password with at least one uppercase letter, number, special character) is fulfilled <br> 7. System returns conformation of new registered account |
 | Result | Actor registered successfully|
 | Exceptions | 6. Actor has already an account, go back to step 3 <br> 6. Input is invalid, go back to step 3 |
 | Extensions | N/A |
