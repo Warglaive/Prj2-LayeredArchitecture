@@ -21,7 +21,7 @@
 | Extensions | N/A  |
 |Booking | A (collection of) ticket(s)|
 
-| Name | Customer changes Ticket |
+| Name | Customer requests a ticket change from SalesOfficer |
 | --- | --- |
 | Actor | Customer |
 | Description | Customer changes Ticket|
