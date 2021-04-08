@@ -21,7 +21,7 @@
 | Extensions | N/A  |
 |Booking | A (collection of) ticket(s)|
 
-| Name | Customer changes Ticket |
+| Name | Customer requests a ticket change from SalesOfficer |
 | --- | --- |
 | Actor | Customer |
 | Description | Customer changes Ticket|
@@ -31,7 +31,7 @@
 | Exceptions |TBD  |
 | Extensions | N/A  |
 
-| Name | Customer canceles Ticket |
+| Name | Customer requests a ticket to be canceled from the SalesOfficer |
 | --- | --- |
 | Actor | Customer |
 | Description | Customer wants to cancel a Ticket|
