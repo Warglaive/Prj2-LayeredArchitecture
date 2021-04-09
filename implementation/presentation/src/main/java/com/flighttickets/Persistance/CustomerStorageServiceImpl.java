@@ -10,12 +10,12 @@ public class CustomerStorageServiceImpl implements CustomerStorageService {
 
 
     //TODO: Remove unused CustomerManager
+    //TODO: Add BusinessLogicAPI
     private final CustomerManager customerManager;
     private final List<Customer> registered;
 
     public CustomerStorageServiceImpl(CustomerManager customerManager) {
         this.registered = new ArrayList<>();
-
         this.customerManager = customerManager;
     }
 
