@@ -1,5 +1,5 @@
 ## Customer
-| Name | Order a Ticket |
+| Name | Create a new Ticket request |
 | --- | --- |
 | Actor | Customer |
 | Description | Customer Orders a Ticket|
