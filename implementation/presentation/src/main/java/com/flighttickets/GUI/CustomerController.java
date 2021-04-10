@@ -1,6 +1,7 @@
 package com.flighttickets.GUI;
 
 import com.flighttickets.App;
+import com.flighttickets.BusinessLogic.BusinessLogicAPI;
 import com.flighttickets.BusinessLogic.BusinessLogicAPIImpl;
 import com.flighttickets.BusinessLogic.CustomerImpl;
 import com.flighttickets.BusinessLogic.CustomerManagerImpl;
@@ -67,15 +68,14 @@ public class CustomerController implements Initializable {
     @FXML
     private Button submitButton;
 
+    BusinessLogicAPI businessLogicAPI;
 
-    /**
-     * CustomerManager - register/login and other customer ops.
-     */
     CustomerManager customerManager;
-
-    BusinessLogicAPIImpl businessLogicAPI;
     PersistenceAPI persistenceAPI;
 
+    /**
+     * use BusinessLogicAPIImpl to create CustomerManager
+     */
     public CustomerController() {
         this.persistenceAPI = new PersistenceAPIImpl();
         this.businessLogicAPI = new BusinessLogicAPIImpl(this.persistenceAPI);
