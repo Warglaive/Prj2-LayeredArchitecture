@@ -62,7 +62,8 @@ public class CustomerController implements Initializable {
 
     @FXML
     private Button submitButton;
-
+    @FXML
+    private ChoiceBox<Enum> enumChoiceBox;
     BusinessLogicAPI businessLogicAPI;
 
     CustomerManager customerManager;
