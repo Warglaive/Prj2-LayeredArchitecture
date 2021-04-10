@@ -65,7 +65,7 @@ public class CustomerController<E extends Enum<UserRoles>> extends ChoiceBox<Use
     @FXML
     private Button submitButton;
     @FXML
-    private ChoiceBox<Enum> enumChoiceBox;
+    private ChoiceBox<UserRoles> enumChoiceBox;
     BusinessLogicAPI businessLogicAPI;
 
     CustomerManager customerManager;
