@@ -5,6 +5,7 @@ import com.flighttickets.BusinessLogic.BusinessLogicAPI;
 import com.flighttickets.BusinessLogic.BusinessLogicAPIImpl;
 import com.flighttickets.Entities.Customer;
 import com.flighttickets.Entities.CustomerManager;
+import com.flighttickets.GUI.Roles.UserRoles;
 import com.flighttickets.Persistance.CustomerStorageServiceImpl;
 import com.flighttickets.Persistance.PersistenceAPI;
 import com.flighttickets.Persistance.PersistenceAPIImpl;
@@ -18,7 +19,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class CustomerController implements Initializable {
+public class CustomerController<E extends Enum<UserRoles>> extends ChoiceBox<UserRoles> implements Initializable {
     @FXML
     private Label firstNameLabel;
 
@@ -73,13 +74,17 @@ public class CustomerController implements Initializable {
     /**
      * use BusinessLogicAPIImpl to create CustomerManager
      */
-    public CustomerController() {
+
+    public CustomerController(@NamedArg("UserRoles") String userRoles) throws ClassNotFoundException {
         this.persistenceAPI = new PersistenceAPIImpl();
         this.businessLogicAPI = new BusinessLogicAPIImpl(this.persistenceAPI);
 
         this.customerManager = this.businessLogicAPI.getCustomerManager();
         this.customerManager.setCustomerStorageService(new CustomerStorageServiceImpl(this.customerManager));
 
+
+        Class<UserRoles> enumClass = (Class<UserRoles>) Class.forName(userRoles);
+        getItems().setAll(enumClass.getEnumConstants());
     }
 
     /**
