@@ -5,6 +5,9 @@ import java.io.IOException;
 import com.flighttickets.App;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 
 public class MainController {
@@ -16,7 +19,7 @@ public class MainController {
     private Button registerBtn;
 
     @FXML
-    void showLogin(ActionEvent event) throws IOException{
+    void showLogin(ActionEvent event) throws IOException {
         App.setRoot("login");
     }
 

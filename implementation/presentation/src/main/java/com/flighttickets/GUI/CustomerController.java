@@ -8,7 +8,8 @@ import com.flighttickets.Entities.CustomerManager;
 import com.flighttickets.Persistance.CustomerStorageServiceImpl;
 import com.flighttickets.Persistance.PersistenceAPI;
 import com.flighttickets.Persistance.PersistenceAPIImpl;
-import javafx.beans.NamedArg;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -50,9 +51,6 @@ public class CustomerController implements Initializable {
     private TextField addressTextBox;
 
     @FXML
-    private ComboBox<String> accountTypeCbx;
-
-    @FXML
     private Label accountTypeLbl;
 
     @FXML
@@ -63,6 +61,9 @@ public class CustomerController implements Initializable {
 
     @FXML
     private Button submitButton;
+
+    @FXML
+    private ChoiceBox<String> rolePickCheckBox;
     BusinessLogicAPI businessLogicAPI;
 
     CustomerManager customerManager;
@@ -79,9 +80,8 @@ public class CustomerController implements Initializable {
 
         this.customerManager = this.businessLogicAPI.getCustomerManager();
         this.customerManager.setCustomerStorageService(new CustomerStorageServiceImpl(this.customerManager));
-
-
     }
+
 
     /**
      * ComboBox filler
@@ -91,9 +91,9 @@ public class CustomerController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle resources) {
-//        ObservableList<String> accountTypes = FXCollections.observableArrayList();
-//        accountTypes.addAll("Customer", "SalesOfficer", "Admin");
-//        accountTypeCbx.setItems(accountTypes);
+        ObservableList<String> accountTypes = FXCollections.observableArrayList();
+        accountTypes.addAll("Customer", "SalesOfficer", "Admin");
+        rolePickCheckBox.setItems(accountTypes);
     }
 
     @FXML

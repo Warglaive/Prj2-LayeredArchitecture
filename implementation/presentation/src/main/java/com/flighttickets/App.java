@@ -21,10 +21,12 @@ public class App extends Application {
     private static Scene scene;
 
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage primaryStage) throws IOException {
         scene = new Scene(loadFXML("main"), 535, 440);
-        stage.setScene(scene);
-        stage.show();
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("Main view of Flights software");
+        primaryStage.setResizable(true);
+        primaryStage.show();
     }
 
     public static void setRoot(String fxml) throws IOException {
@@ -37,10 +39,7 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {
-        //TODO: Implement factories
-        PersistenceAPI persistenceAPI = new PersistenceAPIImpl();
-        BusinessLogicAPI businesslogicAPI = new BusinessLogicAPIImpl(persistenceAPI);
-        launch();
+        launch(args);
     }
 
 }
