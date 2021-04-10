@@ -3,16 +3,11 @@ package com.flighttickets.GUI;
 import com.flighttickets.App;
 import com.flighttickets.BusinessLogic.BusinessLogicAPI;
 import com.flighttickets.BusinessLogic.BusinessLogicAPIImpl;
-import com.flighttickets.BusinessLogic.CustomerImpl;
-import com.flighttickets.BusinessLogic.CustomerManagerImpl;
 import com.flighttickets.Entities.Customer;
 import com.flighttickets.Entities.CustomerManager;
 import com.flighttickets.Persistance.CustomerStorageServiceImpl;
 import com.flighttickets.Persistance.PersistenceAPI;
 import com.flighttickets.Persistance.PersistenceAPIImpl;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -145,7 +140,7 @@ public class CustomerController implements Initializable {
     /**
      * returns to "main" view
      *
-     * @param actionEvent
+     * @param event
      * @throws IOException
      */
     public void backBtnHandler(ActionEvent event) throws IOException {
