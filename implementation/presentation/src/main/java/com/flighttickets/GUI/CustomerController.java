@@ -5,6 +5,7 @@ import com.flighttickets.BusinessLogic.BusinessLogicAPI;
 import com.flighttickets.BusinessLogic.BusinessLogicAPIImpl;
 import com.flighttickets.Entities.Customer;
 import com.flighttickets.Entities.CustomerManager;
+import com.flighttickets.GUI.Roles.EnumChoiceBox;
 import com.flighttickets.GUI.Roles.UserRoles;
 import com.flighttickets.Persistance.CustomerStorageServiceImpl;
 import com.flighttickets.Persistance.PersistenceAPI;
@@ -68,7 +69,7 @@ public class CustomerController<E extends Enum<UserRoles>> extends ChoiceBox<Use
      * ChoiceBox to select a role when registering
      */
     @FXML
-    private ChoiceBox<UserRoles> enumChoiceBox;
+    private EnumChoiceBox<UserRoles> enumChoiceBox;
     BusinessLogicAPI businessLogicAPI;
 
     CustomerManager customerManager;
@@ -77,8 +78,12 @@ public class CustomerController<E extends Enum<UserRoles>> extends ChoiceBox<Use
     /**
      * use BusinessLogicAPIImpl to create CustomerManager
      */
-
     public CustomerController(@NamedArg("UserRoles") String userRoles) throws ClassNotFoundException {
+        Class<UserRoles> enumClass = (Class<UserRoles>) Class.forName(userRoles);
+        getItems().setAll(enumClass.getEnumConstants());
+    }
+
+    public CustomerController() {
         this.persistenceAPI = new PersistenceAPIImpl();
         this.businessLogicAPI = new BusinessLogicAPIImpl(this.persistenceAPI);
 
@@ -86,8 +91,6 @@ public class CustomerController<E extends Enum<UserRoles>> extends ChoiceBox<Use
         this.customerManager.setCustomerStorageService(new CustomerStorageServiceImpl(this.customerManager));
 
 
-        Class<UserRoles> enumClass = (Class<UserRoles>) Class.forName(userRoles);
-        getItems().setAll(enumClass.getEnumConstants());
     }
 
     /**
