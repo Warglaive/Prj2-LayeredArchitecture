@@ -92,7 +92,7 @@ public class CustomerController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resources) {
         ObservableList<String> accountTypes = FXCollections.observableArrayList();
-        accountTypes.addAll("Customer", "SalesOfficer", "Admin");
+        accountTypes.addAll("Customer", "SalesOfficer", "SalesEmployee");
         rolePickCheckBox.setItems(accountTypes);
     }
 
