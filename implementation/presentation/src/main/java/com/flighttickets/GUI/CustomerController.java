@@ -75,7 +75,7 @@ public class CustomerController implements Initializable {
 
 
     public CustomerController() {
-        this.rolePickCheckBox= new ChoiceBox<>();
+        this.rolePickCheckBox = new ChoiceBox<>();
         this.persistenceAPI = new PersistenceAPIImpl();
         this.businessLogicAPI = new BusinessLogicAPIImpl(this.persistenceAPI);
 
