@@ -82,7 +82,7 @@
 | Actor | Sales Officer |
 | Description | Sales Officer edits a ticket |
 | Precondition | Sales Officer must be logged in |
-| Scenario | 1. Sales Officer goes to the tickets section <br> 2. System shows all tickets available <br> 3. Sales Officer selects edit ticket <br> 4. System displays options for editing a ticket <br> 5. Sales Officer changed the ticket options <br> 6. System accepts the changes and returns to the tickets section |
+| Scenario | 1. Sales Officer goes to the tickets section <br> 2. System shows all tickets available <br> 3. Sales Officer selects edit ticket <br> 4. System displays options for editing a ticket <br> 5. Sales Officer changed the ticket options <br> 6. System accepts the changes and returns to view all tickets |
 | Result | The ticket is edited |
 | Exceptions | 5. ticket can not be edited if you have invalid data, gob back to step 4 |
 | Extensions | N/A |
