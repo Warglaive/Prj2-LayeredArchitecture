@@ -23,31 +23,34 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class CurrentRouteController implements Initializable {
+public class createRouteController implements Initializable {
+
+    @FXML
+    private TextField startLocation;
+
+    @FXML
+    private TextField endLocation;
 
     @FXML
     private Button backButton;
 
     @FXML
-    private Button createRouteButton;
-
-    @FXML
-    private ListView routesList;
+    private Button submitButton;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ObservableList<String> currentRoutes = FXCollections.observableArrayList();
 
     }
 
     @FXML
     public void createRouteHandler(ActionEvent event) throws IOException {
-        App.setRoot("createRoute");
+        String startPoint = startLocation.getText();
+        String endPoint = endLocation.getText();
     }
 
     @FXML
-    public void backHandler(ActionEvent event) throws IOException {
-
+    public void backButtonHandler(ActionEvent event) throws IOException {
+        App.setRoot("currentRoutes");
     }
 
 }

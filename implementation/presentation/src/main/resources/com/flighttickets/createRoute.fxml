@@ -18,7 +18,7 @@
       </Text>
       <Text layoutX="87.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="starting location:" />
       <Text layoutX="422.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="destination: location" />
-      <Button fx:id="BackButton" layoutX="213.0" layoutY="314.0" mnemonicParsing="false" onAction="#BackHandler" text="Back" />
+      <Button fx:id="backButton" layoutX="213.0" layoutY="314.0" mnemonicParsing="false" onAction="#backHandler" text="Back" />
       <Button fx:id="submitButton" layoutX="308.0" layoutY="314.0" mnemonicParsing="false" onAction="#createRouteHandler" text="Submit" />
    </children>
 </AnchorPane>
