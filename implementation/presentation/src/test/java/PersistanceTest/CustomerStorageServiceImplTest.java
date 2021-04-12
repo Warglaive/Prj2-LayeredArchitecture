@@ -21,7 +21,7 @@ public class CustomerStorageServiceImplTest {
     @BeforeEach
     void setUp() {
         CustomerManager customerManager = new CustomerManagerImpl();
-        this.storageService = new CustomerStorageServiceImpl(customerManager);
+        this.storageService = new CustomerStorageServiceImpl();
     }
 
     @Test

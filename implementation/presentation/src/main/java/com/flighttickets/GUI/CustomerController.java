@@ -80,7 +80,7 @@ public class CustomerController implements Initializable {
         this.businessLogicAPI = new BusinessLogicAPIImpl(this.persistenceAPI);
 
         this.customerManager = this.businessLogicAPI.getCustomerManager();
-        this.customerManager.setCustomerStorageService(new CustomerStorageServiceImpl(this.customerManager));
+        this.customerManager.setCustomerStorageService(new CustomerStorageServiceImpl());
     }
 
 

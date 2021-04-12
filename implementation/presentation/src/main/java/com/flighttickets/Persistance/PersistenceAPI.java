@@ -1,7 +1,5 @@
 package com.flighttickets.Persistance;
 
-import com.flighttickets.Entities.CustomerManager;
-
 /**
  * Facade that provides all persistence/storage services to the business logic.
  *
@@ -12,7 +10,7 @@ public interface PersistenceAPI {
 
 
     //TODO: Remove CustomerManager
-    CustomerStorageService getCustomerStorageService(CustomerManager customerManager);
+    CustomerStorageService getCustomerStorageService();
     // This interface can be extended with all services that need to be made
     // available to the business logic, e.g. to store Products:
     //

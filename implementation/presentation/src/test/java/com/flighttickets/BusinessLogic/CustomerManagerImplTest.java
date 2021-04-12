@@ -20,7 +20,7 @@ public class CustomerManagerImplTest {
     @BeforeEach
     void setUp() {
         this.customerManager = new CustomerManagerImpl();
-        this.customerStorageService = new CustomerStorageServiceImpl(this.customerManager);
+        this.customerStorageService = new CustomerStorageServiceImpl();
         this.customerManager.setCustomerStorageService(this.customerStorageService);
     }
 

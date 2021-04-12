@@ -14,7 +14,7 @@ public class BusinessLogicAPIImpl implements BusinessLogicAPI {
     @Override
     public CustomerManager getCustomerManager() {
         CustomerManagerImpl customerManager = new CustomerManagerImpl();
-        customerManager.setCustomerStorageService(this.persistenceAPI.getCustomerStorageService(customerManager));
+        customerManager.setCustomerStorageService(this.persistenceAPI.getCustomerStorageService());
         return customerManager;
     }
 }
