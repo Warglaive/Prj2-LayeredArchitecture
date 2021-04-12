@@ -1,7 +1,6 @@
 package com.flighttickets.Persistance;
 
 import com.flighttickets.Entities.Customer;
-import com.flighttickets.Entities.CustomerManager;
 
 import java.util.ArrayList;
 import java.util.List;
