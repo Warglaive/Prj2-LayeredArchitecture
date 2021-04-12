@@ -1,4 +1,4 @@
-package com.flighttickets.Persistance;
+package com.flighttickets.Persistance.Util;
 
 import com.sun.rowset.CachedRowSetImpl;
 

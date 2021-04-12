@@ -19,5 +19,7 @@ module com.flighttickets {
 
     exports com.flighttickets.Persistance;
     opens com.flighttickets.Persistance to javafx.fxml;
+    exports com.flighttickets.Persistance.Util;
+    opens com.flighttickets.Persistance.Util to javafx.fxml;
 
 }
