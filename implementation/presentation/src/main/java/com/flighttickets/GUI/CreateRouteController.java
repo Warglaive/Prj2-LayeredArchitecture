@@ -23,7 +23,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class createRouteController implements Initializable {
+public class CreateRouteController implements Initializable {
 
     @FXML
     private TextField startLocation;

@@ -14,7 +14,7 @@ public class DBUtils {
     //Connection String
     //String connStr = "jdbc:oracle:thin:Username/Password@IP:Port/SID";
     //Username=HR, Password=HR, IP=localhost, IP=1521, SID=xe
-    private static final String connStr = "jdbc:oracle:thin:HR/HR@localhost:1521/xe";
+    private static final String connStr = "jdbc:oracle:thin:postgres/123@localhost:5432/postgres";
 
 
     //Connect to DB
