@@ -1,6 +1,9 @@
 module com.flighttickets {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.sql;
+    requires java.sql.rowset;
+    requires ojdbc10;
 
     exports com.flighttickets;
     opens com.flighttickets to javafx.fxml;
