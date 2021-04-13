@@ -42,10 +42,21 @@ public class CreateRouteController implements Initializable {
 
     }
 
+    public boolean validate() {
+        if(startLocation.getText().isEmpty() || endLocation.getText().isEmpty() || startLocation.getText().length() < 3 || endLocation.getText().length() < 3){
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     @FXML
     public void createRouteHandler(ActionEvent event) throws IOException {
         String startPoint = startLocation.getText();
         String endPoint = endLocation.getText();
+        String route = startPoint + " to" + endPoint;
+        ObservableList<String> addRoute = FXCollections.observableArrayList();
+        addRoute.addAll(route);
     }
 
     @FXML

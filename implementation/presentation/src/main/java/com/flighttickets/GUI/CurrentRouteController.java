@@ -21,6 +21,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class CurrentRouteController implements Initializable {
@@ -36,8 +37,9 @@ public class CurrentRouteController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ObservableList<String> currentRoutes = FXCollections.observableArrayList();
-
+        ObservableList<String> routes = FXCollections.observableArrayList();
+        routes.add("Berlin to Munich");
+        routesList.setItems(routes);
     }
 
     @FXML
@@ -47,7 +49,7 @@ public class CurrentRouteController implements Initializable {
 
     @FXML
     public void backHandler(ActionEvent event) throws IOException {
-
+        App.setRoot("plannerMain");
     }
 
 }
