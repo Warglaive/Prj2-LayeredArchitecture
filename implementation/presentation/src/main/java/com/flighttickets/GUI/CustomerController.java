@@ -5,7 +5,7 @@ import com.flighttickets.BusinessLogic.BusinessLogicAPI;
 import com.flighttickets.BusinessLogic.BusinessLogicAPIImpl;
 import com.flighttickets.Entities.Customer;
 import com.flighttickets.Entities.CustomerManager;
-import com.flighttickets.Persistance.CustomerStorageServiceImpl;
+import com.flighttickets.Persistance.CustomerStorageService;
 import com.flighttickets.Persistance.PersistenceAPI;
 import com.flighttickets.Persistance.PersistenceAPIImpl;
 import javafx.collections.FXCollections;
@@ -80,7 +80,7 @@ public class CustomerController implements Initializable {
         this.businessLogicAPI = new BusinessLogicAPIImpl(this.persistenceAPI);
 
         this.customerManager = this.businessLogicAPI.getCustomerManager();
-        this.customerManager.setCustomerStorageService(new CustomerStorageServiceImpl());
+        this.customerManager.setCustomerStorageService(new CustomerStorageService());
     }
 
 

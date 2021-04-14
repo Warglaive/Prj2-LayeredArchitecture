@@ -1,7 +1,6 @@
 package com.flighttickets.BusinessLogic;
 
 import com.flighttickets.Entities.Customer;
-import com.flighttickets.Persistance.CustomerStorageServiceImpl;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;

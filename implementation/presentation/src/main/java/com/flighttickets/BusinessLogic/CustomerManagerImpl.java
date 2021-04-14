@@ -30,21 +30,18 @@ public class CustomerManagerImpl implements CustomerManager {
     //TODO: Why not void
     @Override
     public Customer add(Customer customer) {
-        this.customerStorageService.add(customer);
+        this.customerStorageService.dataAccessObject.insert(customer);
         return customer;
     }
 
     public Customer getByEmail(String email) throws ClassNotFoundException {
-
-        Customer c = this.customerStorageService.getByEmail(email);
-        return c;
+        //TODO: Implement
+        return null;
     }
 
     @FXML
     public Customer login(String email, String password) throws ClassNotFoundException {
         //TODO: Implement
-        Customer customerToBeLoggedIn = this.getByEmail(email);
-        //Check user level and return proper view
-        return customerToBeLoggedIn;
+        return null;
     }
 }
