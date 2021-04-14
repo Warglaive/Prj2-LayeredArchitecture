@@ -198,7 +198,7 @@
       ><path d="M0 0 L114 0 L114 272 L0 272 L0 0 Z"
       /></clipPath
       ><clipPath clipPathUnits="userSpaceOnUse" id="clipPath65"
-      ><path d="M0 0 L0 272 L114 272 L114 141 L48 141 L48 125 L114 125 L114 0 Z"
+      ><path d="M103 146 L103 162 L26 162 L26 146 ZM0 0 L0 272 L114 272 L114 0 Z"
       /></clipPath
       ><clipPath clipPathUnits="userSpaceOnUse" id="clipPath66"
       ><path d="M0 0 L145 0 L145 235 L0 235 L0 0 Z"
@@ -736,7 +736,7 @@
     /></g
     ><g font-size="11px" transform="matrix(1,0,0,1,1283,1848)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke="black" stroke-opacity="1"
     ><text x="2" xml:space="preserve" y="14" clip-path="url(#clipPath51)" stroke="none"
-      >+deleteById(id : int) : void</text
+      >+deleteById(id : long) : void</text
     ></g
     ><g font-size="11px" transform="matrix(1,0,0,1,1283,1848)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke="black" stroke-opacity="1"
     ><text x="2" xml:space="preserve" y="29" clip-path="url(#clipPath51)" stroke="none"
@@ -760,7 +760,7 @@
     ></g
     ><g font-size="11px" transform="matrix(1,0,0,1,1283,1848)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke="black" stroke-opacity="1"
     ><text x="2" xml:space="preserve" y="104" clip-path="url(#clipPath51)" stroke="none"
-      >+updateEmail(email : string, id : int) : void</text
+      >+updateEmail(email : string, id : long) : void</text
     ></g
     ><g font-size="11px" transform="translate(1283,1833)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke="black" font-weight="bold" stroke-opacity="1"
     ><text x="133" xml:space="preserve" y="12" clip-path="url(#clipPath52)" stroke="none"
@@ -791,11 +791,11 @@
     ></g
     ><g font-size="11px" transform="matrix(1,0,0,1,1429,1619)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke="black" stroke-opacity="1"
     ><text x="2" xml:space="preserve" y="74" clip-path="url(#clipPath54)" stroke="none"
-      >+updateEmail(email : string, id : int) : void</text
+      >+updateEmail(email : string, id : long) : void</text
     ></g
     ><g font-size="11px" transform="matrix(1,0,0,1,1429,1619)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke="black" stroke-opacity="1"
     ><text x="2" xml:space="preserve" y="89" clip-path="url(#clipPath54)" stroke="none"
-      >+deleteById(id : int) : void</text
+      >+deleteById(id : long) : void</text
     ></g
     ><g font-size="11px" transform="matrix(1,0,0,1,1429,1619)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke="black" stroke-opacity="1"
     ><text x="2" xml:space="preserve" y="104" clip-path="url(#clipPath54)" stroke="none"
@@ -951,7 +951,7 @@
     ><text x="10" xml:space="preserve" y="12" clip-path="url(#clipPath95)" stroke="none"
       >implements</text
     ></g
-    ><g font-size="11px" transform="translate(32,1283)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke="black" stroke-opacity="1"
+    ><g font-size="11px" transform="translate(10,1304)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke="black" stroke-opacity="1"
     ><text x="9" xml:space="preserve" y="12" clip-path="url(#clipPath100)" stroke="none"
       >implements</text
     ></g

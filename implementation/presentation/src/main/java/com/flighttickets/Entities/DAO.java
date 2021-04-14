@@ -33,5 +33,7 @@ public interface DAO<T> {
      * @param email - new email
      * @param id    of object(can be Customer/SalesOfficer etc.)
      */
-    void updateEmail(String email, int id);
+    void updateEmail(String email, long id);
+
+    void deleteById(long id)
 }
