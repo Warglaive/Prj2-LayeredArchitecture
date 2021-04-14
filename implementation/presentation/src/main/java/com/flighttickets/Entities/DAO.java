@@ -35,5 +35,15 @@ public interface DAO<T> {
      */
     void updateEmail(String email, long id);
 
-    void deleteById(long id)
+    /**
+     * delete entity with Id
+     * @param id
+     */
+    void deleteById(long id);
+
+    /**
+     * Insert entity into the DB
+     * @param entity
+     */
+    void insert(T entity);
 }
