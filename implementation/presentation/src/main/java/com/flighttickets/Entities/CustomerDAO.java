@@ -16,12 +16,12 @@ public class CustomerDAO implements DAO<Customer> {
     }
 
     @Override
-    public ObservableList getAll() {
+    public ObservableList<Customer> getAll() {
         return null;
     }
 
     @Override
-    public ObservableList getAllFromResultSet(ResultSet resultSet) {
+    public ObservableList<Customer> getAllFromResultSet(ResultSet resultSet) {
         return null;
     }
 
