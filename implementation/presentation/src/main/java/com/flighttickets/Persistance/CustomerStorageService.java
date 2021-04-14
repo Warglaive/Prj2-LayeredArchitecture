@@ -1,20 +1,12 @@
 package com.flighttickets.Persistance;
 
-import com.flighttickets.Entities.Customer;
+import com.flighttickets.Entities.CustomerDAO;
+import com.flighttickets.Entities.DAO;
 
-import java.util.List;
+public class CustomerStorageService {
+    DAO dataAccessObject;
 
-public interface CustomerStorageService {
-    /**
-     * add a Customer object to DB
-     * @param customer
-     */
-    void add(Customer customer);
-
-    /**
-     * get all Customers from DB
-     * @return
-     */
-    List<Customer> getAll();
-    Customer getByEmail(String email) throws ClassNotFoundException;
+    public CustomerStorageService() {
+        this.dataAccessObject = new CustomerDAO();
+    }
 }

@@ -8,8 +8,6 @@ package com.flighttickets.Persistance;
 
 public interface PersistenceAPI {
 
-
-    //TODO: Remove CustomerManager
     CustomerStorageService getCustomerStorageService();
     // This interface can be extended with all services that need to be made
     // available to the business logic, e.g. to store Products:
