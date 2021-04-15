@@ -11,6 +11,6 @@ public interface Customer {
 
     String getAddress();
 
-    int getLevel();
+    String getRole();
 
 }
