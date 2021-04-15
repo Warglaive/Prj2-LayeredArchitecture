@@ -35,8 +35,7 @@ lastName VARCHAR(255) not null,
 email VARCHAR(255) not null,
 password VARCHAR(255) not null,
 address VARCHAR(255) null,
-name VARCHAR(255) not null,
-phone INTEGER not null );
+role VARCHAR(255) not null );
 
 create table salesOfficer ( salesOfficer_id SERIAL primary key,
 email VARCHAR(255) not null,
