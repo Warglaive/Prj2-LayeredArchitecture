@@ -1,21 +1,29 @@
 package com.flighttickets.Entities;
+
 import nl.fontys.sebivenlo.dao.AbstractMapper;
 
 import java.util.function.Function;
 
-public class CustomerMapper extends AbstractMapper<Integer,Customer> {
+public class CustomerMapper extends AbstractMapper<Integer, Customer> {
     /**
      * Create a mapper for entity and key type.
-     *
-     * @param keyType    for key
-     * @param entityType for entity
      */
-    public CustomerMapper(Class<Integer> keyType, Class<Customer> entityType) {
-        super(keyType, entityType);
+    public CustomerMapper() {
+        super(Integer.class, Customer.class);
+    }
+
+    @Override
+    public Object[] explode(Customer e) {
+        return e.asParts();
     }
 
     @Override
     public Function<Customer, Integer> keyExtractor() {
         return Customer::getId;
+    }
+
+    @Override
+    public String tableName() {
+        return "customer";
     }
 }
