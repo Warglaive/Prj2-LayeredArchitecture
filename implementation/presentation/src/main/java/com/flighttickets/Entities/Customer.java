@@ -38,50 +38,6 @@ public class Customer implements Entity2<Integer> {
         this.role = role;
     }
 
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public String getRole() {
-        return role;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
     @Override
     public Integer getNaturalId() {
         return this.id;
@@ -90,5 +46,28 @@ public class Customer implements Entity2<Integer> {
     @Override
     public int getId() {
         return this.id;
+    }
+
+    @Override
+    public String toString() {
+        //TODO: Implement
+        throw new UnsupportedOperationException();
+    }
+
+    static Customer fromParts(Object[] parts) {
+        return new Customer((String) parts[0], (String) parts[1], (String) parts[2], (String) parts[3], (String) parts[4],
+                (String) parts[5]);
+    }
+
+    Object[] asParts() {
+
+        return new Object[]{
+                this.firstName,
+                this.lastName,
+                this.email,
+                this.password,
+                this.address,
+                this.role
+        };
     }
 }
