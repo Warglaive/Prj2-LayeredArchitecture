@@ -44,8 +44,8 @@ password VARCHAR(255) not null,
 auth_level INTEGER );
 
 create table booking ( booking_id SERIAL primary key,
-customer_id INTEGER references customers(customer_id),
-salesOfficer_id INTEGER references salesOfficers(salesOfficer_id),
+customer_id INTEGER references customer(customer_id),
+salesOfficer_id INTEGER references salesOfficer(salesOfficer_id),
 booking_date DATE not null );
 
 create table passenger ( passenger_id SERIAL primary key,
@@ -54,16 +54,16 @@ travelDoc VARCHAR(255) not null,
 dob DATE not null );
 
 create table route ( route_id SERIAL primary key,
-start_airport INTEGER references airports(airport_id),
-end_airport INTEGER references airports(airport_id) );
+start_airport INTEGER references airport(airport_id),
+end_airport INTEGER references airport(airport_id) );
 
 create table flight ( flight_id SERIAL primary key,
 flight_date DATE not null,
-route_id INTEGER references routes(route_id),
-plane_id INTEGER references planes(plane_id) );
+route_id INTEGER references route(route_id),
+plane_id INTEGER references plane(plane_id) );
 
 create table ticket ( ticket_id SERIAL primary key,
 price INTEGER,
-passenger_id INTEGER references passengers(passenger_id),
-booking_id INTEGER references bookings(booking_id),
-flight_id INTEGER references flights(flight_id) );
+passenger_id INTEGER references passenger(passenger_id),
+booking_id INTEGER references booking(booking_id),
+flight_id INTEGER references flight(flight_id) );
