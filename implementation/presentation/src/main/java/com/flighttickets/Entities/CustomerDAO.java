@@ -1,10 +1,17 @@
 package com.flighttickets.Entities;
 
+import com.flighttickets.Persistance.Util.DBUtils;
 import javafx.collections.ObservableList;
 
 import java.sql.ResultSet;
 
 public class CustomerDAO implements DAO<Customer> {
+    private final DBUtils databaseManager;
+
+    public CustomerDAO() {
+        this.databaseManager = new DBUtils();
+    }
+
     @Override
     public Customer getById(long id) {
         return null;
