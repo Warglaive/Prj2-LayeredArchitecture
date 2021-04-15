@@ -105,10 +105,10 @@ public class CustomerController implements Initializable {
         String email = emailTextBox.getText();
         String password = passwordTextBox.getText();
         String address = addressTextBox.getText();
-        int level = 1; //TODO Customer gets stuck level needs changing in implementation(or not ;) )  - JL
+        String role = rolePickCheckBox.getValue();
 
         //register new Customer
-        Customer customer = this.customerManager.createCustomer(firstName, lastName, email, password, address, level);
+        Customer customer = this.customerManager.createCustomer(firstName, lastName, email, password, address, role);
         this.customerManager.add(customer);
         //send customer to Login view
         App.setRoot("login");

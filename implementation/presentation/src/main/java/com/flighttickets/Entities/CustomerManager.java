@@ -9,10 +9,10 @@ public interface CustomerManager {
      * @param email
      * @param password
      * @param address
-     * @param level
+     * @param role
      * @return Customer
      */
-    Customer createCustomer(String firstName, String lastName, String email, String password, String address, int level);
+    Customer createCustomer(String firstName, String lastName, String email, String password, String address, String role);
 
     /**
      * @param customer
