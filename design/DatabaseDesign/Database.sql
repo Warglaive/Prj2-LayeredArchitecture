@@ -1,20 +1,20 @@
-drop table if exists customers cascade;
+drop table if exists customer cascade;
 
-drop table if exists salesOfficers cascade;
+drop table if exists salesOfficer cascade;
 
-drop table if exists bookings cascade;
+drop table if exists booking cascade;
 
-drop table if exists tickets cascade;
+drop table if exists ticket cascade;
 
-drop table if exists passengers cascade;
+drop table if exists passenger cascade;
 
-drop table if exists flights cascade;
+drop table if exists flight cascade;
 
-drop table if exists routes cascade;
+drop table if exists route cascade;
 
-drop table if exists airports cascade;
+drop table if exists airport cascade;
 
-drop table if exists planes cascade;
+drop table if exists plane cascade;
 
 create table plane ( plane_id SERIAL primary key,
 registration VARCHAR(255) not null,
