@@ -17,6 +17,7 @@ import javafx.scene.control.*;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class CustomerController implements Initializable {
@@ -98,7 +99,7 @@ public class CustomerController implements Initializable {
     }
 
     @FXML
-    void handleRegister(ActionEvent event) throws IOException {
+    void handleRegister(ActionEvent event) throws IOException, SQLException, ClassNotFoundException {
         //Get values from textBoxes
         String firstName = firstNameTextBox.getText();
         String lastName = lastNameTextBox.getText();

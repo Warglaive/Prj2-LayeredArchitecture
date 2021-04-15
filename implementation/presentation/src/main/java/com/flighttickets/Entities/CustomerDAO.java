@@ -39,6 +39,7 @@ public class CustomerDAO implements DAO<Customer> {
 
     @Override
     public void insert(Customer entity) throws SQLException, ClassNotFoundException {
-        DBUtils.dbExecuteUpdate("");
+        DBUtils.dbExecuteUpdate("INSERT INTO Customer(firstName, lastName, email, password, address, role)"
+                + "VALUES(" + entity.getFirstName() + ", " + entity.getLastName() + "," + entity.getEmail() + "," + entity.getPassword() + "," + entity.getAddress() + "," + entity.getRole() + ")");
     }
 }
