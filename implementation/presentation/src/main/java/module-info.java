@@ -5,6 +5,7 @@ module com.flighttickets {
     requires java.sql.rowset;
     requires ojdbc10;
     requires nl.fontys.sebidao;
+    requires org.postgresql.jdbc;
 
     exports com.flighttickets;
     opens com.flighttickets to javafx.fxml;
