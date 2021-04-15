@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class CurrentRouteController implements Initializable {
+public class RouteController implements Initializable {
 
     @FXML
     private Button backButton;
@@ -21,13 +21,18 @@ public class CurrentRouteController implements Initializable {
     private Button createRouteButton;
 
     @FXML
+    private Button setPlaneButton;
+
+    @FXML
     private ListView routesList;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ObservableList<String> routes = FXCollections.observableArrayList();
+        /*
         routes.add("Berlin to Munich");
         routesList.setItems(routes);
+         */
     }
 
     @FXML
@@ -36,8 +41,13 @@ public class CurrentRouteController implements Initializable {
     }
 
     @FXML
+    public void setPlaneHandler(ActionEvent event) throws IOException {
+
+    }
+
+    @FXML
     public void backHandler(ActionEvent event) throws IOException {
-        App.setRoot("plannerMain");
+        App.setRoot("");
     }
 
 }

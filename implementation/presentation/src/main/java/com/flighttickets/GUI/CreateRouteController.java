@@ -43,9 +43,11 @@ public class CreateRouteController implements Initializable {
     public void createRouteHandler(ActionEvent event) throws IOException {
         String startPoint = startLocation.getText();
         String endPoint = endLocation.getText();
+        /*
         String route = startPoint + " to" + endPoint;
         ObservableList<String> addRoute = FXCollections.observableArrayList();
         addRoute.addAll(route);
+        */
     }
 
     @FXML

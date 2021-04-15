@@ -8,13 +8,14 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Text layoutX="243.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current Routes">
+      <Text layoutX="219.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Overview of all routes">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Text>
       <ListView fx:id="routesList" layoutX="41.0" layoutY="167.0" prefHeight="200.0" prefWidth="517.0" />
       <Button fx:id="backButton" layoutX="41.0" layoutY="45.0" mnemonicParsing="false" onAction="#backHandler" text="Back" />
-      <Button fx:id="createRouteButton" layoutX="248.0" layoutY="127.0" mnemonicParsing="false" onAction="#createRouteHandler" text="create new route" />
+      <Button fx:id="createRouteButton" layoutX="449.0" layoutY="128.0" mnemonicParsing="false" onAction="#createRouteHandler" text="create new route" />
+      <Button fx:id="setPlaneButton" layoutX="41.0" layoutY="128.0" mnemonicParsing="false" onAction="#setPlaneHandler" text="set plane to route" />
    </children>
 </AnchorPane>
