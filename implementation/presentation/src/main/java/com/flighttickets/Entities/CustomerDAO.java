@@ -4,14 +4,9 @@ import com.flighttickets.Persistance.Util.DBUtils;
 import javafx.collections.ObservableList;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class CustomerDAO implements DAO<Customer> {
-    private final DBUtils databaseManager;
-
-    public CustomerDAO() {
-        this.databaseManager = new DBUtils();
-    }
-
     @Override
     public Customer getById(long id) {
         return null;
@@ -43,7 +38,7 @@ public class CustomerDAO implements DAO<Customer> {
     }
 
     @Override
-    public void insert(Customer entity) {
-
+    public void insert(Customer entity) throws SQLException, ClassNotFoundException {
+        DBUtils.dbExecuteUpdate("");
     }
 }

@@ -2,6 +2,8 @@ package com.flighttickets.Entities;
 
 import com.flighttickets.Persistance.CustomerStorageService;
 
+import java.sql.SQLException;
+
 public interface CustomerManager {
     /**
      * @param firstName
@@ -18,7 +20,7 @@ public interface CustomerManager {
      * @param customer
      * @return Customer
      */
-    Customer add(Customer customer);
+    Customer add(Customer customer) throws SQLException, ClassNotFoundException;
 
     /**
      * @param email

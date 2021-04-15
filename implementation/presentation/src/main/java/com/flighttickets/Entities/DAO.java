@@ -3,6 +3,7 @@ package com.flighttickets.Entities;
 import javafx.collections.ObservableList;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public interface DAO<T> {
     /**
@@ -45,5 +46,5 @@ public interface DAO<T> {
      * Insert entity into the DB
      * @param entity
      */
-    void insert(T entity);
+    void insert(T entity) throws SQLException, ClassNotFoundException;
 }

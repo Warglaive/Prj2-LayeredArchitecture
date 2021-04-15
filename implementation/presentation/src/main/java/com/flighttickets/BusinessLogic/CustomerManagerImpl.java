@@ -5,6 +5,8 @@ import com.flighttickets.Entities.CustomerManager;
 import com.flighttickets.Persistance.CustomerStorageService;
 import javafx.fxml.FXML;
 
+import java.sql.SQLException;
+
 public class CustomerManagerImpl implements CustomerManager {
 
     private CustomerStorageService customerStorageService;
@@ -29,7 +31,7 @@ public class CustomerManagerImpl implements CustomerManager {
 
     //TODO: Why not void
     @Override
-    public Customer add(Customer customer) {
+    public Customer add(Customer customer) throws SQLException, ClassNotFoundException {
         this.customerStorageService.dataAccessObject.insert(customer);
         return customer;
     }

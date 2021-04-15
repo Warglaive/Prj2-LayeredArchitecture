@@ -1,3 +1,4 @@
+/*
 package com.flighttickets.BusinessLogic;
 
 import com.flighttickets.Entities.Customer;
@@ -39,6 +40,7 @@ public class CustomerImplTest {
         Customer customer = new CustomerImpl(firstName, lastName, email, password, address, 1);
         assertThat(customer.getLevel()).as("Level Test").isEqualTo(1);
     }
+*/
 /*
     @Test
     void loginCustomerTest(){
@@ -51,5 +53,6 @@ public class CustomerImplTest {
         LoginImpl login = new LoginImpl();
         assertThat(login.getLoginLevel("Customer", "test")).as("LoginLevelTest").isEqualTo(1);
 
-    }*/
-}
+    }*//*
+
+}*/
