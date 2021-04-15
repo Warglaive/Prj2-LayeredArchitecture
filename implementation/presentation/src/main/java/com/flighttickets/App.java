@@ -1,17 +1,11 @@
 package com.flighttickets;
 
 
-import com.flighttickets.BusinessLogic.BusinessLogicAPI;
-import com.flighttickets.BusinessLogic.BusinessLogicAPIImpl;
-import com.flighttickets.Entities.Customer;
-import com.flighttickets.Persistance.PersistenceAPI;
-import com.flighttickets.Persistance.PersistenceAPIImpl;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import nl.fontys.sebivenlo.dao.pg.PGDAO;
 import nl.fontys.sebivenlo.dao.pg.PGDAOFactory;
 
 import java.io.IOException;
@@ -21,6 +15,7 @@ import java.io.IOException;
  */
 public class App extends Application {
 
+    public static PGDAOFactory pdaof = null;
     private static Scene scene;
 
     @Override
@@ -45,10 +40,13 @@ public class App extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+
+
     public static final PGDAOFactory pdaof() {
-        if ( null == pdaof ) {
-            pdaof = new PGDAOFactory( PGDataSource.DATA_SOURCE );
+        if (null == pdaof) {
+            pdaof = new PGDAOFactory(PGDataSource.DATA_SOURCE);
         }
         return pdaof;
 
+    }
 }

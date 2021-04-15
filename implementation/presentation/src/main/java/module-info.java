@@ -3,7 +3,7 @@ module com.flighttickets {
     requires javafx.fxml;
     requires java.sql;
     requires java.sql.rowset;
-    requires ojdbc10;
+    /*requires ojdbc10;*/
     requires nl.fontys.sebidao;
     requires org.postgresql.jdbc;
 

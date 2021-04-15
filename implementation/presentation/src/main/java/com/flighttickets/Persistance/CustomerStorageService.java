@@ -1,6 +1,7 @@
 package com.flighttickets.Persistance;
 
-import com.flighttickets.Entities.CustomerDAO;
+
+import nl.fontys.sebivenlo.dao.DAO;
 
 public class CustomerStorageService {
     public DAO dataAccessObject;
