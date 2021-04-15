@@ -1,6 +1,5 @@
 package com.flighttickets.Entities;
 
-import com.flighttickets.Persistance.Util.DBUtils;
 import javafx.collections.ObservableList;
 
 import java.sql.ResultSet;
