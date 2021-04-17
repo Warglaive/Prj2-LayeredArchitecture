@@ -26,14 +26,13 @@ public class CustomerManagerImpl implements CustomerManager {
 
     @Override
     public Customer createCustomer(String firstName, String lastName, String email, String password, String address, String role) {
-        return new CustomerImpl(firstName, lastName, email, password, address, role);
+        return new Customer(firstName, lastName, email, password, address, role);
     }
 
     //TODO: Why not void
     @Override
-    public Customer add(Customer customer) throws SQLException, ClassNotFoundException {
-        this.customerStorageService.dataAccessObject.insert(customer);
-        return customer;
+    public void add(Customer customer) throws SQLException, ClassNotFoundException {
+        this.customerStorageService.insert(customer);
     }
 
     public Customer getByEmail(String email) throws ClassNotFoundException {

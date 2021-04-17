@@ -1,11 +1,13 @@
 package com.flighttickets;
 
 
+import com.flighttickets.Entities.Customer;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import nl.fontys.sebivenlo.dao.pg.PGDAO;
 import nl.fontys.sebivenlo.dao.pg.PGDAOFactory;
 
 import java.io.IOException;
@@ -25,7 +27,7 @@ public class App extends Application {
         primaryStage.setTitle("Main view of Flights software");
         primaryStage.setResizable(true);
         primaryStage.show();
-        /*PGDAO<Integer, Customer> customerDAO = pdaof.*/
+        PGDAO<Integer, Customer> customerDAO = pdaof.createDao(Customer.class);
     }
 
     public static void setRoot(String fxml) throws IOException {

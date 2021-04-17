@@ -20,7 +20,7 @@ public interface CustomerManager {
      * @param customer
      * @return Customer
      */
-    Customer add(Customer customer) throws SQLException, ClassNotFoundException;
+    void add(Customer customer) throws SQLException, ClassNotFoundException;
 
     /**
      * @param email
@@ -32,6 +32,8 @@ public interface CustomerManager {
      * setter for CustomerStorageService
      */
     void setCustomerStorageService(CustomerStorageService customerStorageService);
+
     CustomerStorageService getCustomerStorageService();
+
     Customer login(String email, String password) throws ClassNotFoundException;
 }

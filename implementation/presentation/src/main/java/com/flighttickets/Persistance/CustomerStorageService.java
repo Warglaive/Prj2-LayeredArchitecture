@@ -1,12 +1,19 @@
 package com.flighttickets.Persistance;
 
 
-import nl.fontys.sebivenlo.dao.DAO;
+import com.flighttickets.Entities.Customer;
+import nl.fontys.sebivenlo.dao.pg.PGDAO;
+
+import static com.flighttickets.App.pdaof;
 
 public class CustomerStorageService {
-  /*  public DAO dataAccessObject;
 
-    public CustomerStorageService() {
-        this.dataAccessObject = new CustomerDAO();
-    }*/
+    /**
+     * Save a Customer object to the database
+     * @param customer
+     */
+    public void insert(Customer customer) {
+        PGDAO<Integer, Customer> customerDAO = pdaof.createDao(Customer.class);
+        customerDAO.save(customer);
+    }
 }
