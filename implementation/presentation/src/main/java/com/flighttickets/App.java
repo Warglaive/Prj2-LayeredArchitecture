@@ -47,6 +47,5 @@ public class App extends Application {
             pdaof = new PGDAOFactory(PGDataSource.DATA_SOURCE);
         }
         return pdaof;
-
     }
 }

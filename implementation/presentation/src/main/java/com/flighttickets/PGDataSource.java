@@ -28,7 +28,6 @@ public enum PGDataSource implements DataSource {
 
 
     PGDataSource() {
-
         System.out.println("PGDataSource");
         Properties props = new Properties();
         try {
