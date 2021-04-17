@@ -22,7 +22,7 @@
       <Button fx:id="loginBtn" layoutX="372.0" layoutY="310.0" mnemonicParsing="false" onAction="#handleLogin" text="Login" />
       <Button fx:id="registerBtn" layoutX="239.0" layoutY="310.0" mnemonicParsing="false" onAction="#handleRegister" text="Register" />
       <Button fx:id="backBtn" layoutX="111.0" layoutY="310.0" mnemonicParsing="false" onAction="#backBtnHandler" text="Back" />
-      <PasswordField fx:id="passwordTbx" layoutX="269.0" layoutY="217.0" promptText="password" />
+      <PasswordField fx:id="passwordTextBox" layoutX="269.0" layoutY="217.0" promptText="password" />
       <Label fx:id="AccountTypeLbl" layoutX="107.0" layoutY="265.0" text="Account type:" />
 
       <ChoiceBox fx:id="rolePickCheckBox" layoutX="269.0" layoutY="261.0" prefWidth="150.0" />   </children>

@@ -49,7 +49,7 @@ public class CustomerManagerImpl implements CustomerManager {
 
     @FXML
     public Customer login(String email, String password) throws ClassNotFoundException {
-        //TODO: Implement
-        return null;
+        //TODO: Implement -JL
+        return this.customerStorageService.retrieve(email,password);
     }
 }

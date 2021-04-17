@@ -118,22 +118,23 @@ public class CustomerController implements Initializable {
     }
 
     @FXML
-    void handleLogin(ActionEvent event) throws IOException, ClassNotFoundException {
-        String loginEmail = this.emailTextBox.getText();
-        String loginPassword = this.passwordTextBox.getText();
+    void handleLogin(ActionEvent event) throws IOException, SQLException, ClassNotFoundException {
+        String loginEmail = emailTextBox.getText();
+        String loginPassword = passwordTextBox.getText();
         //Take current user and pass it to the view
-        Customer loggedInCustomer = this.customerManager.login(loginEmail, loginPassword);
-        //
+        System.out.println("The customer received after logging in= "+ this.customerManager.login(loginEmail, loginPassword).toString());
+//        Customer loggedInCustomer = this.customerManager.login(loginEmail, loginPassword);
 
-    /*    if (loggedInCustomer.getLevel() == 2) {
-            App.setRoot("salesOfficer");
-        } else if (login.getLoginLevel(loginEmail, loginPassword) == 1) {
-            //TODO create customer main menu - jl
-            App.setRoot("editTicket");
-        } else {
-            //TODO Implement wrong username error thrown in fxml - jl
-            App.setRoot("main");
-        }*/
+
+//        if (loggedInCustomer.getLevel() == 2) {
+//            App.setRoot("salesOfficer");
+//        } else if (login.getLoginLevel(loginEmail, loginPassword) == 1) {
+//            //TODO create customer main menu - jl
+//            App.setRoot("editTicket");
+//        } else {
+//            //TODO Implement wrong username error thrown in fxml - jl
+//            App.setRoot("main");
+//        }
     }
 
     /**
