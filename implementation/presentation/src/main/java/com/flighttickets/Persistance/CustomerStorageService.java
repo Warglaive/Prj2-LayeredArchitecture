@@ -7,12 +7,10 @@ import com.flighttickets.PGDataSource;
 import nl.fontys.sebivenlo.dao.pg.PGDAO;
 import nl.fontys.sebivenlo.dao.pg.PGDAOFactory;
 
-import static com.flighttickets.App.pdaof;
-
 public class CustomerStorageService {
 
     /**
-     * Save a Customer object to the database
+     * Save a Customer object to the database using a DataAccessObject
      * @param customer
      */
     public void insert(Customer customer) {

@@ -28,7 +28,13 @@ public class CustomerManagerImpl implements CustomerManager {
     public Customer createCustomer(int id, String firstName, String lastName, String email, String password, String address, String role) {
         return new Customer(id, firstName, lastName, email, password, address, role);
     }
-    
+
+    /**
+     * pass Customer to StorageService to be added into the DB
+     * @param customer
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     @Override
     public void add(Customer customer) throws SQLException, ClassNotFoundException {
         this.customerStorageService.insert(customer);
