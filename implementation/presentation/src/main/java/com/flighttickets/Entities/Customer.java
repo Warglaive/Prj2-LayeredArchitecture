@@ -28,7 +28,6 @@ public class Customer implements Entity2<Integer> {
      * @param address
      * @param role
      */
-    //TODO: Encrypt and add validation to each
     public Customer(int id, String firstName, String lastName, String email, String password, String address, String role) {
         this.id = id;
         this.firstName = firstName;
@@ -39,6 +38,10 @@ public class Customer implements Entity2<Integer> {
         this.role = role;
     }
 
+    /**
+     * needed for the Mapper
+     * @return
+     */
     @Override
     public Integer getNaturalId() {
         return this.id;
@@ -49,6 +52,10 @@ public class Customer implements Entity2<Integer> {
         return this.id;
     }
 
+    /**
+     * needed for the Mapper
+     * @return
+     */
     @Override
     public String toString() {
         return "Customer{" + "id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email="
@@ -56,11 +63,20 @@ public class Customer implements Entity2<Integer> {
                 + ", role=" + role + '}';
     }
 
+    /**
+     * needed for the Mapper
+     * @param parts
+     * @return
+     */
     static Customer fromParts(Object[] parts) {
         return new Customer((Integer) parts[0], (String) parts[1], (String) parts[2], (String) parts[3], (String) parts[4], (String) parts[5],
                 (String) parts[6]);
     }
 
+    /**
+     * needed for the Mapper
+     * @return
+     */
     Object[] asParts() {
 
         return new Object[]{
