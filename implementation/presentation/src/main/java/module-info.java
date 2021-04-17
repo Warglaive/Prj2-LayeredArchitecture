@@ -1,10 +1,11 @@
 module com.flighttickets {
+    requires nl.fontys.sebidao;
+
     requires javafx.controls;
     requires javafx.fxml;
     requires java.sql;
     requires java.sql.rowset;
     requires ojdbc10;
-    requires nl.fontys.sebidao;
     requires org.postgresql.jdbc;
 
     exports com.flighttickets;
