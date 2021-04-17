@@ -10,6 +10,7 @@ import java.sql.SQLException;
 public class CustomerManagerImpl implements CustomerManager {
 
     //TODO: Add validator class to validate user input
+    //TODO: Add HashPassword method
     private CustomerStorageService customerStorageService;
 
     public void setCustomerStorageService(CustomerStorageService customerStorageService) {
