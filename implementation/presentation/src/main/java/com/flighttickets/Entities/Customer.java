@@ -51,7 +51,7 @@ public class Customer implements Entity2<Integer> {
 
     @Override
     public String toString() {
-        return "Customer{" + "firstName=" + firstName + ", lastName=" + lastName + ", email="
+        return "Customer{" + "id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email="
                 + email + ", password=" + password + ", address=" + address
                 + ", role=" + role + '}';
     }
@@ -64,6 +64,7 @@ public class Customer implements Entity2<Integer> {
     Object[] asParts() {
 
         return new Object[]{
+                this.id,
                 this.firstName,
                 this.lastName,
                 this.email,
