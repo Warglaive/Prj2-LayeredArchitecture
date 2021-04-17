@@ -26,8 +26,8 @@ public class App extends Application {
         primaryStage.setScene(scene);
         primaryStage.setTitle("Main view of Flights software");
         primaryStage.setResizable(true);
-        primaryStage.show();
-        PGDAO<Integer, Customer> customerDAO = pdaof.createDao(Customer.class);
+        primaryStage.show();/*
+        PGDAO<Integer, Customer> customerDAO = pdaof.createDao(Customer.class);*/
     }
 
     public static void setRoot(String fxml) throws IOException {
