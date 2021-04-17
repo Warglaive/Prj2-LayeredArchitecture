@@ -25,8 +25,8 @@ public class CustomerManagerImpl implements CustomerManager {
     }
 
     @Override
-    public Customer createCustomer(String firstName, String lastName, String email, String password, String address, String role) {
-        return new Customer(firstName, lastName, email, password, address, role);
+    public Customer createCustomer(int id, String firstName, String lastName, String email, String password, String address, String role) {
+        return new Customer(id, firstName, lastName, email, password, address, role);
     }
 
     //TODO: Why not void

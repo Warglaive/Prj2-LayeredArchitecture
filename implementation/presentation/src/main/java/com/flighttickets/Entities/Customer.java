@@ -29,7 +29,8 @@ public class Customer implements Entity2<Integer> {
      * @param role
      */
     //TODO: Encrypt and add validation to each
-    public Customer(String firstName, String lastName, String email, String password, String address, String role) {
+    public Customer(int id, String firstName, String lastName, String email, String password, String address, String role) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -50,13 +51,14 @@ public class Customer implements Entity2<Integer> {
 
     @Override
     public String toString() {
-        //TODO: Implement
-        throw new UnsupportedOperationException();
+        return "Customer{" + "firstName=" + firstName + ", lastName=" + lastName + ", email="
+                + email + ", password=" + password + ", address=" + address
+                + ", role=" + role + '}';
     }
 
     static Customer fromParts(Object[] parts) {
-        return new Customer((String) parts[0], (String) parts[1], (String) parts[2], (String) parts[3], (String) parts[4],
-                (String) parts[5]);
+        return new Customer((Integer) parts[0], (String) parts[1], (String) parts[2], (String) parts[3], (String) parts[4], (String) parts[5],
+                (String) parts[6]);
     }
 
     Object[] asParts() {
@@ -70,6 +72,7 @@ public class Customer implements Entity2<Integer> {
                 this.role
         };
     }
+
     /**
      * Getters and setters for each field
      */

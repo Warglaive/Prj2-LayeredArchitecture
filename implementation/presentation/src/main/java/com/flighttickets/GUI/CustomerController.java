@@ -111,7 +111,7 @@ public class CustomerController implements Initializable {
         String role = rolePickCheckBox.getValue();
 
         //register new Customer
-        Customer customer = this.customerManager.createCustomer(firstName, lastName, email, password, address, role);
+        Customer customer = this.customerManager.createCustomer(0,firstName, lastName, email, password, address, role);
         this.customerManager.add(customer);
         //send customer to Login view
         App.setRoot("login");

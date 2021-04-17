@@ -14,7 +14,7 @@ public interface CustomerManager {
      * @param role
      * @return Customer
      */
-    Customer createCustomer(String firstName, String lastName, String email, String password, String address, String role);
+    Customer createCustomer(int id,String firstName, String lastName, String email, String password, String address, String role);
 
     /**
      * @param customer
