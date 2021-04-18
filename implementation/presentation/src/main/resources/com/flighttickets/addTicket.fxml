@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="350.0" maxWidth="612.0" minHeight="350.0" minWidth="612.0" prefHeight="350.0" prefWidth="612.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.flighttickets.GUI.AddTicketController">
+   <children>
+      <Label alignment="CENTER" layoutX="-1.0" layoutY="36.0" prefHeight="81.0" prefWidth="612.0" text="Add tickets" textAlignment="CENTER">
+         <font>
+            <Font size="55.0" />
+         </font>
+      </Label>
+      <Label layoutX="54.0" layoutY="196.0" text="Start location" />
+      <Label layoutX="54.0" layoutY="235.0" text="End location" />
+      <Label layoutX="54.0" layoutY="269.0" text="Price" />
+      <TextField fx:id="startLocTbx" layoutX="146.0" layoutY="195.0" prefHeight="25.0" prefWidth="432.0" />
+      <TextField fx:id="endLocTbx" layoutX="146.0" layoutY="234.0" prefHeight="25.0" prefWidth="432.0" />
+      <TextField fx:id="priceTbx" layoutX="146.0" layoutY="268.0" prefHeight="25.0" prefWidth="432.0" />
+      <Button fx:id="AddBtn" layoutX="515.0" layoutY="311.0" mnemonicParsing="false" onAction="#AddBtnHandler" prefHeight="25.0" prefWidth="56.0" text="Add" />
+      <Label fx:id="startDateLbl" layoutX="54.0" layoutY="158.0" text="Start date" />
+      <Label fx:id="startTimeLbl" layoutX="325.0" layoutY="158.0" text="Start time " />
+      <TextField fx:id="startTimeTbx" layoutX="394.0" layoutY="154.0" prefHeight="25.0" prefWidth="183.0" promptText="00:00" />
+      <DatePicker fx:id="startDatePicker" layoutX="145.0" layoutY="154.0" prefHeight="25.0" prefWidth="177.0" />
+   </children>
+</AnchorPane>

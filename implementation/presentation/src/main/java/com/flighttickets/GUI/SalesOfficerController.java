@@ -23,8 +23,16 @@ public class SalesOfficerController {
     private Button registerFlightBtn;
 
     @FXML
+    private Button addTicketBtn;
+
+    @FXML
+    void addTicketScreen(ActionEvent event) {
+        openStage("addTicket", "Add ticket", 612, 350);
+    }
+
+    @FXML
     void editTicketScreen(ActionEvent event) {
-        openStage("editTicket");
+        openStage("editTicket", "Edit ticket", 802, 582);
     }
 
     @FXML
@@ -37,13 +45,13 @@ public class SalesOfficerController {
 
     }
 
-    void openStage(String name){
+    void openStage(String name, String title , int width, int height){
         Parent root;
         try {
             root = FXMLLoader.load(App.class.getResource(name+".fxml"));
             Stage stage = new Stage();
-            stage.setTitle("My New Stage Title");
-            stage.setScene(new Scene(root, 802, 582));
+            stage.setTitle(title);
+            stage.setScene(new Scene(root, width, height));
             stage.show();
         }
         catch (IOException e) {

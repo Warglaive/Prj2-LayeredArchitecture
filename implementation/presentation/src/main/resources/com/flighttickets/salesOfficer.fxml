@@ -21,7 +21,12 @@
             <Font size="13.0" />
          </font>
       </Button>
-      <Button fx:id="registerFlightBtn" layoutX="209.0" layoutY="268.0" mnemonicParsing="false" onAction="#registerFlightScreen" prefHeight="29.0" prefWidth="120.0" text="Register flight">
+      <Button fx:id="registerFlightBtn" layoutX="209.0" layoutY="315.0" mnemonicParsing="false" onAction="#registerFlightScreen" prefHeight="29.0" prefWidth="120.0" text="Register flight">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="addTicketBtn" layoutX="209.0" layoutY="268.0" mnemonicParsing="false" onAction="#addTicketScreen" prefHeight="29.0" prefWidth="120.0" text="Add ticket">
          <font>
             <Font size="13.0" />
          </font>
