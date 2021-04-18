@@ -5,4 +5,9 @@ public class PersistenceAPIImpl implements PersistenceAPI {
     public CustomerStorageService getCustomerStorageService() {
         return new CustomerStorageService();
     }
+
+    @Override
+    public FlightStorageService getFlightStorageService() {
+        return new FlightStorageService();
+    }
 }
