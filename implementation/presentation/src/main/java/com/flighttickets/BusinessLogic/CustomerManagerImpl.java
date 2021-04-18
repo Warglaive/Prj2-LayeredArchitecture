@@ -28,18 +28,19 @@ public class CustomerManagerImpl implements CustomerManager {
 
     @Override
     public Customer createCustomer(int id, String firstName, String lastName, String email, String password, String address, String role) {
+        //TODO: Validate each property of Customer and throw CUSTOM exception if something is wrong.
         return new Customer(id, firstName, lastName, email, password, address, role);
     }
 
     /**
      * pass Customer to StorageService to be added into the DB
+     *
      * @param customer
      * @throws SQLException
      * @throws ClassNotFoundException
      */
     @Override
     public void add(Customer customer) throws SQLException, ClassNotFoundException {
-        //TODO: Validate each property of Customer
         this.customerStorageService.insert(customer);
     }
 
@@ -51,6 +52,6 @@ public class CustomerManagerImpl implements CustomerManager {
     @FXML
     public Customer login(String email, String password) throws ClassNotFoundException {
         //TODO: Implement -JL
-        return this.customerStorageService.retrieve(email,password);
+        return this.customerStorageService.retrieve(email, password);
     }
 }
