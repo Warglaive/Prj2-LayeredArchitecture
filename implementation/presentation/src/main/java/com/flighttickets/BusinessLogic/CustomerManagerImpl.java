@@ -39,6 +39,7 @@ public class CustomerManagerImpl implements CustomerManager {
      */
     @Override
     public void add(Customer customer) throws SQLException, ClassNotFoundException {
+        //TODO: Validate each property of Customer
         this.customerStorageService.insert(customer);
     }
 
