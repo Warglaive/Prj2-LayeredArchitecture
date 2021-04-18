@@ -20,10 +20,7 @@ public class AddTicketController {
     private URL location;
 
     @FXML
-    private TextField startLocTbx;
-
-    @FXML
-    private TextField endLocTbx;
+    private TextField RouteTbx;
 
     @FXML
     private TextField priceTbx;
@@ -38,6 +35,9 @@ public class AddTicketController {
     private Label startTimeLbl;
 
     @FXML
+    private Label RouteLbl;
+
+    @FXML
     private TextField startTimeTbx;
 
     @FXML
@@ -45,8 +45,15 @@ public class AddTicketController {
 
     @FXML
     void AddBtnHandler(ActionEvent event) {
-        String startLocationStr = startLocTbx.getText();
-        String endLocationStr = endLocTbx.getText();
+        String routeStr = RouteTbx.getText();
+        try {
+            int route = Integer.parseInt(routeStr);
+        }
+        catch (NumberFormatException e){
+            System.out.println("Error: "+e);
+            //TODO: add error message for user
+        }
+
         String priceStr = priceTbx.getText();
 
         if(priceStr.contains("€")){
@@ -63,6 +70,7 @@ public class AddTicketController {
 
         String startTime = startTimeTbx.getText();
         //currently no time in db, no need to check if this is a time. Also won't use the variable further
+
 
 
         

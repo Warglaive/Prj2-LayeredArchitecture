@@ -14,11 +14,9 @@
             <Font size="55.0" />
          </font>
       </Label>
-      <Label layoutX="54.0" layoutY="196.0" text="Start location" />
-      <Label layoutX="54.0" layoutY="235.0" text="End location" />
+      <Label fx:id="RouteIdLbl" layoutX="47.0" layoutY="201.0" text="Route ID" />
       <Label layoutX="54.0" layoutY="269.0" text="Price" />
-      <TextField fx:id="startLocTbx" layoutX="146.0" layoutY="195.0" prefHeight="25.0" prefWidth="432.0" />
-      <TextField fx:id="endLocTbx" layoutX="146.0" layoutY="234.0" prefHeight="25.0" prefWidth="432.0" />
+      <TextField fx:id="RouteTbx" layoutX="146.0" layoutY="197.0" prefHeight="25.0" prefWidth="432.0" />
       <TextField fx:id="priceTbx" layoutX="146.0" layoutY="268.0" prefHeight="25.0" prefWidth="432.0" />
       <Button fx:id="AddBtn" layoutX="515.0" layoutY="311.0" mnemonicParsing="false" onAction="#AddBtnHandler" prefHeight="25.0" prefWidth="56.0" text="Add" />
       <Label fx:id="startDateLbl" layoutX="54.0" layoutY="158.0" text="Start date" />
