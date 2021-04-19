@@ -30,13 +30,13 @@ public class App extends Application {
         primaryStage.show();
 
 
-        // Use the provided data source
+      /*  // Use the provided data source
         PGDAOFactory pdaof = new PGDAOFactory(PGDataSource.DATA_SOURCE);
 
         // Register mappers for the classes in this app
         pdaof.registerMapper(Customer.class, new CustomerMapper());
         // get a dao (no transactions yet).
-        PGDAO<Integer, Customer> customerDAO = pdaof.createDao(Customer.class);
+        PGDAO<Integer, Customer> customerDAO = pdaof.createDao(Customer.class);*/
     }
 
     public static void setRoot(String fxml) throws IOException {
