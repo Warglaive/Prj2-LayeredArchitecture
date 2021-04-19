@@ -1,5 +1,6 @@
 package com.flighttickets.BusinessLogic;
 
+import com.flighttickets.BusinessLogic.Exceptions.InvalidInputException;
 import com.flighttickets.Entities.Customer;
 import com.flighttickets.Entities.CustomerManager;
 import com.flighttickets.Persistance.CustomerStorageService;
@@ -38,22 +39,31 @@ public class CustomerManagerImpl implements CustomerManager {
         boolean isEmailValid = this.inputValidator.isEmailValid(email);
         boolean isPasswordValid = this.inputValidator.isPasswordValid(password);
         boolean isAddressValid = this.inputValidator.isAddressValid(address);
-        //Add to string exception msg
+        boolean isAnyInvalid = false;
+        //Add to string exception msg for each of the invalid input arguments
         String exceptionMessage = "";
         if (!isFirstNameValid) {
             exceptionMessage += "Invalid first name!";
+            isAnyInvalid = true;
         }
         if (!isLastNameValid) {
             exceptionMessage = "Invalid last name!";
+            isAnyInvalid = true;
         }
         if (!isEmailValid) {
             exceptionMessage = "Invalid email address!";
+            isAnyInvalid = true;
         }
         if (!isPasswordValid) {
             exceptionMessage = "Invalid password!";
+            isAnyInvalid = true;
         }
         if (!isAddressValid) {
             exceptionMessage = "Invalid address";
+            isAnyInvalid = true;
+        }
+        if (isAnyInvalid) {
+            throw new InvalidInputException(exceptionMessage);
         }
         return new Customer(id, firstName, lastName, email, password, address, role);
 
