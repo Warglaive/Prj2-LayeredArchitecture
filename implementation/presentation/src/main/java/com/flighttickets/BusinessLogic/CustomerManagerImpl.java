@@ -48,13 +48,13 @@ public class CustomerManagerImpl implements CustomerManager {
     }
 
     public Customer getByEmail(String email) throws ClassNotFoundException {
-        //TODO: Implement
+        //TODO: Implement/See if its still needed - JL
         return null;
     }
 
     @FXML
     public Customer login(String email, String password) throws ClassNotFoundException {
-        //TODO: Implement -JL
+        //Retrieves customer from database based on email, password -JL
         return this.customerStorageService.retrieve(email, password);
     }
 }
