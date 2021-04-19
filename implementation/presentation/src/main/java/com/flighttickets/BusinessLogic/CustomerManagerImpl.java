@@ -66,7 +66,6 @@ public class CustomerManagerImpl implements CustomerManager {
             throw new InvalidInputException(exceptionMessage);
         }
         return new Customer(id, firstName, lastName, email, password, address, role);
-
     }
 
     /**
