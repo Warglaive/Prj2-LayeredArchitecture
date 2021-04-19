@@ -11,7 +11,7 @@ import java.util.Optional;
 
 public class CustomerStorageService {
 
-    PGDAO<Integer, Customer> customerDAO;
+    private final PGDAO<Integer, Customer> customerDAO;
 
     public CustomerStorageService() {
         // Use the provided data source
