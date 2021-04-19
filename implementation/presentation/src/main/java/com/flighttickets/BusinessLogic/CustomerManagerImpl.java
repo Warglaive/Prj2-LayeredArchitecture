@@ -10,11 +10,13 @@ import java.sql.SQLException;
 public class CustomerManagerImpl implements CustomerManager {
 
     //TODO: Add validator class to validate user input
+    RegisterInputValidator inputValidator;
     //TODO: Add HashPassword method
     private CustomerStorageService customerStorageService;
 
     public void setCustomerStorageService(CustomerStorageService customerStorageService) {
         this.customerStorageService = customerStorageService;
+        this.inputValidator = new RegisterInputValidatorImpl();
     }
 
     /**
@@ -29,6 +31,7 @@ public class CustomerManagerImpl implements CustomerManager {
     @Override
     public Customer createCustomer(int id, String firstName, String lastName, String email, String password, String address, String role) {
         //TODO: Validate each property of Customer and throw CUSTOM exception if something is wrong.
+        boolean isInputValid = this.inputValidator.isFirstNameValid(firstName);
         return new Customer(id, firstName, lastName, email, password, address, role);
     }
 
