@@ -31,7 +31,10 @@ public class CustomerManagerImpl implements CustomerManager {
     @Override
     public Customer createCustomer(int id, String firstName, String lastName, String email, String password, String address, String role) {
         //TODO: Validate each property of Customer and throw CUSTOM exception if something is wrong.
-        boolean isInputValid = this.inputValidator.isFirstNameValid(firstName);
+        boolean isFirstNameValid = this.inputValidator.isNameValid(firstName);
+        boolean isLastNameValid = this.inputValidator.isNameValid(lastName);
+        boolean isEmailValid = this.inputValidator.isEmailValid(email);
+        System.out.printf("reached");
         return new Customer(id, firstName, lastName, email, password, address, role);
     }
 

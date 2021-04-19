@@ -3,9 +3,8 @@ package com.flighttickets.BusinessLogic;
 import com.flighttickets.Entities.Customer;
 
 public interface RegisterInputValidator {
-    boolean isFirstNameValid(String firstName);
 
-    boolean isLastNameValid(String lastName);
+    boolean isNameValid(String name);
 
     boolean isEmailValid(String email);
 
