@@ -11,22 +11,28 @@ import java.util.Optional;
 
 public class CustomerStorageService {
 
-    /**
-     * Save a Customer object to the database using a DataAccessObject
-     * @param customer
-     */
-    public void insert(Customer customer) {
+    PGDAO<Integer, Customer> customerDAO;
+
+    public CustomerStorageService() {
         // Use the provided data source
         PGDAOFactory pdaof = new PGDAOFactory(PGDataSource.DATA_SOURCE);
 
         // Register mappers for the classes in this app
         pdaof.registerMapper(Customer.class, new CustomerMapper());
         // get a dao (no transactions yet).
-        PGDAO<Integer, Customer> customerDAO = pdaof.createDao(Customer.class);
-        customerDAO.save(customer);
+        this.customerDAO = pdaof.createDao(Customer.class);
     }
 
-    public Customer retrieve(String email, String password){
+    /**
+     * Save a Customer object to the database using a DataAccessObject
+     *
+     * @param customer
+     */
+    public void insert(Customer customer) {
+        this.customerDAO.save(customer);
+    }
+
+    public Customer retrieve(String email, String password) {
         PGDAOFactory pdaof = new PGDAOFactory(PGDataSource.DATA_SOURCE);
         pdaof.registerMapper(Customer.class, new CustomerMapper());
         PGDAO<Integer, Customer> customerDAO = pdaof.createDao(Customer.class);
