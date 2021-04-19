@@ -33,11 +33,7 @@ public class CustomerStorageService {
     }
 
     public Customer retrieve(String email, String password) {
-        PGDAOFactory pdaof = new PGDAOFactory(PGDataSource.DATA_SOURCE);
-        pdaof.registerMapper(Customer.class, new CustomerMapper());
-        PGDAO<Integer, Customer> customerDAO = pdaof.createDao(Customer.class);
-
-        Optional<Customer> c = customerDAO.get(1);
+        Optional<Customer> c = this.customerDAO.get(1);
         //TODO Query inserted above using customerDAO.anyQuery(here) - JL
         Customer toBeLoggedIn = c.get();
         //Customer toBeLoggedIn = new Customer(1,"jasper","lastname",email,password,"Mook", "SalesOfficer");
