@@ -29,7 +29,7 @@ name VARCHAR(255) not null,
 country VARCHAR(255) not null,
 city VARCHAR(255) not null );
 
-create table customer ( customer_id SERIAL primary key,
+create table customer ( id SERIAL primary key,
 firstName VARCHAR(255) not null,
 lastName VARCHAR(255) not null,
 email VARCHAR(255) not null,
@@ -43,7 +43,7 @@ password VARCHAR(255) not null,
 auth_level INTEGER );
 
 create table booking ( booking_id SERIAL primary key,
-customer_id INTEGER references customer(customer_id),
+customer_id INTEGER references customer(id),
 salesOfficer_id INTEGER references salesOfficer(salesOfficer_id),
 booking_date DATE not null );
 
