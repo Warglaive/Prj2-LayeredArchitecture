@@ -122,19 +122,21 @@ public class CustomerController implements Initializable {
         String loginEmail = emailTextBox.getText();
         String loginPassword = passwordTextBox.getText();
         //Take current user and pass it to the view
-        System.out.println("The customer received after logging in= "+ this.customerManager.login(loginEmail, loginPassword).toString());
-//        Customer loggedInCustomer = this.customerManager.login(loginEmail, loginPassword);
+        Customer loggedInCustomer = this.customerManager.login(loginEmail, loginPassword);
+        System.out.println("The customer received after logging in = "+ loggedInCustomer.getEmail() +" Role ="+ loggedInCustomer.getRole());
 
-
-//        if (loggedInCustomer.getLevel() == 2) {
-//            App.setRoot("salesOfficer");
-//        } else if (login.getLoginLevel(loginEmail, loginPassword) == 1) {
-//            //TODO create customer main menu - jl
-//            App.setRoot("editTicket");
-//        } else {
-//            //TODO Implement wrong username error thrown in fxml - jl
-//            App.setRoot("main");
-//        }
+        if (loggedInCustomer.getRole().equals("SalesOfficer")) {
+            App.setRoot("salesOfficer");
+        } else if (loggedInCustomer.getRole().equals("SalesEmployee")) {
+            //TODO create customer main menu - jl
+            App.setRoot("main");
+        } else if (loggedInCustomer.getRole().equals("Customer")) {
+            //TODO create customer main menu - jl
+            App.setRoot("main");
+        } else {
+            //TODO Implement wrong username error thrown in fxml - jl
+            App.setRoot("main");
+        }
     }
 
     /**
