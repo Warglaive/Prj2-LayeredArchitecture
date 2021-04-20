@@ -1,5 +1,8 @@
 package com.flighttickets.Entities;
 
+import com.flighttickets.BusinessLogic.Exceptions.InvalidInputException;
+import com.flighttickets.BusinessLogic.RegisterInputValidator;
+import com.flighttickets.BusinessLogic.RegisterInputValidatorImpl;
 import nl.fontys.sebivenlo.dao.Entity2;
 import nl.fontys.sebivenlo.dao.ID;
 
@@ -28,8 +31,8 @@ public class Customer implements Entity2<Integer> {
      * @param address
      * @param role
      */
-    //TODO: Maybe validate here, so it is NOT possible to create a Customer with invalid input?
     public Customer(int id, String firstName, String lastName, String email, String password, String address, String role) {
+        //No validation for input here, because it messes up the Mapping
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -41,6 +44,7 @@ public class Customer implements Entity2<Integer> {
 
     /**
      * needed for the Mapper
+     *
      * @return
      */
     @Override
@@ -55,6 +59,7 @@ public class Customer implements Entity2<Integer> {
 
     /**
      * needed for the Mapper
+     *
      * @return
      */
     @Override
@@ -66,6 +71,7 @@ public class Customer implements Entity2<Integer> {
 
     /**
      * needed for the Mapper
+     *
      * @param parts
      * @return
      */
@@ -76,6 +82,7 @@ public class Customer implements Entity2<Integer> {
 
     /**
      * needed for the Mapper
+     *
      * @return
      */
     Object[] asParts() {

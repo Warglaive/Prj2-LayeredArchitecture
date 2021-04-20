@@ -31,27 +31,31 @@ public class RegisterInputValidatorImpl implements RegisterInputValidator {
     }
 
     /**
-     * ^                                   # start of line
-     * (?=.*[0-9])                       # positive lookahead, digit [0-9]
-     * (?=.*[a-z])                       # positive lookahead, one lowercase character [a-z]
-     * (?=.*[A-Z])                       # positive lookahead, one uppercase character [A-Z]
-     * (?=.*[!@#&()–[{}]:;',?/*~$^+=<>]) # positive lookahead, one of the special character in this [..]
-     * .                                 # matches anything
-     * {8,20}                            # length at least 8 characters and maximum of 20 characters
-     * $                                   # end of line
+     * Be between 8 and 40 characters long
+     * Contain at least one digit.
+     * Contain at least one lower case character.
+     * Contain at least one upper case character.
+     * Contain at least on special character from [ @ # $ % ! . ].
      *
      * @param password
      * @return
      */
     @Override
     public boolean isPasswordValid(String password) {
-      /*  String regex = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}]:;',?/*~$^+=<>]).{8,20}$\n";
+        String regex = "((?=.*[a-z])(?=.*\\d)(?=.*[A-Z])(?=.*[@#$%!]).{8,40})";
         Pattern pattern = Pattern.compile(regex, Pattern.CASE_INSENSITIVE);
         Matcher matcher = pattern.matcher(password);
-        return matcher.find();*/
-        return true;
+        return matcher.find();
     }
 
+    /**
+     * must have space between strings(any strings)
+     * valid example: franciscannenstraat 10 - VALID
+     * invalid example: franciscanenstraat10 -INVALID
+     *
+     * @param address
+     * @return
+     */
     @Override
     public boolean isAddressValid(String address) {
         String regex = " [A-Za-z0-9'\\.\\-\\s\\,]";

@@ -9,24 +9,25 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class CustomerImplTest {
     @Test
-    void constructorTest() {
+    void customerValidationTest() {
         String firstName = "FName";
         String lastName = "LName";
         String email = "mail";
         String password = "pass";
         String address = "adr";
-        Customer customer = new CustomerImpl(firstName, lastName, email, password, address, 1);
-        assertThat(customer).as("customer object created properly").isExactlyInstanceOf(CustomerImpl.class);
+        Customer customer = new Customer(firstName, lastName, email, password, address);
+        assertThat(customer).as("customer object created properly").isExactlyInstanceOf(Customer.class);
     }
 
-    @Test
+*/
+/*    @Test
     void getCustomerEmailTest(){
         String firstName = "Jasper";
         String lastName = "Lamers";
         String email = "jasper@test.nl";
         String password = "test";
         String address = "Mook";
-        Customer customer = new CustomerImpl(firstName, lastName, email, password, address, 1);
+        Customer customer = new Customer(firstName, lastName, email, password, address, 1);
         assertThat(customer.getEmail()).as("Customer email received correctly").isEqualTo("jasper@test.nl");
     }
 
@@ -37,12 +38,12 @@ public class CustomerImplTest {
         String email = "jasper@test.nl";
         String password = "test";
         String address = "Mook";
-        Customer customer = new CustomerImpl(firstName, lastName, email, password, address, 1);
+        Customer customer = new Customer(firstName, lastName, email, password, address, 1);
         assertThat(customer.getLevel()).as("Level Test").isEqualTo(1);
-    }
+    }*//*
+
 */
-/*
-    @Test
+/*    @Test
     void loginCustomerTest(){
 //        String firstName = "Jasper";
 //        String lastName = "Lamers";
@@ -55,4 +56,6 @@ public class CustomerImplTest {
 
     }*//*
 
-}*/
+
+}
+*/
