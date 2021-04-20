@@ -26,8 +26,17 @@ public class RegisterInputValidatorImplTest {
         });
     }
 
-    @Test
-    public void isEmailValid() {
+    @ParameterizedTest
+    @CsvSource({"'user@domain.com' , '.username@yahoo.com'"
+            , "'user@domain.co.in', 'username@yahoo.com.'"
+            , "'user.name@domain.com', 'username@yahoo..com'"
+            , "'user_name@domain.com', 'username@yahoo.c'"
+            , "'username@yahoo.corporate.in', 'username@yahoo.corporate'"})
+    public void isEmailValid(String valid, String invalid) {
+        SoftAssertions.assertSoftly(s -> {
+            assertThat(this.validator.isEmailValid(valid)).as("valid input test").isTrue();
+            assertThat(this.validator.isEmailValid(invalid)).as("invalid input test").isFalse();
 
+        });
     }
 }
