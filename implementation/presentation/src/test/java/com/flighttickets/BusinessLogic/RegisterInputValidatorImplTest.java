@@ -21,8 +21,8 @@ public class RegisterInputValidatorImplTest {
     @CsvSource({"Tester , 5No"})
     public void isNameValidTest(String valid, String invalid) {
         SoftAssertions.assertSoftly(s -> {
-            assertThat(this.validator.isNameValid(valid)).as("valid input test").isTrue();
-            assertThat(this.validator.isNameValid(invalid)).as("invalid input test").isFalse();
+            assertThat(this.validator.isNameValid(valid)).as("valid name test").isTrue();
+            assertThat(this.validator.isNameValid(invalid)).as("invalid name test").isFalse();
         });
     }
 
@@ -34,9 +34,22 @@ public class RegisterInputValidatorImplTest {
             , "'username@yahoo.corporate.in', 'username@yahoo.corporate'"})
     public void isEmailValid(String valid, String invalid) {
         SoftAssertions.assertSoftly(s -> {
-            assertThat(this.validator.isEmailValid(valid)).as("valid input test").isTrue();
-            assertThat(this.validator.isEmailValid(invalid)).as("invalid input test").isFalse();
+            assertThat(this.validator.isEmailValid(valid)).as("valid email test").isTrue();
+            assertThat(this.validator.isEmailValid(invalid)).as("invalid email test").isFalse();
 
+        });
+    }
+
+    @ParameterizedTest
+    @CsvSource({"'n!k@sn1Kos' , 'n!k@s'"
+            , "'J@vaC0deG##ks', 'gregorymarjames-law'"
+            , "'n!k1abcD#!', ' abcdFg45*'"
+            , "'yR95Q@@mNT', 'n!koabcD#AX'"
+            , "'n6HPPUBx!LS', 'ABCASWF2'"})
+    public void isPasswordValid(String valid, String invalid) {
+        SoftAssertions.assertSoftly(s -> {
+            assertThat(this.validator.isPasswordValid(valid)).as("valid password test").isTrue();
+            assertThat(this.validator.isPasswordValid(invalid)).as("invalid password test").isFalse();
         });
     }
 }
