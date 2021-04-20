@@ -8,7 +8,6 @@ import nl.fontys.sebivenlo.dao.pg.PGDAO;
 import nl.fontys.sebivenlo.dao.pg.PGDAOFactory;
 
 import java.util.List;
-import java.util.Optional;
 
 public class CustomerStorageService {
 
@@ -37,16 +36,20 @@ public class CustomerStorageService {
         //Try to get an customer by its ID
         //Customer c = customerDAO.get(1).get();
         //TODO This works as soon as database name for customer_id is changed to customerid -JL
-        List<Customer> customerList = customerDAO.anyQuery("SELECT * FROM customer WHERE email= '"+email+"' and password= '"+password+"' ");
+        List<Customer> customerList = customerDAO.anyQuery("SELECT * FROM customer WHERE email= '" + email + "' and password= '" + password + "' ");
         //Test if an actual customer is found
         //System.out.println("The customers found is = " + customerList.size());
         //If statement looks if one customer is found. More customers by the same email or 0 customers will result in a fail
-        if(customerList.size() == 1) {
+        if (customerList.size() == 1) {
             return customerList.get(0);
         } else {
             System.out.println("No Customer found by that Email/Pass");
             //Implement error for user trying to login
             return null;
         }
+    }
+
+    public List<Customer> getAll() {
+        return this.customerDAO.getAll();
     }
 }
