@@ -3,6 +3,8 @@ package com.flighttickets.BusinessLogic;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -15,15 +17,21 @@ public class RegisterInputValidatorImplTest {
         this.validator = new RegisterInputValidatorImpl();
     }
 
-    @Test
-    public void isNameValidTest() {
+    @ParameterizedTest
+    @CsvSource({"Tester , 5No"})
+    public void isNameValidTest(String valid, String invalid) {
         String validName = "Tester";
         String invalidName = "55No";
 
 
         SoftAssertions.assertSoftly(s -> {
-            assertThat(this.validator.isNameValid(validName)).as("valid input test").isTrue();
-            assertThat(this.validator.isNameValid(invalidName)).as("invalid input test").isFalse();
+            assertThat(this.validator.isNameValid(valid)).as("valid input test").isTrue();
+            assertThat(this.validator.isNameValid(invalid)).as("invalid input test").isFalse();
         });
+    }
+
+    @Test
+    public void isEmailValid() {
+
     }
 }
