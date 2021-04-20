@@ -28,6 +28,7 @@ public class Customer implements Entity2<Integer> {
      * @param address
      * @param role
      */
+    //TODO: Maybe validate here?
     public Customer(int id, String firstName, String lastName, String email, String password, String address, String role) {
         this.id = id;
         this.firstName = firstName;
