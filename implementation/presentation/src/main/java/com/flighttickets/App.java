@@ -1,14 +1,11 @@
 package com.flighttickets;
 
 
-import com.flighttickets.Entities.Customer;
-import com.flighttickets.Entities.CustomerMapper;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import nl.fontys.sebivenlo.dao.pg.PGDAO;
 import nl.fontys.sebivenlo.dao.pg.PGDAOFactory;
 
 import java.io.IOException;
@@ -28,15 +25,6 @@ public class App extends Application {
         primaryStage.setTitle("Main view of Flights software");
         primaryStage.setResizable(true);
         primaryStage.show();
-
-
-      /*  // Use the provided data source
-        PGDAOFactory pdaof = new PGDAOFactory(PGDataSource.DATA_SOURCE);
-
-        // Register mappers for the classes in this app
-        pdaof.registerMapper(Customer.class, new CustomerMapper());
-        // get a dao (no transactions yet).
-        PGDAO<Integer, Customer> customerDAO = pdaof.createDao(Customer.class);*/
     }
 
     public static void setRoot(String fxml) throws IOException {
@@ -52,11 +40,4 @@ public class App extends Application {
         launch(args);
     }
 
-
-  /*  public static final PGDAOFactory pdaof() {
-        if (null == pdaof) {
-            pdaof = new PGDAOFactory(PGDataSource.DATA_SOURCE);
-        }
-        return pdaof;
-    }*/
 }
