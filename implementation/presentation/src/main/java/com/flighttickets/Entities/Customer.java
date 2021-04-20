@@ -28,7 +28,7 @@ public class Customer implements Entity2<Integer> {
      * @param address
      * @param role
      */
-    //TODO: Maybe validate here?
+    //TODO: Maybe validate here, so it is NOT possible to create a Customer with invalid input?
     public Customer(int id, String firstName, String lastName, String email, String password, String address, String role) {
         this.id = id;
         this.firstName = firstName;
