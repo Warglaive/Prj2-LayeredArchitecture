@@ -1,8 +1,5 @@
 package com.flighttickets.Entities;
 
-import com.flighttickets.BusinessLogic.Exceptions.InvalidInputException;
-import com.flighttickets.BusinessLogic.RegisterInputValidator;
-import com.flighttickets.BusinessLogic.RegisterInputValidatorImpl;
 import nl.fontys.sebivenlo.dao.Entity2;
 import nl.fontys.sebivenlo.dao.ID;
 
