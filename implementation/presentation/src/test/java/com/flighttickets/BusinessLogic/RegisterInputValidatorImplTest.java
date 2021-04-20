@@ -52,4 +52,14 @@ public class RegisterInputValidatorImplTest {
             assertThat(this.validator.isPasswordValid(invalid)).as("invalid password test").isFalse();
         });
     }
+
+    @ParameterizedTest
+    @CsvSource({"'franciscannenstraat 10' , 'franciscanenstraat10'",
+            "'caselstraat 99' , '65465465'"})
+    public void isAddressValid(String valid, String invalid) {
+        SoftAssertions.assertSoftly(s -> {
+            assertThat(this.validator.isAddressValid(valid)).as("valid address test").isTrue();
+            assertThat(this.validator.isAddressValid(invalid)).as("invalid address test").isFalse();
+        });
+    }
 }
