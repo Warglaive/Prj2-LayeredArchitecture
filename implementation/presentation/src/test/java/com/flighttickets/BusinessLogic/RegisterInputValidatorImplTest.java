@@ -20,10 +20,6 @@ public class RegisterInputValidatorImplTest {
     @ParameterizedTest
     @CsvSource({"Tester , 5No"})
     public void isNameValidTest(String valid, String invalid) {
-        String validName = "Tester";
-        String invalidName = "55No";
-
-
         SoftAssertions.assertSoftly(s -> {
             assertThat(this.validator.isNameValid(valid)).as("valid input test").isTrue();
             assertThat(this.validator.isNameValid(invalid)).as("invalid input test").isFalse();
