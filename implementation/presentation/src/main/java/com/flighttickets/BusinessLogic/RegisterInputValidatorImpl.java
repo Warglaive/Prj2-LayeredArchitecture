@@ -45,10 +45,11 @@ public class RegisterInputValidatorImpl implements RegisterInputValidator {
      */
     @Override
     public boolean isPasswordValid(String password) {
-        String regex = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}]:;',?/*~$^+=<>]).{8,20}$\n";
+      /*  String regex = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}]:;',?/*~$^+=<>]).{8,20}$\n";
         Pattern pattern = Pattern.compile(regex, Pattern.CASE_INSENSITIVE);
         Matcher matcher = pattern.matcher(password);
-        return matcher.find();
+        return matcher.find();*/
+        return true;
     }
 
     @Override
