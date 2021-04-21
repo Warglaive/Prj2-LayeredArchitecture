@@ -8,7 +8,7 @@ drop table if exists booking cascade;
 
 drop table if exists ticket cascade;
 
-drop table if exists users cascade;
+drop table if exists systemUser cascade;
 
 drop table if exists gate cascade;
 
@@ -21,6 +21,7 @@ drop table if exists route cascade;
 drop table if exists airport cascade;
 
 drop table if exists plane cascade;
+
 
 create table plane ( planeId SERIAL primary key,
 registration VARCHAR(255) not null,
@@ -39,7 +40,7 @@ create table gate (gateId SERIAL primary key,
 airportId INTEGER references airport(airportId),
 gateNumber varchar(255) );
 
-create table users ( userId SERIAL primary key,
+create table systemUser ( userId SERIAL primary key,
 firstName VARCHAR(255) not null,
 lastName VARCHAR(255) not null,
 email VARCHAR(255) not null,
@@ -48,8 +49,8 @@ address VARCHAR(255) null,
 role VARCHAR(255) not null );
 
 create table bookingrequest ( requestId SERIAL primary key,
-customerId INTEGER references users(userid),
-salesOfficerId INTEGER references users(userid),
+customerId INTEGER references systemUser(userid),
+salesOfficerId INTEGER references systemUser(userid),
 requestFrom VARCHAR(255) not null,
 requestTo VARCHAR(255) not null,
 departure DATE not null,
@@ -58,8 +59,8 @@ amountOfPassengers INTEGER not null,
 status VARCHAR(255) not null );
 
 create table booking ( bookingId SERIAL primary key,
-customerId INTEGER references users(userId),
-salesOfficerId INTEGER references users(userId),
+customerId INTEGER references systemUser(userId),
+salesOfficerId INTEGER references systemUser(userId),
 bookingDate DATE not null );
 
 create table passenger ( passengerId SERIAL primary key,
@@ -71,7 +72,7 @@ blackListed BOOLEAN not null );
 create table route ( routeId SERIAL primary key,
 start_airport INTEGER references airport(airportId),
 end_airport INTEGER references airport(airportId),
-plannerId INTEGER references users(userId) );
+plannerId INTEGER references systemUser(userId) );
 
 create table flight ( flightId SERIAL primary key,
 flightDate DATE not null,
