@@ -1,10 +1,16 @@
-drop table if exists customer cascade;
-
 drop table if exists salesOfficer cascade;
+
+drop table if exists Customer cascade;
+
+drop table if exists bookingrequest cascade;
 
 drop table if exists booking cascade;
 
 drop table if exists ticket cascade;
+
+drop table if exists users cascade;
+
+drop table if exists gate cascade;
 
 drop table if exists passenger cascade;
 
@@ -16,7 +22,7 @@ drop table if exists airport cascade;
 
 drop table if exists plane cascade;
 
-create table plane ( plane_id SERIAL primary key,
+create table plane ( planeId SERIAL primary key,
 registration VARCHAR(255) not null,
 brand VARCHAR(255) not null,
 type VARCHAR(255) not null,
@@ -24,12 +30,16 @@ seats_on_board INTEGER,
 extra_legroom_seats INTEGER,
 first_class_seats INTEGER );
 
-create table airport ( airport_id SERIAL primary key,
+create table airport ( airportId SERIAL primary key,
 name VARCHAR(255) not null,
 country VARCHAR(255) not null,
 city VARCHAR(255) not null );
 
-create table customer ( id SERIAL primary key,
+create table gate (gateId SERIAL primary key,
+airportId INTEGER references airport(airportId),
+gateNumber varchar(255) );
+
+create table users ( userId SERIAL primary key,
 firstName VARCHAR(255) not null,
 lastName VARCHAR(255) not null,
 email VARCHAR(255) not null,
@@ -37,32 +47,40 @@ password VARCHAR(255) not null,
 address VARCHAR(255) null,
 role VARCHAR(255) not null );
 
-create table salesOfficer ( salesOfficer_id SERIAL primary key,
-email VARCHAR(255) not null,
-password VARCHAR(255) not null,
-auth_level INTEGER );
+create table bookingrequest ( requestId SERIAL primary key,
+customerId INTEGER references users(userid),
+salesOfficerId INTEGER references users(userid),
+requestFrom VARCHAR(255) not null,
+requestTo VARCHAR(255) not null,
+departure DATE not null,
+return DATE not null,
+amountOfPassengers INTEGER not null,
+status VARCHAR(255) not null );
 
-create table booking ( booking_id SERIAL primary key,
-customer_id INTEGER references customer(id),
-salesOfficer_id INTEGER references salesOfficer(salesOfficer_id),
-booking_date DATE not null );
+create table booking ( bookingId SERIAL primary key,
+customerId INTEGER references users(userId),
+salesOfficerId INTEGER references users(userId),
+bookingDate DATE not null );
 
-create table passenger ( passenger_id SERIAL primary key,
+create table passenger ( passengerId SERIAL primary key,
 name VARCHAR(255) not null,
 travelDoc VARCHAR(255) not null,
-dob DATE not null );
+dob DATE not null,
+blackListed BOOLEAN not null );
 
-create table route ( route_id SERIAL primary key,
-start_airport INTEGER references airport(airport_id),
-end_airport INTEGER references airport(airport_id) );
+create table route ( routeId SERIAL primary key,
+start_airport INTEGER references airport(airportId),
+end_airport INTEGER references airport(airportId),
+plannerId INTEGER references users(userId) );
 
-create table flight ( flight_id SERIAL primary key,
-flight_date DATE not null,
-route_id INTEGER references route(route_id),
-plane_id INTEGER references plane(plane_id) );
+create table flight ( flightId SERIAL primary key,
+flightDate DATE not null,
+routeId INTEGER references route(routeId),
+planeId INTEGER references plane(planeId) );
 
-create table ticket ( ticket_id SERIAL primary key,
+create table ticket ( ticketId SERIAL primary key,
 price INTEGER,
-passenger_id INTEGER references passenger(passenger_id),
-booking_id INTEGER references booking(booking_id),
-flight_id INTEGER references flight(flight_id) );
+passengerId INTEGER references passenger(passengerId),
+bookingId INTEGER references booking(bookingId),
+flightId INTEGER references flight(flightId),
+status VARCHAR(255) not null );
