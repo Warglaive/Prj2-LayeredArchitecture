@@ -4,7 +4,7 @@
 | Actor | Customer |
 | Description | Customer Orders a Ticket|
 | Precondition |  Customer must be logged in|
-| NEW Scenario | 1. Customer selects time/date and destination/return for trip <br> 2. System sends request to sales officer. <br> 3. Sales officer returns offer with price and reserved seats <br>  4. System asks for Passport/Id code(s) together with date of birth <br> 5. Customer fills passport info and dob(s). <br>6. System asks for (fake)payment method <br> 7. System accepts (fake) payment. <br> 8. After acceptance system sends confirmation to customer with tickets/boardingpasses |
+| Scenario | 1. Customer selects time/date and destination/return for trip <br> 2. System sends request to sales officer. <br> 3. Sales officer returns offer with price and reserved seats <br>  4. System asks for Passport/Id code(s) together with date of birth <br> 5. Customer fills passport info and dob(s). <br>6. System asks for (fake)payment method <br> 7. System accepts (fake) payment. <br> 8. After acceptance system sends confirmation to customer with tickets/boardingpasses |
 | Result | Customer request and booked a ticket |
 | Exceptions |TBD  |
 | Extensions | N/A  |
@@ -26,7 +26,7 @@
 | Actor | Customer |
 | Description | Customer changes Ticket|
 | Precondition |  Customer must be logged in|
-| NewScenario | 1. Customer selects bookings in profile <br> 2. System shows bookings <br> 3. Customer selects specific booking <br> 4. System shows selected seats and tickets. <br> 5. Customer choses to change ticket(s). <br> 6. System shows gives option to change tickets. <br> 7. Customer changes tickets dates/seats/etc <br> 8. System calculates fees/discount for new ticket(s) <br> 9. Customer pays and accepts. <br> 10. System swaps tickets and sends confirmation |
+| Scenario | 1. Customer selects bookings in profile <br> 2. System shows bookings <br> 3. Customer selects specific booking <br> 4. System shows selected seats and tickets. <br> 5. Customer choses to change ticket(s). <br> 6. System shows gives option to change tickets. <br> 7. Customer changes tickets dates/seats/etc <br> 8. System calculates fees/discount for new ticket(s) <br> 9. Customer pays and accepts. <br> 10. System swaps tickets and sends confirmation |
 | Result |Customer changed a ticket |
 | Result |Customer changed a ticket |
 | Exceptions |TBD  |
