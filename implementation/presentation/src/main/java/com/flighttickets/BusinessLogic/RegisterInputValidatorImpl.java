@@ -17,7 +17,7 @@ public class RegisterInputValidatorImpl implements RegisterInputValidator {
 
     @Override
     public boolean isNameValid(String name) {
-        Pattern pattern = Pattern.compile("(?i)(^[a-z])((?![ .,'-]$)[a-z .,'-]){0,24}$", Pattern.CASE_INSENSITIVE);
+        Pattern pattern = Pattern.compile("(?i)(^[a-z])((?![ .,'-]$)[a-z .,'-]){0,24}$");
         Matcher matcher = pattern.matcher(name);
         return matcher.find();
     }
