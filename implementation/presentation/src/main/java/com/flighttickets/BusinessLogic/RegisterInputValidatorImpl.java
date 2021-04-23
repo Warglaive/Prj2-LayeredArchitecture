@@ -25,7 +25,7 @@ public class RegisterInputValidatorImpl implements RegisterInputValidator {
     @Override
     public boolean isEmailValid(String email) {
         String regex = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
-        Pattern pattern = Pattern.compile(regex, Pattern.CASE_INSENSITIVE);
+        Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(email);
         return matcher.find();
     }
@@ -43,7 +43,7 @@ public class RegisterInputValidatorImpl implements RegisterInputValidator {
     @Override
     public boolean isPasswordValid(String password) {
         String regex = "((?=.*[a-z])(?=.*\\d)(?=.*[A-Z])(?=.*[@#$%!]).{8,40})";
-        Pattern pattern = Pattern.compile(regex, Pattern.CASE_INSENSITIVE);
+        Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(password);
         return matcher.find();
     }
@@ -59,7 +59,7 @@ public class RegisterInputValidatorImpl implements RegisterInputValidator {
     @Override
     public boolean isAddressValid(String address) {
         String regex = " [A-Za-z0-9'\\.\\-\\s\\,]";
-        Pattern pattern = Pattern.compile(regex, Pattern.CASE_INSENSITIVE);
+        Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(address);
         return matcher.find();
     }
