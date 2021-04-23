@@ -111,7 +111,8 @@ public class CustomerController implements Initializable {
         String role = rolePickCheckBox.getValue();
 
         //register new Customer
-        Customer customer = this.customerManager.createCustomer(0,firstName, lastName, email, password, address, role);
+        //TODO: Catch exception and display message on the view
+        Customer customer = this.customerManager.createCustomer(0, firstName, lastName, email, password, address, role);
         this.customerManager.add(customer);
         //send customer to Login view
         App.setRoot("login");
@@ -123,7 +124,7 @@ public class CustomerController implements Initializable {
         String loginPassword = passwordTextBox.getText();
         //Take current user and pass it to the view
         Customer loggedInCustomer = this.customerManager.login(loginEmail, loginPassword);
-        System.out.println("The customer received after logging in = "+ loggedInCustomer.getEmail() +" Role ="+ loggedInCustomer.getRole());
+        System.out.println("The customer received after logging in = " + loggedInCustomer.getEmail() + " Role =" + loggedInCustomer.getRole());
 
         if (loggedInCustomer.getRole().equals("SalesOfficer")) {
             App.setRoot("salesOfficer");
