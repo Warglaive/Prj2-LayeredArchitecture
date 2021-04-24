@@ -8,7 +8,7 @@ package com.flighttickets.Persistance;
 
 public interface PersistenceAPI {
 
-    CustomerStorageService getCustomerStorageService();
+    SystemUserStorageService getSystemUserStorageService();
 
     FlightStorageService getFlightStorageService();
     // This interface can be extended with all services that need to be made

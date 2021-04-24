@@ -43,7 +43,7 @@ gateNumber varchar(255) );
 create table systemUser ( userId SERIAL primary key,
 firstName VARCHAR(255) not null,
 lastName VARCHAR(255) not null,
-email VARCHAR(255) not null,
+email VARCHAR(255) not null unique,
 password VARCHAR(255) not null,
 address VARCHAR(255) null,
 role VARCHAR(255) not null );

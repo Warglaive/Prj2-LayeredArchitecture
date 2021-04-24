@@ -1,7 +1,6 @@
 package com.flighttickets.BusinessLogic;
-
-import com.flighttickets.Entities.CustomerManager;
 import com.flighttickets.Entities.FlightManager;
+import com.flighttickets.Entities.SystemUserManager;
 import com.flighttickets.Persistance.PersistenceAPI;
 
 public class BusinessLogicAPIImpl implements BusinessLogicAPI {
@@ -21,10 +20,10 @@ public class BusinessLogicAPIImpl implements BusinessLogicAPI {
      * @return
      */
     @Override
-    public CustomerManager getCustomerManager() {
-        CustomerManagerImpl customerManager = new CustomerManagerImpl();
-        customerManager.setCustomerStorageService(this.persistenceAPI.getCustomerStorageService());
-        return customerManager;
+    public SystemUserManager getSystemUserManager() {
+        SystemUserManagerImpl systemUserManager = new SystemUserManagerImpl();
+        systemUserManager.setSystemUserStorageService(this.persistenceAPI.getSystemUserStorageService());
+        return systemUserManager;
     }
 
     @Override

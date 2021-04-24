@@ -3,7 +3,7 @@ package com.flighttickets.Entities;
 import nl.fontys.sebivenlo.dao.Entity2;
 import nl.fontys.sebivenlo.dao.ID;
 
-public class Customer implements Entity2<Integer> {
+public class SystemUser implements Entity2<Integer> {
 
     @ID(generated = true)
     int id;
@@ -28,7 +28,7 @@ public class Customer implements Entity2<Integer> {
      * @param address
      * @param role
      */
-    public Customer(int id, String firstName, String lastName, String email, String password, String address, String role) {
+    public SystemUser(int id, String firstName, String lastName, String email, String password, String address, String role) {
         //No validation for input here, because it messes up the Mapping
         this.id = id;
         this.firstName = firstName;
@@ -61,7 +61,7 @@ public class Customer implements Entity2<Integer> {
      */
     @Override
     public String toString() {
-        return "Customer{" + "id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email="
+        return "SystemUser{" + "id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email="
                 + email + ", password=" + password + ", address=" + address
                 + ", role=" + role + '}';
     }
@@ -72,8 +72,8 @@ public class Customer implements Entity2<Integer> {
      * @param parts
      * @return
      */
-    static Customer fromParts(Object[] parts) {
-        return new Customer((Integer) parts[0], (String) parts[1], (String) parts[2], (String) parts[3], (String) parts[4], (String) parts[5],
+    static SystemUser fromParts(Object[] parts) {
+        return new SystemUser((Integer) parts[0], (String) parts[1], (String) parts[2], (String) parts[3], (String) parts[4], (String) parts[5],
                 (String) parts[6]);
     }
 
@@ -143,7 +143,7 @@ public class Customer implements Entity2<Integer> {
     }
 
     public String getRole() {
-        return role;
+        return this.role;
     }
 
     public void setRole(String role) {

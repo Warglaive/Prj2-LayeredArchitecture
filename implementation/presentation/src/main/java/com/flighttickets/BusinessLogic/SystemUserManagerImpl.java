@@ -1,22 +1,22 @@
 package com.flighttickets.BusinessLogic;
 
 import com.flighttickets.BusinessLogic.Exceptions.InvalidInputException;
-import com.flighttickets.Entities.Customer;
-import com.flighttickets.Entities.CustomerManager;
-import com.flighttickets.Persistance.CustomerStorageService;
+import com.flighttickets.Entities.SystemUser;
+import com.flighttickets.Entities.SystemUserManager;
+import com.flighttickets.Persistance.SystemUserStorageService;
 import javafx.fxml.FXML;
 
 import java.sql.SQLException;
 
-public class CustomerManagerImpl implements CustomerManager {
+public class SystemUserManagerImpl implements SystemUserManager {
 
     //TODO: Add validator class to validate user input
     RegisterInputValidator inputValidator;
     //TODO: Add HashPassword method
-    private CustomerStorageService customerStorageService;
+    private SystemUserStorageService systemUserStorageService;
 
-    public void setCustomerStorageService(CustomerStorageService customerStorageService) {
-        this.customerStorageService = customerStorageService;
+    public void setSystemUserStorageService(SystemUserStorageService systemUserStorageService) {
+        this.systemUserStorageService = systemUserStorageService;
         this.inputValidator = new RegisterInputValidatorImpl();
     }
 
@@ -25,13 +25,13 @@ public class CustomerManagerImpl implements CustomerManager {
      *
      * @return
      */
-    public CustomerStorageService getCustomerStorageService() {
-        return customerStorageService;
+    public SystemUserStorageService getSystemUserStorageService() {
+        return systemUserStorageService;
     }
 
     @Override
-    public Customer createCustomer(int id, String firstName, String lastName, String email, String password, String address, String role) {
-        //TODO: Validate each property of Customer and throw CUSTOM exception if something is wrong.
+    public SystemUser createSystemUser(int id, String firstName, String lastName, String email, String password, String address, String role) {
+        //TODO: Validate each property of SystemUser and throw CUSTOM exception if something is wrong.
         //TODO: Make a array of boolean and throw exception for each isValid == false
 
         boolean isFirstNameValid = this.inputValidator.isNameValid(firstName);
@@ -65,29 +65,29 @@ public class CustomerManagerImpl implements CustomerManager {
         if (isAnyInvalid) {
             throw new InvalidInputException(exceptionMessage);
         }
-        return new Customer(id, firstName, lastName, email, password, address, role);
+        return new SystemUser(id, firstName, lastName, email, password, address, role);
     }
 
     /**
-     * pass Customer to StorageService to be added into the DB
+     * pass SystemUser to StorageService to be added into the DB
      *
-     * @param customer
+     * @param systemUser
      * @throws SQLException
      * @throws ClassNotFoundException
      */
     @Override
-    public void add(Customer customer) throws SQLException, ClassNotFoundException {
-        this.customerStorageService.insert(customer);
+    public void add(SystemUser systemUser) throws SQLException, ClassNotFoundException {
+        this.systemUserStorageService.insert(systemUser);
     }
 
-    public Customer getByEmail(String email) throws ClassNotFoundException {
+    public SystemUser getByEmail(String email) throws ClassNotFoundException {
         //TODO: Implement/See if its still needed - JL
         return null;
     }
 
     @FXML
-    public Customer login(String email, String password) throws ClassNotFoundException {
-        //Retrieves customer from database based on email, password -JL
-        return this.customerStorageService.retrieve(email, password);
+    public SystemUser login(String email, String password) throws ClassNotFoundException {
+        //Retrieves system user from database based on email, password -JL
+        return this.systemUserStorageService.retrieve(email, password);
     }
 }

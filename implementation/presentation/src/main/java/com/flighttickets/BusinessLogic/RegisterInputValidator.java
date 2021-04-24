@@ -1,7 +1,5 @@
 package com.flighttickets.BusinessLogic;
 
-import com.flighttickets.Entities.Customer;
-
 public interface RegisterInputValidator {
 
     boolean isNameValid(String name);

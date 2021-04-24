@@ -3,15 +3,12 @@ package com.flighttickets.GUI;
 import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.ResourceBundle;
 
 import com.flighttickets.BusinessLogic.BusinessLogicAPI;
 import com.flighttickets.BusinessLogic.BusinessLogicAPIImpl;
-import com.flighttickets.Entities.CustomerManager;
 import com.flighttickets.Entities.Flight;
 import com.flighttickets.Entities.FlightManager;
-import com.flighttickets.Persistance.CustomerStorageService;
 import com.flighttickets.Persistance.FlightStorageService;
 import com.flighttickets.Persistance.PersistenceAPI;
 import com.flighttickets.Persistance.PersistenceAPIImpl;

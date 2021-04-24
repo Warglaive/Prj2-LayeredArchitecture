@@ -3,11 +3,11 @@ package com.flighttickets.GUI;
 import com.flighttickets.App;
 import com.flighttickets.BusinessLogic.BusinessLogicAPI;
 import com.flighttickets.BusinessLogic.BusinessLogicAPIImpl;
-import com.flighttickets.Entities.Customer;
-import com.flighttickets.Entities.CustomerManager;
-import com.flighttickets.Persistance.CustomerStorageService;
+import com.flighttickets.Entities.SystemUser;
+import com.flighttickets.Entities.SystemUserManager;
 import com.flighttickets.Persistance.PersistenceAPI;
 import com.flighttickets.Persistance.PersistenceAPIImpl;
+import com.flighttickets.Persistance.SystemUserStorageService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -20,9 +20,11 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-import static com.flighttickets.App.pdaof;
+public class SystemUserController implements Initializable {
 
-public class CustomerController implements Initializable {
+    /**
+     * labels and fields
+     */
     @FXML
     private Label firstNameLabel;
 
@@ -56,6 +58,9 @@ public class CustomerController implements Initializable {
     @FXML
     private Label accountTypeLbl;
 
+    /**
+     * Buttons
+     */
     @FXML
     private Button registerButton;
 
@@ -66,10 +71,13 @@ public class CustomerController implements Initializable {
     private Button submitButton;
 
     @FXML
+    private Button loginBtn;
+
+    @FXML
     private ChoiceBox<String> rolePickCheckBox;
     BusinessLogicAPI businessLogicAPI;
 
-    CustomerManager customerManager;
+    SystemUserManager systemUserManager;
     PersistenceAPI persistenceAPI;
 
     /**
@@ -77,13 +85,13 @@ public class CustomerController implements Initializable {
      */
 
 
-    public CustomerController() {
+    public SystemUserController() {
         this.rolePickCheckBox = new ChoiceBox<>();
         this.persistenceAPI = new PersistenceAPIImpl();
         this.businessLogicAPI = new BusinessLogicAPIImpl(this.persistenceAPI);
 
-        this.customerManager = this.businessLogicAPI.getCustomerManager();
-        this.customerManager.setCustomerStorageService(new CustomerStorageService());
+        this.systemUserManager = this.businessLogicAPI.getSystemUserManager();
+        this.systemUserManager.setSystemUserStorageService(new SystemUserStorageService());
     }
 
 
@@ -112,8 +120,8 @@ public class CustomerController implements Initializable {
 
         //register new Customer
         //TODO: Catch exception and display message on the view
-        Customer customer = this.customerManager.createCustomer(0, firstName, lastName, email, password, address, role);
-        this.customerManager.add(customer);
+        SystemUser customer = this.systemUserManager.createSystemUser(0, firstName, lastName, email, password, address, role);
+        this.systemUserManager.add(customer);
         //send customer to Login view
         App.setRoot("login");
     }
@@ -123,15 +131,15 @@ public class CustomerController implements Initializable {
         String loginEmail = emailTextBox.getText();
         String loginPassword = passwordTextBox.getText();
         //Take current user and pass it to the view
-        Customer loggedInCustomer = this.customerManager.login(loginEmail, loginPassword);
-        System.out.println("The customer received after logging in = " + loggedInCustomer.getEmail() + " Role =" + loggedInCustomer.getRole());
+        SystemUser loggedInSystemUser = this.systemUserManager.login(loginEmail, loginPassword);
+        System.out.println("The customer received after logging in = " + loggedInSystemUser.getEmail() + " Role =" + loggedInSystemUser.getRole());
 
-        if (loggedInCustomer.getRole().equals("SalesOfficer")) {
+        if (loggedInSystemUser.getRole().equals("SalesOfficer")) {
             App.setRoot("salesOfficer");
-        } else if (loggedInCustomer.getRole().equals("SalesEmployee")) {
+        } else if (loggedInSystemUser.getRole().equals("SalesEmployee")) {
             //TODO create customer main menu - jl
             App.setRoot("main");
-        } else if (loggedInCustomer.getRole().equals("Customer")) {
+        } else if (loggedInSystemUser.getRole().equals("Customer")) {
             //TODO create customer main menu - jl
             App.setRoot("main");
         } else {
@@ -158,5 +166,8 @@ public class CustomerController implements Initializable {
         App.setRoot("main");
     }
 
-
+    @FXML
+    public void setRootRegister(ActionEvent actionEvent) throws IOException {
+        App.setRoot("register");
+    }
 }

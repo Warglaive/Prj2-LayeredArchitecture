@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="458.0" prefWidth="538.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.flighttickets.GUI.CustomerController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="458.0" prefWidth="538.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.flighttickets.GUI.SystemUserController">
     <children>
         <Label alignment="CENTER" layoutX="-1.0" layoutY="36.0" prefHeight="17.0" prefWidth="538.0" text="Register" textAlignment="CENTER">
             <font>
@@ -31,7 +31,7 @@
         <TextField fx:id="addressTextBox" layoutX="292.0" layoutY="309.0" promptText="Address" />
 
 
-        <Button fx:id="registerButton" layoutX="314.0" layoutY="391.0" mnemonicParsing="false" onAction="#handleRegister" prefHeight="25.0" prefWidth="92.0" text="Register" />
+        <Button fx:id="registerButton" layoutX="314.0" layoutY="391.0" mnemonicParsing="false" onAction="#handleRegister" prefHeight="25.0" prefWidth="92.0" text="Submit" />
         <Button fx:id="backBtn" layoutX="139.0" layoutY="391.0" mnemonicParsing="false" onAction="#backBtnHandler" text="Back" />
         <Button fx:id="loginBtn" layoutX="229.0" layoutY="391.0" mnemonicParsing="false" onAction="#loginBtnHandler" text="Login" />
         <PasswordField fx:id="passwordTextBox" layoutX="292.0" layoutY="263.0" promptText="password" />
