@@ -10,4 +10,9 @@ public class PersistenceAPIImpl implements PersistenceAPI {
     public FlightStorageService getFlightStorageService() {
         return new FlightStorageService();
     }
+
+    @Override
+    public BookingRequestStorageService getBookingRequestStorageService() {
+        return new BookingRequestStorageService();
+    }
 }

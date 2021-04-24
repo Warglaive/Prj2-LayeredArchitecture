@@ -11,6 +11,7 @@ public interface PersistenceAPI {
     SystemUserStorageService getSystemUserStorageService();
 
     FlightStorageService getFlightStorageService();
+    BookingRequestStorageService getBookingRequestStorageService();
     // This interface can be extended with all services that need to be made
     // available to the business logic, e.g. to store Products:
     //
