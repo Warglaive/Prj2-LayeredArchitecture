@@ -140,8 +140,7 @@ public class SystemUserController implements Initializable {
             //TODO create customer main menu - jl
             App.setRoot("main");
         } else if (loggedInSystemUser.getRole().equals("Customer")) {
-            //TODO create customer main menu - jl
-            App.setRoot("main");
+            App.setRoot("loggedInCustomer");
         } else {
             //TODO Implement wrong username error thrown in fxml - jl
             App.setRoot("main");
