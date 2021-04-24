@@ -4,7 +4,7 @@
 | Actor | Customer |
 | Description | Customer Orders a Booking|
 | Precondition |  Customer must be logged in|
-| Scenario | 1. Customer selects time/date and destination/return for trip <br> 2. System sends request to sales officer. <br> 3. Sales officer returns offer with price and reserved seats <br>  4. System asks for Passport/Id code(s) together with date of birth <br> 5. Customer fills passport info and dob(s). <br>6. System asks for (fake)payment method <br> 7. System accepts (fake) payment. <br> 8. After acceptance system sends confirmation to customer with tickets/boardingpasses |
+| Scenario | 1. Customer selects  trip time/date and destination and return date <br> 2. System sends request to sales officer. <br> 3. Sales officer returns offer with price and reserved seats <br>  4. System asks for Passport/Id code(s) together with date of birth <br> 5. Customer fills passport info and dob(s). <br>6. System asks for (fake)payment method <br> 7. System accepts (fake) payment. <br> 8. After acceptance system sends confirmation to customer with tickets/boardingpasses |
 | Result | Customer request and booked a ticket |
 | Exceptions |TBD  |
 | Extensions | N/A  |
