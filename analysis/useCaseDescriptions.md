@@ -9,7 +9,6 @@
 | Exceptions |TBD  |
 | Extensions | N/A  |
 
-## Customer
 | Name | Finalize an approved booking request|
 | --- | --- |
 | Actor | Customer |
@@ -20,7 +19,6 @@
 | Exceptions | Invalid documents, customer underaged, customer banned from flying |
 | Extensions | N/A  |
 
-## Customer
 | Name | Customer accesses Ticket |
 | --- | --- |
 | Actor | Customer |
@@ -32,7 +30,6 @@
 | Extensions | N/A  |
 |Booking | A (collection of) ticket(s)|
 
-## Customer
 | Name | Customer requests a ticket change from SalesOfficer |
 | --- | --- |
 | Actor | Customer |
@@ -44,7 +41,6 @@
 | Exceptions |TBD  |
 | Extensions | N/A  |
 
-## Customer
 | Name | Customer requests a ticket to be canceled from the SalesOfficer |
 | --- | --- |
 | Actor | Customer |
