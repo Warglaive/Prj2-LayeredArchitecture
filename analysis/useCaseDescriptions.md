@@ -66,13 +66,13 @@
 | Extensions | N/A  |
 
 ## Sales Officer
-| Name | Process Ticket requests |
+| Name | Approve booking request |
 | --- | --- |
 | Actor | Sales Officer |
-| Description | Sales Officer sells a ticket |
+| Description | Sales Officer approves a bookingRequest |
 | Precondition | Sales Officer must be logged in |
-| Scenario | 1. Sales Officer goes to the tickets section <br> 2. System shows all ticket request <br> 3. Sales Officer selects handle request <br> 4. System displays options for handeling a ticket request <br> 5. Sales Officer selects the requested ticket options and saves <br> 6. System accepts the request if dates are correct and returns to the tickets section |
-| Result | The ticket(s) are sold |
+| Scenario | 1. Sales Officer goes to the "view" booking request section <br> 2. System shows all booking requests <br> 3. Sales Officer selects a specific booking request <br> 4. System displays a specific view for the selected request with APPROVE/REJECT options <br> 5. Sales Officer approves the selected request and submits it <br> 6. System sets the status of the request to "approved" or isApproved to "true" |
+| Result | successfully approved booking request |
 | Exceptions | N/A |
 | Extensions | N/A |
 
