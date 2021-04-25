@@ -75,10 +75,10 @@ public class SystemUserController implements Initializable {
 
     @FXML
     private ChoiceBox<String> rolePickCheckBox;
-    BusinessLogicAPI businessLogicAPI;
+    private BusinessLogicAPI businessLogicAPI;
 
-    SystemUserManager systemUserManager;
-    PersistenceAPI persistenceAPI;
+    private SystemUserManager systemUserManager;
+    private PersistenceAPI persistenceAPI;
 
     /**
      * use BusinessLogicAPIImpl to create CustomerManager
