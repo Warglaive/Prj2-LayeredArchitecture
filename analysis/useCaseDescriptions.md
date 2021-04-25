@@ -1,4 +1,19 @@
 ## Customer
+| Name | Create a new Booking request|
+| --- | --- |
+| Actor | Customer |
+| Description | Customer creates a new booking request|
+| Precondition |  Customer must be logged in|
+| Scenario | 1. Customer selects departure date, return date, destination, passangers amount and submits the input<br> 2. System assignes the request to a sales officer who have lowest count of booking requests. |
+| Result | Customer request a booking |
+| Exceptions |TBD  |
+| Extensions | N/A  |
+
+
+
+
+//2
+
 | Name | Create a new Booking request (with accepted output)|
 | --- | --- |
 | Actor | Customer |
