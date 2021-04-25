@@ -1,11 +1,12 @@
 ## Customer
-| Name | Create a new Booking request |
+| Name | Create a new Booking request (with accepted output)|
 | --- | --- |
 | Actor | Customer |
 | Description | Customer Orders a Booking|
 | Precondition |  Customer must be logged in|
-| Scenario | 1. Customer selects  trip time/date and destination and return date <br> 2. System sends request to sales officer. <br> 3. Sales officer returns offer with price and reserved seats <br>  4. System asks for Passport/Id code(s) together with date of birth <br> 5. Customer fills passport info and dob(s). <br>6. System asks for (fake)payment method <br> 7. System accepts (fake) payment. <br> 8. After acceptance system sends confirmation to customer with tickets/boardingpasses |
-| Result | Customer request and booked a ticket |
+| Scenario | 1. Customer selects departure date, return date, destination, passangers amount and submits the input<br> 2. System sends request to sales officer. <br> 3. Sales officer reviews the request and accepts it <br>  4. System asks the customer for Passport/Id code(s) together with date of birth <br> 5. Customer fills passport info and date of birth and submits it. <br> 6. System checks if the customer age >= 18 and if so provides a view to select payment method and fill in info. <br> 7. System accepts payment. <br> 8. After acceptance system sends confirmation to customer with tickets/boardingpasses in PDF form |
+| Result | Customer request a booking and is approved by the salesOfficer |
+| TODO | Split into 2 useCaseDescriptions |
 | Exceptions |TBD  |
 | Extensions | N/A  |
 
