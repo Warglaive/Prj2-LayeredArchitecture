@@ -19,7 +19,7 @@ public class BookingRequest implements Entity2<Integer> {
      */
     private SystemUser customer;
     /**
-     * SalesOfficer 
+     * SalesOfficer to be set by SalesOfficer entity when action is performed(Accept/Reject)
      */
     private SystemUser salesOfficer;
 
