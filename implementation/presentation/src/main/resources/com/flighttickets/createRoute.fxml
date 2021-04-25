@@ -1,24 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TextField fx:id="startLocation" layoutX="51.0" layoutY="123.0" promptText="start from.." />
-      <TextField fx:id="endLocation" layoutX="396.0" layoutY="123.0" promptText="destination.." />
       <Text layoutX="236.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create new route">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Text>
       <Text layoutX="87.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="starting location:" />
-      <Text layoutX="422.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="destination: location" />
-      <Button fx:id="backButton" layoutX="213.0" layoutY="314.0" mnemonicParsing="false" onAction="#backHandler" text="Back" />
-      <Button fx:id="submitButton" layoutX="308.0" layoutY="314.0" mnemonicParsing="false" onAction="#createRouteHandler" text="Submit" />
+      <Text layoutX="422.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="destination location:" />
+      <Button fx:id="backButton" layoutX="216.0" layoutY="339.0" mnemonicParsing="false" onAction="#backHandler" text="Back" />
+      <Button fx:id="submitButton" layoutX="322.0" layoutY="339.0" mnemonicParsing="false" onAction="#createRouteHandler" text="Submit" />
+      <ListView fx:id="airportsListSt" layoutX="44.0" layoutY="114.0" onEditStart="#setAirportsListSt" prefHeight="185.0" prefWidth="195.0" />
+      <ListView fx:id="airportsListDest" layoutX="379.0" layoutY="114.0" onEditStart="#setAirportsListDest" prefHeight="185.0" prefWidth="195.0" />
    </children>
 </AnchorPane>

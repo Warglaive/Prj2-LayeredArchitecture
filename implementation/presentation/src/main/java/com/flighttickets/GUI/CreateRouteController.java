@@ -1,12 +1,15 @@
 package com.flighttickets.GUI;
 
 import com.flighttickets.App;
+import com.flighttickets.Entities.RouteManager;
+import com.flighttickets.PGDataSource;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import nl.fontys.sebivenlo.dao.pg.PGDAOFactory;
 
 import java.io.IOException;
 import java.net.URL;
@@ -15,39 +18,36 @@ import java.util.ResourceBundle;
 public class CreateRouteController implements Initializable {
 
     @FXML
-    private TextField startLocation;
+    private ListView airportsListSt;
 
     @FXML
-    private TextField endLocation;
-
+    private ListView airportsListDest;
     @FXML
     private Button backButton;
 
     @FXML
     private Button submitButton;
 
+    RouteManager routeManager;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
 
-    public boolean validate() {
-        if(startLocation.getText().isEmpty() || endLocation.getText().isEmpty() || startLocation.getText().length() < 3 || endLocation.getText().length() < 3){
-            return false;
-        } else {
-            return true;
-        }
+    private void setAirportsListSt(){
+        this.airportsListSt = (ListView) FXCollections.observableArrayList();
+        
+    }
+
+    private void setAirportsListDest(){
+        this.airportsListDest = (ListView) FXCollections.observableArrayList();
     }
 
     @FXML
     public void createRouteHandler(ActionEvent event) throws IOException {
-        String startPoint = startLocation.getText();
-        String endPoint = endLocation.getText();
-        /*
-        String route = startPoint + " to" + endPoint;
-        ObservableList<String> addRoute = FXCollections.observableArrayList();
-        addRoute.addAll(route);
-        */
+        this.airportsListSt.getSelectionModel().getSelectedItem();
+        this.airportsListDest.getSelectionModel().getSelectedItem();
     }
 
     @FXML

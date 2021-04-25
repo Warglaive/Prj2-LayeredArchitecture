@@ -1,50 +1,51 @@
 package com.flighttickets.GUI;
 
 import com.flighttickets.App;
+import com.flighttickets.PGDataSource;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import nl.fontys.sebivenlo.dao.pg.PGDAOFactory;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class RouteController implements Initializable {
+public class SetPlaneController implements Initializable {
+
+    @FXML
+    private ListView planesList;
+
+    @FXML
+    private Label selectedRouteLabel;
 
     @FXML
     private Button backButton;
 
     @FXML
-    private Button createRouteButton;
+    private Button SubmitButton;
 
-    @FXML
-    private Button setPlaneButton;
-
-    @FXML
-    private ListView routesList;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ObservableList<String> routes = FXCollections.observableArrayList();
-        routesList.setItems(routes);
+
     }
 
     @FXML
-    public void createRouteHandler(ActionEvent event) throws IOException {
-        App.setRoot("createRoute");
-    }
+    public void setPlanesList(){
 
-    @FXML
-    public void setPlaneHandler(ActionEvent event) throws IOException {
-        App.setRoot("setPlane");
     }
 
     @FXML
     public void backHandler(ActionEvent event) throws IOException {
-        App.setRoot("");
+        App.setRoot("createRoute");
     }
 
+    @FXML
+    public void submitHandler(){
+
+    }
 }
