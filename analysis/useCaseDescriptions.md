@@ -4,7 +4,7 @@
 | Actor | Customer |
 | Description | Customer creates a new booking request|
 | Precondition |  Customer must be logged in|
-| Scenario | 1. Customer selects departure date, return date, destination, passangers amount and submits the input<br> 2. System assignes the request to a sales officer who have lowest count of booking requests. |
+| Scenario | 1. Customer selects departure date, return date, destination, passangers amount and submits the input<br> 2. System inputs the request into the database. <br> 3. Customer is redirected to "View all booking requests" view. |
 | Result | Customer request a booking |
 | Exceptions |TBD  |
 | Extensions | N/A  |
@@ -79,7 +79,7 @@
 | Actor | Sales Officer |
 | Description | Sales Officer approves a bookingRequest |
 | Precondition | Sales Officer must be logged in |
-| Scenario | 1. Sales Officer goes to the "view" booking request section <br> 2. System shows all booking requests <br> 3. Sales Officer selects a specific booking request <br> 4. System displays a specific view for the selected request with APPROVE/REJECT options <br> 5. Sales Officer approves the selected request and submits it <br> 6. System sets the status of the request to "approved" or isApproved to "true" |
+| Scenario | 1. Sales Officer goes to the "view" booking request section <br> 2. System shows all booking requests <br> 3. Sales Officer selects a specific booking request <br> 4. System displays a specific view for the selected request with APPROVE/REJECT options <br> 5. Sales Officer approves the selected request and submits it <br> 6. System sets the status of the request to "approved" or isApproved to "true" <br> 7. System sets the Id of the SalesOfficer to the BookingRequest handled by him |
 | Result | successfully approved booking request |
 | Exceptions | N/A |
 | Extensions | N/A |
