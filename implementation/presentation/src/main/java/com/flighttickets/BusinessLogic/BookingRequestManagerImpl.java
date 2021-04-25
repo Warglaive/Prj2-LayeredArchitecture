@@ -3,6 +3,7 @@ package com.flighttickets.BusinessLogic;
 import com.flighttickets.Entities.BookingRequest;
 import com.flighttickets.Entities.BookingRequestManager;
 import com.flighttickets.Persistance.BookingRequestStorageService;
+import com.flighttickets.Persistance.SystemUserStorageService;
 
 public class BookingRequestManagerImpl implements BookingRequestManager {
 
@@ -14,6 +15,11 @@ public class BookingRequestManagerImpl implements BookingRequestManager {
     public BookingRequest createBookingRequest() {
         //:TODO: Implement
         return null;
+    }
+
+    @Override
+    public void setBookingRequestStorageService(SystemUserStorageService systemUserStorageService) {
+
     }
 
     public void setBookingRequestStorageService(BookingRequestStorageService bookingRequestStorageService) {
