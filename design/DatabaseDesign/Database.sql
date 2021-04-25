@@ -49,7 +49,7 @@ address VARCHAR(255) null,
 role VARCHAR(255) not null );
 
 create table bookingrequest ( id SERIAL primary key,
-customerId INTEGER references systemUser(id),
+customerId INTEGER references systemUser(id) not null,
 salesOfficerId INTEGER references systemUser(id),
 requestFrom VARCHAR(255) not null,
 requestTo VARCHAR(255) not null,
