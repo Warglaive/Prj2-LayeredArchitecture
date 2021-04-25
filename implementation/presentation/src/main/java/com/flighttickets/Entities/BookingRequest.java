@@ -5,13 +5,25 @@ import javafx.scene.control.DatePicker;
 import nl.fontys.sebivenlo.dao.Entity2;
 import nl.fontys.sebivenlo.dao.ID;
 
+import java.time.LocalDate;
+
 public class BookingRequest implements Entity2<Integer> {
     @ID
-    private Integer id;
+    int id;
+    private LocalDate departureDate;
+    private LocalDate returnDate;
+    private String departureDestination;
+    private String destination;
+    /**
+     * Only SystemUser with role == "Customer" can access this class.
+     */
+    private SystemUser customer;
+    /**
+     * SalesOfficer 
+     */
+    private SystemUser salesOfficer;
 
-    BookingRequest(){
 
-    }
     @Override
     public Integer getNaturalId() {
         return this.id;
