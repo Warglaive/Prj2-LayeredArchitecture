@@ -9,11 +9,8 @@ public class BookingRequest implements Entity2<Integer> {
     @ID
     private Integer id;
 
-    @FXML
-    private DatePicker departureDate;
-
     BookingRequest(){
-     this.departureDate.getValue();
+
     }
     @Override
     public Integer getNaturalId() {
