@@ -1,5 +1,7 @@
 package com.flighttickets.Persistance;
 
-public class BookingRequestStorageService {
+import com.flighttickets.Entities.BookingRequestManager;
 
+public class BookingRequestStorageService {
+    private BookingRequestManager bookingRequestManager;
 }
