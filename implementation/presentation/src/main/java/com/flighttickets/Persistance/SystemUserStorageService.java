@@ -35,6 +35,8 @@ public class SystemUserStorageService {
     }
 
     public SystemUser retrieve(String email, String password) {
+        this.systemUserDAO.get(1);
+
         //Try to get an SystemUser by its ID
         //SystemUser c = customerDAO.get(1).get();
         //TODO This works as soon as database name for customer_id is changed to customerid -JL

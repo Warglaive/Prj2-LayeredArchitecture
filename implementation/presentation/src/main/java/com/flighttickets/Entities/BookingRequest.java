@@ -41,7 +41,7 @@ public class BookingRequest implements Entity2<Integer> {
 
     @Override
     public int getId() {
-        return 0;
+        return this.id;
     }
 
     /**
