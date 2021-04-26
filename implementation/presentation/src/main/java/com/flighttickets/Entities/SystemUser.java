@@ -6,7 +6,7 @@ import nl.fontys.sebivenlo.dao.ID;
 public class SystemUser implements Entity2<Integer> {
 
     @ID(generated = true)
-    int id;
+    int systemuserId;
     /**
      * Fields to be used to encrypt pass, validate names etc.
      */
@@ -28,9 +28,9 @@ public class SystemUser implements Entity2<Integer> {
      * @param address
      * @param role
      */
-    public SystemUser(int id, String firstName, String lastName, String email, String password, String address, String role) {
+    public SystemUser(int systemuserId, String firstName, String lastName, String email, String password, String address, String role) {
         //No validation for input here, because it messes up the Mapping
-        this.id = id;
+        this.systemuserId = systemuserId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -46,12 +46,12 @@ public class SystemUser implements Entity2<Integer> {
      */
     @Override
     public Integer getNaturalId() {
-        return this.id;
+        return this.systemuserId;
     }
 
     @Override
     public int getId() {
-        return this.id;
+        return this.systemuserId;
     }
 
     /**
@@ -61,7 +61,7 @@ public class SystemUser implements Entity2<Integer> {
      */
     @Override
     public String toString() {
-        return "SystemUser{" + "id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email="
+        return "SystemUser{" + "id=" + systemuserId + ", firstName=" + firstName + ", lastName=" + lastName + ", email="
                 + email + ", password=" + password + ", address=" + address
                 + ", role=" + role + '}';
     }
@@ -85,7 +85,7 @@ public class SystemUser implements Entity2<Integer> {
     Object[] asParts() {
 
         return new Object[]{
-                this.id,
+                this.systemuserId,
                 this.firstName,
                 this.lastName,
                 this.email,
@@ -98,8 +98,8 @@ public class SystemUser implements Entity2<Integer> {
     /**
      * Getters and setters for each field
      */
-    public void setId(int id) {
-        this.id = id;
+    public void setSystemuserId(int systemuserId) {
+        this.systemuserId = systemuserId;
     }
 
     public String getFirstName() {

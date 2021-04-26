@@ -35,9 +35,8 @@ public class SystemUserStorageService {
     }
 
     public SystemUser retrieve(String email, String password) {
-        this.systemUserDAO.get(1);
-
         //Try to get an SystemUser by its ID
+        System.out.println( this.systemUserDAO.get(1).get().toString());
         //SystemUser c = customerDAO.get(1).get();
         //TODO This works as soon as database name for customer_id is changed to customerid -JL
         List<SystemUser> customerList = systemUserDAO.anyQuery("SELECT * FROM " + this.tableName + " WHERE email= '" + email + "' and password= '" + password + "' ");
