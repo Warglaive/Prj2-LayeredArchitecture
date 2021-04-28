@@ -13,6 +13,7 @@ public class RouteStorageService {
 
     private final PGDAO<Integer, Route> routeDAO;
     private final String tableName = "route";
+    private final String tableAirport = "airport";
 
 
     public RouteStorageService() {
@@ -26,6 +27,8 @@ public class RouteStorageService {
     }
 
     public Route getRouteNames(){
+        PGDAOFactory padof = new PGDAOFactory(PGDataSource.DATA_SOURCE);
+        List<Route> routesList = this.routeDAO.anyQuery("SELECT name FROM " + tableAirport);
         return null;
     }
 
