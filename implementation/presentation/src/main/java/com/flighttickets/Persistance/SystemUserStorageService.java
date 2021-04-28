@@ -37,7 +37,7 @@ public class SystemUserStorageService {
     public SystemUser retrieve(String email, String password) {
         //SystemUser c = customerDAO.get(1).get();
         //TODO This works as soon as database name for customer_id is changed to customerid -JL
-        List<SystemUser> customerList = systemUserDAO.anyQuery("SELECT * FROM systemUser WHERE email= '" + email + "' and password= '" + password + "' ");
+        List<SystemUser> customerList = systemUserDAO.anyQuery("SELECT * FROM "+ this.tableName +" WHERE email= '" + email + "' and password= '" + password + "' ");
         //Test if an actual SystemUser is found
         //System.out.println("The customers found is = " + customerList.size());
         //If statement looks if one SystemUser is found. More customers by the same email or 0 customers will result in a fail
