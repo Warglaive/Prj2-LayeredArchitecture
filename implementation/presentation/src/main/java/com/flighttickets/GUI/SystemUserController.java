@@ -104,7 +104,7 @@ public class SystemUserController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resources) {
         ObservableList<String> accountTypes = FXCollections.observableArrayList();
-        accountTypes.addAll("Customer", "SalesOfficer", "SalesEmployee");
+        accountTypes.addAll("Customer", "SalesOfficer", "SalesEmployee", "Planner");
         rolePickCheckBox.setItems(accountTypes);
     }
 
@@ -136,9 +136,9 @@ public class SystemUserController implements Initializable {
 
         if (loggedInSystemUser.getRole().equals("SalesOfficer")) {
             App.setRoot("salesOfficer");
-        } else if (loggedInSystemUser.getRole().equals("SalesEmployee")) {
+        } else if (loggedInSystemUser.getRole().equals("Planner")) {
             //TODO create customer main menu - jl
-            App.setRoot("main");
+            App.setRoot("currentRoutes");
         } else if (loggedInSystemUser.getRole().equals("Customer")) {
             App.setRoot("loggedInCustomer");
         } else {

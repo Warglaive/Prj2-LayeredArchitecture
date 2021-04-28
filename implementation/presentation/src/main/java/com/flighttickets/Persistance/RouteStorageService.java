@@ -4,6 +4,7 @@ import com.flighttickets.Entities.Route;
 import com.flighttickets.Entities.RouteMapper;
 import com.flighttickets.Entities.SystemUser;
 import com.flighttickets.PGDataSource;
+import javafx.collections.ObservableList;
 import nl.fontys.sebivenlo.dao.pg.PGDAO;
 import nl.fontys.sebivenlo.dao.pg.PGDAOFactory;
 
@@ -26,9 +27,9 @@ public class RouteStorageService {
         this.routeDAO = pdaof.createDao(Route.class);
     }
 
-    public Route getRouteNames(){
-        PGDAOFactory padof = new PGDAOFactory(PGDataSource.DATA_SOURCE);
-        List<Route> routesList = this.routeDAO.anyQuery("SELECT name FROM " + tableAirport);
+    public List<Route> getRoutes(int plannerId){
+        List<Route> routesList = this.routeDAO.anyQuery("SELECT * FROM route WHERE plannerId = 1");
+        System.out.println("Is the route found?" + routesList.get(0));
         return null;
     }
 

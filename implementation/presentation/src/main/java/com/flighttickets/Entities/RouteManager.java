@@ -1,6 +1,10 @@
 package com.flighttickets.Entities;
 
+import javafx.beans.Observable;
+import javafx.collections.ObservableList;
+
 import java.sql.SQLException;
+import java.util.List;
 
 public interface RouteManager {
     /**
@@ -22,5 +26,5 @@ public interface RouteManager {
      * @param plannerId
      * @return Route
      */
-    Route getByPlannerId(String plannerId) throws ClassNotFoundException;
+    List<Route> getByPlannerId(int plannerId);
 }

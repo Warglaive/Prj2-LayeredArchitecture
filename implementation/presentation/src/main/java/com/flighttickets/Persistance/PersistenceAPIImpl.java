@@ -15,4 +15,7 @@ public class PersistenceAPIImpl implements PersistenceAPI {
     public BookingRequestStorageService getBookingRequestStorageService() {
         return new BookingRequestStorageService();
     }
+
+    @Override
+    public RouteStorageService getRouteStorageService() { return new RouteStorageService();}
 }
