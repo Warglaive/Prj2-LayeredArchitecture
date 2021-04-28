@@ -1,5 +1,6 @@
 package com.flighttickets.Entities;
 
+import com.flighttickets.Persistance.RouteStorageService;
 import javafx.beans.Observable;
 import javafx.collections.ObservableList;
 
@@ -27,4 +28,6 @@ public interface RouteManager {
      * @return Route
      */
     List<Route> getByPlannerId(int plannerId);
+
+    void setRouteStorageService(RouteStorageService routeStorageService);
 }

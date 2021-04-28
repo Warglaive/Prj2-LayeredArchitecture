@@ -10,9 +10,9 @@ public class Route implements Entity2<Integer> {
     /**
      * Fields to be used to encrypt pass, validate names etc.
      */
-    private Integer start_airport;
-    private Integer end_airport;
-    private Integer plannerId;
+    private int start_airport;
+    private int end_airport;
+    private int plannerId;
 
     /**
      * create customer object

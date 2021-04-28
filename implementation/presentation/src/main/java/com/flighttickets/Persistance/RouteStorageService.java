@@ -28,9 +28,10 @@ public class RouteStorageService {
     }
 
     public List<Route> getRoutes(int plannerId){
-        List<Route> routesList = this.routeDAO.anyQuery("SELECT * FROM route WHERE plannerId = 1");
-        System.out.println("Is the route found?" + routesList.get(0));
-        return null;
+        List<Route> routeList = this.routeDAO.anyQuery("SELECT * FROM route WHERE plannerId = '"+plannerId+"'");
+        //result was found
+        System.out.println("Is a route found?" + routeList.get(0).toString());
+        return routeList;
     }
 
     /**
