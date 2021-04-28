@@ -25,6 +25,10 @@ public class RouteStorageService {
         this.routeDAO = pdaof.createDao(Route.class);
     }
 
+    public Route getRouteNames(){
+        return null;
+    }
+
     /**
      * Save a SystemUser object to the database using a DataAccessObject
      *

@@ -1,8 +1,10 @@
 package com.flighttickets.GUI;
 
 import com.flighttickets.App;
+import com.flighttickets.Entities.Route;
 import com.flighttickets.Entities.RouteManager;
 import com.flighttickets.PGDataSource;
+import com.flighttickets.Persistance.RouteStorageService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -18,10 +20,10 @@ import java.util.ResourceBundle;
 public class CreateRouteController implements Initializable {
 
     @FXML
-    private ListView airportsListSt;
+    private ListView<Route> airportsListSt;
 
     @FXML
-    private ListView airportsListDest;
+    private ListView<Route> airportsListDest;
     @FXML
     private Button backButton;
 
@@ -29,6 +31,7 @@ public class CreateRouteController implements Initializable {
     private Button submitButton;
 
     RouteManager routeManager;
+    RouteStorageService routeStorageService;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -36,12 +39,13 @@ public class CreateRouteController implements Initializable {
     }
 
     private void setAirportsListSt(){
-        this.airportsListSt = (ListView) FXCollections.observableArrayList();
-        
+        this.airportsListSt = (ListView<Route>) FXCollections.observableArrayList();
+        this.airportsListSt.setItems((ObservableList<Route>) routeStorageService.getAll());
     }
 
     private void setAirportsListDest(){
-        this.airportsListDest = (ListView) FXCollections.observableArrayList();
+        this.airportsListDest = (ListView<Route>) FXCollections.observableArrayList();
+        this.airportsListDest.setItems((ObservableList<Route>) routeStorageService.getAll());
     }
 
     @FXML
