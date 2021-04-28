@@ -33,7 +33,7 @@ public class RouteStorageService {
     }
 
     /**
-     * Save a SystemUser object to the database using a DataAccessObject
+     * Save of Route
      *
      * @param Route
      */
