@@ -139,7 +139,7 @@
 | Actor | Customer |
 | Description | Actor wants to register account |
 | Precondition | Actor does not have an account yet |
-| Scenario | 1.	Actor opens system <br> 2. Actor chooses to register a new account  <br> 3. System shows form to register a new customer <br> 4. System asks for customer data like a name, password and email address <br> 5. Customer enters name, password and email adress and clicks next <br> 6. System validates input if requirements(correct email adress,password with at least one uppercase letter, number, special character) is fulfilled <br> 7. System returns conformation of new registered account |
+| Scenario | 1.	Actor opens system <br> 2. Actor chooses to register a new account  <br> 3. System shows form to register a new customer <br> 4. System asks for customer data like a name, password and email address <br> 5. Customer enters name, password and email adress and clicks next <br> 6. System validates input if the following requirements are fulfilled: <ul><li>Users name only contains numbers and is 0 to 24 characters long</li><li>The email address contains an @ sign and a domain name</li><li>The password is between 8 and 40 characters long, has at least one lowercase and one uppercase letter, a number and a special character</li><li>the address has a space between the street name and house number</li></ul>7. System returns conformation of new registered account |
 | Result | Actor registered successfully|
 | Exceptions | 6. Actor has already an account, go back to step 3 <br> 6. Input is invalid, go back to step 3 |
 | Extensions | N/A |
