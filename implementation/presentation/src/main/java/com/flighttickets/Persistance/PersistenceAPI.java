@@ -1,5 +1,7 @@
 package com.flighttickets.Persistance;
 
+import com.flighttickets.Entities.Plane;
+
 /**
  * Facade that provides all persistence/storage services to the business logic.
  *
@@ -13,6 +15,7 @@ public interface PersistenceAPI {
     FlightStorageService getFlightStorageService();
     BookingRequestStorageService getBookingRequestStorageService();
     RouteStorageService getRouteStorageService();
+    PlaneStorageService getPlaneStorageService();
     // This interface can be extended with all services that need to be made
     // available to the business logic, e.g. to store Products:
     //

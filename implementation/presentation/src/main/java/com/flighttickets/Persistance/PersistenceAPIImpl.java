@@ -18,4 +18,7 @@ public class PersistenceAPIImpl implements PersistenceAPI {
 
     @Override
     public RouteStorageService getRouteStorageService() { return new RouteStorageService();}
+
+    @Override
+    public PlaneStorageService getPlaneStorageService() { return new PlaneStorageService();}
 }
