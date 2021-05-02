@@ -54,13 +54,12 @@ values (1, 1, 2, '04-26-2021');
 insert into booking 
 values (2, 1, 2, '07-19-2021');
 
---- travelDoc missing between name & dob
 insert into passenger 
-values (1, 'Max', '09-01-1999', false);
+values (1, 'Max', 'XN001930', '09-01-1999', false);
 insert into passenger 
-values (1, 'Martin', '28-05-1970', false);
+values (2, 'Martin', 'LM02940', '05-28-1970', false);
 insert into passenger 
-values (1, 'Gabriela', '11-12-2002', false);
+values (3, 'Gabriela', 'NL20942', '11-12-2002', false);
 
 insert into route 
 values (1, 1, 2, 1);
@@ -80,7 +79,6 @@ values (3, '06-15-2021', 3, 1);
 insert into flight 
 values (4, '06-02-2021', 4, 4);
 
---- working after passenger is corrected
 insert into ticket 
 values (1, 200, 1, 1, 1, 'economy');
 insert into ticket 
