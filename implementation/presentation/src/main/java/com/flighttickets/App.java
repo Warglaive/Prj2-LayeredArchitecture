@@ -2,6 +2,7 @@ package com.flighttickets;
 
 
 import com.flighttickets.BusinessLogic.BusinessLogicAPI;
+import com.flighttickets.GUI.SceneManager;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -16,9 +17,10 @@ import java.io.IOException;
  */
 public class App extends Application {
 
-    public static PGDAOFactory pdaof = null;
     private static Scene scene;
     private BusinessLogicAPI businessLogicAPI;
+    private SceneManager sceneManager;
+
 
     public App(BusinessLogicAPI businesslogicAPI) {
         this.businessLogicAPI = businesslogicAPI;
@@ -40,6 +42,9 @@ public class App extends Application {
     public static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();
+    }
+
+    public void show() {
     }
 
 
