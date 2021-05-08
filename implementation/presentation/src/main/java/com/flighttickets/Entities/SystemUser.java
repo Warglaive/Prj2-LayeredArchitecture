@@ -98,6 +98,12 @@ public class SystemUser implements Entity2<Integer> {
     /**
      * Getters and setters for each field
      */
+
+
+    public int getSystemUserId() {
+        return systemUserId;
+    }
+
     public void setSystemUserId(int systemUserId) {
         this.systemUserId = systemUserId;
     }
@@ -143,7 +149,7 @@ public class SystemUser implements Entity2<Integer> {
     }
 
     public String getRole() {
-        return this.role;
+        return role;
     }
 
     public void setRole(String role) {
