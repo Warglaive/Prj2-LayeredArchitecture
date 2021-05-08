@@ -36,7 +36,7 @@ public class SceneManager {
         }
     }
 
-    void displayOn(Stage stage, int width, int height) {
+    public void displayOn(Stage stage, int width, int height) {
         stage.setScene(scene);
         stage.setWidth( width );
         stage.setHeight( height );

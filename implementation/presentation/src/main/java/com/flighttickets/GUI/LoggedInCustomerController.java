@@ -14,6 +14,7 @@ import javafx.scene.control.TextField;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.function.Supplier;
 
 public class LoggedInCustomerController implements Initializable {
     /**
@@ -39,17 +40,12 @@ public class LoggedInCustomerController implements Initializable {
     /**
      *
      */
-    private BusinessLogicAPI businessLogicAPI;
-
+    private final Supplier<SceneManager> sceneManagerSupplier;
     private BookingRequestManager bookingRequestManager;
-    private PersistenceAPI persistenceAPI;
 
-    public LoggedInCustomerController() {
-        this.persistenceAPI = new PersistenceAPIImpl();
-        this.businessLogicAPI = new BusinessLogicAPIImpl(this.persistenceAPI);
-
-        this.bookingRequestManager = this.businessLogicAPI.getBookingRequestManager();
-        this.bookingRequestManager.setBookingRequestStorageService(new SystemUserStorageService(this.daoFactory));
+    public LoggedInCustomerController(Supplier<SceneManager> sceneManagerSupplier, BookingRequestManager bookingRequestManager) {
+        this.sceneManagerSupplier = sceneManagerSupplier;
+        this.bookingRequestManager = bookingRequestManager;
     }
 
     @Override

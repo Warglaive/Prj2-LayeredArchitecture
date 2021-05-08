@@ -1,3 +1,4 @@
+/*
 
 package com.flighttickets.GUI;
 
@@ -61,7 +62,8 @@ public class LoginController implements Initializable {
     void handleLogin(ActionEvent event) throws IOException {
         String userInpt = emailTbx.getText();
         String passInpt = passwordTbx.getText();
-        /*LoginImpl login = new LoginImpl();
+        */
+/*LoginImpl login = new LoginImpl();
 
         if(login.getLoginLevel(userInpt, passInpt) == 2){
             GUIApp.setRoot("salesOfficer");
@@ -71,7 +73,8 @@ public class LoginController implements Initializable {
         } else {
             //TODO Implement wrong username error thrown in fxml - jl
             GUIApp.setRoot("main");
-        }*/
+        }*//*
+
     }
 
     @FXML
@@ -80,3 +83,4 @@ public class LoginController implements Initializable {
     }
 }
 
+*/

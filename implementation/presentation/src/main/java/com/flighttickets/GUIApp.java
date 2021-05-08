@@ -2,6 +2,7 @@ package com.flighttickets;
 
 
 import com.flighttickets.BusinessLogic.BusinessLogicAPI;
+import com.flighttickets.GUI.MainController;
 import com.flighttickets.GUI.SceneManager;
 import com.flighttickets.GUI.SystemUserController;
 import javafx.application.Application;
@@ -23,14 +24,14 @@ public class GUIApp extends Application {
 
     private BusinessLogicAPI businessLogicAPI;
     private SceneManager sceneManager;
-    private static final String INITIAL_VIEW = "customerView";
+    private static final String INITIAL_VIEW = "main";
 
     private final Callback<Class<?>, Object> controllerFactory = (Class<?> c)
             -> {
 
         switch (c.getName()) {
             case "com.flighttickets.GUI.MainController":
-                return new SystemUserController(this::getSceneManager, businessLogicAPI.getSystemUserManager());
+                return new MainController(this::getSceneManager, businessLogicAPI.getSystemUserManager());
 
             default:
                 return null;
