@@ -26,6 +26,9 @@ public class GUIApp extends Application {
     private SceneManager sceneManager;
     private static final String INITIAL_VIEW = "main";
 
+    /**
+     * Add arguments for each Controller, EntityManager
+     */
     private final Callback<Class<?>, Object> controllerFactory = (Class<?> c)
             -> {
 
