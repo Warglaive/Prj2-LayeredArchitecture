@@ -12,7 +12,7 @@ public class BusinessLogicAPIImpl implements BusinessLogicImplementationProvider
 
     /**
      * assign PersistenceAPI on creation
-     * @param persistenceAPI
+     * @param persistenceAPI provide connection to the persistence layer
      */
     public BusinessLogicAPIImpl(PersistenceAPI persistenceAPI) {
         this.persistenceAPI = persistenceAPI;
@@ -21,7 +21,7 @@ public class BusinessLogicAPIImpl implements BusinessLogicImplementationProvider
     /**
      * Creates a customerManager
      *
-     * @return
+     * @return new customer manager
      */
     @Override
     public SystemUserManager getSystemUserManager() {
