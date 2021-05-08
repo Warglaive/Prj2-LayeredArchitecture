@@ -98,8 +98,8 @@ public class SystemUser implements Entity2<Integer> {
     /**
      * Getters and setters for each field
      */
-    public void setSystemuserId(int systemuserId) {
-        this.systemuserId = systemuserId;
+    public void setSystemUserId(int systemUserId) {
+        this.systemuserId = systemUserId;
     }
 
     public String getFirstName() {
