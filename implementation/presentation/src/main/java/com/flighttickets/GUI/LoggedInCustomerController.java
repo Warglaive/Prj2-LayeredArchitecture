@@ -3,7 +3,6 @@ package com.flighttickets.GUI;
 import com.flighttickets.BusinessLogic.BusinessLogicAPI;
 import com.flighttickets.BusinessLogic.BusinessLogicAPIImpl;
 import com.flighttickets.Entities.BookingRequestManager;
-import com.flighttickets.Entities.SystemUserManager;
 import com.flighttickets.Persistance.PersistenceAPI;
 import com.flighttickets.Persistance.PersistenceAPIImpl;
 import com.flighttickets.Persistance.SystemUserStorageService;
@@ -50,7 +49,7 @@ public class LoggedInCustomerController implements Initializable {
         this.businessLogicAPI = new BusinessLogicAPIImpl(this.persistenceAPI);
 
         this.bookingRequestManager = this.businessLogicAPI.getBookingRequestManager();
-        this.bookingRequestManager.setBookingRequestStorageService(new SystemUserStorageService());
+        this.bookingRequestManager.setBookingRequestStorageService(new SystemUserStorageService(this.daoFactory));
     }
 
     @Override

@@ -1,11 +1,12 @@
 package com.flighttickets.BusinessLogic;
+
 import com.flighttickets.Entities.BookingRequestManager;
 import com.flighttickets.Entities.FlightManager;
 import com.flighttickets.Entities.RouteManager;
 import com.flighttickets.Entities.SystemUserManager;
 import com.flighttickets.Persistance.PersistenceAPI;
 
-public class BusinessLogicAPIImpl implements BusinessLogicAPI {
+public class BusinessLogicAPIImpl implements BusinessLogicImplementationProvider, BusinessLogicAPI {
 
     final PersistenceAPI persistenceAPI;
 
@@ -19,6 +20,7 @@ public class BusinessLogicAPIImpl implements BusinessLogicAPI {
 
     /**
      * Creates a customerManager
+     *
      * @return
      */
     @Override

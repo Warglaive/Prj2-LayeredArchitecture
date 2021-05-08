@@ -91,7 +91,7 @@ public class SystemUserController implements Initializable {
         this.businessLogicAPI = new BusinessLogicAPIImpl(this.persistenceAPI);
 
         this.systemUserManager = this.businessLogicAPI.getSystemUserManager();
-        this.systemUserManager.setSystemUserStorageService(new SystemUserStorageService());
+        this.systemUserManager.setSystemUserStorageService(new SystemUserStorageService(this.daoFactory));
     }
 
 

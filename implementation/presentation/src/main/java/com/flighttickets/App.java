@@ -1,6 +1,7 @@
 package com.flighttickets;
 
 
+import com.flighttickets.BusinessLogic.BusinessLogicAPI;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -17,6 +18,11 @@ public class App extends Application {
 
     public static PGDAOFactory pdaof = null;
     private static Scene scene;
+    private BusinessLogicAPI businessLogicAPI;
+
+    public App(BusinessLogicAPI businesslogicAPI) {
+        this.businessLogicAPI = businesslogicAPI;
+    }
 
     @Override
     public void start(Stage primaryStage) throws IOException {
@@ -36,8 +42,10 @@ public class App extends Application {
         return fxmlLoader.load();
     }
 
-    public static void main(String[] args) {
-        launch(args);
-    }
+
+    /*public static void main(String[] args) {
+        //TODO: Make use of the controller rather than "Launch"
+        launch();
+    }*/
 
 }

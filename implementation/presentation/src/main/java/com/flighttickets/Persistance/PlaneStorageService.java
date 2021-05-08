@@ -16,7 +16,7 @@ public class PlaneStorageService {
         private final String tableName = "plane";
 
 
-        public PlaneStorageService() {
+        public PlaneStorageService(PGDAOFactory daoFactory) {
             // Use the provided data source
             PGDAOFactory pdaof = new PGDAOFactory(PGDataSource.DATA_SOURCE);
 
