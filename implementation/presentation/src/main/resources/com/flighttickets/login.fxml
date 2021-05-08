@@ -19,9 +19,9 @@
 
         <Button fx:id="loginBtn" layoutX="372.0" layoutY="310.0" mnemonicParsing="false" onAction="#handleLogin"
                 text="Submit"/>
-        <Button fx:id="registerButton" layoutX="239.0" layoutY="310.0" mnemonicParsing="false" onAction="#setRootRegister"
+        <Button fx:id="registerButton" layoutX="239.0" layoutY="310.0" mnemonicParsing="false" onAction="#viewRegister"
                 text="Register"/>
-        <Button fx:id="backBtn" layoutX="111.0" layoutY="310.0" mnemonicParsing="false" onAction="#backBtnHandler"
+        <Button fx:id="backBtn" layoutX="111.0" layoutY="310.0" mnemonicParsing="false" onAction="#viewMain"
                 text="Back"/>
         <PasswordField fx:id="passwordTextBox" layoutX="269.0" layoutY="217.0" promptText="password"/>
     </children>

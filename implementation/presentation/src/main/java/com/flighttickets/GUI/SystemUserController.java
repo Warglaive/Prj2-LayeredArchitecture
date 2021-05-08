@@ -101,7 +101,7 @@ public class SystemUserController implements Initializable {
     }
 
     @FXML
-    void handleRegister(ActionEvent event) throws IOException, SQLException, ClassNotFoundException {
+    void handleRegister() throws SQLException, ClassNotFoundException {
         //Get values from textBoxes
         String firstName = firstNameTextBox.getText();
         String lastName = lastNameTextBox.getText();
@@ -119,7 +119,7 @@ public class SystemUserController implements Initializable {
     }
 
     @FXML
-    void handleLogin(ActionEvent event) throws IOException, SQLException, ClassNotFoundException {
+    void handleLogin() throws ClassNotFoundException {
         String loginEmail = emailTextBox.getText();
         String loginPassword = passwordTextBox.getText();
         //Take current user and pass it to the view
@@ -147,23 +147,25 @@ public class SystemUserController implements Initializable {
      * button that sends the user to Login view from Register view
      */
     @FXML
-    void loginBtnHandler(ActionEvent event) throws IOException {
+    void viewLogin() {
         this.sceneManagerSupplier.get().changeScene("login");
     }
 
     /**
      * returns to "main" view
-     *
-     * @param event
-     * @throws IOException
      */
-    public void backBtnHandler(ActionEvent event) throws IOException {
+    public void viewMain() {
         this.sceneManagerSupplier.get().changeScene("main");
 
     }
 
+    /**
+     * return to register
+     *
+     * @throws IOException
+     */
     @FXML
-    public void setRootRegister(ActionEvent actionEvent) throws IOException {
+    public void viewRegister() {
         this.sceneManagerSupplier.get().changeScene("register");
 
     }
