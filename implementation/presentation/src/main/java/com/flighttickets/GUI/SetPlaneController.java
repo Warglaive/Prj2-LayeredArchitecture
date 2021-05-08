@@ -1,14 +1,10 @@
 package com.flighttickets.GUI;
 
-import com.flighttickets.App;
-import com.flighttickets.PGDataSource;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import com.flighttickets.GUIApp;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import nl.fontys.sebivenlo.dao.pg.PGDAOFactory;
 
 import java.io.IOException;
 import java.net.URL;
@@ -41,7 +37,7 @@ public class SetPlaneController implements Initializable {
 
     @FXML
     public void backHandler(ActionEvent event) throws IOException {
-        App.setRoot("createRoute");
+        GUIApp.setRoot("createRoute");
     }
 
     @FXML

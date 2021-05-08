@@ -2,12 +2,9 @@ package com.flighttickets.GUI;
 
 import java.io.IOException;
 
-import com.flighttickets.App;
+import com.flighttickets.GUIApp;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 
 public class MainController {
@@ -20,12 +17,12 @@ public class MainController {
 
     @FXML
     void showLogin(ActionEvent event) throws IOException {
-        App.setRoot("login");
+        GUIApp.setRoot("login");
     }
 
     @FXML
     void showRegister(ActionEvent event) throws IOException {
-        App.setRoot("register");
+        GUIApp.setRoot("register");
     }
 
 }

@@ -1,0 +1,86 @@
+package com.flighttickets;
+
+
+import com.flighttickets.BusinessLogic.BusinessLogicAPI;
+import com.flighttickets.GUI.SceneManager;
+import com.flighttickets.GUI.SystemUserController;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+import java.io.IOException;
+import javafx.application.Application;
+import javafx.stage.Stage;
+import java.io.IOException;
+import javafx.util.Callback;
+import javafx.application.Platform;
+/**
+ * JavaFX GUIApp
+ */
+public class GUIApp extends Application {
+
+    private BusinessLogicAPI businessLogicAPI;
+    private SceneManager sceneManager;
+    private static final String INITIAL_VIEW = "customerView";
+
+    private final Callback<Class<?>, Object> controllerFactory = (Class<?> c)
+            -> {
+
+        switch (c.getName()) {
+            case "com.flighttickets.GUI.MainController":
+                return new SystemUserController(this::getSceneManager, businessLogicAPI.getSystemUserManager());
+
+            default:
+                return null;
+        }
+    };
+
+    public GUIApp(BusinessLogicAPI businessLogicAPI) {
+        this.businessLogicAPI = businessLogicAPI;
+    }
+
+    public GUIApp show() {
+        return init(true);
+    }
+
+    GUIApp init(boolean startJavaFXToolkit) {
+
+        if (startJavaFXToolkit) {
+
+            Platform.startup(() -> {
+            });
+
+            initializeSceneManager();
+
+            Platform.runLater(() -> {
+                Stage stage = new Stage();
+                try {
+                    start(stage);
+                } catch (IOException ex) {
+                    throw new IllegalStateException(ex);
+                }
+            });
+
+        } else {
+            initializeSceneManager();
+        }
+
+        return this;
+    }
+
+    private void initializeSceneManager(){
+        sceneManager = new SceneManager(controllerFactory,INITIAL_VIEW);
+    }
+
+    @Override
+    public void start(Stage stage) throws IOException {
+        sceneManager.displayOn(stage, 640, 480);
+    }
+
+    public SceneManager getSceneManager() {
+        return sceneManager;
+    }
+
+}

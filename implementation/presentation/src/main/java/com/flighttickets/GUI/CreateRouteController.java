@@ -1,9 +1,8 @@
 package com.flighttickets.GUI;
 
-import com.flighttickets.App;
+import com.flighttickets.GUIApp;
 import com.flighttickets.Entities.Route;
 import com.flighttickets.Entities.RouteManager;
-import com.flighttickets.PGDataSource;
 import com.flighttickets.Persistance.RouteStorageService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -11,7 +10,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import nl.fontys.sebivenlo.dao.pg.PGDAOFactory;
 
 import java.io.IOException;
 import java.net.URL;
@@ -56,7 +54,7 @@ public class CreateRouteController implements Initializable {
 
     @FXML
     public void backButtonHandler(ActionEvent event) throws IOException {
-        App.setRoot("currentRoutes");
+        GUIApp.setRoot("currentRoutes");
     }
 
 }

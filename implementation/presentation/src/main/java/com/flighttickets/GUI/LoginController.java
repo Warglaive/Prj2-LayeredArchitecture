@@ -1,7 +1,7 @@
 
 package com.flighttickets.GUI;
 
-import com.flighttickets.App;
+import com.flighttickets.GUIApp;
 //import com.flighttickets.BusinessLogic.LoginImpl;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -47,7 +47,7 @@ public class LoginController implements Initializable {
 
     @FXML
     void handleBack(ActionEvent event) throws IOException{
-            App.setRoot("main");
+            GUIApp.setRoot("main");
     }
 
     @Override
@@ -64,19 +64,19 @@ public class LoginController implements Initializable {
         /*LoginImpl login = new LoginImpl();
 
         if(login.getLoginLevel(userInpt, passInpt) == 2){
-            App.setRoot("salesOfficer");
+            GUIApp.setRoot("salesOfficer");
         } else if(login.getLoginLevel(userInpt, passInpt) == 1) {
             //TODO create customer main menu - jl
-            App.setRoot("editTicket");
+            GUIApp.setRoot("editTicket");
         } else {
             //TODO Implement wrong username error thrown in fxml - jl
-            App.setRoot("main");
+            GUIApp.setRoot("main");
         }*/
     }
 
     @FXML
     void handleRegister(ActionEvent event) throws IOException {
-        App.setRoot("register");
+        GUIApp.setRoot("register");
     }
 }
 

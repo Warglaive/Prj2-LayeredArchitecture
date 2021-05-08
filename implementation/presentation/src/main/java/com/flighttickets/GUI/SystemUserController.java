@@ -1,6 +1,6 @@
 package com.flighttickets.GUI;
 
-import com.flighttickets.App;
+import com.flighttickets.GUIApp;
 import com.flighttickets.BusinessLogic.BusinessLogicAPI;
 import com.flighttickets.BusinessLogic.BusinessLogicAPIImpl;
 import com.flighttickets.Entities.SystemUser;
@@ -19,6 +19,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
+import java.util.function.Supplier;
 
 public class SystemUserController implements Initializable {
 
@@ -75,23 +76,20 @@ public class SystemUserController implements Initializable {
 
     @FXML
     private ChoiceBox<String> rolePickCheckBox;
-    private BusinessLogicAPI businessLogicAPI;
-
-    private SystemUserManager systemUserManager;
-    private PersistenceAPI persistenceAPI;
 
     /**
      * use BusinessLogicAPIImpl to create CustomerManager
      */
 
+    private final Supplier<SceneManager> sceneManagerSupplier;
+    private SystemUserManager systemUserManager;
 
-    public SystemUserController() {
+
+    public SystemUserController(Supplier<SceneManager> sceneManagerSupplier, SystemUserManager systemUserManager) {
         this.rolePickCheckBox = new ChoiceBox<>();
-        this.persistenceAPI = new PersistenceAPIImpl();
-        this.businessLogicAPI = new BusinessLogicAPIImpl(this.persistenceAPI);
 
-        this.systemUserManager = this.businessLogicAPI.getSystemUserManager();
-        this.systemUserManager.setSystemUserStorageService(new SystemUserStorageService(this.daoFactory));
+        this.sceneManagerSupplier = sceneManagerSupplier;
+        this.systemUserManager = systemUserManager;
     }
 
 
@@ -123,7 +121,7 @@ public class SystemUserController implements Initializable {
         SystemUser customer = this.systemUserManager.createSystemUser(0, firstName, lastName, email, password, address, role);
         this.systemUserManager.add(customer);
         //send customer to Login view
-        App.setRoot("login");
+        this.sceneManagerSupplier.get().changeScene("login");
     }
 
     @FXML
@@ -135,15 +133,19 @@ public class SystemUserController implements Initializable {
         System.out.println("The customer received after logging in = " + loggedInSystemUser.getEmail() + " Role =" + loggedInSystemUser.getRole());
 
         if (loggedInSystemUser.getRole().equals("SalesOfficer")) {
-            App.setRoot("salesOfficer");
+            this.sceneManagerSupplier.get().changeScene("salesOfficer");
+
         } else if (loggedInSystemUser.getRole().equals("Planner")) {
             //TODO create customer main menu - jl
-            App.setRoot("currentRoutes");
+            this.sceneManagerSupplier.get().changeScene("currentRoutes");
+
         } else if (loggedInSystemUser.getRole().equals("Customer")) {
-            App.setRoot("loggedInCustomer");
+            this.sceneManagerSupplier.get().changeScene("loggedInCustomer");
+
         } else {
             //TODO Implement wrong username error thrown in fxml - jl
-            App.setRoot("main");
+            this.sceneManagerSupplier.get().changeScene("main");
+
         }
     }
 
@@ -152,7 +154,7 @@ public class SystemUserController implements Initializable {
      */
     @FXML
     void loginBtnHandler(ActionEvent event) throws IOException {
-        App.setRoot("login");
+        this.sceneManagerSupplier.get().changeScene("login");
     }
 
     /**
@@ -162,11 +164,13 @@ public class SystemUserController implements Initializable {
      * @throws IOException
      */
     public void backBtnHandler(ActionEvent event) throws IOException {
-        App.setRoot("main");
+        this.sceneManagerSupplier.get().changeScene("main");
+
     }
 
     @FXML
     public void setRootRegister(ActionEvent actionEvent) throws IOException {
-        App.setRoot("register");
+        this.sceneManagerSupplier.get().changeScene("register");
+
     }
 }

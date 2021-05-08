@@ -1,6 +1,6 @@
 package com.flighttickets.GUI;
 
-import com.flighttickets.App;
+import com.flighttickets.GUIApp;
 import com.flighttickets.BusinessLogic.BusinessLogicAPI;
 import com.flighttickets.BusinessLogic.BusinessLogicAPIImpl;
 import com.flighttickets.Entities.Route;
@@ -58,17 +58,17 @@ public class RouteController implements Initializable {
 
     @FXML
     public void createRouteHandler(ActionEvent event) throws IOException {
-        App.setRoot("createRoute");
+        GUIApp.setRoot("createRoute");
     }
 
     @FXML
     public void setPlaneHandler(ActionEvent event) throws IOException {
-        App.setRoot("setPlane");
+        GUIApp.setRoot("setPlane");
     }
 
     @FXML
     public void backHandler(ActionEvent event) throws IOException {
-        App.setRoot("login");
+        GUIApp.setRoot("login");
     }
 
 }

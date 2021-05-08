@@ -1,6 +1,6 @@
 package com.flighttickets.GUI;
 
-import com.flighttickets.App;
+import com.flighttickets.GUIApp;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -48,7 +48,7 @@ public class SalesOfficerController {
     void openStage(String name, String title , int width, int height){
         Parent root;
         try {
-            root = FXMLLoader.load(App.class.getResource(name+".fxml"));
+            root = FXMLLoader.load(GUIApp.class.getResource(name+".fxml"));
             Stage stage = new Stage();
             stage.setTitle(title);
             stage.setScene(new Scene(root, width, height));

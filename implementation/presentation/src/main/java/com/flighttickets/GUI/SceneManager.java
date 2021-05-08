@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.flighttickets.App;
+import com.flighttickets.GUIApp;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -27,7 +27,7 @@ public class SceneManager {
     }
 
     private Parent loadScene(String fxml) {
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(GUIApp.class.getResource(fxml + ".fxml"));
         fxmlLoader.setControllerFactory(controllerFactory);
         try {
             return fxmlLoader.load();

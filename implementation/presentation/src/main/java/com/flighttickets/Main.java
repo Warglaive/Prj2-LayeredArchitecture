@@ -13,7 +13,7 @@ public class Main {
         PersistenceAPI persistenceAPI = PersistenceImplementationProvider.getImplementation(daoFactory);
         BusinessLogicAPI businesslogicAPI = BusinessLogicImplementationProvider.getImplementation(persistenceAPI);
 
-        new App(businesslogicAPI).show();
+        new GUIApp(businesslogicAPI).show();
 
     }
 }
