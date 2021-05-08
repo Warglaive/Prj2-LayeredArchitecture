@@ -6,7 +6,7 @@ import nl.fontys.sebivenlo.dao.ID;
 public class SystemUser implements Entity2<Integer> {
 
     @ID(generated = true)
-    int systemuserId;
+    int systemUserId;
     /**
      * Fields to be used to encrypt pass, validate names etc.
      */
@@ -28,9 +28,9 @@ public class SystemUser implements Entity2<Integer> {
      * @param address
      * @param role
      */
-    public SystemUser(int systemuserId, String firstName, String lastName, String email, String password, String address, String role) {
+    public SystemUser(int systemUserId, String firstName, String lastName, String email, String password, String address, String role) {
         //No validation for input here, because it messes up the Mapping
-        this.systemuserId = systemuserId;
+        this.systemUserId = systemUserId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -46,12 +46,12 @@ public class SystemUser implements Entity2<Integer> {
      */
     @Override
     public Integer getNaturalId() {
-        return this.systemuserId;
+        return this.systemUserId;
     }
 
     @Override
     public int getId() {
-        return this.systemuserId;
+        return this.systemUserId;
     }
 
     /**
@@ -61,7 +61,7 @@ public class SystemUser implements Entity2<Integer> {
      */
     @Override
     public String toString() {
-        return "SystemUser{" + "id=" + systemuserId + ", firstName=" + firstName + ", lastName=" + lastName + ", email="
+        return "SystemUser{" + "id=" + systemUserId + ", firstName=" + firstName + ", lastName=" + lastName + ", email="
                 + email + ", password=" + password + ", address=" + address
                 + ", role=" + role + '}';
     }
@@ -85,7 +85,7 @@ public class SystemUser implements Entity2<Integer> {
     Object[] asParts() {
 
         return new Object[]{
-                this.systemuserId,
+                this.systemUserId,
                 this.firstName,
                 this.lastName,
                 this.email,
@@ -99,7 +99,7 @@ public class SystemUser implements Entity2<Integer> {
      * Getters and setters for each field
      */
     public void setSystemUserId(int systemUserId) {
-        this.systemuserId = systemUserId;
+        this.systemUserId = systemUserId;
     }
 
     public String getFirstName() {
