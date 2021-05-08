@@ -11,17 +11,19 @@ import javafx.scene.control.Button;
 public class MainController {
     private final Supplier<SceneManager> sceneManagerSupplier;
     private SystemUserManager SystemUserManager;
-
-    public MainController(Supplier<SceneManager> sceneManagerSupplier, SystemUserManager SystemUserManager) {
-        this.sceneManagerSupplier = sceneManagerSupplier;
-        this.SystemUserManager = SystemUserManager;
-    }
-
     @FXML
     private Button loginBtn;
 
     @FXML
     private Button registerBtn;
+
+    public MainController(Supplier<SceneManager> sceneManagerSupplier, SystemUserManager SystemUserManager) {
+        this.loginBtn = new Button();
+        this.registerBtn = new Button();
+        this.sceneManagerSupplier = sceneManagerSupplier;
+        this.SystemUserManager = SystemUserManager;
+    }
+
 
     @FXML
     void showLogin(ActionEvent event) throws IOException {
