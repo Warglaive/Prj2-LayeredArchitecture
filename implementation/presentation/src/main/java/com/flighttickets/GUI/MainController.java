@@ -1,12 +1,11 @@
 package com.flighttickets.GUI;
 
-import java.io.IOException;
-import java.util.function.Supplier;
-
 import com.flighttickets.Entities.SystemUserManager;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+
+import java.io.IOException;
+import java.util.function.Supplier;
 
 public class MainController {
     private final Supplier<SceneManager> sceneManagerSupplier;

@@ -3,7 +3,6 @@ package com.flighttickets.Persistance;
 
 import com.flighttickets.Entities.Plane;
 import com.flighttickets.Entities.PlaneMapper;
-import com.flighttickets.Entities.Route;
 import com.flighttickets.PGDataSource;
 import nl.fontys.sebivenlo.dao.pg.PGDAO;
 import nl.fontys.sebivenlo.dao.pg.PGDAOFactory;

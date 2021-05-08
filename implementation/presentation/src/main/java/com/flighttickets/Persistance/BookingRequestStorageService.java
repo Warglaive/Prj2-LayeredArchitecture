@@ -1,6 +1,5 @@
 package com.flighttickets.Persistance;
 
-import com.flighttickets.Entities.BookingRequestManager;
 import nl.fontys.sebivenlo.dao.pg.PGDAOFactory;
 
 public class BookingRequestStorageService {

@@ -6,17 +6,12 @@ import com.flighttickets.GUI.MainController;
 import com.flighttickets.GUI.SceneManager;
 import com.flighttickets.GUI.SystemUserController;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.application.Platform;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 
 import java.io.IOException;
-import javafx.application.Application;
-import javafx.stage.Stage;
-import java.io.IOException;
-import javafx.util.Callback;
-import javafx.application.Platform;
+
 /**
  * JavaFX GUIApp
  */

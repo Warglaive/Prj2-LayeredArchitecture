@@ -1,13 +1,7 @@
 package com.flighttickets.GUI;
 
-import com.flighttickets.GUIApp;
-import com.flighttickets.BusinessLogic.BusinessLogicAPI;
-import com.flighttickets.BusinessLogic.BusinessLogicAPIImpl;
 import com.flighttickets.Entities.SystemUser;
 import com.flighttickets.Entities.SystemUserManager;
-import com.flighttickets.Persistance.PersistenceAPI;
-import com.flighttickets.Persistance.PersistenceAPIImpl;
-import com.flighttickets.Persistance.SystemUserStorageService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;

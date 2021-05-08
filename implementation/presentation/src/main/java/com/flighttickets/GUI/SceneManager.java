@@ -1,15 +1,15 @@
 package com.flighttickets.GUI;
 
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-
 import com.flighttickets.GUIApp;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.util.Callback;
+
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class SceneManager {
 

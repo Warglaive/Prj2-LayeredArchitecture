@@ -1,7 +1,5 @@
 package com.flighttickets.Persistance;
 
-import com.flighttickets.Entities.Plane;
-
 /**
  * Facade that provides all persistence/storage services to the business logic.
  *
