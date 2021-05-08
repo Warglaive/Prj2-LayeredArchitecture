@@ -34,7 +34,7 @@ public class GUIApp extends Application {
                 return new MainController(this::getSceneManager, businessLogicAPI.getSystemUserManager());
 
             default:
-                return null;
+                return new SystemUserController(this::getSceneManager, businessLogicAPI.getSystemUserManager());
         }
     };
 

@@ -26,12 +26,12 @@ public class MainController {
 
 
     @FXML
-    void showLogin(ActionEvent event) throws IOException {
+    void showLogin() throws IOException {
         this.sceneManagerSupplier.get().changeScene("login");
     }
 
     @FXML
-    void showRegister(ActionEvent event) throws IOException {
+    void showRegister() throws IOException {
         this.sceneManagerSupplier.get().changeScene("register");
     }
 
