@@ -1,12 +1,11 @@
 package com.flighttickets.Persistance;
 
-import com.flighttickets.Entities.Airport;
-import com.flighttickets.Entities.AirportMapper;
-import com.flighttickets.Entities.Plane;
-import com.flighttickets.Entities.PlaneMapper;
+import com.flighttickets.Entities.*;
 import com.flighttickets.PGDataSource;
 import nl.fontys.sebivenlo.dao.pg.PGDAO;
 import nl.fontys.sebivenlo.dao.pg.PGDAOFactory;
+
+import java.util.List;
 
 public class AirportStorageService {
 
@@ -23,4 +22,25 @@ public class AirportStorageService {
         // get a dao (no transactions yet).
         this.airportDAO = pdaof.createDao(Airport.class);
     }
+
+    public List<Airport> getAirport(int airportId) {
+        List<Airport> airportsList = this.airportDAO.anyQuery("SELECT * FROM " + this.tableName);
+        //result was found
+        System.out.println("Is a airport found?" + airportsList.get(0).toString());
+        return airportsList;
+    }
+
+    /**
+     * Save of Airport
+     *
+     * @param Airport
+     */
+    public void insert(Airport Airport) {
+        this.airportDAO.save(Airport);
+    }
+
+    public List<Airport> getAll() {
+        return this.airportDAO.getAll();
+    }
+
 }

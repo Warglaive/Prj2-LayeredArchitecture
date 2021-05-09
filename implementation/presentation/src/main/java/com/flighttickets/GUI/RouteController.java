@@ -5,7 +5,6 @@ import com.flighttickets.BusinessLogic.BusinessLogicAPI;
 import com.flighttickets.BusinessLogic.BusinessLogicAPIImpl;
 import com.flighttickets.Entities.Route;
 import com.flighttickets.Entities.RouteManager;
-import com.flighttickets.Entities.SystemUserManager;
 import com.flighttickets.Persistance.PersistenceAPI;
 import com.flighttickets.Persistance.PersistenceAPIImpl;
 import com.flighttickets.Persistance.RouteStorageService;
@@ -59,7 +58,8 @@ public class RouteController implements Initializable {
 
     @FXML
     public void createRouteHandler(ActionEvent event) throws IOException {
-        App.setRoot("createRoute");
+
+        //App.setRoot("createRoute");
     }
 
     @FXML

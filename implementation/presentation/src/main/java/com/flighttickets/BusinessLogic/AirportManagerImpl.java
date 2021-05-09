@@ -17,15 +17,21 @@ public class AirportManagerImpl implements AirportManager {
         this.airportStorageService = airportStorageService;
     }
 
-    public Airport createAirport
+    public AirportStorageService getAirportStorageService() {
+        return this.airportStorageService;
+    }
+
+    public Airport createAirport(int id, String name, String country, String city){
+        return new Airport(id, name, country, city);
+    }
 
     @Override
     public void add(Airport airport) throws SQLException, ClassNotFoundException {
         this.airportStorageService.insert(airport);
     }
 
-    @Override
-    public List<Route> getByPlaneId(int airportId) {
-        return null;
+    //@Override
+    public List<Airport> getByAirportId(int airportId) {
+        return this.airportStorageService.getAirport(airportId);
     }
 }

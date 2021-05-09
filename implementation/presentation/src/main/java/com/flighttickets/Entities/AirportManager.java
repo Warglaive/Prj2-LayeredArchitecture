@@ -25,7 +25,7 @@ public interface AirportManager {
      * @param airportId
      * @return Airport
      */
-    List<Route> getByPlaneId(int airportId);
+    List<Airport> getByAirportId(int airportId);
 
     void setAirportStorageService(AirportStorageService airportStorageService);
 }

@@ -1,7 +1,10 @@
 package com.flighttickets.GUI;
 
 import com.flighttickets.App;
+import com.flighttickets.Entities.Plane;
+import com.flighttickets.Entities.Route;
 import com.flighttickets.PGDataSource;
+import com.flighttickets.Persistance.PlaneStorageService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -28,6 +31,7 @@ public class SetPlaneController implements Initializable {
     @FXML
     private Button SubmitButton;
 
+    PlaneStorageService planeStorageService;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -36,7 +40,8 @@ public class SetPlaneController implements Initializable {
 
     @FXML
     public void setPlanesList(){
-
+        this.planesList = (ListView<Route>) FXCollections.observableArrayList();
+        this.planesList.setItems((ObservableList<Plane>) planeStorageService.getAll());
     }
 
     @FXML
