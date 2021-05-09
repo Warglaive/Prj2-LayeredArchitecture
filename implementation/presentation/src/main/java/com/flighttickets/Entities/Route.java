@@ -15,7 +15,7 @@ public class Route implements Entity2<Integer> {
     private int plannerId;
 
     /**
-     * create customer object
+     * create route object
      *
      * @param id
      * @param startAirport
