@@ -1,10 +1,7 @@
 package com.flighttickets.GUI;
 
 import com.flighttickets.App;
-import com.flighttickets.Entities.Airport;
-import com.flighttickets.Entities.AirportManager;
-import com.flighttickets.Entities.Plane;
-import com.flighttickets.Entities.Route;
+import com.flighttickets.Entities.*;
 import com.flighttickets.PGDataSource;
 import com.flighttickets.Persistance.AirportStorageService;
 import com.flighttickets.Persistance.PlaneStorageService;
@@ -36,25 +33,23 @@ public class SetPlaneController implements Initializable {
     private Button SubmitButton;
 
     PlaneStorageService planeStorageService;
-    AirportManager airportmanager;
-    AirportStorageService airportStorageService;
+    PlaneManager planeManager;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        List<Airport> airportList = this.airportmanager.getAirports();
-        ObservableList<Airport> observableList = FXCollections.observableList(airportList);
-        planesList.setItems(observableList);
+
     }
 
     @FXML
     public void setPlanesList(){
-        this.planesList = (ListView<Route>) FXCollections.observableArrayList();
-        this.planesList.setItems((ObservableList<Plane>) planeStorageService.getAll());
+        List<Plane> listOfPlanes = this.planeManager.getPlanes();
+        ObservableList<Plane> observableList = FXCollections.observableList(listOfPlanes);
+        planesList.setItems(observableList);
     }
 
     @FXML
     public void backHandler(ActionEvent event) throws IOException {
-        App.setRoot("createRoute");
+        App.setRoot("currentRoutes");
     }
 
     @FXML

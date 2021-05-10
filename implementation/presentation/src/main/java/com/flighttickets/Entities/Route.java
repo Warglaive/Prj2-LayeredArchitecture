@@ -33,7 +33,7 @@ public class Route implements Entity2<Integer> {
 
     @Override
     public String toString() {
-        return "created route: " + this.id + ", start airport id: " + this.start_airport + ", end airport: " + this.end_airport
+        return "route id: " + this.id + ", start airport id: " + this.start_airport + ", end airport: " + this.end_airport
                 + " by planner id: " + this.plannerId;
     }
 

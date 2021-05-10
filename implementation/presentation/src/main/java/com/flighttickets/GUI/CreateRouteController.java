@@ -1,6 +1,8 @@
 package com.flighttickets.GUI;
 
 import com.flighttickets.App;
+import com.flighttickets.Entities.Airport;
+import com.flighttickets.Entities.AirportManager;
 import com.flighttickets.Entities.Route;
 import com.flighttickets.Entities.RouteManager;
 import com.flighttickets.PGDataSource;
@@ -15,15 +17,16 @@ import nl.fontys.sebivenlo.dao.pg.PGDAOFactory;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class CreateRouteController implements Initializable {
 
     @FXML
-    private ListView<Route> airportsListSt;
+    private ListView airportsListSt;
 
     @FXML
-    private ListView<Route> airportsListDest;
+    private ListView airportsListDest;
     @FXML
     private Button backButton;
 
@@ -32,20 +35,24 @@ public class CreateRouteController implements Initializable {
 
     RouteManager routeManager;
     RouteStorageService routeStorageService;
+    AirportManager airportManager;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
     }
 
+    @FXML
     private void setAirportsListSt(){
-        this.airportsListSt = (ListView<Route>) FXCollections.observableArrayList();
-        this.airportsListSt.setItems((ObservableList<Route>) routeStorageService.getAll());
+        List<Airport> airportList = this.airportManager.getAirports();
+        ObservableList<Airport> observableList = FXCollections.observableList(airportList);
+        airportsListSt.setItems(observableList);
     }
 
+    @FXML
     private void setAirportsListDest(){
-        this.airportsListDest = (ListView<Route>) FXCollections.observableArrayList();
-        this.airportsListDest.setItems((ObservableList<Route>) routeStorageService.getAll());
+        List<Airport> airportList = this.airportManager.getAirports();
+        ObservableList<Airport> observableList = FXCollections.observableList(airportList);
+        airportsListDest.setItems(observableList);
     }
 
     @FXML
@@ -54,9 +61,7 @@ public class CreateRouteController implements Initializable {
         this.airportsListDest.getSelectionModel().getSelectedItem();
     }
 
-    @FXML
-    public void backButtonHandler(ActionEvent event) throws IOException {
+    public void backHandler(ActionEvent event) throws IOException {
         App.setRoot("currentRoutes");
     }
-
 }
