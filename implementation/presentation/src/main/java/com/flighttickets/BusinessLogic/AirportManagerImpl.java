@@ -31,7 +31,7 @@ public class AirportManagerImpl implements AirportManager {
     }
 
     //@Override
-    public List<Airport> getByAirportId(int airportId) {
-        return this.airportStorageService.getAirport(airportId);
+    public List<Airport> getAirports() {
+        return this.airportStorageService.getAirports();
     }
 }

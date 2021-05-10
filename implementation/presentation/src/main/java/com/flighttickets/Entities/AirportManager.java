@@ -22,10 +22,10 @@ public interface AirportManager {
     void add(Airport airport) throws SQLException, ClassNotFoundException;
 
     /**
-     * @param airportId
+     * @param
      * @return Airport
      */
-    List<Airport> getByAirportId(int airportId);
+    List<Airport> getAirports();
 
     void setAirportStorageService(AirportStorageService airportStorageService);
 }

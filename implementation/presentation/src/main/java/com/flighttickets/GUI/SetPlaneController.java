@@ -1,9 +1,12 @@
 package com.flighttickets.GUI;
 
 import com.flighttickets.App;
+import com.flighttickets.Entities.Airport;
+import com.flighttickets.Entities.AirportManager;
 import com.flighttickets.Entities.Plane;
 import com.flighttickets.Entities.Route;
 import com.flighttickets.PGDataSource;
+import com.flighttickets.Persistance.AirportStorageService;
 import com.flighttickets.Persistance.PlaneStorageService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -15,6 +18,7 @@ import nl.fontys.sebivenlo.dao.pg.PGDAOFactory;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class SetPlaneController implements Initializable {
@@ -32,10 +36,14 @@ public class SetPlaneController implements Initializable {
     private Button SubmitButton;
 
     PlaneStorageService planeStorageService;
+    AirportManager airportmanager;
+    AirportStorageService airportStorageService;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        List<Airport> airportList = this.airportmanager.getAirports();
+        ObservableList<Airport> observableList = FXCollections.observableList(airportList);
+        planesList.setItems(observableList);
     }
 
     @FXML
@@ -54,3 +62,9 @@ public class SetPlaneController implements Initializable {
 
     }
 }
+    //ObservableList<String> routes = FXCollections.observableArrayList();
+    //Pass into the routemanager the planner id.. -JL
+    //List<Route> listOfRoutes = this.routeManager.getByPlannerId(1);
+    //Convert list into observableList
+    //ObservableList<Route> observableList = FXCollections.observableList(listOfRoutes);
+      //  routesList.setItems(observableList);

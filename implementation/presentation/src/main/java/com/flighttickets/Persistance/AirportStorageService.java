@@ -10,7 +10,7 @@ import java.util.List;
 public class AirportStorageService {
 
     private final PGDAO<Integer, Airport> airportDAO;
-    private final String tableName = "aiport";
+    private final String tableName = "airport";
 
 
     public AirportStorageService() {
@@ -23,7 +23,7 @@ public class AirportStorageService {
         this.airportDAO = pdaof.createDao(Airport.class);
     }
 
-    public List<Airport> getAirport(int airportId) {
+    public List<Airport> getAirports() {
         List<Airport> airportsList = this.airportDAO.anyQuery("SELECT * FROM " + this.tableName);
         //result was found
         System.out.println("Is a airport found?" + airportsList.get(0).toString());
