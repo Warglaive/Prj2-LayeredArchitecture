@@ -19,7 +19,7 @@ public interface PlaneManager {
      * @return Plane
      */
 
-    Route createRoute(int id, String registration, String brand, String type, int seatsOnBoard, int extraLegroomSeats, int firstClassSeats);
+    Plane createPlane(int id, String registration, String brand, String type, int seatsOnBoard, int extraLegroomSeats, int firstClassSeats);
 
     /**
      * @param plane
@@ -28,10 +28,10 @@ public interface PlaneManager {
     void add(Plane plane) throws SQLException, ClassNotFoundException;
 
     /**
-     * @param planeId
+     * @param
      * @return Plane
      */
-    List<Route> getByPlaneId(int planeId);
+    List<Plane> getPlanes();
 
     void setPlaneStorageService(PlaneStorageService planeStorageService);
 }

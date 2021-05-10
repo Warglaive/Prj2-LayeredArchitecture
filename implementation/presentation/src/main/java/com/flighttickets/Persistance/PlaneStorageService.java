@@ -1,6 +1,7 @@
 package com.flighttickets.Persistance;
 
 
+import com.flighttickets.Entities.Airport;
 import com.flighttickets.Entities.Plane;
 import com.flighttickets.Entities.PlaneMapper;
 import com.flighttickets.Entities.Route;
@@ -25,6 +26,12 @@ public class PlaneStorageService {
             // get a dao (no transactions yet).
             this.planeDAO = pdaof.createDao(Plane.class);
         }
+     public List<Plane> getPlanes(){
+         List<Plane> planesList = this.planeDAO.anyQuery("SELECT * FROM " + this.tableName);
+         //result was found
+         System.out.println("Is a airport found?" + planesList.get(0).toString());
+         return planesList;
+     }
 
     /**
      * Save of Plane

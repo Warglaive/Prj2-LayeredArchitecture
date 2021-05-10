@@ -58,8 +58,7 @@ public class RouteController implements Initializable {
 
     @FXML
     public void createRouteHandler(ActionEvent event) throws IOException {
-
-        //App.setRoot("createRoute");
+        App.setRoot("createRoute");
     }
 
     @FXML
