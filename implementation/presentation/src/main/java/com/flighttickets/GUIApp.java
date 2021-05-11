@@ -69,8 +69,8 @@ public class GUIApp extends Application {
         return this;
     }
 
-    private void initializeSceneManager(){
-        sceneManager = new SceneManager(controllerFactory,INITIAL_VIEW);
+    private void initializeSceneManager() {
+        sceneManager = new SceneManager(controllerFactory, INITIAL_VIEW);
     }
 
     @Override
