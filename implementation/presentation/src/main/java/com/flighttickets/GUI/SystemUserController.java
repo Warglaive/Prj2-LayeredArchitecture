@@ -138,7 +138,7 @@ public class SystemUserController implements Initializable {
             this.sceneManagerSupplier.get().changeScene("currentRoutes");
 
         } else if (loggedInSystemUser.getRole().equals("Customer")) {
-
+            //TODO SEND DATA TO THE VIEW
             LoggedInCustomerController loggedInCustomerController = new LoggedInCustomerController(this.sceneManagerSupplier, this.bookingRequestManager, this.systemUserManager);
             loggedInCustomerController.setCustomer(loggedInSystemUser);
 
