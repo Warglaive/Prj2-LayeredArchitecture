@@ -1,11 +1,14 @@
 package com.flighttickets.GUI;
 
 import com.flighttickets.Entities.BookingRequestManager;
+import com.flighttickets.Entities.SystemUser;
+import com.flighttickets.Entities.SystemUserManager;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -30,6 +33,11 @@ public class LoggedInCustomerController implements Initializable {
 
     @FXML
     private TextField passengersAmount;
+
+    @FXML
+    private Text welcomeText;
+
+
     @FXML
     private Button submitRequest;
     /**
@@ -37,14 +45,26 @@ public class LoggedInCustomerController implements Initializable {
      */
     private final Supplier<SceneManager> sceneManagerSupplier;
     private BookingRequestManager bookingRequestManager;
+    private SystemUserManager systemUserManager;
 
-    public LoggedInCustomerController(Supplier<SceneManager> sceneManagerSupplier, BookingRequestManager bookingRequestManager) {
+    private SystemUser customer;
+
+
+
+    public LoggedInCustomerController(Supplier<SceneManager> sceneManagerSupplier, BookingRequestManager bookingRequestManager, SystemUserManager systemUserManager) {
         this.sceneManagerSupplier = sceneManagerSupplier;
         this.bookingRequestManager = bookingRequestManager;
+        this.systemUserManager = systemUserManager;
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        //TODO: Get User and add username to Text
+        //  this.welcomeText.setText();
     }
+
+    public void setCustomer(SystemUser customer) {
+        this.customer = customer;
+    }
+    //TODO: Customer operations based on use case
 }

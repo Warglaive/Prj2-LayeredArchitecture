@@ -1,5 +1,7 @@
 package com.flighttickets.GUI;
 
+import com.flighttickets.BusinessLogic.BookingRequestManagerImpl;
+import com.flighttickets.Entities.BookingRequestManager;
 import com.flighttickets.Entities.SystemUser;
 import com.flighttickets.Entities.SystemUserManager;
 import javafx.collections.FXCollections;
@@ -76,14 +78,16 @@ public class SystemUserController implements Initializable {
      */
 
     private final Supplier<SceneManager> sceneManagerSupplier;
+    private BookingRequestManager bookingRequestManager;
     private SystemUserManager systemUserManager;
 
 
-    public SystemUserController(Supplier<SceneManager> sceneManagerSupplier, SystemUserManager systemUserManager) {
+    public SystemUserController(Supplier<SceneManager> sceneManagerSupplier, SystemUserManager systemUserManager, BookingRequestManager bookingRequestManager) {
         this.rolePickCheckBox = new ChoiceBox<>();
 
         this.sceneManagerSupplier = sceneManagerSupplier;
         this.systemUserManager = systemUserManager;
+        this.bookingRequestManager = bookingRequestManager;
     }
 
 
@@ -124,7 +128,7 @@ public class SystemUserController implements Initializable {
         String loginPassword = passwordTextBox.getText();
         //Take current user and pass it to the view
         SystemUser loggedInSystemUser = this.systemUserManager.login(loginEmail, loginPassword);
-        System.out.println("The customer received after logging in = " + loggedInSystemUser.getEmail() + " Role =" + loggedInSystemUser.getRole());
+        System.out.println("The customer received after logging in = " + loggedInSystemUser.getEmail() + " Role = " + loggedInSystemUser.getRole());
 
         if (loggedInSystemUser.getRole().equals("SalesOfficer")) {
             this.sceneManagerSupplier.get().changeScene("salesOfficer");
@@ -134,6 +138,10 @@ public class SystemUserController implements Initializable {
             this.sceneManagerSupplier.get().changeScene("currentRoutes");
 
         } else if (loggedInSystemUser.getRole().equals("Customer")) {
+
+            LoggedInCustomerController loggedInCustomerController = new LoggedInCustomerController(this.sceneManagerSupplier, this.bookingRequestManager, this.systemUserManager);
+            loggedInCustomerController.setCustomer(loggedInSystemUser);
+
             this.sceneManagerSupplier.get().changeScene("loggedInCustomer");
 
         } else {
