@@ -1,31 +1,37 @@
 package com.flighttickets.GUI;
 
-import java.io.IOException;
-
-import com.flighttickets.App;
-import javafx.event.ActionEvent;
+import com.flighttickets.Entities.SystemUserManager;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 
-public class MainController {
+import java.io.IOException;
+import java.util.function.Supplier;
 
+public class MainController {
+    private final Supplier<SceneManager> sceneManagerSupplier;
+    private SystemUserManager SystemUserManager;
     @FXML
     private Button loginBtn;
 
     @FXML
     private Button registerBtn;
 
+    public MainController(Supplier<SceneManager> sceneManagerSupplier, SystemUserManager SystemUserManager) {
+        this.loginBtn = new Button();
+        this.registerBtn = new Button();
+        this.sceneManagerSupplier = sceneManagerSupplier;
+        this.SystemUserManager = SystemUserManager;
+    }
+
+
     @FXML
-    void showLogin(ActionEvent event) throws IOException {
-        App.setRoot("login");
+    void showLogin() throws IOException {
+        this.sceneManagerSupplier.get().changeScene("login");
     }
 
     @FXML
-    void showRegister(ActionEvent event) throws IOException {
-        App.setRoot("register");
+    void showRegister() throws IOException {
+        this.sceneManagerSupplier.get().changeScene("register");
     }
 
 }

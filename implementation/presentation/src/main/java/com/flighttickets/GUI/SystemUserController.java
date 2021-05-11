@@ -1,13 +1,7 @@
 package com.flighttickets.GUI;
 
-import com.flighttickets.App;
-import com.flighttickets.BusinessLogic.BusinessLogicAPI;
-import com.flighttickets.BusinessLogic.BusinessLogicAPIImpl;
 import com.flighttickets.Entities.SystemUser;
 import com.flighttickets.Entities.SystemUserManager;
-import com.flighttickets.Persistance.PersistenceAPI;
-import com.flighttickets.Persistance.PersistenceAPIImpl;
-import com.flighttickets.Persistance.SystemUserStorageService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -19,6 +13,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
+import java.util.function.Supplier;
 
 public class SystemUserController implements Initializable {
 
@@ -75,23 +70,20 @@ public class SystemUserController implements Initializable {
 
     @FXML
     private ChoiceBox<String> rolePickCheckBox;
-    private BusinessLogicAPI businessLogicAPI;
-
-    private SystemUserManager systemUserManager;
-    private PersistenceAPI persistenceAPI;
 
     /**
      * use BusinessLogicAPIImpl to create CustomerManager
      */
 
+    private final Supplier<SceneManager> sceneManagerSupplier;
+    private SystemUserManager systemUserManager;
 
-    public SystemUserController() {
+
+    public SystemUserController(Supplier<SceneManager> sceneManagerSupplier, SystemUserManager systemUserManager) {
         this.rolePickCheckBox = new ChoiceBox<>();
-        this.persistenceAPI = new PersistenceAPIImpl();
-        this.businessLogicAPI = new BusinessLogicAPIImpl(this.persistenceAPI);
 
-        this.systemUserManager = this.businessLogicAPI.getSystemUserManager();
-        this.systemUserManager.setSystemUserStorageService(new SystemUserStorageService());
+        this.sceneManagerSupplier = sceneManagerSupplier;
+        this.systemUserManager = systemUserManager;
     }
 
 
@@ -109,7 +101,7 @@ public class SystemUserController implements Initializable {
     }
 
     @FXML
-    void handleRegister(ActionEvent event) throws IOException, SQLException, ClassNotFoundException {
+    void handleRegister() throws SQLException, ClassNotFoundException {
         //Get values from textBoxes
         String firstName = firstNameTextBox.getText();
         String lastName = lastNameTextBox.getText();
@@ -123,11 +115,11 @@ public class SystemUserController implements Initializable {
         SystemUser customer = this.systemUserManager.createSystemUser(0, firstName, lastName, email, password, address, role);
         this.systemUserManager.add(customer);
         //send customer to Login view
-        App.setRoot("login");
+        this.sceneManagerSupplier.get().changeScene("login");
     }
 
     @FXML
-    void handleLogin(ActionEvent event) throws IOException, SQLException, ClassNotFoundException {
+    void handleLogin() throws ClassNotFoundException {
         String loginEmail = emailTextBox.getText();
         String loginPassword = passwordTextBox.getText();
         //Take current user and pass it to the view
@@ -135,15 +127,19 @@ public class SystemUserController implements Initializable {
         System.out.println("The customer received after logging in = " + loggedInSystemUser.getEmail() + " Role =" + loggedInSystemUser.getRole());
 
         if (loggedInSystemUser.getRole().equals("SalesOfficer")) {
-            App.setRoot("salesOfficer");
+            this.sceneManagerSupplier.get().changeScene("salesOfficer");
+
         } else if (loggedInSystemUser.getRole().equals("Planner")) {
             //TODO create customer main menu - jl
-            App.setRoot("currentRoutes");
+            this.sceneManagerSupplier.get().changeScene("currentRoutes");
+
         } else if (loggedInSystemUser.getRole().equals("Customer")) {
-            App.setRoot("loggedInCustomer");
+            this.sceneManagerSupplier.get().changeScene("loggedInCustomer");
+
         } else {
             //TODO Implement wrong username error thrown in fxml - jl
-            App.setRoot("main");
+            this.sceneManagerSupplier.get().changeScene("main");
+
         }
     }
 
@@ -151,22 +147,26 @@ public class SystemUserController implements Initializable {
      * button that sends the user to Login view from Register view
      */
     @FXML
-    void loginBtnHandler(ActionEvent event) throws IOException {
-        App.setRoot("login");
+    void viewLogin() {
+        this.sceneManagerSupplier.get().changeScene("login");
     }
 
     /**
      * returns to "main" view
-     *
-     * @param event
-     * @throws IOException
      */
-    public void backBtnHandler(ActionEvent event) throws IOException {
-        App.setRoot("main");
+    public void viewMain() {
+        this.sceneManagerSupplier.get().changeScene("main");
+
     }
 
+    /**
+     * return to register
+     *
+     * @throws IOException
+     */
     @FXML
-    public void setRootRegister(ActionEvent actionEvent) throws IOException {
-        App.setRoot("register");
+    public void viewRegister() {
+        this.sceneManagerSupplier.get().changeScene("register");
+
     }
 }

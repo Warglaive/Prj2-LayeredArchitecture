@@ -8,6 +8,10 @@ import nl.fontys.sebivenlo.dao.pg.PGDAO;
 import nl.fontys.sebivenlo.dao.pg.PGDAOFactory;
 
 public class FlightStorageService {
+    private final PGDAOFactory daoFactory;
+    public FlightStorageService(PGDAOFactory daoFactory) {
+        this.daoFactory=daoFactory;
+    }
 
     /**
      * Save a Route object to the database using a DataAccessObject

@@ -4,7 +4,6 @@ package com.flighttickets.Persistance;
 import com.flighttickets.Entities.Airport;
 import com.flighttickets.Entities.Plane;
 import com.flighttickets.Entities.PlaneMapper;
-import com.flighttickets.Entities.Route;
 import com.flighttickets.PGDataSource;
 import nl.fontys.sebivenlo.dao.pg.PGDAO;
 import nl.fontys.sebivenlo.dao.pg.PGDAOFactory;
@@ -17,7 +16,7 @@ public class PlaneStorageService {
         private final String tableName = "plane";
 
 
-        public PlaneStorageService() {
+        public PlaneStorageService(PGDAOFactory daoFactory) {
             // Use the provided data source
             PGDAOFactory pdaof = new PGDAOFactory(PGDataSource.DATA_SOURCE);
 

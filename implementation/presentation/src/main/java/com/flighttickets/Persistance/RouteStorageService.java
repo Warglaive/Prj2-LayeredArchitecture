@@ -2,9 +2,7 @@ package com.flighttickets.Persistance;
 
 import com.flighttickets.Entities.Route;
 import com.flighttickets.Entities.RouteMapper;
-import com.flighttickets.Entities.SystemUser;
 import com.flighttickets.PGDataSource;
-import javafx.collections.ObservableList;
 import nl.fontys.sebivenlo.dao.pg.PGDAO;
 import nl.fontys.sebivenlo.dao.pg.PGDAOFactory;
 
@@ -17,7 +15,7 @@ public class RouteStorageService {
     private final String tableAirport = "airport";
 
 
-    public RouteStorageService() {
+    public RouteStorageService(PGDAOFactory daoFactory) {
         // Use the provided data source
         PGDAOFactory pdaof = new PGDAOFactory(PGDataSource.DATA_SOURCE);
 

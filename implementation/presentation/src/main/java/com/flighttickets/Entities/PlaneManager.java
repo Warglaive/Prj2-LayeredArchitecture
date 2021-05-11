@@ -1,9 +1,6 @@
 package com.flighttickets.Entities;
 
 import com.flighttickets.Persistance.PlaneStorageService;
-import com.flighttickets.Persistance.RouteStorageService;
-import javafx.beans.Observable;
-import javafx.collections.ObservableList;
 
 import java.sql.SQLException;
 import java.util.List;
