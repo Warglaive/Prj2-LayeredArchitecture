@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Text?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.flighttickets.GUI.RouteController">
    <children>
-      <Text layoutX="219.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Overview of all routes">
+      <Text layoutX="219.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Overview of all routes">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
