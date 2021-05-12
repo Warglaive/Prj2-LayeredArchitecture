@@ -1,12 +1,10 @@
 package com.flighttickets.GUI;
 
-import com.flighttickets.BusinessLogic.BookingRequestManagerImpl;
 import com.flighttickets.Entities.BookingRequestManager;
 import com.flighttickets.Entities.SystemUser;
 import com.flighttickets.Entities.SystemUserManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -138,12 +136,7 @@ public class SystemUserController implements Initializable {
             this.sceneManagerSupplier.get().changeScene("currentRoutes");
 
         } else if (loggedInSystemUser.getRole().equals("Customer")) {
-            //TODO SEND DATA TO THE VIEW
-            LoggedInCustomerController loggedInCustomerController = new LoggedInCustomerController(this.sceneManagerSupplier, this.bookingRequestManager, this.systemUserManager);
-            loggedInCustomerController.setCustomer(loggedInSystemUser);
-
             this.sceneManagerSupplier.get().changeScene("loggedInCustomer");
-
         } else {
             //TODO Implement wrong username error thrown in fxml - jl
             this.sceneManagerSupplier.get().changeScene("main");

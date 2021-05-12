@@ -52,6 +52,7 @@ public class LoggedInCustomerController implements Initializable {
 
 
     public LoggedInCustomerController(Supplier<SceneManager> sceneManagerSupplier, BookingRequestManager bookingRequestManager, SystemUserManager systemUserManager) {
+        this.welcomeText= new Text();
         this.sceneManagerSupplier = sceneManagerSupplier;
         this.bookingRequestManager = bookingRequestManager;
         this.systemUserManager = systemUserManager;
@@ -65,6 +66,9 @@ public class LoggedInCustomerController implements Initializable {
 
     public void setCustomer(SystemUser customer) {
         this.customer = customer;
+
+        this.welcomeText.getText();
+        this.welcomeText.setText("asdasdasd");
     }
     //TODO: Customer operations based on use case
 }

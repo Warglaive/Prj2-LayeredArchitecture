@@ -17,11 +17,6 @@ public class BookingRequestManagerImpl implements BookingRequestManager {
         return null;
     }
 
-    @Override
-    public void setBookingRequestStorageService(SystemUserStorageService systemUserStorageService) {
-
-    }
-
     public void setBookingRequestStorageService(BookingRequestStorageService bookingRequestStorageService) {
         this.bookingRequestStorageService = bookingRequestStorageService;
 

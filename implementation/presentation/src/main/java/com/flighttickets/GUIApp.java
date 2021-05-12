@@ -33,8 +33,10 @@ public class GUIApp extends Application {
                 return new MainController(this::getSceneManager, this.businessLogicAPI.getSystemUserManager());
             case "com.flighttickets.GUI.LoggedInCustomer":
                 return new LoggedInCustomerController(this::getSceneManager, this.businessLogicAPI.getBookingRequestManager(), this.businessLogicAPI.getSystemUserManager());
-            default:
+            case "com.flighttickets.GUI.SystemUserController":
                 return new SystemUserController(this::getSceneManager, this.businessLogicAPI.getSystemUserManager(), this.businessLogicAPI.getBookingRequestManager());
+            default:
+                return new MainController(this::getSceneManager, this.businessLogicAPI.getSystemUserManager());
         }
     };
 
