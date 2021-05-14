@@ -3,6 +3,7 @@ package com.flighttickets.GUI;
 import com.flighttickets.Entities.BookingRequestManager;
 import com.flighttickets.Entities.SystemUser;
 import com.flighttickets.Entities.SystemUserManager;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -14,7 +15,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.function.Supplier;
 
-public class LoggedInCustomerController implements Initializable {
+public class LoggedInCustomerController {
     /**
      * FXML elements for create a booking request
      */
@@ -37,12 +38,12 @@ public class LoggedInCustomerController implements Initializable {
     @FXML
     private Text welcomeText;
 
+    @FXML
+    private Button refreshButton;
 
     @FXML
     private Button submitRequest;
-    /**
-     *
-     */
+
     private final Supplier<SceneManager> sceneManagerSupplier;
     private BookingRequestManager bookingRequestManager;
     private SystemUserManager systemUserManager;
@@ -50,25 +51,21 @@ public class LoggedInCustomerController implements Initializable {
     private SystemUser customer;
 
 
-
     public LoggedInCustomerController(Supplier<SceneManager> sceneManagerSupplier, BookingRequestManager bookingRequestManager, SystemUserManager systemUserManager) {
-        this.welcomeText= new Text();
         this.sceneManagerSupplier = sceneManagerSupplier;
         this.bookingRequestManager = bookingRequestManager;
         this.systemUserManager = systemUserManager;
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        //TODO: Get User and add username to Text
-        //  this.welcomeText.setText();
-    }
+
 
     public void setCustomer(SystemUser customer) {
         this.customer = customer;
+    }
 
-        this.welcomeText.getText();
-        this.welcomeText.setText("asdasdasd");
+    @FXML
+    public void refreshWelcomeMsg(ActionEvent actionEvent) {
+      //  this.welcomeText.setText("asdasd");
     }
     //TODO: Customer operations based on use case
 }
