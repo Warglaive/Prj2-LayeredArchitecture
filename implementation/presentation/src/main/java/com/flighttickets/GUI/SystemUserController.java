@@ -136,18 +136,7 @@ public class SystemUserController implements Initializable {
             this.sceneManagerSupplier.get().changeScene("currentRoutes");
 
         } else if (loggedInSystemUser.getRole().equals("Customer")) {
-      /*      Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("loggedInCustomer.fxml")));
-            Stage stage = new Stage();
-            Scene scene = new Scene(root);
-            stage.setTitle("Create booking request");
-            stage.setScene(scene);
-            stage.setResizable(true);
-            stage.show();*/
-
-
-
-
-            this.sceneManagerSupplier.get().changeScene("loggedInCustomer");
+            this.sceneManagerSupplier.get().changeScene("CreateBookingRequest");
         } else {
             //TODO Implement wrong username error thrown in fxml - jl
             this.sceneManagerSupplier.get().changeScene("main");

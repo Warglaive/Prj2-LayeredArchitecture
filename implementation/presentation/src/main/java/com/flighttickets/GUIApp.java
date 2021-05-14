@@ -2,7 +2,7 @@ package com.flighttickets;
 
 
 import com.flighttickets.BusinessLogic.BusinessLogicAPI;
-import com.flighttickets.GUI.LoggedInCustomerController;
+import com.flighttickets.GUI.CreateBookingRequestController;
 import com.flighttickets.GUI.MainController;
 import com.flighttickets.GUI.SceneManager;
 import com.flighttickets.GUI.SystemUserController;
@@ -32,7 +32,7 @@ public class GUIApp extends Application {
             case "com.flighttickets.GUI.MainController":
                 return new MainController(this::getSceneManager, this.businessLogicAPI.getSystemUserManager());
             case "com.flighttickets.GUI.LoggedInCustomer":
-                return new LoggedInCustomerController(this::getSceneManager, this.businessLogicAPI.getBookingRequestManager(), this.businessLogicAPI.getSystemUserManager());
+                return new CreateBookingRequestController(this::getSceneManager, this.businessLogicAPI.getBookingRequestManager(), this.businessLogicAPI.getSystemUserManager());
             case "com.flighttickets.GUI.SystemUserController":
                 return new SystemUserController(this::getSceneManager, this.businessLogicAPI.getSystemUserManager(), this.businessLogicAPI.getBookingRequestManager());
             default:
