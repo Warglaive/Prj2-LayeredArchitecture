@@ -23,6 +23,12 @@ public class GUIApp extends Application {
     private static final String INITIAL_VIEW = "main";
 
     /**
+     * instantiate controller so I can take the logged in user when changing views
+     */
+    SystemUserController systemUserController;
+
+
+    /**
      * Add arguments for each Controller, EntityManager
      */
     private final Callback<Class<?>, Object> controllerFactory = (Class<?> c)
@@ -32,9 +38,10 @@ public class GUIApp extends Application {
             case "com.flighttickets.GUI.MainController":
                 return new MainController(this::getSceneManager, this.businessLogicAPI.getSystemUserManager());
             case "com.flighttickets.GUI.CreateBookingRequestController":
-                return new CreateBookingRequestController(this::getSceneManager, this.businessLogicAPI.getBookingRequestManager(), this.businessLogicAPI.getSystemUserManager());
+                return new CreateBookingRequestController(this::getSceneManager, this.systemUserController.getLoggedInCustomer(), this.businessLogicAPI.getBookingRequestManager(), this.businessLogicAPI.getSystemUserManager());
             case "com.flighttickets.GUI.SystemUserController":
-                return new SystemUserController(this::getSceneManager, this.businessLogicAPI.getSystemUserManager(), this.businessLogicAPI.getBookingRequestManager());
+                this.systemUserController = new SystemUserController(this::getSceneManager, this.businessLogicAPI.getSystemUserManager(), this.businessLogicAPI.getBookingRequestManager());
+                return this.systemUserController;
             default:
                 return new MainController(this::getSceneManager, this.businessLogicAPI.getSystemUserManager());
         }

@@ -8,31 +8,26 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
-            prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.flighttickets.GUI.CreateBookingRequestController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.flighttickets.GUI.CreateBookingRequestController">
 
     <children>
-        <DatePicker fx:id="departureDate" layoutX="25.0" layoutY="223.0"/>
-        <DatePicker fx:id="returnDate" layoutX="363.0" layoutY="129.0"/>
-        <Label layoutX="25.0" layoutY="203.0" text="Pick departure date"/>
-        <Label layoutX="366.0" layoutY="107.0" text="Pick return date"/>
-        <Label layoutX="25.0" layoutY="277.0" text="Enter departure location"/>
-        <Label layoutX="363.0" layoutY="203.0" text="Enter destination"/>
-        <Label layoutX="362.0" layoutY="277.0" text="Enter number of passengers"/>
-        <TextField fx:id="departureDestination" layoutX="25.0" layoutY="294.0" prefHeight="25.0" prefWidth="174.0"/>
-        <TextField fx:id="destination" layoutX="363.0" layoutY="223.0" prefHeight="25.0" prefWidth="174.0"/>
-        <TextField fx:id="passengersAmount" layoutX="362.0" layoutY="294.0"/>
-        <Button fx:id="submitRequest" layoutX="245.0" layoutY="314.0" mnemonicParsing="false" text="Request booking"/>
+        <DatePicker fx:id="departureDate" layoutX="25.0" layoutY="223.0" />
+        <DatePicker fx:id="returnDate" layoutX="363.0" layoutY="129.0" />
+        <Label layoutX="25.0" layoutY="203.0" text="Pick departure date" />
+        <Label layoutX="366.0" layoutY="107.0" text="Pick return date" />
+        <Label layoutX="25.0" layoutY="277.0" text="Enter departure location" />
+        <Label layoutX="363.0" layoutY="203.0" text="Enter destination" />
+        <Label layoutX="362.0" layoutY="277.0" text="Enter number of passengers" />
+        <TextField fx:id="departureDestination" layoutX="25.0" layoutY="294.0" prefHeight="25.0" prefWidth="174.0" />
+        <TextField fx:id="destination" layoutX="363.0" layoutY="223.0" prefHeight="25.0" prefWidth="174.0" />
+        <TextField fx:id="passengersAmount" layoutX="362.0" layoutY="294.0" />
+        <Button fx:id="submitRequest" layoutX="245.0" layoutY="314.0" mnemonicParsing="false" text="Request booking" />
         <Label layoutX="162.0" layoutY="63.0" text="Create a booking request" textAlignment="CENTER">
             <font>
-                <Font size="22.0"/>
+                <Font size="22.0" />
             </font>
         </Label>
-        <Text fx:id="welcomeText" layoutX="274.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0"
-              text="Welcome!"/>
-        <Button fx:id="refreshBtn" layoutX="520.0" layoutY="14.0" mnemonicParsing="false" onAction="#refresh"
-                text="Refresh"/>
+        <Text fx:id="welcomeText" layoutX="274.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome!" />
     </children>
 
 </AnchorPane>

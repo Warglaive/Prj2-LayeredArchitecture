@@ -1,6 +1,7 @@
 package com.flighttickets.GUI;
 
 import com.flighttickets.Entities.BookingRequestManager;
+import com.flighttickets.Entities.SystemUser;
 import com.flighttickets.Entities.SystemUserManager;
 import com.flighttickets.GUI.SceneManager;
 import javafx.event.ActionEvent;
@@ -39,14 +40,17 @@ public class CreateBookingRequestController implements Initializable {
     public Text welcomeText;
 
     @FXML
-    public Button refreshBtn;
+    private Button refreshBtn;
+
     @FXML
+    private SystemUser customer;
 
 
     private BookingRequestManager bookingRequestManager;
     private SystemUserManager systemUserManager;
 
-    public CreateBookingRequestController(Supplier<SceneManager> sceneManagerSupplier, BookingRequestManager bookingRequestManager, SystemUserManager systemUserManager) {
+    public CreateBookingRequestController(Supplier<SceneManager> sceneManagerSupplier, SystemUser customer, BookingRequestManager bookingRequestManager, SystemUserManager systemUserManager) {
+        this.customer = customer;
         this.sceneManagerSupplier = sceneManagerSupplier;
         this.bookingRequestManager = bookingRequestManager;
         this.systemUserManager = systemUserManager;
@@ -54,10 +58,8 @@ public class CreateBookingRequestController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        this.customer = customer;
+        this.welcomeText.setText(this.customer.getFirstName());
 
-    }
-
-    @FXML
-    public void refresh() {
     }
 }

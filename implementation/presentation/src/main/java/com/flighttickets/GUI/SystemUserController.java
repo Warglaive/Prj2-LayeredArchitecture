@@ -6,8 +6,10 @@ import com.flighttickets.Entities.SystemUserManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.layout.Pane;
 
 import java.io.IOException;
 import java.net.URL;
@@ -78,7 +80,7 @@ public class SystemUserController implements Initializable {
     private final Supplier<SceneManager> sceneManagerSupplier;
     private BookingRequestManager bookingRequestManager;
     private SystemUserManager systemUserManager;
-
+    private SystemUser loggedInSystemUser;
 
     public SystemUserController(Supplier<SceneManager> sceneManagerSupplier, SystemUserManager systemUserManager, BookingRequestManager bookingRequestManager) {
         this.rolePickCheckBox = new ChoiceBox<>();
@@ -121,11 +123,12 @@ public class SystemUserController implements Initializable {
     }
 
     @FXML
-    void handleLogin() throws ClassNotFoundException {
+    void handleLogin() throws ClassNotFoundException, IOException {
         String loginEmail = emailTextBox.getText();
         String loginPassword = passwordTextBox.getText();
         //Take current user and pass it to the view
-        SystemUser loggedInSystemUser = this.systemUserManager.login(loginEmail, loginPassword);
+
+        this.loggedInSystemUser = this.systemUserManager.login(loginEmail, loginPassword);
         System.out.println("The customer received after logging in = " + loggedInSystemUser.getEmail() + " Role = " + loggedInSystemUser.getRole());
 
         if (loggedInSystemUser.getRole().equals("SalesOfficer")) {
@@ -169,5 +172,9 @@ public class SystemUserController implements Initializable {
     public void viewRegister() {
         this.sceneManagerSupplier.get().changeScene("register");
 
+    }
+
+    public SystemUser getLoggedInCustomer() {
+        return this.loggedInSystemUser;
     }
 }
