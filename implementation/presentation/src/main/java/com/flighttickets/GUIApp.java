@@ -2,10 +2,7 @@ package com.flighttickets;
 
 
 import com.flighttickets.BusinessLogic.BusinessLogicAPI;
-import com.flighttickets.GUI.CreateBookingRequestController;
-import com.flighttickets.GUI.MainController;
-import com.flighttickets.GUI.SceneManager;
-import com.flighttickets.GUI.SystemUserController;
+import com.flighttickets.GUI.*;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.stage.Stage;
@@ -42,6 +39,8 @@ public class GUIApp extends Application {
             case "com.flighttickets.GUI.SystemUserController":
                 this.systemUserController = new SystemUserController(this::getSceneManager, this.businessLogicAPI.getSystemUserManager(), this.businessLogicAPI.getBookingRequestManager());
                 return this.systemUserController;
+            case "com.flighttickets.GUI.BookingRequestOverviewController":
+                return new BookingRequestOverviewController(this::getSceneManager,this.businessLogicAPI.getSystemUserManager(), this.businessLogicAPI.getBookingRequestManager());
             default:
                 return new MainController(this::getSceneManager, this.businessLogicAPI.getSystemUserManager());
         }

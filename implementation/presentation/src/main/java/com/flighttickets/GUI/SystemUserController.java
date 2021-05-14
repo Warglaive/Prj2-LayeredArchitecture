@@ -138,8 +138,12 @@ public class SystemUserController implements Initializable {
             //TODO create customer main menu - jl
             this.sceneManagerSupplier.get().changeScene("currentRoutes");
 
+        } else if (loggedInSystemUser.getRole().equals("SalesEmployee")) {
+            this.sceneManagerSupplier.get().changeScene("BookingRequestOverview");
+
         } else if (loggedInSystemUser.getRole().equals("Customer")) {
             this.sceneManagerSupplier.get().changeScene("CreateBookingRequest");
+
         } else {
             //TODO Implement wrong username error thrown in fxml - jl
             this.sceneManagerSupplier.get().changeScene("main");
