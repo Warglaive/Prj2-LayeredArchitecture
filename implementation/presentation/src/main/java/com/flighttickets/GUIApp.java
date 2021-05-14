@@ -31,7 +31,7 @@ public class GUIApp extends Application {
         switch (c.getName()) {
             case "com.flighttickets.GUI.MainController":
                 return new MainController(this::getSceneManager, this.businessLogicAPI.getSystemUserManager());
-            case "com.flighttickets.GUI.LoggedInCustomer":
+            case "com.flighttickets.GUI.CreateBookingRequestController":
                 return new CreateBookingRequestController(this::getSceneManager, this.businessLogicAPI.getBookingRequestManager(), this.businessLogicAPI.getSystemUserManager());
             case "com.flighttickets.GUI.SystemUserController":
                 return new SystemUserController(this::getSceneManager, this.businessLogicAPI.getSystemUserManager(), this.businessLogicAPI.getBookingRequestManager());
