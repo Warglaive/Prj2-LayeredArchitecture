@@ -40,7 +40,7 @@ public class GUIApp extends Application {
                 this.systemUserController = new SystemUserController(this::getSceneManager, this.businessLogicAPI.getSystemUserManager(), this.businessLogicAPI.getBookingRequestManager());
                 return this.systemUserController;
             case "com.flighttickets.GUI.BookingRequestOverviewController":
-                return new BookingRequestOverviewController(this::getSceneManager,this.businessLogicAPI.getSystemUserManager(), this.businessLogicAPI.getBookingRequestManager());
+                return new BookingRequestOverviewController(this::getSceneManager, this.systemUserController.getLoggedInCustomer(), this.businessLogicAPI.getSystemUserManager(), this.businessLogicAPI.getBookingRequestManager());
             default:
                 return new MainController(this::getSceneManager, this.businessLogicAPI.getSystemUserManager());
         }

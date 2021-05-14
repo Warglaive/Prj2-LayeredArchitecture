@@ -2,6 +2,7 @@
 package com.flighttickets.GUI;
 
 import com.flighttickets.Entities.BookingRequestManager;
+import com.flighttickets.Entities.SystemUser;
 import com.flighttickets.Entities.SystemUserManager;
 import com.flighttickets.GUIApp;
 import javafx.event.ActionEvent;
@@ -30,11 +31,13 @@ public class BookingRequestOverviewController implements Initializable {
     private final Supplier<SceneManager> sceneManagerSupplier;
     private BookingRequestManager bookingRequestManager;
     private SystemUserManager systemUserManager;
+    private SystemUser salesEmployee;
 
-    public BookingRequestOverviewController(Supplier<SceneManager> sceneManagerSupplier,SystemUserManager systemUserManager, BookingRequestManager bookingRequestManager){
+    public BookingRequestOverviewController(Supplier<SceneManager> sceneManagerSupplier,SystemUser salesEmployee, SystemUserManager systemUserManager, BookingRequestManager bookingRequestManager){
         this.sceneManagerSupplier = sceneManagerSupplier;
         this.bookingRequestManager = bookingRequestManager;
         this.systemUserManager = systemUserManager;
+        this.salesEmployee = salesEmployee;
     }
 
     @Override
@@ -56,7 +59,7 @@ public class BookingRequestOverviewController implements Initializable {
 
     @FXML
     public void backHandler(ActionEvent event) throws IOException {
-        //GUIApp.setRoot("login");
+        this.sceneManagerSupplier.get().changeScene("main");
     }
 
 }
