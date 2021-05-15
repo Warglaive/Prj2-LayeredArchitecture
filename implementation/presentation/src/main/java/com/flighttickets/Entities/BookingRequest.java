@@ -25,9 +25,9 @@ public class BookingRequest implements Entity2<Integer> {
 
 
     private int passengersAmount;
-    private boolean status;
+    private String status;
 
-    public BookingRequest(int requestId, int customerId,int salesOfficerId, String departureDestination,String arrivalDestination, LocalDate departureDate, LocalDate returnDate,int passengersAmount, boolean status) {
+    public BookingRequest(int requestId, int customerId, int salesOfficerId, String departureDestination, String arrivalDestination, LocalDate departureDate, LocalDate returnDate, int passengersAmount, String status) {
         this.requestId = requestId;
         this.customerId = customerId;
 
@@ -70,8 +70,8 @@ public class BookingRequest implements Entity2<Integer> {
      * @return
      */
     static BookingRequest fromParts(Object[] parts) {
-        return new BookingRequest((Integer) parts[0], (LocalDate) parts[1], (LocalDate) parts[2], (String) parts[3], (String) parts[4], (Integer) parts[5],
-                (Integer) parts[6], (boolean) parts[7]);
+        return new BookingRequest((Integer) parts[0], (Integer) parts[1], (Integer) parts[2], (String) parts[3], (String) parts[4], (LocalDate) parts[5],
+                (LocalDate) parts[6], (Integer) parts[7], (String) parts[8]);
     }
 
     /**
