@@ -72,6 +72,7 @@ public class CreateBookingRequestController implements Initializable {
      */
     @FXML
     void submitRequest(ActionEvent event) {
+        int initialSalesOfficerId = -1;
         int initialId = 0;
         String initialStatus = "Pending";
         //take values from fields
@@ -84,6 +85,7 @@ public class CreateBookingRequestController implements Initializable {
         //create BookingRequest object
 
 
-        BookingRequest bookingRequest = this.bookingRequestManager.createBookingRequest(initialId,this.customer.getId(),null,departureDestination, destination, departureDate, returnDate, passengersAmount, initialStatus);
+        BookingRequest bookingRequest = this.bookingRequestManager.createBookingRequest(initialId, this.customer.getId(), initialSalesOfficerId, departureDestination, destination, departureDate, returnDate, passengersAmount, initialStatus);
+        this.bookingRequestManager.
     }
 }
