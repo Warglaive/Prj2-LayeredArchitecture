@@ -73,15 +73,17 @@ public class CreateBookingRequestController implements Initializable {
     @FXML
     void submitRequest(ActionEvent event) {
         int initialId = 0;
+        String initialStatus = "Pending";
         //take values from fields
-        LocalDate departureDate = this.departureDate.getValue();
-        LocalDate returnDate = this.returnDate.getValue();
         String departureDestination = this.departureDestination.getText();
         String destination = this.destination.getText();
+        LocalDate departureDate = this.departureDate.getValue();
+        LocalDate returnDate = this.returnDate.getValue();
+
         int passengersAmount = Integer.parseInt(this.passengersAmount.getText());
         //create BookingRequest object
 
 
-        BookingRequest bookingRequest = this.bookingRequestManager.createBookingRequest(initialId,this.customer.getId(),null);
+        BookingRequest bookingRequest = this.bookingRequestManager.createBookingRequest(initialId,this.customer.getId(),null,departureDestination, destination, departureDate, returnDate, passengersAmount, initialStatus);
     }
 }
