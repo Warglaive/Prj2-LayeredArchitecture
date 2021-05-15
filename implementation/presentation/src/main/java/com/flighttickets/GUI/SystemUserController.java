@@ -107,6 +107,7 @@ public class SystemUserController implements Initializable {
     @FXML
     void handleRegister() throws SQLException, ClassNotFoundException {
         //Get values from textBoxes
+        int initialId = 0;
         String firstName = firstNameTextBox.getText();
         String lastName = lastNameTextBox.getText();
         String email = emailTextBox.getText();
@@ -116,7 +117,7 @@ public class SystemUserController implements Initializable {
 
         //register new Customer
         //TODO: Catch exception and display message on the view
-        SystemUser customer = this.systemUserManager.createSystemUser(0, firstName, lastName, email, password, address, role);
+        SystemUser customer = this.systemUserManager.createSystemUser(initialId, firstName, lastName, email, password, address, role);
         this.systemUserManager.add(customer);
         //send customer to Login view
         this.sceneManagerSupplier.get().changeScene("login");
@@ -178,6 +179,10 @@ public class SystemUserController implements Initializable {
 
     }
 
+    /**
+     * used to pass customer object to CreateBookingController
+     * @return
+     */
     public SystemUser getLoggedInCustomer() {
         return this.loggedInSystemUser;
     }

@@ -1,5 +1,6 @@
 package com.flighttickets.GUI;
 
+import com.flighttickets.Entities.BookingRequest;
 import com.flighttickets.Entities.BookingRequestManager;
 import com.flighttickets.Entities.SystemUser;
 import com.flighttickets.Entities.SystemUserManager;
@@ -10,9 +11,13 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextFormatter;
 import javafx.scene.text.Text;
+import javafx.util.converter.NumberStringConverter;
 
 import java.net.URL;
+import java.time.LocalDate;
+import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.function.Supplier;
 
@@ -34,13 +39,10 @@ public class CreateBookingRequestController implements Initializable {
     public TextField passengersAmount;
 
     @FXML
-    public Button submitRequest;
+    public Button submitRequestBtn;
 
     @FXML
     public Text welcomeText;
-
-    @FXML
-    private Button refreshBtn;
 
     @FXML
     private SystemUser customer;
@@ -58,8 +60,28 @@ public class CreateBookingRequestController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        this.customer = customer;
-        this.welcomeText.setText(this.customer.getFirstName());
+        this.welcomeText.setText("Welcome " + this.customer.getFirstName() + " with Email " + this.customer.getEmail());
+    }
 
+    /**
+     * take arguments from the fields
+     * create new BookingRequest object with assigned customer id
+     * save it to db
+     *
+     * @param event
+     */
+    @FXML
+    void submitRequest(ActionEvent event) {
+        int initialId = 0;
+        //take values from fields
+        LocalDate departureDate = this.departureDate.getValue();
+        LocalDate returnDate = this.returnDate.getValue();
+        String departureDestination = this.departureDestination.getText();
+        String destination = this.destination.getText();
+        int passengersAmount = Integer.parseInt(this.passengersAmount.getText());
+        //create BookingRequest object
+
+
+        BookingRequest bookingRequest = this.bookingRequestManager.createBookingRequest(initialId,this.customer.getId(),null);
     }
 }

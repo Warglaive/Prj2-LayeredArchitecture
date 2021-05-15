@@ -5,6 +5,8 @@ import com.flighttickets.Entities.BookingRequestManager;
 import com.flighttickets.Persistance.BookingRequestStorageService;
 import com.flighttickets.Persistance.SystemUserStorageService;
 
+import java.time.LocalDate;
+
 public class BookingRequestManagerImpl implements BookingRequestManager {
 
 
@@ -12,8 +14,7 @@ public class BookingRequestManagerImpl implements BookingRequestManager {
 
 
     @Override
-    public BookingRequest createBookingRequest() {
-        //:TODO: Implement
+    public BookingRequest createBookingRequest(int id, LocalDate departureDate, LocalDate returnDate, String departureDestination, String destination, int customerId, int passengersAmount, boolean status) {
         return null;
     }
 

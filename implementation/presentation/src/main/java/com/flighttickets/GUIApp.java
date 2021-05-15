@@ -30,7 +30,6 @@ public class GUIApp extends Application {
      */
     private final Callback<Class<?>, Object> controllerFactory = (Class<?> c)
             -> {
-
         switch (c.getName()) {
             case "com.flighttickets.GUI.MainController":
                 return new MainController(this::getSceneManager, this.businessLogicAPI.getSystemUserManager());

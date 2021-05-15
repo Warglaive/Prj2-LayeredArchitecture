@@ -7,11 +7,8 @@ import java.time.LocalDate;
 
 public class BookingRequest implements Entity2<Integer> {
     @ID
-    int id;
-    private LocalDate departureDate;
-    private LocalDate returnDate;
-    private String departureDestination;
-    private String destination;
+    int requestId;
+
     /**
      * Only SystemUser with role == "Customer" can access this class.
      */
@@ -19,29 +16,37 @@ public class BookingRequest implements Entity2<Integer> {
     /**
      * SalesOfficer to be set by SalesOfficer entity when action is performed(Accept/Reject)
      */
-    private int salesOfficer;
+    private int salesOfficerId;
+    private String departureDestination;
+    private String arrivalDestination;
+
+    private LocalDate departureDate;
+    private LocalDate returnDate;
+
+
     private int passengersAmount;
     private boolean status;
 
-    public BookingRequest(int id, LocalDate departureDate, LocalDate returnDate, String departureDestination, String destination, int customerId, int passengersAmount, boolean status) {
-        this.id = id;
+    public BookingRequest(int requestId, int customerId,int salesOfficerId, String departureDestination,String arrivalDestination, LocalDate departureDate, LocalDate returnDate,int passengersAmount, boolean status) {
+        this.requestId = requestId;
+        this.customerId = customerId;
+
         this.departureDate = departureDate;
         this.returnDate = returnDate;
         this.departureDestination = departureDestination;
-        this.destination = destination;
-        this.customerId = customerId;
+        this.arrivalDestination = arrivalDestination;
         this.passengersAmount = passengersAmount;
         this.status = status;
     }
 
     @Override
     public Integer getNaturalId() {
-        return this.id;
+        return this.requestId;
     }
 
     @Override
     public int getId() {
-        return this.id;
+        return this.requestId;
     }
 
     /**
@@ -52,8 +57,8 @@ public class BookingRequest implements Entity2<Integer> {
     //TODO: Check customer.ToString() - may cause issues
     @Override
     public String toString() {
-        return "BookingRequest{" + "id=" + id + ", departureDate=" + departureDate + ", returnDate=" + returnDate + ", departureDestination="
-                + departureDestination + ", destination=" + destination + ", customer=" + customerId
+        return "BookingRequest{" + "id=" + requestId + ", departureDate=" + departureDate + ", returnDate=" + returnDate + ", departureDestination="
+                + departureDestination + ", destination=" + arrivalDestination + ", customer=" + customerId
                 + ", passengersAmount=" + passengersAmount
                 + ", status=" + status + '}';
     }
@@ -77,22 +82,22 @@ public class BookingRequest implements Entity2<Integer> {
     Object[] asParts() {
 
         return new Object[]{
-                this.id,
+                this.requestId,
                 this.departureDate,
                 this.returnDate,
                 this.departureDestination,
-                this.destination,
+                this.arrivalDestination,
                 this.customerId,
                 this.passengersAmount,
                 this.status
         };
     }
 
-    public int getSalesOfficer() {
-        return salesOfficer;
+    public int getSalesOfficerId() {
+        return salesOfficerId;
     }
 
-    public void setSalesOfficer(int salesOfficer) {
-        this.salesOfficer = salesOfficer;
+    public void setSalesOfficerId(int salesOfficerId) {
+        this.salesOfficerId = salesOfficerId;
     }
 }

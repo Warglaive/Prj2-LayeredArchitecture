@@ -5,8 +5,8 @@ import nl.fontys.sebivenlo.dao.ID;
 
 public class SystemUser implements Entity2<Integer> {
 
-    @ID(generated = true)
-    int systemUserId;
+    @ID
+    private int systemUserId;
     /**
      * Fields to be used to encrypt pass, validate names etc.
      */
