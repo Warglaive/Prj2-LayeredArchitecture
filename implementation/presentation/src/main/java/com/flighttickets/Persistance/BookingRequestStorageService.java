@@ -28,5 +28,5 @@ public class BookingRequestStorageService {
     public void insert(BookingRequest bookingRequest) {
         this.bookingRequestDAO.save(bookingRequest);
     }
-    //TODO: 
+    //TODO:
 }

@@ -16,6 +16,7 @@ import javafx.scene.text.Text;
 import javafx.util.converter.NumberStringConverter;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -71,7 +72,7 @@ public class CreateBookingRequestController implements Initializable {
      * @param event
      */
     @FXML
-    void submitRequest(ActionEvent event) {
+    void submitRequest(ActionEvent event) throws SQLException, ClassNotFoundException {
         int initialSalesOfficerId = -1;
         int initialId = 0;
         String initialStatus = "Pending";
@@ -86,5 +87,6 @@ public class CreateBookingRequestController implements Initializable {
 
 
         BookingRequest bookingRequest = this.bookingRequestManager.createBookingRequest(initialId, this.customer.getId(), initialSalesOfficerId, departureDestination, destination, departureDate, returnDate, passengersAmount, initialStatus);
+        this.bookingRequestManager.add(bookingRequest);
     }
 }

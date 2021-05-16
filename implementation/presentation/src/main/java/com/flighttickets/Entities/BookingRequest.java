@@ -83,14 +83,31 @@ public class BookingRequest implements Entity2<Integer> {
 
         return new Object[]{
                 this.requestId,
-                this.departureDate,
-                this.returnDate,
+                this.customerId,
+                this.salesOfficerId,
                 this.departureDestination,
                 this.arrivalDestination,
-                this.customerId,
+                this.departureDate,
+                this.returnDate,
                 this.passengersAmount,
                 this.status
         };
+    }
+
+    public int getRequestId() {
+        return requestId;
+    }
+
+    public void setRequestId(int requestId) {
+        this.requestId = requestId;
+    }
+
+    public int getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
     }
 
     public int getSalesOfficerId() {
@@ -99,5 +116,53 @@ public class BookingRequest implements Entity2<Integer> {
 
     public void setSalesOfficerId(int salesOfficerId) {
         this.salesOfficerId = salesOfficerId;
+    }
+
+    public String getDepartureDestination() {
+        return departureDestination;
+    }
+
+    public void setDepartureDestination(String departureDestination) {
+        this.departureDestination = departureDestination;
+    }
+
+    public String getArrivalDestination() {
+        return arrivalDestination;
+    }
+
+    public void setArrivalDestination(String arrivalDestination) {
+        this.arrivalDestination = arrivalDestination;
+    }
+
+    public LocalDate getDepartureDate() {
+        return departureDate;
+    }
+
+    public void setDepartureDate(LocalDate departureDate) {
+        this.departureDate = departureDate;
+    }
+
+    public LocalDate getReturnDate() {
+        return returnDate;
+    }
+
+    public void setReturnDate(LocalDate returnDate) {
+        this.returnDate = returnDate;
+    }
+
+    public int getPassengersAmount() {
+        return passengersAmount;
+    }
+
+    public void setPassengersAmount(int passengersAmount) {
+        this.passengersAmount = passengersAmount;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }
