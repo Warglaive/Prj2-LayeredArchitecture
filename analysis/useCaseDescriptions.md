@@ -4,7 +4,7 @@
 | Actor | Customer |
 | Description | Customer creates a new booking request|
 | Precondition |  Customer must be logged in|
-| Scenario | 1. Customer selects departure date, return date, destination, passangers amount and submits the input<br> 2. System makes validations<br>4. System auto assigns salesOfficer by id. <br>3. System inputs the request into the database. <br> 4. Customer is redirected to "View all booking requests" view. |
+| Scenario | 1. Customer selects departure date, return date, destination, passangers amount and submits the input<br> 2. System makes validations<br>4. System auto assigns(randomly between lowest salesOfficerId and highest) salesOfficer by id. <br>3. System inputs the request into the database. <br> 4. Customer is redirected to "View all booking requests" view. |
 | Result | Customer request a booking |
 | Exceptions |TBD  |
 | Extensions | N/A  |
