@@ -4,6 +4,7 @@ import com.flighttickets.Entities.BookingRequest;
 import com.flighttickets.Entities.BookingRequestManager;
 import com.flighttickets.Persistance.BookingRequestStorageService;
 
+import java.sql.SQLException;
 import java.time.LocalDate;
 
 public class BookingRequestManagerImpl implements BookingRequestManager {
@@ -20,6 +21,11 @@ public class BookingRequestManagerImpl implements BookingRequestManager {
     public void setBookingRequestStorageService(BookingRequestStorageService bookingRequestStorageService) {
         this.bookingRequestStorageService = bookingRequestStorageService;
 
+    }
+
+    @Override
+    public void add(BookingRequest bookingRequest) throws SQLException, ClassNotFoundException {
+        this.bookingRequestStorageService.insert(bookingRequest);
     }
 
     public BookingRequestStorageService getBookingRequestStorageService() {
