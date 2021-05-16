@@ -30,7 +30,7 @@ public class BookingRequest implements Entity2<Integer> {
     public BookingRequest(int requestId, int customerId, int salesOfficerId, String departureDestination, String arrivalDestination, LocalDate departureDate, LocalDate returnDate, int passengersAmount, String status) {
         this.requestId = requestId;
         this.customerId = customerId;
-        //salesOfficerId to be assigned by salesOfficer on Bookings review
+        this.salesOfficerId = salesOfficerId;
         this.departureDate = departureDate;
         this.returnDate = returnDate;
         this.departureDestination = departureDestination;
