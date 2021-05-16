@@ -20,9 +20,13 @@ public class BookingRequestStorageService {
         this.bookingRequestDAO = this.pgdaoFactory.createDao(BookingRequest.class);
 
     }
-
+    /**
+     * Save a BookingRequest object to the database using a DataAccessObject
+     *
+     * @param bookingRequest
+     */
     public void insert(BookingRequest bookingRequest) {
         this.bookingRequestDAO.save(bookingRequest);
     }
-    //TODO: Instantiate DAO
+    //TODO: 
 }
