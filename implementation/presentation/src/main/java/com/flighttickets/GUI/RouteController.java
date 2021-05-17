@@ -65,19 +65,16 @@ public class RouteController implements Initializable {
     @FXML
     public void createRouteHandler(ActionEvent event) throws IOException {
         this.sceneManagerSupplier.get().changeScene("createRoute");
-        //GUIApp.setRoot("createRoute");
     }
 
     @FXML
     public void setPlaneHandler(ActionEvent event) throws IOException {
         this.sceneManagerSupplier.get().changeScene("setPlane");
-        //GUIApp.setRoot("setPlane");
     }
 
     @FXML
     public void backHandler(ActionEvent event) throws IOException {
         this.sceneManagerSupplier.get().changeScene("login");
-        //GUIApp.setRoot("login");
     }
 
 }

@@ -1,9 +1,12 @@
 
 package com.flighttickets.GUI;
 
+import com.flighttickets.Entities.Airport;
+import com.flighttickets.Entities.AirportManager;
 import com.flighttickets.GUIApp;
 import com.flighttickets.Entities.Route;
 import com.flighttickets.Entities.RouteManager;
+import com.flighttickets.Persistance.AirportStorageService;
 import com.flighttickets.Persistance.RouteStorageService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -20,11 +23,11 @@ import java.util.function.Supplier;
 public class CreateRouteController implements Initializable {
 
     @FXML
-    private ListView<Route> airportsListSt;
+    private ListView<Airport> airportsListSt;
 
     @FXML
-    private ListView<Route> airportsListDest;
-    
+    private ListView<Airport> airportsListDest;
+
     @FXML
     private Button backButton;
 
@@ -34,11 +37,15 @@ public class CreateRouteController implements Initializable {
     private final Supplier<SceneManager> sceneManagerSupplier;
     RouteManager routeManager;
     RouteStorageService routeStorageService;
+    AirportManager airportManager;
+    AirportStorageService airportStorageService;
 
-    public CreateRouteController(Supplier<SceneManager> sceneManagerSupplier, RouteManager routeManager, RouteStorageService routeStorageService){
+    public CreateRouteController(Supplier<SceneManager> sceneManagerSupplier, RouteManager routeManager, RouteStorageService routeStorageService, AirportManager airportManager, AirportStorageService airportStorageService){
         this.sceneManagerSupplier = sceneManagerSupplier;
         this.routeManager = routeManager;
         this.routeStorageService = routeStorageService;
+        this.airportManager = airportManager;
+        this.airportStorageService = airportStorageService;
     }
 
     @Override
@@ -46,26 +53,27 @@ public class CreateRouteController implements Initializable {
 
     }
 
+    @FXML
     private void setAirportsListSt(){
-        this.airportsListSt = (ListView<Route>) FXCollections.observableArrayList();
-        this.airportsListSt.setItems((ObservableList<Route>) routeStorageService.getAll());
+        this.airportsListSt = (ListView<Airport>) FXCollections.observableArrayList();
+        this.airportsListSt.setItems((ObservableList<Airport>) this.airportManager.getAirports());
     }
 
+    @FXML
     private void setAirportsListDest(){
-        this.airportsListDest = (ListView<Route>) FXCollections.observableArrayList();
-        this.airportsListDest.setItems((ObservableList<Route>) routeStorageService.getAll());
+        this.airportsListDest = (ListView<Airport>) FXCollections.observableArrayList();
+        this.airportsListDest.setItems((ObservableList<Airport>) this.airportManager.getAirports());
     }
 
     @FXML
     public void createRouteHandler(ActionEvent event) throws IOException {
-        this.airportsListSt.getSelectionModel().getSelectedItem();
-        this.airportsListDest.getSelectionModel().getSelectedItem();
+        //this.airportsListSt.getSelectionModel().getSelectedItem();
+        //this.airportsListDest.getSelectionModel().getSelectedItem();
     }
 
     @FXML
-    public void backButtonHandler(ActionEvent event) throws IOException {
+    public void backHandler(ActionEvent event) throws IOException {
         this.sceneManagerSupplier.get().changeScene("currentRoute");
-        //GUIApp.setRoot("currentRoutes");
     }
 
 }
