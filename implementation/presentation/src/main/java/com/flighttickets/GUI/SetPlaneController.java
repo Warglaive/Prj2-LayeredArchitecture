@@ -1,7 +1,9 @@
-/*
+
 package com.flighttickets.GUI;
 
+import com.flighttickets.Entities.PlaneManager;
 import com.flighttickets.GUIApp;
+import com.flighttickets.Persistance.PlaneStorageService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -10,6 +12,7 @@ import javafx.scene.control.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.function.Supplier;
 
 public class SetPlaneController implements Initializable {
 
@@ -25,6 +28,15 @@ public class SetPlaneController implements Initializable {
     @FXML
     private Button SubmitButton;
 
+    private final Supplier<SceneManager> sceneManagerSupplier;
+    private PlaneManager planeManager;
+    private PlaneStorageService planeStorageService;
+
+    public SetPlaneController(Supplier<SceneManager> sceneManagerSupplier, PlaneManager planeManager, PlaneStorageService planeStorageService){
+        this.sceneManagerSupplier = sceneManagerSupplier;
+        this.planeManager = planeManager;
+        this.planeStorageService = planeStorageService;
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -38,7 +50,8 @@ public class SetPlaneController implements Initializable {
 
     @FXML
     public void backHandler(ActionEvent event) throws IOException {
-        GUIApp.setRoot("createRoute");
+        this.sceneManagerSupplier.get().changeScene("createRoute");
+        //GUIApp.setRoot("createRoute");
     }
 
     @FXML
@@ -46,4 +59,3 @@ public class SetPlaneController implements Initializable {
 
     }
 }
-*/

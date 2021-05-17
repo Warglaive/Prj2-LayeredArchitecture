@@ -1,4 +1,4 @@
-/*
+
 package com.flighttickets.GUI;
 
 import com.flighttickets.GUIApp;
@@ -15,6 +15,7 @@ import javafx.scene.control.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.function.Supplier;
 
 public class CreateRouteController implements Initializable {
 
@@ -23,14 +24,22 @@ public class CreateRouteController implements Initializable {
 
     @FXML
     private ListView<Route> airportsListDest;
+    
     @FXML
     private Button backButton;
 
     @FXML
     private Button submitButton;
 
+    private final Supplier<SceneManager> sceneManagerSupplier;
     RouteManager routeManager;
     RouteStorageService routeStorageService;
+
+    public CreateRouteController(Supplier<SceneManager> sceneManagerSupplier, RouteManager routeManager, RouteStorageService routeStorageService){
+        this.sceneManagerSupplier = sceneManagerSupplier;
+        this.routeManager = routeManager;
+        this.routeStorageService = routeStorageService;
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -55,8 +64,9 @@ public class CreateRouteController implements Initializable {
 
     @FXML
     public void backButtonHandler(ActionEvent event) throws IOException {
-        GUIApp.setRoot("currentRoutes");
+        this.sceneManagerSupplier.get().changeScene("currentRoute");
+        //GUIApp.setRoot("currentRoutes");
     }
 
 }
-*/
+
