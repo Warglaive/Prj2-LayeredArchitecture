@@ -6,6 +6,7 @@ import com.flighttickets.Persistance.BookingRequestStorageService;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.List;
 
 public class BookingRequestManagerImpl implements BookingRequestManager {
 
@@ -26,6 +27,11 @@ public class BookingRequestManagerImpl implements BookingRequestManager {
     @Override
     public void add(BookingRequest bookingRequest) throws SQLException, ClassNotFoundException {
         this.bookingRequestStorageService.insert(bookingRequest);
+    }
+
+    @Override
+    public List<BookingRequest> getPendingRequests() {
+        return this.bookingRequestStorageService.getPendingRequests();
     }
 
     public BookingRequestStorageService getBookingRequestStorageService() {

@@ -1,10 +1,10 @@
 
 package com.flighttickets.GUI;
 
-import com.flighttickets.Entities.BookingRequestManager;
-import com.flighttickets.Entities.SystemUser;
-import com.flighttickets.Entities.SystemUserManager;
+import com.flighttickets.Entities.*;
 import com.flighttickets.GUIApp;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -12,6 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.function.Supplier;
 
@@ -42,7 +43,9 @@ public class BookingRequestOverviewController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        List<BookingRequest> pendingRequests = this.bookingRequestManager.getPendingRequests();
+        ObservableList<BookingRequest> observableList = FXCollections.observableList(pendingRequests);
+        selection_list.setItems(observableList);
     }
 
     @FXML

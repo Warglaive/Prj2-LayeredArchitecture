@@ -74,7 +74,8 @@ public class CreateBookingRequestController implements Initializable {
      */
     @FXML
     void submitRequest(ActionEvent event) throws SQLException, ClassNotFoundException {
-        int initialSalesOfficerId = assignRandomSalesOfficerId();
+        int initialSalesOfficerId = 1;
+        //assignRandomSalesOfficerId();
         int initialId = 0;
         String initialStatus = "Pending";
         //take values from fields
