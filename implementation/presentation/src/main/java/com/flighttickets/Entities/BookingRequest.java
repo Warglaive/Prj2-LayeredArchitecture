@@ -56,9 +56,9 @@ public class BookingRequest implements Entity2<Integer> {
     //TODO: Check customer.ToString() - may cause issues
     @Override
     public String toString() {
-        return "BookingRequest{" + "id=" + bookingRequestId + ", departureDate=" + departureDate + ", returnDate=" + returnDate + ", departureDestination="
-                + departureDestination + ", destination=" + arrivalDestination + ", customer=" + customerId
-                + ", passengersAmount=" + passengersAmount
+        return "BookingRequest{" + "id=" + bookingRequestId + ", customerId=" + customerId + ", salesOfficerId=" + salesOfficerId + ", departureDate="
+                + departureDate + ", returnDate=" + returnDate + ", departureDestination=" + departureDestination
+                + ", arrivalDestination=" + arrivalDestination + ", passengersAmount=" + passengersAmount
                 + ", status=" + status + '}';
     }
 
