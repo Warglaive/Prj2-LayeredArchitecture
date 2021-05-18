@@ -1,4 +1,15 @@
 ## Customer
+| Name | Create accesses main view for role "customer"|
+| --- | --- |
+| Actor | Customer |
+| Description | Create accesses main view for role "customer"|
+| Precondition |  Customer must be logged in|
+| Scenario | 1. Customer logs in. <br> 2. System provides view containing all booking requests(pending, rejected, accepted)  |
+| Result | Customer views all booking requests(pending, rejected, accepted). |
+| Exceptions |TBD  |
+| Extensions | N/A  |
+
+
 | Name | Create a new Booking request|
 | --- | --- |
 | Actor | Customer |
