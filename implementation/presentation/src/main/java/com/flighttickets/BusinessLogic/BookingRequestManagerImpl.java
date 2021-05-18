@@ -35,8 +35,8 @@ public class BookingRequestManagerImpl implements BookingRequestManager {
     }
 
     @Override
-    public void declineRequest(int requestId) {
-        this.bookingRequestStorageService.declineRequest(requestId);
+    public void declineRequest(BookingRequest toBeDeclined) {
+        this.bookingRequestStorageService.declineRequest(toBeDeclined);
     }
 
     public BookingRequestStorageService getBookingRequestStorageService() {

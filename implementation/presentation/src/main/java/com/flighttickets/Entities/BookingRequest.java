@@ -7,7 +7,7 @@ import java.time.LocalDate;
 
 public class BookingRequest implements Entity2<Integer> {
     @ID
-    int requestId;
+    int bookingRequestId;
 
     /**
      * Only SystemUser with role == "Customer" can access this class.
@@ -27,8 +27,8 @@ public class BookingRequest implements Entity2<Integer> {
     private int passengersAmount;
     private String status;
 
-    public BookingRequest(int requestId, int customerId, int salesOfficerId, String departureDestination, String arrivalDestination, LocalDate departureDate, LocalDate returnDate, int passengersAmount, String status) {
-        this.requestId = requestId;
+    public BookingRequest(int BookingRequestId, int customerId, int salesOfficerId, String departureDestination, String arrivalDestination, LocalDate departureDate, LocalDate returnDate, int passengersAmount, String status) {
+        this.bookingRequestId = BookingRequestId;
         this.customerId = customerId;
         this.salesOfficerId = salesOfficerId;
         this.departureDate = departureDate;
@@ -41,12 +41,12 @@ public class BookingRequest implements Entity2<Integer> {
 
     @Override
     public Integer getNaturalId() {
-        return this.requestId;
+        return this.bookingRequestId;
     }
 
     @Override
     public int getId() {
-        return this.requestId;
+        return this.bookingRequestId;
     }
 
     /**
@@ -57,7 +57,7 @@ public class BookingRequest implements Entity2<Integer> {
     //TODO: Check customer.ToString() - may cause issues
     @Override
     public String toString() {
-        return "BookingRequest{" + "id=" + requestId + ", departureDate=" + departureDate + ", returnDate=" + returnDate + ", departureDestination="
+        return "BookingRequest{" + "requestId=" + bookingRequestId + ", departureDate=" + departureDate + ", returnDate=" + returnDate + ", departureDestination="
                 + departureDestination + ", destination=" + arrivalDestination + ", customer=" + customerId
                 + ", passengersAmount=" + passengersAmount
                 + ", status=" + status + '}';
@@ -82,7 +82,7 @@ public class BookingRequest implements Entity2<Integer> {
     Object[] asParts() {
 
         return new Object[]{
-                this.requestId,
+                this.bookingRequestId,
                 this.customerId,
                 this.salesOfficerId,
                 this.departureDestination,
@@ -94,12 +94,12 @@ public class BookingRequest implements Entity2<Integer> {
         };
     }
 
-    public int getRequestId() {
-        return requestId;
+    public int getBookingRequestId() {
+        return bookingRequestId;
     }
 
-    public void setRequestId(int requestId) {
-        this.requestId = requestId;
+    public void setBookingRequestId(int bookingRequestId) {
+        this.bookingRequestId = bookingRequestId;
     }
 
     public int getCustomerId() {

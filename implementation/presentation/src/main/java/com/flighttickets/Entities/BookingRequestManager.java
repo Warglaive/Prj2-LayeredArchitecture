@@ -43,6 +43,9 @@ public interface BookingRequestManager {
      */
     List<BookingRequest> getPendingRequests();
 
-    void declineRequest(int requestId);
+    /**
+     * @param toBeDeclined
+     */
+    void declineRequest(BookingRequest toBeDeclined);
 
 }
