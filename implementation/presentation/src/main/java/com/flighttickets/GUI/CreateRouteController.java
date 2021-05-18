@@ -1,11 +1,8 @@
 
 package com.flighttickets.GUI;
 
-import com.flighttickets.Entities.Airport;
-import com.flighttickets.Entities.AirportManager;
+import com.flighttickets.Entities.*;
 import com.flighttickets.GUIApp;
-import com.flighttickets.Entities.Route;
-import com.flighttickets.Entities.RouteManager;
 import com.flighttickets.Persistance.AirportStorageService;
 import com.flighttickets.Persistance.RouteStorageService;
 import javafx.collections.FXCollections;
@@ -17,6 +14,7 @@ import javafx.scene.control.*;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.function.Supplier;
 
@@ -36,45 +34,33 @@ public class CreateRouteController implements Initializable {
 
     private final Supplier<SceneManager> sceneManagerSupplier;
     RouteManager routeManager;
-    RouteStorageService routeStorageService;
     AirportManager airportManager;
-    AirportStorageService airportStorageService;
+    SystemUser planner;
 
-    public CreateRouteController(Supplier<SceneManager> sceneManagerSupplier, RouteManager routeManager, RouteStorageService routeStorageService, AirportManager airportManager, AirportStorageService airportStorageService){
+    public CreateRouteController(Supplier<SceneManager> sceneManagerSupplier, SystemUser planner, RouteManager routeManager, AirportManager airportManager){
         this.sceneManagerSupplier = sceneManagerSupplier;
+        this.planner = planner;
         this.routeManager = routeManager;
-        this.routeStorageService = routeStorageService;
         this.airportManager = airportManager;
-        this.airportStorageService = airportStorageService;
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        List<Airport> listOfAirports = this.airportManager.getAirports();
+        ObservableList<Airport> observableList = FXCollections.observableList(listOfAirports);
+        this.airportsListSt.setItems(observableList);
+        this.airportsListDest.setItems(observableList);
 
-    }
-
-    @FXML
-    private void setAirportsListSt(){
-        this.airportsListSt = (ListView<Airport>) FXCollections.observableArrayList();
-        this.airportsListSt.setItems((ObservableList<Airport>) this.airportManager.getAirports());
-    }
-
-    @FXML
-    private void setAirportsListDest(){
-        this.airportsListDest = (ListView<Airport>) FXCollections.observableArrayList();
-        this.airportsListDest.setItems((ObservableList<Airport>) this.airportManager.getAirports());
     }
 
     @FXML
     public void createRouteHandler(ActionEvent event) throws IOException {
-        //this.airportsListSt.getSelectionModel().getSelectedItem();
-        //this.airportsListDest.getSelectionModel().getSelectedItem();
+
     }
 
     @FXML
     public void backHandler(ActionEvent event) throws IOException {
-        this.sceneManagerSupplier.get().changeScene("currentRoute");
+        this.sceneManagerSupplier.get().changeScene("currentRoutes");
     }
-
 }
 

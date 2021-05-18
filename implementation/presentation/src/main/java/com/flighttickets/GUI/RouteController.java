@@ -1,13 +1,10 @@
 
 package com.flighttickets.GUI;
 
-import com.flighttickets.Entities.BookingRequestManager;
-import com.flighttickets.Entities.SystemUserManager;
+import com.flighttickets.Entities.*;
 import com.flighttickets.GUIApp;
 import com.flighttickets.BusinessLogic.BusinessLogicAPI;
 import com.flighttickets.BusinessLogic.BusinessLogicAPIImpl;
-import com.flighttickets.Entities.Route;
-import com.flighttickets.Entities.RouteManager;
 import com.flighttickets.Persistance.PersistenceAPI;
 import com.flighttickets.Persistance.PersistenceAPIImpl;
 import com.flighttickets.Persistance.RouteStorageService;
@@ -39,17 +36,19 @@ public class RouteController implements Initializable {
     private ListView routesList;
 
     private RouteManager routeManager;
-    private BusinessLogicAPI businessLogicAPI;
-    private PersistenceAPI persistenceAPI;
     private final Supplier<SceneManager> sceneManagerSupplier;
+    private SystemUser planner;
+    //private BusinessLogicAPI businessLogicAPI;
+    //private PersistenceAPI persistenceAPI;
 
-    public RouteController(Supplier<SceneManager> sceneManagerSupplier, RouteManager routeManager){
+    public RouteController(Supplier<SceneManager> sceneManagerSupplier, SystemUser planner, RouteManager routeManager){
         //this.persistenceAPI = new PersistenceAPIImpl();
         //this.businessLogicAPI = new BusinessLogicAPIImpl(this.persistenceAPI);
         //this.routeManager = this.businessLogicAPI.getRouteManager();
         //this.routeManager.setRouteStorageService(new RouteStorageService(this.daoFactory));
         this.sceneManagerSupplier = sceneManagerSupplier;
         this.routeManager = routeManager;
+        this.planner = planner;
     }
 
     @Override

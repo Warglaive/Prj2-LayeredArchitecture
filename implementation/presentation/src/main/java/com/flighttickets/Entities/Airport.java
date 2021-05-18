@@ -32,12 +32,10 @@ public class Airport implements Entity2<Integer> {
 
     @Override
     public String toString() {
-        return "Airport{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", country='" + country + '\'' +
-                ", city='" + city + '\'' +
-                '}';
+        return "id: " + id +
+                ", name: " + name +
+                ", country: " + country  +
+                ", city: " + city;
     }
 
     /**

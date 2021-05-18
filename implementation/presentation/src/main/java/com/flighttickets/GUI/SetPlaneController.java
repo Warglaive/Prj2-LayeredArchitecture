@@ -4,6 +4,7 @@ package com.flighttickets.GUI;
 import com.flighttickets.Entities.Airport;
 import com.flighttickets.Entities.Plane;
 import com.flighttickets.Entities.PlaneManager;
+import com.flighttickets.Entities.SystemUser;
 import com.flighttickets.GUIApp;
 import com.flighttickets.Persistance.PlaneStorageService;
 import javafx.collections.FXCollections;
@@ -33,13 +34,14 @@ public class SetPlaneController implements Initializable {
     private Button SubmitButton;
 
     private final Supplier<SceneManager> sceneManagerSupplier;
+    private SystemUser planner;
     private PlaneManager planeManager;
     private PlaneStorageService planeStorageService;
 
-    public SetPlaneController(Supplier<SceneManager> sceneManagerSupplier, PlaneManager planeManager, PlaneStorageService planeStorageService){
+    public SetPlaneController(Supplier<SceneManager> sceneManagerSupplier, SystemUser planner, PlaneManager planeManager){
         this.sceneManagerSupplier = sceneManagerSupplier;
+        this.planner = planner;
         this.planeManager = planeManager;
-        this.planeStorageService = planeStorageService;
     }
 
     @Override

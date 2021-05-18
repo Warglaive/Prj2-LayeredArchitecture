@@ -36,6 +36,6 @@ public class PersistenceAPIImpl implements PersistenceImplementationProvider, Pe
 
     @Override
     public AirportStorageService getAirportStorageService() {
-        return null;
+        return new AirportStorageService(this.daoFactory);
     }
 }

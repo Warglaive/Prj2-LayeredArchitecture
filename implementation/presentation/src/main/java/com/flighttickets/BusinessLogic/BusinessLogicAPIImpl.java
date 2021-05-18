@@ -1,9 +1,6 @@
 package com.flighttickets.BusinessLogic;
 
-import com.flighttickets.Entities.BookingRequestManager;
-import com.flighttickets.Entities.FlightManager;
-import com.flighttickets.Entities.RouteManager;
-import com.flighttickets.Entities.SystemUserManager;
+import com.flighttickets.Entities.*;
 import com.flighttickets.Persistance.PersistenceAPI;
 
 public class BusinessLogicAPIImpl implements BusinessLogicImplementationProvider, BusinessLogicAPI {
@@ -51,5 +48,12 @@ public class BusinessLogicAPIImpl implements BusinessLogicImplementationProvider
         RouteManagerImpl routeManager = new RouteManagerImpl();
         routeManager.setRouteStorageService(this.persistenceAPI.getRouteStorageService());
         return routeManager;
+    }
+
+    @Override
+    public AirportManager getAirportManager() {
+        AirportManagerImpl airportManager = new AirportManagerImpl();
+        airportManager.setAirportStorageService(this.persistenceAPI.getAirportStorageService());
+        return airportManager;
     }
 }

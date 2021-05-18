@@ -13,7 +13,7 @@ public class AirportStorageService {
     private final String tableName = "airport";
 
 
-    public AirportStorageService() {
+    public AirportStorageService(PGDAOFactory daoFactory) {
         // Use the provided data source
         PGDAOFactory pdaof = new PGDAOFactory(PGDataSource.DATA_SOURCE);
 
