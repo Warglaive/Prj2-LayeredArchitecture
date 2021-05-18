@@ -89,8 +89,8 @@ public class BookingRequestOverviewController implements Initializable {
     public void declineRequestHandler(ActionEvent event) throws IOException {
         //GUIApp.setRoot("createRoute");
         BookingRequest declined = selection_list.getSelectionModel().getSelectedItem();
-        System.out.println("Booking to be edited/declined" + declined.getId());
-        System.out.println("Write Decline implementation here! -jl TODO");
+        //System.out.println("Booking to be edited/declined" + declined.getId());
+        this.bookingRequestManager.declineRequest(declined.getRequestId());
     }
 
     @FXML

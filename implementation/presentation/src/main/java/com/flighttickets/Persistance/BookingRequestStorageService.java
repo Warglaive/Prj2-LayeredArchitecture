@@ -38,7 +38,14 @@ public class BookingRequestStorageService {
     public List<BookingRequest> getPendingRequests() {
         List<BookingRequest> requestsList = this.bookingRequestDAO.anyQuery("SELECT * FROM " +this.tableName+ " WHERE status = 'Pending'");
         //result was found
-        //TODO Write exception/error for no lists returned
+        //TODO Write exception/error for no lists returned - JL
         return requestsList;
+    }
+
+    public void declineRequest(int requestId){
+        this.bookingRequestDAO.anyQuery("update " +this.tableName+ " set status = 'Declined' where requestid = "+requestId);
+        this.bookingRequestDAO.update()
+        System.out.println("Booking with" +requestId+ "Has been declined!");
+        //TODO Write message to user properly - JL
     }
 }

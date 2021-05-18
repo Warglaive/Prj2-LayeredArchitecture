@@ -43,4 +43,6 @@ public interface BookingRequestManager {
      */
     List<BookingRequest> getPendingRequests();
 
+    void declineRequest(int requestId);
+
 }
