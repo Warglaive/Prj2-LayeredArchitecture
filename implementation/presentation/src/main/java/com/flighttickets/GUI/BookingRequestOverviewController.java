@@ -10,6 +10,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TableView;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
@@ -27,7 +29,9 @@ public class BookingRequestOverviewController implements Initializable {
     private Button handle_btn;
 
     @FXML
-    private ListView selection_list;
+    private TableView<BookingRequest> selection_list;
+
+
 
     private final Supplier<SceneManager> sceneManagerSupplier;
     private BookingRequestManager bookingRequestManager;
@@ -51,6 +55,7 @@ public class BookingRequestOverviewController implements Initializable {
     @FXML
     public void declineRequestHandler(ActionEvent event) throws IOException {
         //GUIApp.setRoot("createRoute");
+        //BookingRequest declined = selection_list.getSelectionModel().getSelectedItem();
         System.out.println("Request has been declined");
     }
 
