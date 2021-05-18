@@ -10,7 +10,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
 import java.net.URL;
@@ -31,6 +33,27 @@ public class BookingRequestOverviewController implements Initializable {
     @FXML
     private TableView<BookingRequest> selection_list;
 
+    @FXML
+    private TableColumn<BookingRequest, String> request_id_column;
+
+    @FXML
+    private TableColumn<BookingRequest, String> customer_id_column;
+
+    @FXML
+    private TableColumn<BookingRequest, String> departure_column;
+
+    @FXML
+    private TableColumn<BookingRequest, String> arrival_column;
+
+    @FXML
+    private TableColumn<BookingRequest, String> departure_date_column;
+
+    @FXML
+    private TableColumn<BookingRequest, String> return_date_column;
+
+    @FXML
+    private TableColumn<BookingRequest, String> passenger_count_column;
+
 
 
     private final Supplier<SceneManager> sceneManagerSupplier;
@@ -47,22 +70,34 @@ public class BookingRequestOverviewController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        //Retrieves booking requests pending from the booking request manager. -jl
         List<BookingRequest> pendingRequests = this.bookingRequestManager.getPendingRequests();
+        //Sets them all into an observable list
         ObservableList<BookingRequest> observableList = FXCollections.observableList(pendingRequests);
+
         selection_list.setItems(observableList);
+        request_id_column.setCellValueFactory(new PropertyValueFactory<BookingRequest, String>("id"));
+        customer_id_column.setCellValueFactory(new PropertyValueFactory<>("customerId"));
+        departure_column.setCellValueFactory(new PropertyValueFactory<>("departureDestination"));
+        arrival_column.setCellValueFactory(new PropertyValueFactory<>("arrivalDestination"));
+        departure_date_column.setCellValueFactory(new PropertyValueFactory<>("departureDate"));
+        return_date_column.setCellValueFactory(new PropertyValueFactory<>("returnDate"));
+        passenger_count_column.setCellValueFactory(new PropertyValueFactory<>("passengersAmount"));
     }
 
     @FXML
     public void declineRequestHandler(ActionEvent event) throws IOException {
         //GUIApp.setRoot("createRoute");
-        //BookingRequest declined = selection_list.getSelectionModel().getSelectedItem();
-        System.out.println("Request has been declined");
+        BookingRequest declined = selection_list.getSelectionModel().getSelectedItem();
+        System.out.println("Booking to be edited/declined" + declined.getId());
+        System.out.println("Write Decline implementation here! -jl TODO");
     }
 
     @FXML
     public void handleRequestHandler(ActionEvent event) throws IOException {
         //GUIApp.setRoot("setPlane");
-        System.out.println("Handle Request");
+        BookingRequest tobeHandled = selection_list.getSelectionModel().getSelectedItem();
+        System.out.println("Handle Request" + tobeHandled);
     }
 
     @FXML
