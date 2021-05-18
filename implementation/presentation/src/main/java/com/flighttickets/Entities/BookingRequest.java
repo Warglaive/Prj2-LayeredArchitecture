@@ -51,9 +51,7 @@ public class BookingRequest implements Entity2<Integer> {
 
     /**
      * needed for the Mapper
-     *
      */
-    //TODO: Check customer.ToString() - may cause issues
     @Override
     public String toString() {
         return "BookingRequest{" + "id=" + bookingRequestId + ", customerId=" + customerId + ", salesOfficerId=" + salesOfficerId + ", departureDate="
