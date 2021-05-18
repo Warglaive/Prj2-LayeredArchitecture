@@ -98,6 +98,7 @@ public class CreateBookingRequestController implements Initializable {
         int lowestSalesOfficerId = this.systemUserManager.getSystemUserStorageService().getLowestSalesOfficerId();
         int biggestSalesOfficerId = this.systemUserManager.getSystemUserStorageService().getBiggestSalesOfficerId();
 
+        //TODO: Make it in the businessLogic via userManager
         Random r = new Random();
         int low = lowestSalesOfficerId;
         int high = biggestSalesOfficerId;
