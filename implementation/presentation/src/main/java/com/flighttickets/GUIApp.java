@@ -24,6 +24,10 @@ public class GUIApp extends Application {
      */
     SystemUserController systemUserController;
 
+    /**
+     * Need controller for ticket too, to get the current ticket. Don't know another way to do it.
+     */
+    EditTicketController editTicketController;
 
     /**
      * Add arguments for each Controller, EntityManager
@@ -33,6 +37,8 @@ public class GUIApp extends Application {
         switch (c.getName()) {
             case "com.flighttickets.GUI.MainController":
                 return new MainController(this::getSceneManager, this.businessLogicAPI.getSystemUserManager());
+            case "com.flighttickets.GUI.SalesOfficerController":
+                return new SalesOfficerController(this::getSceneManager, this.systemUserController.getLoggedInCustomer());
             case "com.flighttickets.GUI.CreateBookingRequestController":
                 return new CreateBookingRequestController(this::getSceneManager, this.systemUserController.getLoggedInCustomer(), this.businessLogicAPI.getBookingRequestManager(), this.businessLogicAPI.getSystemUserManager());
             case "com.flighttickets.GUI.SystemUserController":
@@ -40,6 +46,11 @@ public class GUIApp extends Application {
                 return this.systemUserController;
             case "com.flighttickets.GUI.BookingRequestOverviewController":
                 return new BookingRequestOverviewController(this::getSceneManager, this.systemUserController.getLoggedInCustomer(), this.businessLogicAPI.getSystemUserManager(), this.businessLogicAPI.getBookingRequestManager());
+            case "com.flighttickets.GUI.EditTicketController":
+                this.editTicketController =  new EditTicketController(this::getSceneManager, this.systemUserController.getLoggedInCustomer(), this.businessLogicAPI.getSystemUserManager(), this.businessLogicAPI.getTicketManager());
+                return this.editTicketController;
+            case "com.flighttickets.GUI.EditTicketDataController":
+                return new EditTicketDataController(this::getSceneManager, this.systemUserController.getLoggedInCustomer(), this.businessLogicAPI.getTicketManager(), this.editTicketController.getSelectedTicket());
             default:
                 return new MainController(this::getSceneManager, this.businessLogicAPI.getSystemUserManager());
         }
