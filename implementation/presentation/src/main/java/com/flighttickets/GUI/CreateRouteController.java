@@ -5,6 +5,7 @@ import com.flighttickets.Entities.*;
 import com.flighttickets.GUIApp;
 import com.flighttickets.Persistance.AirportStorageService;
 import com.flighttickets.Persistance.RouteStorageService;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -50,12 +51,15 @@ public class CreateRouteController implements Initializable {
         ObservableList<Airport> observableList = FXCollections.observableList(listOfAirports);
         this.airportsListSt.setItems(observableList);
         this.airportsListDest.setItems(observableList);
-
     }
 
     @FXML
     public void createRouteHandler(ActionEvent event) throws IOException {
+        ObservableList<Airport> startPoint;
+        startPoint = airportsListSt.getSelectionModel().getSelectedItems();
 
+        ObservableList<Airport> endPoint;
+        endPoint = airportsListDest.getSelectionModel().getSelectedItems();
     }
 
     @FXML

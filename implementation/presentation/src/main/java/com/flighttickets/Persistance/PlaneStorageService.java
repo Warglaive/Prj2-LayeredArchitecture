@@ -28,7 +28,7 @@ public class PlaneStorageService {
      public List<Plane> getPlanes(){
          List<Plane> planesList = this.planeDAO.anyQuery("SELECT * FROM " + this.tableName);
          //result was found
-         System.out.println("Is a airport found?" + planesList.get(0).toString());
+         System.out.println("Is a plane found?" + planesList.get(0).toString());
          return planesList;
      }
 

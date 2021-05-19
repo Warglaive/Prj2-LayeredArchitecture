@@ -44,6 +44,8 @@ public class GUIApp extends Application {
                 return new RouteController(this::getSceneManager, this.systemUserController.getLoggedInCustomer(), this.businessLogicAPI.getRouteManager());
             case "com.flighttickets.GUI.CreateRouteController":
                 return new CreateRouteController(this::getSceneManager, this.systemUserController.getLoggedInCustomer(), this.businessLogicAPI.getRouteManager(), this.businessLogicAPI.getAirportManager());
+            case "com.flighttickets.GUI.SetPlaneController":
+                return new SetPlaneController(this::getSceneManager, this.systemUserController.getLoggedInCustomer(), this.businessLogicAPI.getPlaneManager());
                 //TODO: Add proper Default switch case
             default:
                 return new MainController(this::getSceneManager, this.businessLogicAPI.getSystemUserManager());

@@ -16,6 +16,7 @@ import javafx.scene.control.*;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.function.Supplier;
 
@@ -36,7 +37,6 @@ public class SetPlaneController implements Initializable {
     private final Supplier<SceneManager> sceneManagerSupplier;
     private SystemUser planner;
     private PlaneManager planeManager;
-    private PlaneStorageService planeStorageService;
 
     public SetPlaneController(Supplier<SceneManager> sceneManagerSupplier, SystemUser planner, PlaneManager planeManager){
         this.sceneManagerSupplier = sceneManagerSupplier;
@@ -46,13 +46,9 @@ public class SetPlaneController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
-    }
-
-    @FXML
-    public void setPlanesList(){
-        this.planesList = (ListView<Plane>) FXCollections.observableArrayList();
-        this.planesList.setItems((ObservableList<Plane>) this.planeManager.getPlanes());
+        List<Plane> listOfPlanes = this.planeManager.getPlanes();
+        ObservableList<Plane> observableList = FXCollections.observableList(listOfPlanes);
+        this.planesList.setItems(observableList);
     }
 
     @FXML

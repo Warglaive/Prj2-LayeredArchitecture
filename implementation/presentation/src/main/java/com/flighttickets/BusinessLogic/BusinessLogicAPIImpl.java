@@ -56,4 +56,11 @@ public class BusinessLogicAPIImpl implements BusinessLogicImplementationProvider
         airportManager.setAirportStorageService(this.persistenceAPI.getAirportStorageService());
         return airportManager;
     }
+
+    @Override
+    public PlaneManager getPlaneManager(){
+        PlaneManager planeManager = new PlaneManagerImpl();
+        planeManager.setPlaneStorageService(this.persistenceAPI.getPlaneStorageService());
+        return planeManager;
+    }
 }
