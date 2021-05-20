@@ -12,9 +12,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.function.Supplier;
@@ -22,16 +24,32 @@ import java.util.function.Supplier;
 public class CreateRouteController implements Initializable {
 
     @FXML
-    private ListView<Airport> airportsListSt;
-
+    private TableView<Airport> airportsListSt;
     @FXML
-    private ListView<Airport> airportsListDest;
+    private TableView<Airport> airportsListDest;
+    @FXML
+    private TableColumn idCol;
+    @FXML
+    private TableColumn nameCol;
+    @FXML
+    private TableColumn cityCol;
+    @FXML
+    private TableColumn countryCol;
+    @FXML
+    private TableColumn idCol1;
+    @FXML
+    private TableColumn nameCol1;
+    @FXML
+    private TableColumn cityCol1;
+    @FXML
+    private TableColumn countryCol1;
 
+    /*
     @FXML
     private Button backButton;
-
     @FXML
     private Button submitButton;
+     */
 
     private final Supplier<SceneManager> sceneManagerSupplier;
     RouteManager routeManager;
@@ -51,15 +69,29 @@ public class CreateRouteController implements Initializable {
         ObservableList<Airport> observableList = FXCollections.observableList(listOfAirports);
         this.airportsListSt.setItems(observableList);
         this.airportsListDest.setItems(observableList);
+
+        this.idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
+        this.nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
+        this.countryCol.setCellValueFactory(new PropertyValueFactory<>("country"));
+        this.cityCol.setCellValueFactory(new PropertyValueFactory<>("city"));
+
+        this.idCol1.setCellValueFactory(new PropertyValueFactory<>("id"));
+        this.nameCol1.setCellValueFactory(new PropertyValueFactory<>("name"));
+        this.countryCol1.setCellValueFactory(new PropertyValueFactory<>("country"));
+        this.cityCol1.setCellValueFactory(new PropertyValueFactory<>("city"));
     }
 
     @FXML
-    public void createRouteHandler(ActionEvent event) throws IOException {
-        ObservableList<Airport> startPoint;
-        startPoint = airportsListSt.getSelectionModel().getSelectedItems();
+    public void createRouteHandler(ActionEvent event) throws IOException, SQLException, ClassNotFoundException {
 
-        ObservableList<Airport> endPoint;
-        endPoint = airportsListDest.getSelectionModel().getSelectedItems();
+        Airport starting = airportsListSt.getSelectionModel().getSelectedItem();
+        Airport endPoint = airportsListDest.getSelectionModel().getSelectedItem();
+        Integer startingId = starting.getId();
+        Integer endId = endPoint.getId();
+        Integer idPlanner = this.planner.getId();
+        Integer initialId = 0;
+        Route route = new Route(initialId, startingId, endId, idPlanner);
+        this.routeManager.add(route);
     }
 
     @FXML
@@ -67,4 +99,3 @@ public class CreateRouteController implements Initializable {
         this.sceneManagerSupplier.get().changeScene("currentRoutes");
     }
 }
-

@@ -53,7 +53,7 @@ public class SetPlaneController implements Initializable {
 
     @FXML
     public void backHandler(ActionEvent event) throws IOException {
-        this.sceneManagerSupplier.get().changeScene("createRoute");
+        this.sceneManagerSupplier.get().changeScene("currentRoutes");
     }
 
     @FXML

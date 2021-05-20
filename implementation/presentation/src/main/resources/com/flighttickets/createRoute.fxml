@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -13,11 +14,25 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Text>
-      <Text layoutX="194.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="starting location:" />
-      <Text layoutX="615.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="destination location:" />
-      <Button fx:id="backButton" layoutX="374.0" layoutY="339.0" mnemonicParsing="false" onAction="#backHandler" prefHeight="25.0" prefWidth="57.0" text="Back" />
-      <Button fx:id="submitButton" layoutX="476.0" layoutY="339.0" mnemonicParsing="false" onAction="#createRouteHandler" text="Submit" />
-      <ListView fx:id="airportsListSt" layoutX="29.0" layoutY="114.0" prefHeight="185.0" prefWidth="402.0" />
-      <ListView fx:id="airportsListDest" layoutX="476.0" layoutY="114.0" prefHeight="185.0" prefWidth="386.0" />
+      <Text layoutX="179.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="starting location:" />
+      <Text layoutX="601.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="destination location:" />
+      <Button fx:id="backButton" layoutX="366.0" layoutY="339.0" mnemonicParsing="false" onAction="#backHandler" prefHeight="25.0" prefWidth="57.0" text="Back" />
+      <Button fx:id="submitButton" layoutX="451.0" layoutY="339.0" mnemonicParsing="false" onAction="#createRouteHandler" text="Submit" />
+      <TableView fx:id="airportsListSt" layoutX="19.0" layoutY="114.0" prefHeight="200.0" prefWidth="409.0">
+        <columns>
+          <TableColumn fx:id="idCol" prefWidth="49.0" text="id" />
+          <TableColumn fx:id="nameCol" prefWidth="128.0" text="name" />
+            <TableColumn fx:id="cityCol" prefWidth="112.0" text="city" />
+            <TableColumn fx:id="countryCol" prefWidth="76.0" text="country" />
+        </columns>
+      </TableView>
+      <TableView fx:id="airportsListDest" layoutX="451.0" layoutY="114.0" prefHeight="200.0" prefWidth="409.0">
+         <columns>
+            <TableColumn fx:id="idCol1" prefWidth="49.0" text="id" />
+            <TableColumn fx:id="nameCol1" prefWidth="128.0" text="name" />
+            <TableColumn fx:id="cityCol1" prefWidth="112.0" text="city" />
+            <TableColumn fx:id="countryCol1" prefWidth="76.0" text="country" />
+         </columns>
+      </TableView>
    </children>
 </AnchorPane>
