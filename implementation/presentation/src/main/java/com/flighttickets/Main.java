@@ -9,6 +9,7 @@ import nl.fontys.sebivenlo.dao.pg.PGDAOFactory;
 public class Main {
     public static void main(String[] args) {
 
+        //TODO: Catch
         PGDAOFactory daoFactory = new PGDAOFactory(PGDataSource.DATA_SOURCE);
         PersistenceAPI persistenceAPI = PersistenceImplementationProvider.getImplementation(daoFactory);
         BusinessLogicAPI businesslogicAPI = BusinessLogicImplementationProvider.getImplementation(persistenceAPI);
