@@ -143,7 +143,7 @@ public class SystemUserController implements Initializable {
             this.sceneManagerSupplier.get().changeScene("BookingRequestOverview");
 
         } else if (loggedInSystemUser.getRole().equals("Customer")) {
-            this.sceneManagerSupplier.get().changeScene("CreateBookingRequest");
+            this.sceneManagerSupplier.get().changeScene("customerMainView");
 
         } else {
             //TODO Implement wrong username error thrown in fxml - jl
