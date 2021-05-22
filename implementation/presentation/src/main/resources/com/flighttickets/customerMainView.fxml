@@ -21,8 +21,8 @@
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <Label layoutX="562.0" layoutY="21.0" text="Logged in as:" />
-                  <Text fx:id="loggedInEmailText1" fill="RED" layoutX="672.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="1.0" />
+                  <Label layoutX="570.0" layoutY="14.0" text="Logged in as:" />
+                  <Text fx:id="loggedInEmailText1" fill="RED" layoutX="675.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="1.0" />
                </children></AnchorPane>
       </content>
     </Tab>
