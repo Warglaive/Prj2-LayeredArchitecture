@@ -1,9 +1,39 @@
 package com.flighttickets.Entities;
 
-import com.flighttickets.Persistance.SystemUserStorageService;
+import com.flighttickets.Persistance.BookingRequestStorageService;
+
+import java.sql.SQLException;
+import java.time.LocalDate;
 
 public interface BookingRequestManager {
-    BookingRequest createBookingRequest() ;
+    /**
+     * create booking request entity from arguments
+     *
+     * @param requestId
+     * @param customerId
+     * @param salesOfficerId
+     * @param departureDestination
+     * @param arrivalDestination
+     * @param departureDate
+     * @param returnDate
+     * @param passengersAmount
+     * @param status
+     * @return
+     */
+    BookingRequest createBookingRequest(int requestId, int customerId, Integer salesOfficerId, String departureDestination, String arrivalDestination, LocalDate departureDate, LocalDate returnDate, int passengersAmount, String status);
 
-    void setBookingRequestStorageService(SystemUserStorageService systemUserStorageService);
+    /**
+     * setter for
+     *
+     * @param bookingRequestStorageService
+     */
+    void setBookingRequestStorageService(BookingRequestStorageService bookingRequestStorageService);
+
+    /**
+     * @param bookingRequest
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
+    void add(BookingRequest bookingRequest) throws SQLException, ClassNotFoundException;
+
 }

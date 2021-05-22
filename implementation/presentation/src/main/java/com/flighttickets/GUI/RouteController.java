@@ -1,6 +1,8 @@
-/*
+
 package com.flighttickets.GUI;
 
+import com.flighttickets.Entities.BookingRequestManager;
+import com.flighttickets.Entities.SystemUserManager;
 import com.flighttickets.GUIApp;
 import com.flighttickets.BusinessLogic.BusinessLogicAPI;
 import com.flighttickets.BusinessLogic.BusinessLogicAPIImpl;
@@ -20,6 +22,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.function.Supplier;
 
 public class RouteController implements Initializable {
 
@@ -38,13 +41,15 @@ public class RouteController implements Initializable {
     private RouteManager routeManager;
     private BusinessLogicAPI businessLogicAPI;
     private PersistenceAPI persistenceAPI;
+    private final Supplier<SceneManager> sceneManagerSupplier;
 
-    public RouteController(){
-        this.persistenceAPI = new PersistenceAPIImpl();
-        this.businessLogicAPI = new BusinessLogicAPIImpl(this.persistenceAPI);
-
-        this.routeManager = this.businessLogicAPI.getRouteManager();
-        this.routeManager.setRouteStorageService(new RouteStorageService(this.daoFactory));
+    public RouteController(Supplier<SceneManager> sceneManagerSupplier, RouteManager routeManager){
+        //this.persistenceAPI = new PersistenceAPIImpl();
+        //this.businessLogicAPI = new BusinessLogicAPIImpl(this.persistenceAPI);
+        //this.routeManager = this.businessLogicAPI.getRouteManager();
+        //this.routeManager.setRouteStorageService(new RouteStorageService(this.daoFactory));
+        this.sceneManagerSupplier = sceneManagerSupplier;
+        this.routeManager = routeManager;
     }
 
     @Override
@@ -59,18 +64,17 @@ public class RouteController implements Initializable {
 
     @FXML
     public void createRouteHandler(ActionEvent event) throws IOException {
-        GUIApp.setRoot("createRoute");
+        this.sceneManagerSupplier.get().changeScene("createRoute");
     }
 
     @FXML
     public void setPlaneHandler(ActionEvent event) throws IOException {
-        GUIApp.setRoot("setPlane");
+        this.sceneManagerSupplier.get().changeScene("setPlane");
     }
 
     @FXML
     public void backHandler(ActionEvent event) throws IOException {
-        GUIApp.setRoot("login");
+        this.sceneManagerSupplier.get().changeScene("login");
     }
 
 }
-*/

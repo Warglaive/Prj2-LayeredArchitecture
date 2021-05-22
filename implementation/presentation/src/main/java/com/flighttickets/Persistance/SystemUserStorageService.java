@@ -52,4 +52,29 @@ public class SystemUserStorageService {
     public List<SystemUser> getAll() {
         return this.systemUserDAO.getAll();
     }
+
+    //TODO: Make method to retrieve lowest Id number and biggest Id number for salesOfficer
+    public int getLowestSalesOfficerId() {
+        //take first lowest ID for systemUser with Role "SalesOfficer" From the DB.
+        //create query
+        String query = "select * from systemuser \n" +
+                "where role = 'SalesOfficer'\n" +
+                "order by systemuserid asc\n" +
+                "limit 1\n";
+        List<SystemUser> result = this.systemUserDAO.anyQuery(query);
+
+        return result.get(0).getId();
+    }
+
+    public int getBiggestSalesOfficerId() {
+        //take first lowest ID for systemUser with Role "SalesOfficer" From the DB.
+        //create query
+        String query = "select * from systemuser \n" +
+                "where role = 'SalesOfficer'\n" +
+                "order by systemuserid desc\n" +
+                "limit 1\n";
+        List<SystemUser> result = this.systemUserDAO.anyQuery(query);
+
+        return result.get(0).getId();
+    }
 }

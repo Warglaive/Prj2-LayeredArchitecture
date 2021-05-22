@@ -4,7 +4,6 @@ import com.flighttickets.Entities.SystemUserManager;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
-import java.io.IOException;
 import java.util.function.Supplier;
 
 public class MainController {
@@ -25,12 +24,12 @@ public class MainController {
 
 
     @FXML
-    void showLogin() throws IOException {
+    void showLogin() {
         this.sceneManagerSupplier.get().changeScene("login");
     }
 
     @FXML
-    void showRegister() throws IOException {
+    void showRegister() {
         this.sceneManagerSupplier.get().changeScene("register");
     }
 

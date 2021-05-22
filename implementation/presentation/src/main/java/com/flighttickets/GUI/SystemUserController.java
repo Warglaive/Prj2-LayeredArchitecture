@@ -1,13 +1,15 @@
 package com.flighttickets.GUI;
 
+import com.flighttickets.Entities.BookingRequestManager;
 import com.flighttickets.Entities.SystemUser;
 import com.flighttickets.Entities.SystemUserManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.layout.Pane;
 
 import java.io.IOException;
 import java.net.URL;
@@ -76,14 +78,16 @@ public class SystemUserController implements Initializable {
      */
 
     private final Supplier<SceneManager> sceneManagerSupplier;
+    private BookingRequestManager bookingRequestManager;
     private SystemUserManager systemUserManager;
+    private SystemUser loggedInSystemUser;
 
-
-    public SystemUserController(Supplier<SceneManager> sceneManagerSupplier, SystemUserManager systemUserManager) {
+    public SystemUserController(Supplier<SceneManager> sceneManagerSupplier, SystemUserManager systemUserManager, BookingRequestManager bookingRequestManager) {
         this.rolePickCheckBox = new ChoiceBox<>();
 
         this.sceneManagerSupplier = sceneManagerSupplier;
         this.systemUserManager = systemUserManager;
+        this.bookingRequestManager = bookingRequestManager;
     }
 
 
@@ -103,6 +107,7 @@ public class SystemUserController implements Initializable {
     @FXML
     void handleRegister() throws SQLException, ClassNotFoundException {
         //Get values from textBoxes
+        int initialId = 0;
         String firstName = firstNameTextBox.getText();
         String lastName = lastNameTextBox.getText();
         String email = emailTextBox.getText();
@@ -112,19 +117,20 @@ public class SystemUserController implements Initializable {
 
         //register new Customer
         //TODO: Catch exception and display message on the view
-        SystemUser customer = this.systemUserManager.createSystemUser(0, firstName, lastName, email, password, address, role);
+        SystemUser customer = this.systemUserManager.createSystemUser(initialId, firstName, lastName, email, password, address, role);
         this.systemUserManager.add(customer);
         //send customer to Login view
         this.sceneManagerSupplier.get().changeScene("login");
     }
 
     @FXML
-    void handleLogin() throws ClassNotFoundException {
+    void handleLogin() throws ClassNotFoundException, IOException {
         String loginEmail = emailTextBox.getText();
         String loginPassword = passwordTextBox.getText();
         //Take current user and pass it to the view
-        SystemUser loggedInSystemUser = this.systemUserManager.login(loginEmail, loginPassword);
-        System.out.println("The customer received after logging in = " + loggedInSystemUser.getEmail() + " Role =" + loggedInSystemUser.getRole());
+
+        this.loggedInSystemUser = this.systemUserManager.login(loginEmail, loginPassword);
+        System.out.println("The customer received after logging in = " + loggedInSystemUser.getEmail() + " Role = " + loggedInSystemUser.getRole());
 
         if (loggedInSystemUser.getRole().equals("SalesOfficer")) {
             this.sceneManagerSupplier.get().changeScene("salesOfficer");
@@ -133,8 +139,11 @@ public class SystemUserController implements Initializable {
             //TODO create customer main menu - jl
             this.sceneManagerSupplier.get().changeScene("currentRoutes");
 
+        } else if (loggedInSystemUser.getRole().equals("SalesEmployee")) {
+            this.sceneManagerSupplier.get().changeScene("BookingRequestOverview");
+
         } else if (loggedInSystemUser.getRole().equals("Customer")) {
-            this.sceneManagerSupplier.get().changeScene("loggedInCustomer");
+            this.sceneManagerSupplier.get().changeScene("CreateBookingRequest");
 
         } else {
             //TODO Implement wrong username error thrown in fxml - jl
@@ -168,5 +177,13 @@ public class SystemUserController implements Initializable {
     public void viewRegister() {
         this.sceneManagerSupplier.get().changeScene("register");
 
+    }
+
+    /**
+     * used to pass customer object to CreateBookingController
+     * @return
+     */
+    public SystemUser getLoggedInCustomer() {
+        return this.loggedInSystemUser;
     }
 }

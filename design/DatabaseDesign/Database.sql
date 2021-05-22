@@ -23,6 +23,9 @@ drop table if exists airport cascade;
 drop table if exists plane cascade;
 
 
+
+
+
 create table plane (planeId SERIAL primary key,
 registration VARCHAR(255) not null,
 brand VARCHAR(255) not null,
@@ -48,15 +51,34 @@ password VARCHAR(255) not null,
 address VARCHAR(255) null,
 role VARCHAR(255) not null );
 
-create table bookingrequest ( requestId SERIAL primary key,
-customerId INTEGER references systemUser(systemuserid) not null,
-salesOfficerId INTEGER references systemUser(systemuserid),
-requestFrom VARCHAR(255) not null,
-requestTo VARCHAR(255) not null,
-departure DATE not null,
-return DATE not null,
-amountOfPassengers INTEGER not null,
-status VARCHAR(255) not null );
+
+-- public.bookingrequest definition
+
+-- Drop table
+
+-- DROP TABLE public.bookingrequest;
+
+CREATE TABLE public.bookingrequest (
+	bookingrequestid serial NOT NULL,
+	customerid int4 NOT NULL,
+	salesofficerid int4 NULL,
+	departuredestination varchar(255) NOT NULL,
+	arrivaldestination varchar(255) NOT NULL,
+	departuredate date NOT NULL,
+	returndate date NOT NULL,
+	passengersamount int4 NOT NULL,
+	status varchar(255) DEFAULT false,
+	CONSTRAINT bookingrequest_pkey PRIMARY KEY (requestid)
+);
+
+
+-- public.bookingrequest foreign keys
+
+ALTER TABLE public.bookingrequest ADD CONSTRAINT bookingrequest_customerid_fkey FOREIGN KEY (customerid) REFERENCES public.systemuser(systemuserid);
+ALTER TABLE public.bookingrequest ADD CONSTRAINT bookingrequest_salesofficerid_fkey FOREIGN KEY (salesofficerid) REFERENCES public.systemuser(systemuserid);
+
+
+
 
 create table booking (bookingId SERIAL primary key,
 customerId INTEGER references systemUser(systemuserid),

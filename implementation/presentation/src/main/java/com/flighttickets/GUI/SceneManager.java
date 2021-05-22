@@ -15,15 +15,15 @@ public class SceneManager {
 
     private final Scene scene;
     private final Callback<Class<?>, Object> controllerFactory;
-    private final Map< String, Parent> views = new HashMap<>();
+    private final Map<String, Parent> views = new HashMap<>();
 
-    public SceneManager(Callback<Class<?>, Object> controllerFactory, String initialView ) {
+    public SceneManager(Callback<Class<?>, Object> controllerFactory, String initialView) {
         this.controllerFactory = controllerFactory;
-        scene = new Scene( loadScene( initialView ) );
+        scene = new Scene(loadScene(initialView));
     }
 
     public final void changeScene(String view) {
-        scene.setRoot( views.computeIfAbsent(view, v -> loadScene(v)) );
+        scene.setRoot(views.computeIfAbsent(view, v -> loadScene(v)));
     }
 
     private Parent loadScene(String fxml) {
@@ -38,8 +38,8 @@ public class SceneManager {
 
     public void displayOn(Stage stage, int width, int height) {
         stage.setScene(scene);
-        stage.setWidth( width );
-        stage.setHeight( height );
+        stage.setWidth(width);
+        stage.setHeight(height);
         stage.show();
     }
 }

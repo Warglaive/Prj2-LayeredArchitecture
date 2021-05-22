@@ -7,11 +7,8 @@ import java.time.LocalDate;
 
 public class BookingRequest implements Entity2<Integer> {
     @ID
-    int id;
-    private LocalDate departureDate;
-    private LocalDate returnDate;
-    private String departureDestination;
-    private String destination;
+    int bookingRequestId;
+
     /**
      * Only SystemUser with role == "Customer" can access this class.
      */
@@ -19,54 +16,59 @@ public class BookingRequest implements Entity2<Integer> {
     /**
      * SalesOfficer to be set by SalesOfficer entity when action is performed(Accept/Reject)
      */
-    private int salesOfficer;
-    private int passengersAmount;
-    private boolean status;
+    private int salesOfficerId;
+    private String departureDestination;
+    private String arrivalDestination;
 
-    public BookingRequest(int id, LocalDate departureDate, LocalDate returnDate, String departureDestination, String destination, int customerId, int passengersAmount, boolean status) {
-        this.id = id;
+    private LocalDate departureDate;
+    private LocalDate returnDate;
+
+
+    private int passengersAmount;
+    private String status;
+
+    public BookingRequest(int bookingRequestId, int customerId, int salesOfficerId, String departureDestination, String arrivalDestination, LocalDate departureDate, LocalDate returnDate, int passengersAmount, String status) {
+        this.bookingRequestId = bookingRequestId;
+        this.customerId = customerId;
+        this.salesOfficerId = salesOfficerId;
         this.departureDate = departureDate;
         this.returnDate = returnDate;
         this.departureDestination = departureDestination;
-        this.destination = destination;
-        this.customerId = customerId;
+        this.arrivalDestination = arrivalDestination;
         this.passengersAmount = passengersAmount;
         this.status = status;
     }
 
     @Override
     public Integer getNaturalId() {
-        return this.id;
+        return this.bookingRequestId;
     }
 
     @Override
     public int getId() {
-        return this.id;
+        return this.bookingRequestId;
     }
 
     /**
      * needed for the Mapper
-     *
-     * @return
      */
-    //TODO: Check customer.ToString() - may cause issues
     @Override
     public String toString() {
-        return "BookingRequest{" + "id=" + id + ", departureDate=" + departureDate + ", returnDate=" + returnDate + ", departureDestination="
-                + departureDestination + ", destination=" + destination + ", customer=" + customerId
-                + ", passengersAmount=" + passengersAmount
+        return "BookingRequest{" + "id=" + bookingRequestId + ", customerId=" + customerId + ", salesOfficerId=" + salesOfficerId + ", departureDate="
+                + departureDate + ", returnDate=" + returnDate + ", departureDestination=" + departureDestination
+                + ", arrivalDestination=" + arrivalDestination + ", passengersAmount=" + passengersAmount
                 + ", status=" + status + '}';
     }
 
     /**
      * needed for the Mapper
      *
-     * @param parts
-     * @return
+     * @param parts to be made into
+     * @return BookingRequest
      */
     static BookingRequest fromParts(Object[] parts) {
-        return new BookingRequest((Integer) parts[0], (LocalDate) parts[1], (LocalDate) parts[2], (String) parts[3], (String) parts[4], (Integer) parts[5],
-                (Integer) parts[6], (boolean) parts[7]);
+        return new BookingRequest((Integer) parts[0], (Integer) parts[1], (Integer) parts[2], (String) parts[3], (String) parts[4], (LocalDate) parts[5],
+                (LocalDate) parts[6], (Integer) parts[7], (String) parts[8]);
     }
 
     /**
@@ -77,22 +79,87 @@ public class BookingRequest implements Entity2<Integer> {
     Object[] asParts() {
 
         return new Object[]{
-                this.id,
+                this.bookingRequestId,
+                this.customerId,
+                this.salesOfficerId,
+                this.departureDestination,
+                this.arrivalDestination,
                 this.departureDate,
                 this.returnDate,
-                this.departureDestination,
-                this.destination,
-                this.customerId,
                 this.passengersAmount,
                 this.status
         };
     }
 
-    public int getSalesOfficer() {
-        return salesOfficer;
+    public int getBookingRequestId() {
+        return bookingRequestId;
     }
 
-    public void setSalesOfficer(int salesOfficer) {
-        this.salesOfficer = salesOfficer;
+    public void setBookingRequestId(int bookingRequestId) {
+        this.bookingRequestId = bookingRequestId;
+    }
+
+    public int getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
+    }
+
+    public int getSalesOfficerId() {
+        return salesOfficerId;
+    }
+
+    public void setSalesOfficerId(int salesOfficerId) {
+        this.salesOfficerId = salesOfficerId;
+    }
+
+    public String getDepartureDestination() {
+        return departureDestination;
+    }
+
+    public void setDepartureDestination(String departureDestination) {
+        this.departureDestination = departureDestination;
+    }
+
+    public String getArrivalDestination() {
+        return arrivalDestination;
+    }
+
+    public void setArrivalDestination(String arrivalDestination) {
+        this.arrivalDestination = arrivalDestination;
+    }
+
+    public LocalDate getDepartureDate() {
+        return departureDate;
+    }
+
+    public void setDepartureDate(LocalDate departureDate) {
+        this.departureDate = departureDate;
+    }
+
+    public LocalDate getReturnDate() {
+        return returnDate;
+    }
+
+    public void setReturnDate(LocalDate returnDate) {
+        this.returnDate = returnDate;
+    }
+
+    public int getPassengersAmount() {
+        return passengersAmount;
+    }
+
+    public void setPassengersAmount(int passengersAmount) {
+        this.passengersAmount = passengersAmount;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

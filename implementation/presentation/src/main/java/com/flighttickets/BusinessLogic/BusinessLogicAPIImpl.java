@@ -12,6 +12,7 @@ public class BusinessLogicAPIImpl implements BusinessLogicImplementationProvider
 
     /**
      * assign PersistenceAPI on creation
+     *
      * @param persistenceAPI provide connection to the persistence layer
      */
     public BusinessLogicAPIImpl(PersistenceAPI persistenceAPI) {
@@ -31,16 +32,19 @@ public class BusinessLogicAPIImpl implements BusinessLogicImplementationProvider
     }
 
     @Override
+    public BookingRequestManager getBookingRequestManager() {
+        BookingRequestManager bookingRequestManager = new BookingRequestManagerImpl();
+        bookingRequestManager.setBookingRequestStorageService(this.persistenceAPI.getBookingRequestStorageService());
+        return bookingRequestManager;
+    }
+
+    @Override
     public FlightManager getFlightManager() {
         FlightManagerImpl flightManager = new FlightManagerImpl();
         flightManager.setFlightStorageService(this.persistenceAPI.getFlightStorageService());
         return flightManager;
     }
 
-    @Override
-    public BookingRequestManager getBookingRequestManager() {
-        return null;
-    }
 
     @Override
     public RouteManager getRouteManager() {
