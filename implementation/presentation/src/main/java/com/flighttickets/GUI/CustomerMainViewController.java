@@ -2,7 +2,6 @@ package com.flighttickets.GUI;
 
 import com.flighttickets.Entities.BookingRequestManager;
 import com.flighttickets.Entities.SystemUser;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -24,6 +23,8 @@ public class CustomerMainViewController implements Initializable {
     @FXML
     private Button newBookingRequestBtn;
 
+    @FXML
+    private Button viewAllBookingRequestsBtn;
 
     public CustomerMainViewController(Supplier<SceneManager> sceneManagerSupplier, SystemUser loggedInCustomer, BookingRequestManager bookingRequestManager) {
         this.sceneManagerSupplier = sceneManagerSupplier;
@@ -31,8 +32,18 @@ public class CustomerMainViewController implements Initializable {
         this.bookingRequestManager = bookingRequestManager;
     }
 
+    /**
+     * Change background with respect to weather outside.
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+    }
+
+    @FXML
+    void viewAllBookingRequests() {
 
     }
 
@@ -40,4 +51,6 @@ public class CustomerMainViewController implements Initializable {
     void viewBookingRequestCreation() {
         this.sceneManagerSupplier.get().changeScene("CreateBookingRequest");
     }
+
+
 }

@@ -5,6 +5,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.flighttickets.GUI.CustomerMainViewController">
    <children>
-      <Button fx:id="newBookingRequestBtn" layoutX="415.0" layoutY="20.0" mnemonicParsing="false" onAction="#viewBookingRequestCreation" text="Create new Booking Request" />
+      <Button fx:id="newBookingRequestBtn" layoutX="417.0" layoutY="63.0" mnemonicParsing="false" onAction="#viewBookingRequestCreation" text="Create new Booking Request" />
+      <Button fx:id="viewAllBookingRequestsBtn" layoutX="476.0" layoutY="117.0" mnemonicParsing="false" onAction="#viewAllBookingRequests" text="Button" />
    </children>
 </AnchorPane>
