@@ -2,11 +2,8 @@ package com.flighttickets.Persistance;
 
 import com.flighttickets.Entities.BookingRequest;
 import com.flighttickets.Entities.BookingRequestMapper;
-import com.flighttickets.Entities.SystemUser;
 import nl.fontys.sebivenlo.dao.pg.PGDAO;
 import nl.fontys.sebivenlo.dao.pg.PGDAOFactory;
-
-import java.util.List;
 
 public class BookingRequestStorageService {
     private final PGDAOFactory pgdaoFactory;

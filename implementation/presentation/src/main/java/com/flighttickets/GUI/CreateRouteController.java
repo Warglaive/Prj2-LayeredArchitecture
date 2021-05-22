@@ -3,8 +3,6 @@ package com.flighttickets.GUI;
 
 import com.flighttickets.Entities.Airport;
 import com.flighttickets.Entities.AirportManager;
-import com.flighttickets.GUIApp;
-import com.flighttickets.Entities.Route;
 import com.flighttickets.Entities.RouteManager;
 import com.flighttickets.Persistance.AirportStorageService;
 import com.flighttickets.Persistance.RouteStorageService;
@@ -13,7 +11,8 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
 
 import java.io.IOException;
 import java.net.URL;

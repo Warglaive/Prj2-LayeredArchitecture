@@ -37,7 +37,6 @@ public class CustomerMainViewController implements Initializable {
     }
 
     /**
-     * Change background with respect to weather outside.
      *
      * @param url
      * @param resourceBundle
@@ -49,7 +48,8 @@ public class CustomerMainViewController implements Initializable {
 
     @FXML
     void viewAllBookingRequests() {
-
+        //TODO: Implement
+        this.sceneManagerSupplier.get().changeScene("AllBookingRequests");
     }
 
     @FXML
