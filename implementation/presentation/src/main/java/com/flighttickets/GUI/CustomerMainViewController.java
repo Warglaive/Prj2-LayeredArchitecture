@@ -16,7 +16,7 @@ public class CustomerMainViewController implements Initializable {
 
     private final Supplier<SceneManager> sceneManagerSupplier;
     private final SystemUser loggedInCustomer;
-
+    private final BookingRequestManager bookingRequestManager;
 
     @FXML
     private TitledPane titledPane;
@@ -28,6 +28,7 @@ public class CustomerMainViewController implements Initializable {
     public CustomerMainViewController(Supplier<SceneManager> sceneManagerSupplier, SystemUser loggedInCustomer, BookingRequestManager bookingRequestManager) {
         this.sceneManagerSupplier = sceneManagerSupplier;
         this.loggedInCustomer = loggedInCustomer;
+        this.bookingRequestManager = bookingRequestManager;
     }
 
     @Override
