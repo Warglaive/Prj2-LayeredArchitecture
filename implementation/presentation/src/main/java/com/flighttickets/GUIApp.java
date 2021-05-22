@@ -42,6 +42,8 @@ public class GUIApp extends Application {
                 return new BookingRequestOverviewController(this::getSceneManager, this.systemUserController.getLoggedInCustomer(), this.businessLogicAPI.getSystemUserManager(), this.businessLogicAPI.getBookingRequestManager());
             case "com.flighttickets.GUI.CustomerMainViewController":
                 return new CustomerMainViewController(this::getSceneManager, this.systemUserController.getLoggedInCustomer(), this.businessLogicAPI.getBookingRequestManager());
+            case"com.flighttickets.GUI.AllBookingRequestsController":
+                return new AllBookingRequestsController(this::getSceneManager, this.systemUserController.getLoggedInCustomer(), this.businessLogicAPI.getBookingRequestManager(), this.businessLogicAPI.getSystemUserManager());
             //TODO: Add proper Default switch case
             default:
                 return new MainController(this::getSceneManager, this.businessLogicAPI.getSystemUserManager());
