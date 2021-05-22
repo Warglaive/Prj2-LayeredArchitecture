@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TitledPane;
+import javafx.scene.text.Text;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -26,6 +27,9 @@ public class CustomerMainViewController implements Initializable {
     @FXML
     private Button viewAllBookingRequestsBtn;
 
+    @FXML
+    private Text hiNameText;
+
     public CustomerMainViewController(Supplier<SceneManager> sceneManagerSupplier, SystemUser loggedInCustomer, BookingRequestManager bookingRequestManager) {
         this.sceneManagerSupplier = sceneManagerSupplier;
         this.loggedInCustomer = loggedInCustomer;
@@ -34,12 +38,13 @@ public class CustomerMainViewController implements Initializable {
 
     /**
      * Change background with respect to weather outside.
+     *
      * @param url
      * @param resourceBundle
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        this.hiNameText.setText(this.loggedInCustomer.getFirstName());
     }
 
     @FXML
