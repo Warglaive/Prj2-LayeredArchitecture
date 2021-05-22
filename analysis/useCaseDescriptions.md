@@ -4,7 +4,7 @@
 | Actor | Customer |
 | Description | Customer accesses main view for role "customer"|
 | Precondition |  Customer must be logged in|
-| Scenario | 1. Customer logs in. <br> 2. System provides view containing all booking requests(pending, rejected, accepted)  |
+| Scenario | 1. Customer logs in. <br> 2. System provides the main view which contains "View booking request" button which contains all booking requests(pending, rejected, accepted) in a view and another button "Create booking request" and "Logout" button|
 | Result | Customer views all booking requests(pending, rejected, accepted). |
 | Exceptions |TBD  |
 | Extensions | N/A  |
