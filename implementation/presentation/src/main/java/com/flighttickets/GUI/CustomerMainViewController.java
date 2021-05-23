@@ -2,11 +2,14 @@ package com.flighttickets.GUI;
 
 import com.flighttickets.Entities.BookingRequestManager;
 import com.flighttickets.Entities.SystemUser;
+import com.flighttickets.GUIApp;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TitledPane;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,8 +18,9 @@ import java.util.function.Supplier;
 public class CustomerMainViewController implements Initializable {
 
     private final Supplier<SceneManager> sceneManagerSupplier;
-    private final SystemUser loggedInCustomer;
+    private SystemUser loggedInCustomer;
     private final BookingRequestManager bookingRequestManager;
+    public Button logoutBtn;
 
     @FXML
     private TitledPane titledPane;
@@ -37,7 +41,6 @@ public class CustomerMainViewController implements Initializable {
     }
 
     /**
-     *
      * @param url
      * @param resourceBundle
      */
@@ -57,5 +60,9 @@ public class CustomerMainViewController implements Initializable {
         this.sceneManagerSupplier.get().changeScene("CreateBookingRequest");
     }
 
-
+    //TODO: Move to SystemUserController
+    @FXML
+    public void logout() {
+        this.sceneManagerSupplier.get().changeScene("Main");
+    }
 }
