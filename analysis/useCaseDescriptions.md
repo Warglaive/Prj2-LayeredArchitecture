@@ -154,3 +154,14 @@
 | Result | Actor registered successfully|
 | Exceptions | 6. Actor has already an account, go back to step 3 <br> 6. Input is invalid, go back to step 3 |
 | Extensions | N/A |
+
+
+| Name | Register |
+| --- | --- |
+| Actor | System user |
+| Description | Actor logs out from the system |
+| Precondition | Actor is logged in |
+| Scenario | 1. Actor selects "Logout" option. <br> 2. System provides "main" view |
+| Result | Actor logged out successfully|
+| Exceptions | N/A |
+| Extensions | N/A |
