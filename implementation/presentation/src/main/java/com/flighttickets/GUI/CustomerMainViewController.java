@@ -2,8 +2,6 @@ package com.flighttickets.GUI;
 
 import com.flighttickets.Entities.BookingRequestManager;
 import com.flighttickets.Entities.SystemUser;
-import com.flighttickets.GUIApp;
-import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
@@ -19,6 +17,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.concurrent.TimeUnit;
 import java.util.function.Supplier;
 
 public class CustomerMainViewController implements Initializable {
@@ -67,7 +66,7 @@ public class CustomerMainViewController implements Initializable {
     }
 
     @FXML
-    public void exitApp() throws FileNotFoundException {
+    public void exitApp() throws FileNotFoundException, InterruptedException {
         //
         Stage stage = new Stage();
         //Creating an image
@@ -94,13 +93,14 @@ public class CustomerMainViewController implements Initializable {
         Scene scene = new Scene(root, 600, 500);
 
         //Setting title to the Stage
-        stage.setTitle("Loading an image");
+        stage.setTitle("Come again :)");
 
         //Adding scene to the stage
         stage.setScene(scene);
 
         //Displaying the contents of the stage
         stage.show();
-
+        this.sceneManagerSupplier.get().changeScene("Main");
+        //System.exit(0);
     }
 }
