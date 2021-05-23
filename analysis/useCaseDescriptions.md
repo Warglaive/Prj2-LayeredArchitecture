@@ -156,7 +156,7 @@
 | Extensions | N/A |
 
 
-| Name | Register |
+| Name | Logout |
 | --- | --- |
 | Actor | System user |
 | Description | Actor logs out from the system |
