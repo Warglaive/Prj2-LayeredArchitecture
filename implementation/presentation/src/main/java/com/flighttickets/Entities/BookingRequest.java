@@ -7,7 +7,7 @@ import java.time.LocalDate;
 
 public class BookingRequest implements Entity2<Integer> {
     @ID
-    int requestId;
+    int bookingRequestId;
 
     /**
      * Only SystemUser with role == "Customer" can access this class.
@@ -27,8 +27,8 @@ public class BookingRequest implements Entity2<Integer> {
     private int passengersAmount;
     private String status;
 
-    public BookingRequest(int requestId, int customerId, int salesOfficerId, String departureDestination, String arrivalDestination, LocalDate departureDate, LocalDate returnDate, int passengersAmount, String status) {
-        this.requestId = requestId;
+    public BookingRequest(int bookingRequestId, int customerId, int salesOfficerId, String departureDestination, String arrivalDestination, LocalDate departureDate, LocalDate returnDate, int passengersAmount, String status) {
+        this.bookingRequestId = bookingRequestId;
         this.customerId = customerId;
         this.salesOfficerId = salesOfficerId;
         this.departureDate = departureDate;
@@ -41,33 +41,30 @@ public class BookingRequest implements Entity2<Integer> {
 
     @Override
     public Integer getNaturalId() {
-        return this.requestId;
+        return this.bookingRequestId;
     }
 
     @Override
     public int getId() {
-        return this.requestId;
+        return this.bookingRequestId;
     }
 
     /**
      * needed for the Mapper
-     *
-     * @return
      */
-    //TODO: Check customer.ToString() - may cause issues
     @Override
     public String toString() {
-        return "BookingRequest{" + "id=" + requestId + ", departureDate=" + departureDate + ", returnDate=" + returnDate + ", departureDestination="
-                + departureDestination + ", destination=" + arrivalDestination + ", customer=" + customerId
-                + ", passengersAmount=" + passengersAmount
+        return "BookingRequest{" + "id=" + bookingRequestId + ", customerId=" + customerId + ", salesOfficerId=" + salesOfficerId + ", departureDate="
+                + departureDate + ", returnDate=" + returnDate + ", departureDestination=" + departureDestination
+                + ", arrivalDestination=" + arrivalDestination + ", passengersAmount=" + passengersAmount
                 + ", status=" + status + '}';
     }
 
     /**
      * needed for the Mapper
      *
-     * @param parts
-     * @return
+     * @param parts to be made into
+     * @return BookingRequest
      */
     static BookingRequest fromParts(Object[] parts) {
         return new BookingRequest((Integer) parts[0], (Integer) parts[1], (Integer) parts[2], (String) parts[3], (String) parts[4], (LocalDate) parts[5],
@@ -82,7 +79,7 @@ public class BookingRequest implements Entity2<Integer> {
     Object[] asParts() {
 
         return new Object[]{
-                this.requestId,
+                this.bookingRequestId,
                 this.customerId,
                 this.salesOfficerId,
                 this.departureDestination,
@@ -94,12 +91,12 @@ public class BookingRequest implements Entity2<Integer> {
         };
     }
 
-    public int getRequestId() {
-        return requestId;
+    public int getBookingRequestId() {
+        return bookingRequestId;
     }
 
-    public void setRequestId(int requestId) {
-        this.requestId = requestId;
+    public void setBookingRequestId(int bookingRequestId) {
+        this.bookingRequestId = bookingRequestId;
     }
 
     public int getCustomerId() {

@@ -1,9 +1,20 @@
 ## Customer
+| Name | Customer accesses main view for role "customer"|
+| --- | --- |
+| Actor | Customer |
+| Description | Customer accesses main view for role "customer"|
+| Precondition |  Customer must be logged in|
+| Scenario | 1. Customer logs in. <br> 2. System provides the main view which contains "View booking request" button which contains all booking requests(pending, rejected, accepted) in a view and another button "Create booking request" and "Logout" button|
+| Result | Customer views all booking requests(pending, rejected, accepted). |
+| Exceptions |TBD  |
+| Extensions | N/A  |
+
+
 | Name | Create a new Booking request|
 | --- | --- |
 | Actor | Customer |
-| Description | Customer creates a new booking request|
-| Precondition |  Customer must be logged in|
+| Description | Customer creates a new booking request.|
+| Precondition |  1. Customer must be logged in. <br> 2.Customer accessed main view|
 | Scenario | 1. Customer selects departure date, return date, destination, passangers amount and submits the input<br> 2. System makes validations<br>4. System auto assigns(randomly between lowest salesOfficerId and highest) salesOfficer by id. <br>3. System inputs the request into the database. <br> 4. Customer is redirected to "View all booking requests" view. |
 | Result | Customer request a booking |
 | Exceptions |TBD  |
@@ -142,4 +153,15 @@
 | Scenario | 1.	Actor opens system <br> 2. Actor chooses to register a new account  <br> 3. System shows form to register a new customer <br> 4. System asks for customer data like a name, password and email address <br> 5. Customer enters name, password and email adress and clicks next <br> 6. System validates input if the following requirements are fulfilled: <ul><li>Users name only contains letters and is 1 to 24 characters long</li><li>The email address contains an @ sign and a domain name</li><li>The password is between 8 and 40 characters long, has at least one lowercase and one uppercase letter, a number and a special character</li><li>the address has a space between the street name and house number</li></ul>7. System returns conformation of new registered account |
 | Result | Actor registered successfully|
 | Exceptions | 6. Actor has already an account, go back to step 3 <br> 6. Input is invalid, go back to step 3 |
+| Extensions | N/A |
+
+
+| Name | Logout |
+| --- | --- |
+| Actor | System user |
+| Description | Actor logs out from the system |
+| Precondition | Actor is logged in |
+| Scenario | 1. Actor selects "Logout" option. <br> 2. System provides "main" view |
+| Result | Actor logged out successfully|
+| Exceptions | N/A |
 | Extensions | N/A |
