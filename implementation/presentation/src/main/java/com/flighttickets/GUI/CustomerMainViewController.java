@@ -71,7 +71,7 @@ public class CustomerMainViewController implements Initializable {
         //
         Stage stage = new Stage();
         //Creating an image
-        Image image = new Image(new FileInputStream("D:\\prj2-2021-prj2-2021-g19\\implementation\\presentation\\src\\main\\resources\\mp4\\3cd.gif"));
+        Image image = new Image(new FileInputStream("src/main/resources/mp4/3cd.gif"));
 
         //Setting the image view
         ImageView imageView = new ImageView(image);
