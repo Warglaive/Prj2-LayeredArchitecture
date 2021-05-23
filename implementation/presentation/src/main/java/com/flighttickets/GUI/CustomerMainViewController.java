@@ -66,7 +66,7 @@ public class CustomerMainViewController implements Initializable {
     }
 
     @FXML
-    public void exitApp() throws FileNotFoundException, InterruptedException {
+    public void logout() throws FileNotFoundException, InterruptedException {
         //
         Stage stage = new Stage();
         //Creating an image
