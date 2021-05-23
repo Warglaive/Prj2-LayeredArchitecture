@@ -184,9 +184,4 @@ public class SystemUserController implements Initializable {
     public SystemUser getLoggedInCustomer() {
         return this.loggedInSystemUser;
     }
-
-    /*@FXML
-    public void logout() {
-        this.sceneManagerSupplier.get().changeScene("Main");
-    }*/
 }
