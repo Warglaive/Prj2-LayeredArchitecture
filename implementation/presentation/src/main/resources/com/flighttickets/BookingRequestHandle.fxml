@@ -64,6 +64,7 @@
                   <ChoiceBox layoutX="381.0" layoutY="160.0"></ChoiceBox>
                   <ChoiceBox layoutX="381.0" layoutY="190.0"></ChoiceBox>
                   <ChoiceBox layoutX="381.0" layoutY="220.0"></ChoiceBox>
+                  <Button fx:id="handleRequest_btn" layoutX="270.0" layoutY="260.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="133.0" onAction="#requestHandler" text="Accept Request" />
                </children>
             </Pane>
          </children>
