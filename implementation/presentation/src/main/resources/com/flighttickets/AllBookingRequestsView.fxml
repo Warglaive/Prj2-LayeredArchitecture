@@ -23,8 +23,8 @@
                   <Font size="22.0" />
                </font>
             </Text>
-            <Button fx:id="finalizeBtnLeft" mnemonicParsing="false" text="Finalize" />
-            <Button fx:id="cancelBtnLeft" mnemonicParsing="false" text="Cancel" />
+            <Button fx:id="finalizeBtnLeft" mnemonicParsing="false" onAction="#finalizeBookingRequest" text="Finalize" />
+            <Button fx:id="cancelBtnLeft" mnemonicParsing="false" onAction="#cancelBookingRequest" text="Cancel" />
          </children>
       </VBox>
       <VBox fx:id="vboxMid" alignment="TOP_CENTER" layoutX="292.0" layoutY="83.0" prefHeight="333.0" prefWidth="191.0">
@@ -41,8 +41,8 @@
                   <Font size="22.0" />
                </font>
             </Text>
-            <Button fx:id="finalizeBtnMid" mnemonicParsing="false" text="Finalize" />
-            <Button fx:id="cancelBtnMid" mnemonicParsing="false" text="Cancel" />
+            <Button fx:id="finalizeBtnMid" mnemonicParsing="false" onAction="#finalizeBookingRequest" text="Finalize" />
+            <Button fx:id="cancelBtnMid" mnemonicParsing="false" onAction="#cancelBookingRequest" text="Cancel" />
          </children>
       </VBox>
       <VBox fx:id="vboxRight" alignment="TOP_CENTER" layoutX="522.0" layoutY="83.0" prefHeight="333.0" prefWidth="191.0">
@@ -59,8 +59,8 @@
                   <Font size="22.0" />
                </font>
             </Text>
-            <Button fx:id="finalizeBtnRight" mnemonicParsing="false" text="Finalize" />
-            <Button fx:id="cancelBtnRight" mnemonicParsing="false" text="Cancel" />
+            <Button fx:id="finalizeBtnRight" mnemonicParsing="false" onAction="#finalizeBookingRequest" text="Finalize" />
+            <Button fx:id="cancelBtnRight" mnemonicParsing="false" onAction="#cancelBookingRequest" text="Cancel" />
          </children>
       </VBox>
    </children>
