@@ -1,8 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 
 <AnchorPane prefHeight="548.0" prefWidth="775.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.flighttickets.GUI.AllBookingRequestsController">
-
+   <children>
+      <VBox alignment="TOP_CENTER" layoutX="14.0" layoutY="97.0" prefHeight="333.0" prefWidth="191.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="departure date: " />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="return date: " />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="departure from:" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="destination:" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="customer:" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="sales officer:" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="passangers amount:" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="status:" wrappingWidth="153.212890625">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Text>
+         </children>
+      </VBox>
+   </children>
 </AnchorPane>
