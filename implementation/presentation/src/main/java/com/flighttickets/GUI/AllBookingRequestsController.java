@@ -134,9 +134,9 @@ public class AllBookingRequestsController implements Initializable {
     private SystemUserManager systemUserManager;
 
 
-    private BookingRequest BookingRequestLeft;
-    private BookingRequest BookingRequestMid;
-    private BookingRequest BookingRequestRight;
+    private BookingRequest bookingRequestLeft;
+    private BookingRequest bookingRequestMid;
+    private BookingRequest bookingRequestRight;
 
 
     public AllBookingRequestsController(Supplier<SceneManager> sceneManagerSupplier, SystemUser loggedInCustomer, BookingRequestManager bookingRequestManager, SystemUserManager systemUserManager) {
@@ -147,13 +147,27 @@ public class AllBookingRequestsController implements Initializable {
 
 
         //TODO: Find way to take data from DB without causing an exception.
-        this.BookingRequestLeft = this.bookingRequestManager.getAllByCustomerId(this.loggedInCustomer.getId()).get(0);
+        this.bookingRequestLeft = this.bookingRequestManager.getAllByCustomerId(this.loggedInCustomer.getId()).get(0);
+        this.bookingRequestMid = this.bookingRequestManager.getAllByCustomerId(this.loggedInCustomer.getId()).get(1);
+        this.bookingRequestRight = this.bookingRequestManager.getAllByCustomerId(this.loggedInCustomer.getId()).get(2);
+
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //TODO: 1. Get all 3 booking requests and assign to fields
-        this.customerLeft.setText(this.loggedInCustomer.getFirstName());
+        fillLeftBookingRequest();
+
+    }
+
+    private void fillLeftBookingRequest() {
+        this.deptDateLeft.setText("Departure date: " + this.bookingRequestLeft.getDepartureDate());
+        this.returnDateLeft.setText("Return date: " + this.bookingRequestLeft.getReturnDate());
+        this.departureDestinationLeft.setText("Departure from: " + this.bookingRequestLeft.getDepartureDestination());
+        this.destinationLeft.setText("Destination: " + this.bookingRequestLeft.getArrivalDestination());
+        this.customerLeft.setText("Customer Id: " + this.loggedInCustomer.getId());
+        this.salesOfficerLeft.setText("Sales Officer" + this.bookingRequestLeft.getSalesOfficerId());
+        this.passengersAmountLeft.setText("Passengers amount: " + this.bookingRequestLeft.getPassengersAmount());
     }
 
 }
