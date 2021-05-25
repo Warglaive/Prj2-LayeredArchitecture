@@ -8,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
@@ -17,6 +18,9 @@ import java.util.function.Supplier;
 
 
 public class AllBookingRequestsController implements Initializable {
+
+    @FXML
+    private AnchorPane anchor;
 
     @FXML
     public Text custEmail;
@@ -179,12 +183,12 @@ public class AllBookingRequestsController implements Initializable {
         this.statusRight.setText("Status: " + this.bookingRequestRight.getStatus());
 
 
-        if (this.bookingRequestRight.getStatus().equalsIgnoreCase("Approved")) {
+        if (this.bookingRequestRight.getStatus().equalsIgnoreCase("approved")) {
             this.statusRight.setStyle("-fx-text-fill: green; -fx-font-size: 16px;");
-        } else if (this.bookingRequestRight.getStatus().equalsIgnoreCase("Declined")) {
+        } else if (this.bookingRequestRight.getStatus().equalsIgnoreCase("declined")) {
             this.statusRight.setStyle("-fx-text-fill: green; -fx-font-size: 16px;");
         } else {
-            this.statusRight.setStyle("-fx-text-fill: yellow; -fx-font-size: 16px;");
+            this.statusRight.setStyle("style: -fx-text-fill: yellow; -fx-font-size: 16px;");
         }
     }
 
@@ -197,9 +201,9 @@ public class AllBookingRequestsController implements Initializable {
         this.passengersAmountMid.setText("Passengers amount: " + this.bookingRequestMid.getPassengersAmount());
         this.statusMid.setText("Status: " + this.bookingRequestMid.getStatus());
 
-        if (this.bookingRequestMid.getStatus().equalsIgnoreCase("Approved")) {
+        if (this.bookingRequestMid.getStatus().equalsIgnoreCase("approved")) {
             this.statusMid.setStyle("-fx-text-fill: green; -fx-font-size: 16px;");
-        } else if (this.bookingRequestMid.getStatus().equalsIgnoreCase("Declined")) {
+        } else if (this.bookingRequestMid.getStatus().equalsIgnoreCase("declined")) {
             this.statusMid.setStyle("-fx-text-fill: green; -fx-font-size: 16px;");
         } else {
             this.statusMid.setStyle("-fx-text-fill: yellow; -fx-font-size: 16px;");
@@ -216,9 +220,9 @@ public class AllBookingRequestsController implements Initializable {
         this.statusLeft.setText("Status: " + this.bookingRequestLeft.getStatus());
 
 
-        if (this.bookingRequestLeft.getStatus().equalsIgnoreCase("Approved")) {
+        if (this.bookingRequestLeft.getStatus().equalsIgnoreCase("approved")) {
             this.statusMid.setStyle("-fx-text-fill: green; -fx-font-size: 16px;");
-        } else if (this.bookingRequestLeft.getStatus().equalsIgnoreCase("Declined")) {
+        } else if (this.bookingRequestLeft.getStatus().equalsIgnoreCase("declined")) {
             this.statusLeft.setStyle("-fx-text-fill: green; -fx-font-size: 16px;");
         } else {
             this.statusLeft.setStyle("-fx-text-fill: yellow; -fx-font-size: 16px;");
