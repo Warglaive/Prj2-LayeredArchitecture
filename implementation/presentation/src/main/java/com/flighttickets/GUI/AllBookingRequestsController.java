@@ -1,5 +1,6 @@
 package com.flighttickets.GUI;
 
+import com.flighttickets.Entities.BookingRequest;
 import com.flighttickets.Entities.BookingRequestManager;
 import com.flighttickets.Entities.SystemUser;
 import com.flighttickets.Entities.SystemUserManager;
@@ -20,6 +21,12 @@ public class AllBookingRequestsController implements Initializable {
     private final BookingRequestManager bookingRequestManager;
     private final SystemUserManager systemUserManager;
 
+
+    private BookingRequest BookingRequestLeft;
+    private BookingRequest BookingRequestMid;
+    private BookingRequest BookingRequestRight;
+
+
     public AllBookingRequestsController(Supplier<SceneManager> sceneManagerSupplier, SystemUser loggedInCustomer, BookingRequestManager bookingRequestManager, SystemUserManager systemUserManager) {
         this.sceneManagerSupplier = sceneManagerSupplier;
         this.loggedInCustomer = loggedInCustomer;
@@ -29,7 +36,8 @@ public class AllBookingRequestsController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        //TODO: 1. Get all 3 booking requests and assign to fields
+        this.BookingRequestLeft = this.bookingRequestManager.getAllByCustomerId(this.loggedInCustomer.getId()).get(0);
     }
 
     @FXML

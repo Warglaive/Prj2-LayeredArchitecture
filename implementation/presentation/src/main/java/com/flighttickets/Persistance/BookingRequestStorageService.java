@@ -5,9 +5,17 @@ import com.flighttickets.Entities.BookingRequestMapper;
 import nl.fontys.sebivenlo.dao.pg.PGDAO;
 import nl.fontys.sebivenlo.dao.pg.PGDAOFactory;
 
+import java.util.List;
+
+/**
+ * This class is used for executing CUSTOM or DAO SQL statements
+ */
 public class BookingRequestStorageService {
     private final PGDAOFactory pgdaoFactory;
     private final PGDAO<Integer, BookingRequest> bookingRequestDAO;
+    /**
+     * tableName reduce SQL code
+     */
     private final String tableName = "bookingRequest";
 
     public BookingRequestStorageService(PGDAOFactory pgdaoFactory) {
@@ -30,5 +38,11 @@ public class BookingRequestStorageService {
         this.bookingRequestDAO.save(bookingRequest);
     }
 
+    /**
+     * @return all booking requests corresponding to the customer id
+     */
+    public List<BookingRequest> getAllByCustomerId(int customerId) {
+        return (List<BookingRequest>) this.bookingRequestDAO.getAll().stream().filter(x -> x.getCustomerId() == customerId);
+    }
 
 }

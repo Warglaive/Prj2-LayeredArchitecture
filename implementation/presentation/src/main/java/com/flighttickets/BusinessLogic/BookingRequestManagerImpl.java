@@ -6,7 +6,11 @@ import com.flighttickets.Persistance.BookingRequestStorageService;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.List;
 
+/**
+ * this class is used for Business logic and NO Sql is written here.
+ */
 public class BookingRequestManagerImpl implements BookingRequestManager {
 
 
@@ -28,6 +32,12 @@ public class BookingRequestManagerImpl implements BookingRequestManager {
         this.bookingRequestStorageService.insert(bookingRequest);
     }
 
+    @Override
+    public List<BookingRequest> getAllByCustomerId(int customerId) {
+        return null;
+    }
+
+    @Override
     public BookingRequestStorageService getBookingRequestStorageService() {
         return bookingRequestStorageService;
     }
