@@ -19,6 +19,15 @@ import java.util.function.Supplier;
 public class AllBookingRequestsController implements Initializable {
 
     @FXML
+    public Text custEmail;
+
+    @FXML
+    public Text lName;
+
+    @FXML
+    public Text fName;
+
+    @FXML
     private VBox vboxLeft;
 
     @FXML
@@ -32,9 +41,6 @@ public class AllBookingRequestsController implements Initializable {
 
     @FXML
     private Text destinationLeft;
-
-    @FXML
-    private Text customerLeft;
 
     @FXML
     private Text salesOfficerLeft;
@@ -67,9 +73,6 @@ public class AllBookingRequestsController implements Initializable {
     private Text destinationMid;
 
     @FXML
-    private Text customerMid;
-
-    @FXML
     private Text salesOfficerMid;
 
     @FXML
@@ -98,9 +101,6 @@ public class AllBookingRequestsController implements Initializable {
 
     @FXML
     private Text destinationRight;
-
-    @FXML
-    private Text customerRight;
 
     @FXML
     private Text salesOfficerRight;
@@ -156,8 +156,54 @@ public class AllBookingRequestsController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //TODO: 1. Get all 3 booking requests and assign to fields
+        fillCustomer();
         fillLeftBookingRequest();
+        fillMidBookingRequest();
+        fillRightBookingRequest();
+    }
 
+    private void fillCustomer() {
+        this.fName.setText(this.loggedInCustomer.getFirstName());
+        this.lName.setText(this.loggedInCustomer.getLastName());
+        this.custEmail.setText(this.loggedInCustomer.getEmail());
+
+    }
+
+    private void fillRightBookingRequest() {
+        this.deptDateRight.setText("Departure date: " + this.bookingRequestRight.getDepartureDate());
+        this.returnDateRight.setText("Return date: " + this.bookingRequestRight.getReturnDate());
+        this.departureDestinationRight.setText("Departure from: " + this.bookingRequestRight.getDepartureDestination());
+        this.destinationRight.setText("Destination: " + this.bookingRequestRight.getArrivalDestination());
+        this.salesOfficerRight.setText("Sales Officer: " + this.bookingRequestRight.getSalesOfficerId());
+        this.passengersAmountRight.setText("Passengers amount: " + this.bookingRequestRight.getPassengersAmount());
+        this.statusRight.setText("Status: " + this.bookingRequestRight.getStatus());
+
+
+        if (this.bookingRequestRight.getStatus().equalsIgnoreCase("Approved")) {
+            this.statusRight.setStyle("-fx-text-fill: green; -fx-font-size: 16px;");
+        } else if (this.bookingRequestRight.getStatus().equalsIgnoreCase("Declined")) {
+            this.statusRight.setStyle("-fx-text-fill: green; -fx-font-size: 16px;");
+        } else {
+            this.statusRight.setStyle("-fx-text-fill: yellow; -fx-font-size: 16px;");
+        }
+    }
+
+    private void fillMidBookingRequest() {
+        this.deptDateMid.setText("Departure date: " + this.bookingRequestMid.getDepartureDate());
+        this.returnDateMid.setText("Return date: " + this.bookingRequestMid.getReturnDate());
+        this.departureDestinationMid.setText("Departure from: " + this.bookingRequestMid.getDepartureDestination());
+        this.destinationMid.setText("Destination: " + this.bookingRequestMid.getArrivalDestination());
+        this.salesOfficerMid.setText("Sales Officer: " + this.bookingRequestMid.getSalesOfficerId());
+        this.passengersAmountMid.setText("Passengers amount: " + this.bookingRequestMid.getPassengersAmount());
+        this.statusMid.setText("Status: " + this.bookingRequestMid.getStatus());
+
+        if (this.bookingRequestMid.getStatus().equalsIgnoreCase("Approved")) {
+            this.statusMid.setStyle("-fx-text-fill: green; -fx-font-size: 16px;");
+        } else if (this.bookingRequestMid.getStatus().equalsIgnoreCase("Declined")) {
+            this.statusMid.setStyle("-fx-text-fill: green; -fx-font-size: 16px;");
+        } else {
+            this.statusMid.setStyle("-fx-text-fill: yellow; -fx-font-size: 16px;");
+        }
     }
 
     private void fillLeftBookingRequest() {
@@ -165,9 +211,18 @@ public class AllBookingRequestsController implements Initializable {
         this.returnDateLeft.setText("Return date: " + this.bookingRequestLeft.getReturnDate());
         this.departureDestinationLeft.setText("Departure from: " + this.bookingRequestLeft.getDepartureDestination());
         this.destinationLeft.setText("Destination: " + this.bookingRequestLeft.getArrivalDestination());
-        this.customerLeft.setText("Customer Id: " + this.loggedInCustomer.getId());
-        this.salesOfficerLeft.setText("Sales Officer" + this.bookingRequestLeft.getSalesOfficerId());
+        this.salesOfficerLeft.setText("Sales Officer: " + this.bookingRequestLeft.getSalesOfficerId());
         this.passengersAmountLeft.setText("Passengers amount: " + this.bookingRequestLeft.getPassengersAmount());
+        this.statusLeft.setText("Status: " + this.bookingRequestLeft.getStatus());
+
+
+        if (this.bookingRequestLeft.getStatus().equalsIgnoreCase("Approved")) {
+            this.statusMid.setStyle("-fx-text-fill: green; -fx-font-size: 16px;");
+        } else if (this.bookingRequestLeft.getStatus().equalsIgnoreCase("Declined")) {
+            this.statusLeft.setStyle("-fx-text-fill: green; -fx-font-size: 16px;");
+        } else {
+            this.statusLeft.setStyle("-fx-text-fill: yellow; -fx-font-size: 16px;");
+        }
     }
 
 }
