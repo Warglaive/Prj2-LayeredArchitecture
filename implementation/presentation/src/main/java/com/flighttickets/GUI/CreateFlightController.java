@@ -3,7 +3,6 @@ package com.flighttickets.GUI;
 
 import com.flighttickets.Entities.*;
 import com.flighttickets.GUIApp;
-import com.flighttickets.Persistance.PlaneStorageService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -15,10 +14,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.function.Supplier;
@@ -77,7 +73,6 @@ public class CreateFlightController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
         List<Route> listOfRoutes = this.routeManager.getByPlannerId(1);
         ObservableList<Route> observableList = FXCollections.observableList(listOfRoutes);
         this.routesList.setItems(observableList);
@@ -96,7 +91,6 @@ public class CreateFlightController implements Initializable {
         this.seatsCol.setCellValueFactory(new PropertyValueFactory<>("seats_on_board"));
         this.legroomCol.setCellValueFactory(new PropertyValueFactory<>("extra_legroom_seats"));
         this.firstClassCol.setCellValueFactory(new PropertyValueFactory<>("first_class_seats"));
-
     }
 
     @FXML
@@ -106,15 +100,14 @@ public class CreateFlightController implements Initializable {
 
     @FXML
     public void submitHandler() throws SQLException, ClassNotFoundException {
-        LocalDate localDateFormed;
+        int newFlightId = 0;
         LocalDate localDate = this.datePicker.getValue();
         Route selectedRoute = this.routesList.getSelectionModel().getSelectedItem();
         int selectedRouteId = selectedRoute.getId();
         Plane selectedPlane = this.planesList.getSelectionModel().getSelectedItem();
         int selectedPlaneId = selectedPlane.getId();
-        int newflightId = 0;
 
-        Flight createdFlight = new Flight(newflightId, localDate, selectedRouteId, selectedPlaneId);
+        Flight createdFlight = new Flight(newFlightId, localDate, selectedRouteId, selectedPlaneId);
         this.flightManager.add(createdFlight);
     }
 }

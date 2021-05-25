@@ -2,10 +2,6 @@
 package com.flighttickets.GUI;
 
 import com.flighttickets.Entities.*;
-import com.flighttickets.GUIApp;
-import com.flighttickets.Persistance.AirportStorageService;
-import com.flighttickets.Persistance.RouteStorageService;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -13,7 +9,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -43,7 +38,6 @@ public class CreateRouteController implements Initializable {
     private TableColumn cityCol1;
     @FXML
     private TableColumn countryCol1;
-
     /*
     @FXML
     private Button backButton;
@@ -83,12 +77,12 @@ public class CreateRouteController implements Initializable {
 
     @FXML
     public void createRouteHandler(ActionEvent event) throws IOException, SQLException, ClassNotFoundException {
+        Integer initialId = 0;
         Airport starting = airportsListSt.getSelectionModel().getSelectedItem();
-        Airport endPoint = airportsListDest.getSelectionModel().getSelectedItem();
         Integer startingId = starting.getId();
+        Airport endPoint = airportsListDest.getSelectionModel().getSelectedItem();
         Integer endId = endPoint.getId();
         Integer idPlanner = this.planner.getId();
-        Integer initialId = 0;
         Route route = new Route(initialId, startingId, endId, idPlanner);
         this.routeManager.add(route);
     }
