@@ -34,7 +34,7 @@ public class BookingRequestManagerImpl implements BookingRequestManager {
 
     @Override
     public List<BookingRequest> getAllByCustomerId(int customerId) {
-        return null;
+        return this.bookingRequestStorageService.getAllByCustomerId(customerId);
     }
 
     @Override
