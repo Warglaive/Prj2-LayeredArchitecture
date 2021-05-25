@@ -54,7 +54,7 @@ public class AllBookingRequestsController implements Initializable {
     private Text salesOfficerLeft;
 
     @FXML
-    private Text passangersAmountLeft;
+    private Text passengersAmountLeft;
 
     @FXML
     private Text statusLeft;
@@ -87,7 +87,7 @@ public class AllBookingRequestsController implements Initializable {
     private Text salesOfficerMid;
 
     @FXML
-    private Text passangersAmountMid;
+    private Text passengersAmountMid;
 
     @FXML
     private Text statusMid;
@@ -120,7 +120,7 @@ public class AllBookingRequestsController implements Initializable {
     private Text salesOfficerRight;
 
     @FXML
-    private Text passangersAmountRight;
+    private Text passengersAmountRight;
 
     @FXML
     private Text statusRight;
