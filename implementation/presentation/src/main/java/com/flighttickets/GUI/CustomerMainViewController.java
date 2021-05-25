@@ -17,7 +17,6 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.concurrent.TimeUnit;
 import java.util.function.Supplier;
 
 public class CustomerMainViewController implements Initializable {
@@ -66,7 +65,7 @@ public class CustomerMainViewController implements Initializable {
     }
 
     @FXML
-    public void logout() throws FileNotFoundException, InterruptedException {
+    public void logout() throws FileNotFoundException {
         //
         Stage stage = new Stage();
         //Creating an image
