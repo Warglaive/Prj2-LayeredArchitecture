@@ -18,7 +18,7 @@
             <Text fx:id="destinationLeft" strokeType="OUTSIDE" strokeWidth="0.0" text="destination:" />
             <Text fx:id="customerLeft" strokeType="OUTSIDE" strokeWidth="0.0" text="customer:" />
             <Text fx:id="salesOfficerLeft" strokeType="OUTSIDE" strokeWidth="0.0" text="sales officer:" />
-            <Text fx:id="passangersAmountLeft" strokeType="OUTSIDE" strokeWidth="0.0" text="passangers amount:" />
+            <Text fx:id="passengersAmountLeft" strokeType="OUTSIDE" strokeWidth="0.0" text="passengers amount:" />
             <Text fx:id="statusLeft" strokeType="OUTSIDE" strokeWidth="0.0" text="status:" wrappingWidth="153.212890625">
                <font>
                   <Font size="22.0" />
@@ -36,7 +36,7 @@
             <Text fx:id="destinationMid" strokeType="OUTSIDE" strokeWidth="0.0" text="destination:" />
             <Text fx:id="customerMid" strokeType="OUTSIDE" strokeWidth="0.0" text="customer:" />
             <Text fx:id="salesOfficerMid" strokeType="OUTSIDE" strokeWidth="0.0" text="sales officer:" />
-            <Text fx:id="passangersAmountMid" strokeType="OUTSIDE" strokeWidth="0.0" text="passangers amount:" />
+            <Text fx:id="passengersAmountMid" strokeType="OUTSIDE" strokeWidth="0.0" text="passengers amount:" />
             <Text fx:id="statusMid" strokeType="OUTSIDE" strokeWidth="0.0" text="status:" wrappingWidth="153.212890625">
                <font>
                   <Font size="22.0" />
@@ -54,7 +54,7 @@
             <Text fx:id="destinationRight" strokeType="OUTSIDE" strokeWidth="0.0" text="destination:" />
             <Text fx:id="customerRight" strokeType="OUTSIDE" strokeWidth="0.0" text="customer:" />
             <Text fx:id="salesOfficerRight" strokeType="OUTSIDE" strokeWidth="0.0" text="sales officer:" />
-            <Text fx:id="passangersAmountRight" strokeType="OUTSIDE" strokeWidth="0.0" text="passangers amount:" />
+            <Text fx:id="passengersAmountRight" strokeType="OUTSIDE" strokeWidth="0.0" text="passengers amount:" />
             <Text fx:id="statusRight" strokeType="OUTSIDE" strokeWidth="0.0" text="status:" wrappingWidth="153.212890625">
                <font>
                   <Font size="22.0" />
