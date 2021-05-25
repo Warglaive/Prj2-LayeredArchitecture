@@ -95,8 +95,9 @@ public class BookingRequestOverviewController implements Initializable {
     @FXML
     public void handleRequestHandler(ActionEvent event) throws IOException {
         //GUIApp.setRoot("setPlane");
-        BookingRequest tobeHandled = selection_list.getSelectionModel().getSelectedItem();
-        System.out.println("Handle Request" + tobeHandled);
+        this.sceneManagerSupplier.get().changeScene("BookingRequestHandle");
+//        BookingRequest tobeHandled = selection_list.getSelectionModel().getSelectedItem();
+//        System.out.println("Handle Request" + tobeHandled);
     }
 
     @FXML
