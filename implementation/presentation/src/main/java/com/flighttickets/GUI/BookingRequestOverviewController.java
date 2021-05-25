@@ -96,13 +96,18 @@ public class BookingRequestOverviewController implements Initializable {
     public void handleRequestHandler(ActionEvent event) throws IOException {
         //GUIApp.setRoot("setPlane");
         this.sceneManagerSupplier.get().changeScene("BookingRequestHandle");
-//        BookingRequest tobeHandled = selection_list.getSelectionModel().getSelectedItem();
+
 //        System.out.println("Handle Request" + tobeHandled);
     }
 
     @FXML
     public void backHandler(ActionEvent event) throws IOException {
         this.sceneManagerSupplier.get().changeScene("main");
+    }
+
+    public BookingRequest getSelectedBookingRequest(){
+        BookingRequest tobeHandled = selection_list.getSelectionModel().getSelectedItem();
+        return tobeHandled;
     }
 
 }

@@ -18,7 +18,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Button fx:id="back_btn" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="133.0" text="Back to overview" />
+            <Button fx:id="back_btn" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="133.0" onAction="#backHandler" text="Back to overview" />
             <Label layoutX="708.0" layoutY="18.0" text="User Label">
                <font>
                   <Font size="18.0" />
@@ -26,20 +26,20 @@
             </Label>
             <Pane layoutX="103.0" layoutY="66.0" prefHeight="419.0" prefWidth="190.0">
                <children>
-                  <Label layoutX="48.0" layoutY="258.0" text="Request Return:" />
+                  <Label layoutX="48.0" layoutY="258.0" text="Request Return Date:" />
                   <Label layoutX="48.0" layoutY="78.0" text="Booking request ID:" />
                   <Label layoutX="48.0" layoutY="114.0" text="Customer ID:" />
                   <Label layoutX="48.0" layoutY="150.0" text="Request Departure:" />
                   <Label layoutX="48.0" layoutY="186.0" text="Request Destination:" />
-                  <Label layoutX="48.0" layoutY="222.0" text="Request Departure:" />
-                  <Label fx:id="bookingRequest_id_label" layoutX="79.0" layoutY="96.0" text="Label" />
-                  <Label layoutX="82.0" layoutY="132.0" text="Label" />
-                  <Label layoutX="82.0" layoutY="168.0" text="Label" />
-                  <Label layoutX="82.0" layoutY="204.0" text="Label" />
-                  <Label layoutX="82.0" layoutY="240.0" text="Label" />
-                  <Label layoutX="82.0" layoutY="276.0" text="Label" />
+                  <Label layoutX="48.0" layoutY="222.0" text="Request Departure Date:" />
                   <Label layoutX="48.0" layoutY="294.0" text="Passenger Count:" />
-                  <Label layoutX="82.0" layoutY="312.0" text="Label" />
+                  <Label fx:id="bookingRequest_id_label" layoutX="79.0" layoutY="96.0" />
+                  <Label fx:id="customer_id_label" layoutX="82.0" layoutY="132.0" />
+                  <Label fx:id="requestDepartureLocation_label" layoutX="82.0" layoutY="168.0" />
+                  <Label fx:id="requestDestinationLocation_label" layoutX="82.0" layoutY="204.0" />
+                  <Label fx:id="requestDepartureDate_label" layoutX="82.0" layoutY="240.0" />
+                  <Label fx:id="requestReturnDate_label" layoutX="82.0" layoutY="276.0" />
+                  <Label fx:id="passengerCount_label" layoutX="82.0" layoutY="312.0" />
                   <Label layoutX="-12.0" layoutY="14.0" text="Customer request">
                      <font>
                         <Font size="28.0" />
