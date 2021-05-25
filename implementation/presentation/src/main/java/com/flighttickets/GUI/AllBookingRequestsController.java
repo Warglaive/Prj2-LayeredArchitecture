@@ -3,7 +3,11 @@ package com.flighttickets.GUI;
 import com.flighttickets.Entities.BookingRequestManager;
 import com.flighttickets.Entities.SystemUser;
 import com.flighttickets.Entities.SystemUserManager;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -25,6 +29,115 @@ public class AllBookingRequestsController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+    }
+
+    @FXML
+    private VBox vboxLeft;
+
+    @FXML
+    private Text deptDateLeft;
+
+    @FXML
+    private Text returnDateLeft;
+
+    @FXML
+    private Text departureDestinationLeft;
+
+    @FXML
+    private Text destinationLeft;
+
+    @FXML
+    private Text customerLeft;
+
+    @FXML
+    private Text salesOfficerLeft;
+
+    @FXML
+    private Text passangersAmountLeft;
+
+    @FXML
+    private Text statusLeft;
+
+    @FXML
+    private Button finalizeBtnLeft;
+
+    @FXML
+    private Button cancelBtnLeft;
+
+    @FXML
+    private VBox vboxMid;
+
+    @FXML
+    private Text deptDateMid;
+
+    @FXML
+    private Text returnDateMid;
+
+    @FXML
+    private Text departureDestinationMid;
+
+    @FXML
+    private Text destinationMid;
+
+    @FXML
+    private Text customerMid;
+
+    @FXML
+    private Text salesOfficerMid;
+
+    @FXML
+    private Text passangersAmountMid;
+
+    @FXML
+    private Text statusMid;
+
+    @FXML
+    private Button finalizeBtnMid;
+
+    @FXML
+    private Button cancelBtnMid;
+
+    @FXML
+    private VBox vboxRight;
+
+    @FXML
+    private Text deptDateRight;
+
+    @FXML
+    private Text returnDateRight;
+
+    @FXML
+    private Text departureDestinationRight;
+
+    @FXML
+    private Text destinationRight;
+
+    @FXML
+    private Text customerRight;
+
+    @FXML
+    private Text salesOfficerRight;
+
+    @FXML
+    private Text passangersAmountRight;
+
+    @FXML
+    private Text statusRight;
+
+    @FXML
+    private Button finalizeBtnRight;
+
+    @FXML
+    private Button cancelBtnRight;
+
+    @FXML
+    void cancelBookingRequest() {
+
+    }
+
+    @FXML
+    void finalizeBookingRequest() {
 
     }
 }

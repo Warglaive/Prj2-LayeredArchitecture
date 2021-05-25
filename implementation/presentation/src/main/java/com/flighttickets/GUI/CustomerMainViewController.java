@@ -56,7 +56,7 @@ public class CustomerMainViewController implements Initializable {
     @FXML
     void viewAllBookingRequests() {
         //TODO: Implement
-        this.sceneManagerSupplier.get().changeScene("AllBookingRequests");
+        this.sceneManagerSupplier.get().changeScene("AllBookingRequestsView");
     }
 
     @FXML
