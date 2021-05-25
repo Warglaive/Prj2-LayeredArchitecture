@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="515.0" prefWidth="723.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.flighttickets.GUI.CreateFlightController">
+   <children>
+      <Text layoutX="262.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create a flight">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Text>
+      <Button fx:id="backButton" layoutX="31.0" layoutY="46.0" mnemonicParsing="false" onAction="#backHandler" text="Back" />
+      <Button fx:id="submitButton" layoutX="247.0" layoutY="464.0" mnemonicParsing="false" onAction="#submitHandler" prefHeight="25.0" prefWidth="85.0" text="Submit" />
+      <DatePicker fx:id="datePicker" layoutX="171.0" layoutY="97.0" />
+      <Label layoutX="24.0" layoutY="101.0" text="Choose date for flight:" />
+      <Label layoutX="24.0" layoutY="131.0" text="Choose  a route:" />
+      <Label layoutX="24.0" layoutY="292.0" text="Select a plane:" />
+      <TableView fx:id="routesList" layoutX="24.0" layoutY="158.0" prefHeight="126.0" prefWidth="551.0">
+        <columns>
+          <TableColumn fx:id="routeIdCol" prefWidth="48.0" text="id" />
+          <TableColumn fx:id="startIdCol" prefWidth="127.0" text="start" />
+            <TableColumn fx:id="endIdCol" prefWidth="90.0" text="end" />
+            <TableColumn fx:id="plannerIdCol" prefWidth="111.0" text="planner  id" />
+        </columns>
+      </TableView>
+      <TableView fx:id="planesList" layoutX="24.0" layoutY="320.0" prefHeight="126.0" prefWidth="649.0">
+         <columns>
+            <TableColumn fx:id="planeIdCol" prefWidth="49.0" text="id" />
+            <TableColumn fx:id="registrationCol" prefWidth="109.0" text="registration" />
+            <TableColumn fx:id="brandCol" prefWidth="81.0" text="brand" />
+            <TableColumn fx:id="typeCol" prefWidth="154.0" text="type" />
+            <TableColumn fx:id="seatsCol" prefWidth="61.0" text="seats" />
+            <TableColumn fx:id="legroomCol" prefWidth="97.0" text="extra legroom" />
+            <TableColumn fx:id="firstClassCol" prefWidth="97.0" text="first class" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>

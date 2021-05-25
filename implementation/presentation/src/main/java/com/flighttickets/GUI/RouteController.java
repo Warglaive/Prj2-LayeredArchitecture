@@ -30,7 +30,7 @@ public class RouteController implements Initializable {
     private Button createRouteButton;
 
     @FXML
-    private Button setPlaneButton;
+    private Button createFlightButton;
 
     @FXML
     private ListView routesList;
@@ -67,8 +67,8 @@ public class RouteController implements Initializable {
     }
 
     @FXML
-    public void setPlaneHandler(ActionEvent event) throws IOException {
-        this.sceneManagerSupplier.get().changeScene("setPlane");
+    public void createFlightHandler(ActionEvent event) throws IOException {
+        this.sceneManagerSupplier.get().changeScene("createFlight");
     }
 
     @FXML

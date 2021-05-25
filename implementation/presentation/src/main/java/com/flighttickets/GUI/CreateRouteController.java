@@ -83,7 +83,6 @@ public class CreateRouteController implements Initializable {
 
     @FXML
     public void createRouteHandler(ActionEvent event) throws IOException, SQLException, ClassNotFoundException {
-
         Airport starting = airportsListSt.getSelectionModel().getSelectedItem();
         Airport endPoint = airportsListDest.getSelectionModel().getSelectedItem();
         Integer startingId = starting.getId();
