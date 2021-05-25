@@ -147,13 +147,13 @@ public class AllBookingRequestsController implements Initializable {
 
 
         //TODO: Find way to take data from DB without causing an exception.
-        //  this.BookingRequestLeft = this.bookingRequestManager.getAllByCustomerId(this.loggedInCustomer.getId()).get(0);
+        this.BookingRequestLeft = this.bookingRequestManager.getAllByCustomerId(this.loggedInCustomer.getId()).get(0);
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //TODO: 1. Get all 3 booking requests and assign to fields
-        this.customerLeft.setText("asdasd");
+        this.customerLeft.setText(this.loggedInCustomer.getFirstName());
     }
 
 }

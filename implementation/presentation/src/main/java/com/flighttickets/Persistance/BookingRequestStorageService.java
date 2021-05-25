@@ -6,6 +6,7 @@ import nl.fontys.sebivenlo.dao.pg.PGDAO;
 import nl.fontys.sebivenlo.dao.pg.PGDAOFactory;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * This class is used for executing CUSTOM or DAO SQL statements
@@ -42,7 +43,8 @@ public class BookingRequestStorageService {
      * @return all booking requests corresponding to the customer id
      */
     public List<BookingRequest> getAllByCustomerId(int customerId) {
-        return (List<BookingRequest>) this.bookingRequestDAO.getAll().stream().filter(x -> x.getCustomerId() == customerId);
+        //TODO: Can not cast to LIST
+        return this.bookingRequestDAO.getAll().stream().filter(x -> x.getCustomerId() == customerId).collect(Collectors.toList());
     }
 
 }
