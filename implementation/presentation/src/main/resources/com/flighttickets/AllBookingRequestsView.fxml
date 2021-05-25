@@ -42,14 +42,14 @@
       </VBox>
       <VBox fx:id="vboxRight" alignment="TOP_CENTER" layoutX="522.0" layoutY="83.0" prefHeight="333.0" prefWidth="191.0">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="departure date: " />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="return date: " />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="departure from:" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="destination:" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="customer:" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="sales officer:" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="passangers amount:" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="status:" wrappingWidth="153.212890625">
+            <Text fx:id="deptDateRight" strokeType="OUTSIDE" strokeWidth="0.0" text="departure date: " />
+            <Text fx:id="returnDateRight" strokeType="OUTSIDE" strokeWidth="0.0" text="return date: " />
+            <Text fx:id="departureDestinationRight" strokeType="OUTSIDE" strokeWidth="0.0" text="departure from:" />
+            <Text fx:id="destinationRight" strokeType="OUTSIDE" strokeWidth="0.0" text="destination:" />
+            <Text fx:id="customerRight" strokeType="OUTSIDE" strokeWidth="0.0" text="customer:" />
+            <Text fx:id="salesOfficerRight" strokeType="OUTSIDE" strokeWidth="0.0" text="sales officer:" />
+            <Text fx:id="passangersAmountRight" strokeType="OUTSIDE" strokeWidth="0.0" text="passangers amount:" />
+            <Text fx:id="statusRight" strokeType="OUTSIDE" strokeWidth="0.0" text="status:" wrappingWidth="153.212890625">
                <font>
                   <Font size="22.0" />
                </font>
