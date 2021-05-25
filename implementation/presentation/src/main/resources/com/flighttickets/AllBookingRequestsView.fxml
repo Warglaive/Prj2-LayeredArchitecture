@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Text?>
 
 
-<AnchorPane prefHeight="548.0" prefWidth="775.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.flighttickets.GUI.AllBookingRequestsController">
+<AnchorPane xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.flighttickets.GUI.AllBookingRequestsController">
    <children>
       <VBox fx:id="vboxLeft" alignment="TOP_CENTER" layoutX="32.0" layoutY="83.0" prefHeight="333.0" prefWidth="191.0">
          <children>

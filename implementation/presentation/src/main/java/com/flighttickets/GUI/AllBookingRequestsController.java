@@ -4,6 +4,7 @@ import com.flighttickets.Entities.BookingRequest;
 import com.flighttickets.Entities.BookingRequestManager;
 import com.flighttickets.Entities.SystemUser;
 import com.flighttickets.Entities.SystemUserManager;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -16,29 +17,6 @@ import java.util.function.Supplier;
 
 
 public class AllBookingRequestsController implements Initializable {
-    private final Supplier<SceneManager> sceneManagerSupplier;
-    private final SystemUser loggedInCustomer;
-    private final BookingRequestManager bookingRequestManager;
-    private final SystemUserManager systemUserManager;
-
-
-    private BookingRequest BookingRequestLeft;
-    private BookingRequest BookingRequestMid;
-    private BookingRequest BookingRequestRight;
-
-
-    public AllBookingRequestsController(Supplier<SceneManager> sceneManagerSupplier, SystemUser loggedInCustomer, BookingRequestManager bookingRequestManager, SystemUserManager systemUserManager) {
-        this.sceneManagerSupplier = sceneManagerSupplier;
-        this.loggedInCustomer = loggedInCustomer;
-        this.bookingRequestManager = bookingRequestManager;
-        this.systemUserManager = systemUserManager;
-    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        //TODO: 1. Get all 3 booking requests and assign to fields
-        this.BookingRequestLeft = this.bookingRequestManager.getAllByCustomerId(this.loggedInCustomer.getId()).get(0);
-    }
 
     @FXML
     private VBox vboxLeft;
@@ -140,12 +118,42 @@ public class AllBookingRequestsController implements Initializable {
     private Button cancelBtnRight;
 
     @FXML
-    void cancelBookingRequest() {
+    void cancelBookingRequest(ActionEvent event) {
 
     }
 
     @FXML
-    void finalizeBookingRequest() {
+    void finalizeBookingRequest(ActionEvent event) {
 
     }
+
+
+    private Supplier<SceneManager> sceneManagerSupplier;
+    private SystemUser loggedInCustomer;
+    private BookingRequestManager bookingRequestManager;
+    private SystemUserManager systemUserManager;
+
+
+    private BookingRequest BookingRequestLeft;
+    private BookingRequest BookingRequestMid;
+    private BookingRequest BookingRequestRight;
+
+
+    public AllBookingRequestsController(Supplier<SceneManager> sceneManagerSupplier, SystemUser loggedInCustomer, BookingRequestManager bookingRequestManager, SystemUserManager systemUserManager) {
+        this.sceneManagerSupplier = sceneManagerSupplier;
+        this.loggedInCustomer = loggedInCustomer;
+        this.bookingRequestManager = bookingRequestManager;
+        this.systemUserManager = systemUserManager;
+
+
+        //TODO: Find way to take data from DB without causing an exception.
+        //  this.BookingRequestLeft = this.bookingRequestManager.getAllByCustomerId(this.loggedInCustomer.getId()).get(0);
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        //TODO: 1. Get all 3 booking requests and assign to fields
+        this.customerLeft.setText("asdasd");
+    }
+
 }
