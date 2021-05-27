@@ -3,6 +3,8 @@ package com.flighttickets.Entities;
 import nl.fontys.sebivenlo.dao.Entity2;
 import nl.fontys.sebivenlo.dao.ID;
 
+import javax.xml.validation.Validator;
+
 public class SystemUser implements Entity2<Integer> {
 
     @ID

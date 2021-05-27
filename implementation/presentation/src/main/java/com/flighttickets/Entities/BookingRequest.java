@@ -27,8 +27,9 @@ public class BookingRequest implements Entity2<Integer> {
     private int passengersAmount;
     private String status;
 
-    public BookingRequest(int BookingRequestId, int customerId, int salesOfficerId, String departureDestination, String arrivalDestination, LocalDate departureDate, LocalDate returnDate, int passengersAmount, String status) {
-        this.bookingRequestId = BookingRequestId;
+
+    public BookingRequest(int bookingRequestId, int customerId, int salesOfficerId, String departureDestination, String arrivalDestination, LocalDate departureDate, LocalDate returnDate, int passengersAmount, String status) {
+        this.bookingRequestId = bookingRequestId;
         this.customerId = customerId;
         this.salesOfficerId = salesOfficerId;
         this.departureDate = departureDate;
@@ -51,10 +52,7 @@ public class BookingRequest implements Entity2<Integer> {
 
     /**
      * needed for the Mapper
-     *
-     * @return
      */
-    //TODO: Check customer.ToString() - may cause issues
     @Override
     public String toString() {
         return "BookingRequest{" + "requestId=" + bookingRequestId + ", departureDate=" + departureDate + ", returnDate=" + returnDate + ", departureDestination="
@@ -66,8 +64,8 @@ public class BookingRequest implements Entity2<Integer> {
     /**
      * needed for the Mapper
      *
-     * @param parts
-     * @return
+     * @param parts to be made into
+     * @return BookingRequest
      */
     static BookingRequest fromParts(Object[] parts) {
         return new BookingRequest((Integer) parts[0], (Integer) parts[1], (Integer) parts[2], (String) parts[3], (String) parts[4], (LocalDate) parts[5],
