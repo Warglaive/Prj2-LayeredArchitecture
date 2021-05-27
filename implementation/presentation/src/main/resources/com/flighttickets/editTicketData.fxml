@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<?import javafx.scene.control.TextField?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="552.0" prefWidth="629.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.flighttickets.GUI.EditTicketDataController">
+   <children>
+      <Label alignment="CENTER" layoutX="-1.0" layoutY="36.0" prefHeight="81.0" prefWidth="629.0" text="Edit ticket" textAlignment="CENTER">
+         <font>
+            <Font size="55.0" />
+         </font>
+      </Label>
+      <Button fx:id="backBtn" layoutX="205.0" layoutY="459.0" mnemonicParsing="false" onAction="#backHandler" text="Back" />
+      <Button fx:id="submitBtn" layoutX="371.0" layoutY="459.0" mnemonicParsing="false" onAction="#submitHandler" text="Submit" />
+      <Label layoutX="177.0" layoutY="161.0" text="Ticket ID" />
+      <Label layoutX="176.0" layoutY="329.0" text="Status" />
+      <Label layoutX="176.0" layoutY="299.0" text="FlightId" />
+      <Label layoutX="177.0" layoutY="192.0" text="Price" />
+      <Label layoutX="176.0" layoutY="228.0" text="PassengerId" />
+      <Label layoutX="177.0" layoutY="268.0" text="BookingId" />
+      <TextField fx:id="TicketIdTbx" disable="true" layoutX="297.0" layoutY="157.0" text="1" />
+      <TextField fx:id="PriceTbx" layoutX="297.0" layoutY="188.0" />
+      <TextField fx:id="PassengerIdTbx" layoutX="297.0" layoutY="224.0" />
+      <TextField fx:id="BookingIdTbx" layoutX="297.0" layoutY="264.0" />
+      <TextField fx:id="FlightIdTbx" layoutX="297.0" layoutY="295.0" />
+      <TextField fx:id="StatusTbx" layoutX="297.0" layoutY="325.0" />
+   </children>
+</AnchorPane>
