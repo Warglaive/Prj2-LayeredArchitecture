@@ -1,9 +1,6 @@
 package com.flighttickets.BusinessLogic;
 
-import com.flighttickets.Entities.BookingRequestManager;
-import com.flighttickets.Entities.FlightManager;
-import com.flighttickets.Entities.RouteManager;
-import com.flighttickets.Entities.SystemUserManager;
+import com.flighttickets.Entities.*;
 import com.flighttickets.Persistance.PersistenceAPI;
 
 public class BusinessLogicAPIImpl implements BusinessLogicImplementationProvider, BusinessLogicAPI {
@@ -36,6 +33,13 @@ public class BusinessLogicAPIImpl implements BusinessLogicImplementationProvider
         BookingRequestManager bookingRequestManager = new BookingRequestManagerImpl();
         bookingRequestManager.setBookingRequestStorageService(this.persistenceAPI.getBookingRequestStorageService());
         return bookingRequestManager;
+    }
+
+    @Override
+    public BookingManager getBookingManager() {
+        BookingManager bookingManager = new BookingManagerImpl();
+        bookingManager.setBookingStorageService(this.persistenceAPI.getBookingStorageService());
+        return bookingManager;
     }
 
     @Override

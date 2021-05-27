@@ -1,9 +1,6 @@
 package com.flighttickets.BusinessLogic;
 
-import com.flighttickets.Entities.BookingRequestManager;
-import com.flighttickets.Entities.FlightManager;
-import com.flighttickets.Entities.RouteManager;
-import com.flighttickets.Entities.SystemUserManager;
+import com.flighttickets.Entities.*;
 
 public interface BusinessLogicAPI {
 
@@ -12,6 +9,8 @@ public interface BusinessLogicAPI {
     FlightManager getFlightManager();
 
     BookingRequestManager getBookingRequestManager();
+
+    BookingManager getBookingManager();
 
     RouteManager getRouteManager();
 }

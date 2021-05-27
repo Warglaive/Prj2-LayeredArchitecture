@@ -68,7 +68,7 @@ CREATE TABLE public.bookingrequest (
 	returndate date NOT NULL,
 	passengersamount int4 NOT NULL,
 	status varchar(255) DEFAULT false,
-	CONSTRAINT bookingrequest_pkey PRIMARY KEY (requestid)
+	CONSTRAINT bookingrequest_pkey PRIMARY KEY (bookingrequestid)
 );
 
 
