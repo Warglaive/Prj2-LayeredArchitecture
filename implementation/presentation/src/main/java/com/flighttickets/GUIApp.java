@@ -24,6 +24,11 @@ public class GUIApp extends Application {
      */
     SystemUserController systemUserController;
 
+    /**
+     * instantiate controller so I can take the selected BkRequest when changing views
+     */
+    BookingRequestOverviewController bookingRequestOverviewController;
+
 
     /**
      * Add arguments for each Controller, EntityManager
@@ -39,9 +44,13 @@ public class GUIApp extends Application {
                 this.systemUserController = new SystemUserController(this::getSceneManager, this.businessLogicAPI.getSystemUserManager(), this.businessLogicAPI.getBookingRequestManager());
                 return this.systemUserController;
             case "com.flighttickets.GUI.BookingRequestOverviewController":
-                return new BookingRequestOverviewController(this::getSceneManager, this.systemUserController.getLoggedInCustomer(), this.businessLogicAPI.getSystemUserManager(), this.businessLogicAPI.getBookingRequestManager());
+                this.bookingRequestOverviewController = new BookingRequestOverviewController(this::getSceneManager, this.systemUserController.getLoggedInCustomer(), this.businessLogicAPI.getSystemUserManager(), this.businessLogicAPI.getBookingRequestManager());
+                return this.bookingRequestOverviewController;
+            case "com.flighttickets.GUI.BookingRequestHandleController":
+                return new BookingRequestHandleController(this::getSceneManager, this.bookingRequestOverviewController.getSelectedBookingRequest(), this.businessLogicAPI.getBookingManager());
             case "com.flighttickets.GUI.CustomerMainViewController":
                 return new CustomerMainViewController(this::getSceneManager, this.businessLogicAPI.getBookingRequestManager());
+
             //TODO: Add proper Default switch case
             default:
                 return new MainController(this::getSceneManager, this.businessLogicAPI.getSystemUserManager());
