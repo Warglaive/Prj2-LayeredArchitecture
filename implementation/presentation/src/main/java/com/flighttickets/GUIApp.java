@@ -50,8 +50,15 @@ public class GUIApp extends Application {
                 this.systemUserController = new SystemUserController(this::getSceneManager, this.businessLogicAPI.getSystemUserManager(), this.businessLogicAPI.getBookingRequestManager());
                 return this.systemUserController;
             case "com.flighttickets.GUI.BookingRequestOverviewController":
-                this.bookingRequestOverviewController = new BookingRequestOverviewController(this::getSceneManager, this.systemUserController.getLoggedInCustomer(), this.businessLogicAPI.getSystemUserManager(), this.businessLogicAPI.getBookingRequestManager());
+              this.bookingRequestOverviewController = new BookingRequestOverviewController(this::getSceneManager, this.systemUserController.getLoggedInCustomer(), this.businessLogicAPI.getSystemUserManager(), this.businessLogicAPI.getBookingRequestManager());
                 return this.bookingRequestOverviewController;
+
+            case "com.flighttickets.GUI.RouteController":
+                return new RouteController(this::getSceneManager, this.systemUserController.getLoggedInCustomer(), this.businessLogicAPI.getRouteManager());
+            case "com.flighttickets.GUI.CreateRouteController":
+                return new CreateRouteController(this::getSceneManager, this.systemUserController.getLoggedInCustomer(), this.businessLogicAPI.getRouteManager(), this.businessLogicAPI.getAirportManager());
+            case "com.flighttickets.GUI.CreateFlightController":
+                return new CreateFlightController(this::getSceneManager, this.systemUserController.getLoggedInCustomer(), this.businessLogicAPI.getPlaneManager(), this.businessLogicAPI.getRouteManager(), this.businessLogicAPI.getFlightManager());
           case "com.flighttickets.GUI.EditTicketController":
                 this.editTicketController =  new EditTicketController(this::getSceneManager, this.systemUserController.getLoggedInCustomer(), this.businessLogicAPI.getSystemUserManager(), this.businessLogicAPI.getTicketManager());
                 return this.editTicketController;

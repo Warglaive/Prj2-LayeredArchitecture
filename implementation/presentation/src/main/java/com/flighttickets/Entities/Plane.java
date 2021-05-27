@@ -78,4 +78,51 @@ public class Plane implements Entity2<Integer> {
         this.id = id;
     }
 
+    public String getRegistration() {
+        return registration;
+    }
+
+    public void setRegistration(String registration) {
+        this.registration = registration;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public int getSeats_on_board() {
+        return seats_on_board;
+    }
+
+    public void setSeats_on_board(int seats_on_board) {
+        this.seats_on_board = seats_on_board;
+    }
+
+    public int getExtra_legroom_seats() {
+        return extra_legroom_seats;
+    }
+
+    public void setExtra_legroom_seats(int extra_legroom_seats) {
+        this.extra_legroom_seats = extra_legroom_seats;
+    }
+
+    public int getFirst_class_seats() {
+        return first_class_seats;
+    }
+
+    public void setFirst_class_seats(int first_class_seats) {
+        this.first_class_seats = first_class_seats;
+    }
 }
