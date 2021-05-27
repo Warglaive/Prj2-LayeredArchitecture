@@ -58,18 +58,18 @@
 | Actor | Planner |
 | Description | Planner Creates Route|
 | Precondition |  Planner must be logged in|
-| Scenario | 1. Planner selects route option <br> 2. System shows current routes. <br> 3. Planner selects create new route <br> 4. System starts new route steps. <br> 5. Planner selects start and ending location. <br> 6. System accepts route returns to mainscreen. |
+| Scenario | 1. Planner logs in <br> 2. System shows current routes. <br> 3. Planner selects create new route option <br> 4. System starts new route steps. <br> 5. Planner selects start and ending location. <br> 6. System accepts route returns to mainscreen. |
 | Result |Planner created a route |
 | Exceptions |TBD  |
 | Extensions | N/A  |
 
-| Name | Set plane to route |
+| Name | Create a flight |
 | --- | --- |
 | Actor | Planner |
-| Description | Planner sets plane to Route|
+| Description | Planner creates a flight |
 | Precondition |  Planner must be logged in|
-| Scenario | 1. Planner selects route option <br> 2. System shows current routes. <br> 3. Planner selects edit route <br> 4. System starts edit route steps. <br> 5. Planner selects set plane to route. <br> 6. System displays plane selection screen. <br> 7. Planner sets plane to route. <br> 8. System accepts edit to route and returns to mainscreen. |
-| Result |Planner added plane to route |
+| Scenario | 1. Planner logs in <br> 2. System shows current routes. <br> 3. Planner selects create flight option <br> 4. System shows input fields for creating a flight <br> 5. Planner selects a date, route and a plane <br> 6. System creates new flight with selected data <br> 7. System returns back to current routes screen.
+| Result |Planner created a new flight |
 | Exceptions |TBD  |
 | Extensions | N/A  |
 

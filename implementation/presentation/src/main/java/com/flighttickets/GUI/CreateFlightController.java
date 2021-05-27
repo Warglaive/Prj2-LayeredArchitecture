@@ -109,5 +109,6 @@ public class CreateFlightController implements Initializable {
 
         Flight createdFlight = new Flight(newFlightId, localDate, selectedRouteId, selectedPlaneId);
         this.flightManager.add(createdFlight);
+        //this.sceneManagerSupplier.get().changeScene("currentRoutes");
     }
 }
