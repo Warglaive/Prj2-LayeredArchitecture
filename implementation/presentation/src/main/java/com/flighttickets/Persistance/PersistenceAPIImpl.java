@@ -25,6 +25,11 @@ public class PersistenceAPIImpl implements PersistenceImplementationProvider, Pe
     }
 
     @Override
+    public BookingStorageService getBookingStorageService() {
+        return new BookingStorageService(this.daoFactory);
+    }
+
+    @Override
     public RouteStorageService getRouteStorageService() {
         return new RouteStorageService(this.daoFactory);
     }
@@ -37,5 +42,10 @@ public class PersistenceAPIImpl implements PersistenceImplementationProvider, Pe
     @Override
     public AirportStorageService getAirportStorageService() {
         return new AirportStorageService(this.daoFactory);
+    }
+
+    @Override
+    public TicketStorageService getTicketStorageService() {
+        return null;
     }
 }

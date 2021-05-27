@@ -36,6 +36,13 @@ public class BusinessLogicAPIImpl implements BusinessLogicImplementationProvider
     }
 
     @Override
+    public BookingManager getBookingManager() {
+        BookingManager bookingManager = new BookingManagerImpl();
+        bookingManager.setBookingStorageService(this.persistenceAPI.getBookingStorageService());
+        return bookingManager;
+    }
+
+    @Override
     public FlightManager getFlightManager() {
         FlightManagerImpl flightManager = new FlightManagerImpl();
         flightManager.setFlightStorageService(this.persistenceAPI.getFlightStorageService());
@@ -62,5 +69,11 @@ public class BusinessLogicAPIImpl implements BusinessLogicImplementationProvider
         PlaneManager planeManager = new PlaneManagerImpl();
         planeManager.setPlaneStorageService(this.persistenceAPI.getPlaneStorageService());
         return planeManager;
+    }
+  
+    public TicketManager getTicketManager() {
+        TicketManagerImpl ticketManager = new TicketManagerImpl();
+        ticketManager.setTicketStorageService(this.persistenceAPI.getTicketStorageService());
+        return ticketManager;
     }
 }

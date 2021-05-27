@@ -6,17 +6,17 @@ import nl.fontys.sebivenlo.dao.ID;
 public class Ticket implements Entity2<Integer> {
 
     @ID(generated = true)
-    int id;
+    int ticketid;
 
-    int price; //price will be in cent, for example €23.45 would be 2345
+    int price;
     int passengerid;
     int bookingid;
     int flightid;
     String status; //could probably convert this to enum
 
 
-    public Ticket(int id, int price, int passengerid, int bookingid, int flightid, String status){
-        this.id = id;
+    public Ticket(int ticketid, int price, int passengerid, int bookingid, int flightid, String status){
+        this.ticketid = ticketid;
         this.price = price;
         this.passengerid = passengerid;
         this.bookingid = bookingid;
@@ -26,7 +26,7 @@ public class Ticket implements Entity2<Integer> {
     @Override
     public String toString() {
         return "Ticket{" +
-                "id=" + this.id +
+                "id=" + this.ticketid +
                 ", price='" + this.price + '\'' +
                 ", passengerid='" + this.passengerid + '\'' +
                 ", bookingid='" + this.bookingid + '\'' +
@@ -38,7 +38,7 @@ public class Ticket implements Entity2<Integer> {
     Object[] asParts() {
 
         return new Object[]{
-                this.id,
+                this.ticketid,
                 this.price,
                 this.passengerid,
                 this.bookingid,
@@ -49,14 +49,58 @@ public class Ticket implements Entity2<Integer> {
 
     @Override
     public Integer getNaturalId() {
-        return this.id;
+        return this.ticketid;
+    }
+
+    public int getTicketid() {
+        return this.ticketid;
+    }
+    public void setTicketid(int ticketid) {
+        this.ticketid = ticketid;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public int getPassengerid() {
+        return passengerid;
+    }
+
+    public void setPassengerid(int passengerid) {
+        this.passengerid = passengerid;
+    }
+
+    public int getBookingid() {
+        return bookingid;
+    }
+
+    public void setBookingid(int bookingid) {
+        this.bookingid = bookingid;
+    }
+
+    public int getFlightid() {
+        return flightid;
+    }
+
+    public void setFlightid(int flightid) {
+        this.flightid = flightid;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     @Override
     public int getId() {
-        return this.id;
-    }
-    public void setId(int id) {
-        this.id = id;
+        return this.ticketid;
     }
 }

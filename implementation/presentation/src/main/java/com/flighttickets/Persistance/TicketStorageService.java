@@ -8,25 +8,26 @@ import com.flighttickets.PGDataSource;
 import nl.fontys.sebivenlo.dao.pg.PGDAO;
 import nl.fontys.sebivenlo.dao.pg.PGDAOFactory;
 
+import java.util.List;
+
 public class TicketStorageService {
 
-    public void insert(Ticket ticket){
-        // Use the provided data source
-        PGDAOFactory pdaof = new PGDAOFactory(PGDataSource.DATA_SOURCE);
+    private PGDAO<Integer, Ticket> ticketDAO;
 
-        // Register mappers for the classes in this app
-        pdaof.registerMapper(Ticket.class, new TicketMapper());
+    public TicketStorageService(PGDAOFactory daoFactory){
+        daoFactory.registerMapper(Ticket.class, new TicketMapper());
         // get a dao (no transactions yet).
-        PGDAO<Integer, Ticket> ticketDAO = pdaof.createDao(Ticket.class);
-        ticketDAO.save(ticket);
+        this.ticketDAO = daoFactory.createDao(Ticket.class);
+    }
+
+    public List<Ticket> getAll(){
+        return this.ticketDAO.getAll();
+    }
+
+    public void insert(Ticket ticket){
+        this.ticketDAO.save(ticket);
     }
     public void update(Ticket ticket){
-        PGDAOFactory pdaof = new PGDAOFactory(PGDataSource.DATA_SOURCE);
-
-        // Register mappers for the classes in this app
-        pdaof.registerMapper(Ticket.class, new TicketMapper());
-        // get a dao (no transactions yet).
-        PGDAO<Integer, Ticket> ticketDAO = pdaof.createDao(Ticket.class);
-        ticketDAO.update(ticket);
+        this.ticketDAO.update(ticket);
     }
 }

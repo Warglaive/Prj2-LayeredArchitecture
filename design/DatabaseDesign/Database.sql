@@ -59,7 +59,7 @@ role VARCHAR(255) not null );
 -- DROP TABLE public.bookingrequest;
 
 CREATE TABLE public.bookingrequest (
-	requestid serial NOT NULL,
+	bookingrequestid serial NOT NULL,
 	customerid int4 NOT NULL,
 	salesofficerid int4 NULL,
 	departuredestination varchar(255) NOT NULL,
@@ -68,7 +68,7 @@ CREATE TABLE public.bookingrequest (
 	returndate date NOT NULL,
 	passengersamount int4 NOT NULL,
 	status varchar(255) DEFAULT false,
-	CONSTRAINT bookingrequest_pkey PRIMARY KEY (requestid)
+	CONSTRAINT bookingrequest_pkey PRIMARY KEY (bookingrequestid)
 );
 
 

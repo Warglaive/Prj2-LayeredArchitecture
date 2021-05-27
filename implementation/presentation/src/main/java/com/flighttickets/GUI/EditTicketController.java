@@ -1,10 +1,21 @@
 package com.flighttickets.GUI;
 
+import com.flighttickets.Entities.*;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
-public class EditTicketController {
+import java.net.URL;
+import java.util.List;
+import java.util.ResourceBundle;
+import java.util.function.Supplier;
+
+public class EditTicketController implements Initializable {
+
+
 
     @FXML
     private TextField searchTbx;
@@ -13,19 +24,7 @@ public class EditTicketController {
     private Label searchLbl;
 
     @FXML
-    private TableView<?> ticketTbl;
-
-    @FXML
-    private TableColumn<?, ?> ticketIdColumn;
-
-    @FXML
-    private TableColumn<?, ?> locationsColumn;
-
-    @FXML
-    private TableColumn<?, ?> priceColumn;
-
-    @FXML
-    private TableColumn<?, ?> discountColumn;
+    private ListView<Ticket> ticketView;
 
     @FXML
     private Button deleteTicketBtn;
@@ -41,6 +40,33 @@ public class EditTicketController {
 
     @FXML
     private Button editDiscountBtn;
+
+    private final Supplier<SceneManager> sceneManagerSupplier;
+    private TicketManager ticketManager;
+    private SystemUserManager systemUserManager;
+    private SystemUser salesEmployee;
+
+    public Ticket getSelectedTicket() {
+        return selectedTicket;
+    }
+
+    private Ticket selectedTicket;
+
+    public EditTicketController(Supplier<SceneManager> sceneManagerSupplier,SystemUser salesEmployee, SystemUserManager systemUserManager, TicketManager ticketManager){
+        this.sceneManagerSupplier = sceneManagerSupplier;
+        this.ticketManager = ticketManager;
+        this.systemUserManager = systemUserManager;
+        this.salesEmployee = salesEmployee;
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        List<Ticket> ticketList = ticketManager.getAll();
+        if(ticketList != null) {
+            ObservableList<Ticket> observableList = FXCollections.observableList(ticketList);
+            ticketView.setItems(observableList);
+        }
+    }
 
     @FXML
     void DeleteTicketDiag(ActionEvent event) {
@@ -59,7 +85,13 @@ public class EditTicketController {
 
     @FXML
     void editTicketPopup(ActionEvent event) {
+        if(ticketView.getSelectionModel().getSelectedItems().size() == 1){
+            Ticket selected =  ticketView.getSelectionModel().getSelectedItem();
+            this.selectedTicket = selected;
 
+            sceneManagerSupplier.get().changeScene("editTicketData");
+
+        }
     }
 
     @FXML
