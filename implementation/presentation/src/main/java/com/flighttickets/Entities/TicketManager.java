@@ -3,6 +3,7 @@ package com.flighttickets.Entities;
 import com.flighttickets.Persistance.TicketStorageService;
 
 import java.sql.SQLException;
+import java.util.List;
 
 public interface TicketManager {
 
@@ -25,6 +26,13 @@ public interface TicketManager {
      * @param ticket
      */
     void add(Ticket ticket) throws SQLException, ClassNotFoundException;
+
+    /**
+     * Gets all tickets
+     *
+     * @return List ticket
+     */
+    List<Ticket> getAll();
 
     /**
      * Edit a ticket

@@ -49,4 +49,15 @@ public interface BookingRequestManager {
      * @return List of booking requests for current logged in customer
      */
     public List<BookingRequest> getAllByCustomerId(int customerId);
+
+
+    /**
+     * @return All requests pending to be handled
+     */
+    List<BookingRequest> getPendingRequests();
+
+    /**
+     * @param toBeDeclined
+     */
+    void declineRequest(BookingRequest toBeDeclined);
 }

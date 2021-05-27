@@ -27,6 +27,7 @@ public class BookingRequest implements Entity2<Integer> {
     private int passengersAmount;
     private String status;
 
+
     public BookingRequest(int bookingRequestId, int customerId, int salesOfficerId, String departureDestination, String arrivalDestination, LocalDate departureDate, LocalDate returnDate, int passengersAmount, String status) {
         this.bookingRequestId = bookingRequestId;
         this.customerId = customerId;
@@ -54,9 +55,9 @@ public class BookingRequest implements Entity2<Integer> {
      */
     @Override
     public String toString() {
-        return "BookingRequest{" + "id=" + bookingRequestId + ", customerId=" + customerId + ", salesOfficerId=" + salesOfficerId + ", departureDate="
-                + departureDate + ", returnDate=" + returnDate + ", departureDestination=" + departureDestination
-                + ", arrivalDestination=" + arrivalDestination + ", passengersAmount=" + passengersAmount
+        return "BookingRequest{" + "requestId=" + bookingRequestId + ", departureDate=" + departureDate + ", returnDate=" + returnDate + ", departureDestination="
+                + departureDestination + ", destination=" + arrivalDestination + ", customer=" + customerId
+                + ", passengersAmount=" + passengersAmount
                 + ", status=" + status + '}';
     }
 

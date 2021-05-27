@@ -2,6 +2,8 @@ package com.flighttickets.Persistance;
 
 import com.flighttickets.Entities.BookingRequest;
 import com.flighttickets.Entities.BookingRequestMapper;
+import com.flighttickets.Entities.Route;
+import com.flighttickets.Entities.SystemUser;
 import nl.fontys.sebivenlo.dao.pg.PGDAO;
 import nl.fontys.sebivenlo.dao.pg.PGDAOFactory;
 
@@ -47,4 +49,16 @@ public class BookingRequestStorageService {
         return this.bookingRequestDAO.getAll().stream().filter(x -> x.getCustomerId() == customerId).collect(Collectors.toList());
     }
 
+    public List<BookingRequest> getPendingRequests() {
+        List<BookingRequest> requestsList = this.bookingRequestDAO.anyQuery("SELECT * FROM " +this.tableName+ " WHERE status = 'Pending'");
+        //TODO Write exception/error for no lists returned - JL
+        return requestsList;
+    }
+
+    public void declineRequest(BookingRequest toBeDeclined){
+        toBeDeclined.setStatus("Declined");
+        this.bookingRequestDAO.update(toBeDeclined);
+        System.out.println("Booking request" + toBeDeclined.getId() + "declined!");
+        //TODO Write message to user properly - JL
+    }
 }

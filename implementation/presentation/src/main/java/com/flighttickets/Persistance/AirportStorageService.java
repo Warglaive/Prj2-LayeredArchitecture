@@ -14,7 +14,7 @@ public class AirportStorageService {
     private final String tableName = "airport";
 
 
-    public AirportStorageService() {
+    public AirportStorageService(PGDAOFactory daoFactory) {
         // Use the provided data source
         PGDAOFactory pdaof = new PGDAOFactory(PGDataSource.DATA_SOURCE);
 
@@ -27,7 +27,7 @@ public class AirportStorageService {
     public List<Airport> getAirports() {
         List<Airport> airportsList = this.airportDAO.anyQuery("SELECT * FROM " + this.tableName);
         //result was found
-        System.out.println("Is a airport found?" + airportsList.get(0).toString());
+        System.out.println("Is a airport found? " + airportsList.get(0).toString());
         return airportsList;
     }
 

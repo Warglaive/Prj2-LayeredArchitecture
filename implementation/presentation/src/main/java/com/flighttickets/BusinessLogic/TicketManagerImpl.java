@@ -5,10 +5,13 @@ import com.flighttickets.Entities.TicketManager;
 import com.flighttickets.Persistance.TicketStorageService;
 
 import java.sql.SQLException;
+import java.util.List;
 
 public class TicketManagerImpl implements TicketManager {
 
     private TicketStorageService ticketStorageService;
+    private Ticket selectedTicket;
+
 
     @Override
     public Ticket createTicket(int id, int price, int passengerid, int bookingid, int flightid, String status) {
@@ -21,8 +24,14 @@ public class TicketManagerImpl implements TicketManager {
     }
 
     @Override
+    public List<Ticket> getAll() {
+        return this.ticketStorageService.getAll();
+    }
+
+
+    @Override
     public void edit(int id, Ticket ticket) throws SQLException, ClassNotFoundException {
-        ticket.setId(id);
+        ticket.setTicketid(id);
         this.ticketStorageService.update(ticket);
     }
 
@@ -30,4 +39,6 @@ public class TicketManagerImpl implements TicketManager {
     public void setTicketStorageService(TicketStorageService ticketStorageService) {
         this.ticketStorageService = ticketStorageService;
     }
+
+
 }
