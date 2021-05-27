@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.flighttickets.GUI.SetPlaneController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.flighttickets.GUI.CreateFlightController">
    <children>
       <Text layoutX="161.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose plane for your route">
          <font>
@@ -20,7 +20,7 @@
          </font>
       </Text>
       <Label fx:id="selectedRouteLabel" layoutX="161.0" layoutY="106.0" prefHeight="17.0" prefWidth="172.0" text="Label" />
-      <ListView fx:id="planeList" layoutX="31.0" layoutY="156.0" onEditStart="#setPlanesList" prefHeight="176.0" prefWidth="517.0" />
+      <ListView fx:id="planeList" layoutX="31.0" layoutY="156.0" prefHeight="176.0" prefWidth="517.0" />
       <Button fx:id="backButton" layoutX="31.0" layoutY="46.0" mnemonicParsing="false" onAction="#backHandler" text="Back" />
       <Button fx:id="submitButton" layoutX="247.0" layoutY="351.0" mnemonicParsing="false" onAction="#submitHandler" prefHeight="25.0" prefWidth="85.0" text="Submit" />
    </children>

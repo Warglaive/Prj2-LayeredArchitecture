@@ -6,10 +6,8 @@ import com.flighttickets.Entities.SystemUserManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.layout.Pane;
 
 import java.io.IOException;
 import java.net.URL;
@@ -143,11 +141,11 @@ public class SystemUserController implements Initializable {
             this.sceneManagerSupplier.get().changeScene("BookingRequestOverview");
 
         } else if (loggedInSystemUser.getRole().equals("Customer")) {
-            this.sceneManagerSupplier.get().changeScene("CreateBookingRequest");
+            this.sceneManagerSupplier.get().changeScene("CustomerMainView");
 
         } else {
             //TODO Implement wrong username error thrown in fxml - jl
-            this.sceneManagerSupplier.get().changeScene("main");
+            this.sceneManagerSupplier.get().changeScene("Main");
 
         }
     }
@@ -157,14 +155,14 @@ public class SystemUserController implements Initializable {
      */
     @FXML
     void viewLogin() {
-        this.sceneManagerSupplier.get().changeScene("login");
+        this.sceneManagerSupplier.get().changeScene("Login");
     }
 
     /**
      * returns to "main" view
      */
     public void viewMain() {
-        this.sceneManagerSupplier.get().changeScene("main");
+        this.sceneManagerSupplier.get().changeScene("Main");
 
     }
 
@@ -175,12 +173,12 @@ public class SystemUserController implements Initializable {
      */
     @FXML
     public void viewRegister() {
-        this.sceneManagerSupplier.get().changeScene("register");
+        this.sceneManagerSupplier.get().changeScene("Register");
 
     }
 
     /**
-     * used to pass customer object to CreateBookingController
+     * used to pass customer object to CustomerMainView
      * @return
      */
     public SystemUser getLoggedInCustomer() {

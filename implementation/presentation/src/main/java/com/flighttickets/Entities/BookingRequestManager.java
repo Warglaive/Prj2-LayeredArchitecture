@@ -4,6 +4,7 @@ import com.flighttickets.Persistance.BookingRequestStorageService;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.List;
 
 public interface BookingRequestManager {
     /**
@@ -30,10 +31,33 @@ public interface BookingRequestManager {
     void setBookingRequestStorageService(BookingRequestStorageService bookingRequestStorageService);
 
     /**
-     * @param bookingRequest
+     * getter for BookingRequestStorageService
+     *
+     * @return BookingRequestStorageService
+     */
+    public BookingRequestStorageService getBookingRequestStorageService();
+
+    /**
+     * @param bookingRequest add to DB
      * @throws SQLException
      * @throws ClassNotFoundException
      */
     void add(BookingRequest bookingRequest) throws SQLException, ClassNotFoundException;
 
+    /**
+     * @param customerId - search by
+     * @return List of booking requests for current logged in customer
+     */
+    public List<BookingRequest> getAllByCustomerId(int customerId);
+
+
+    /**
+     * @return All requests pending to be handled
+     */
+    List<BookingRequest> getPendingRequests();
+
+    /**
+     * @param toBeDeclined
+     */
+    void declineRequest(BookingRequest toBeDeclined);
 }

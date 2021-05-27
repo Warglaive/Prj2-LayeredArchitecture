@@ -1,9 +1,34 @@
 ## Customer
+| Name | Customer view all booking requests|
+| --- | --- |
+| Actor | Customer |
+| Description | Customer view all booking requests |
+| Precondition |  1. Customer must be logged in. <br> 2. Customer must have created at least 1 booking request|
+| Scenario | 1. Customer accesses "View all booking requests" option on the main view.<br> 2. System provides a view containing all booking requests|
+| Result | Customer views all options for his role |
+| Exceptions |TBD  |
+| Extensions | N/A  |
+
+
+
+
+## Customer
+| Name | Customer accesses main view for role "customer"|
+| --- | --- |
+| Actor | Customer |
+| Description | Customer accesses main view for role "customer"|
+| Precondition |  Customer must be logged in|
+| Scenario | 1. Customer logs in. <br> 2. System provides the main view which contains "View booking request" option and another button "Create booking request" and "Logout" button|
+| Result | Customer views all options for his role |
+| Exceptions |TBD  |
+| Extensions | N/A  |
+
+
 | Name | Create a new Booking request|
 | --- | --- |
 | Actor | Customer |
-| Description | Customer creates a new booking request|
-| Precondition |  Customer must be logged in|
+| Description | Customer creates a new booking request.|
+| Precondition |  1. Customer must be logged in. <br> 2.Customer accessed main view|
 | Scenario | 1. Customer selects departure date, return date, destination, passangers amount and submits the input<br> 2. System makes validations<br>4. System auto assigns(randomly between lowest salesOfficerId and highest) salesOfficer by id. <br>3. System inputs the request into the database. <br> 4. Customer is redirected to "View all booking requests" view. |
 | Result | Customer request a booking |
 | Exceptions |TBD  |
@@ -58,18 +83,18 @@
 | Actor | Planner |
 | Description | Planner Creates Route|
 | Precondition |  Planner must be logged in|
-| Scenario | 1. Planner selects route option <br> 2. System shows current routes. <br> 3. Planner selects create new route <br> 4. System starts new route steps. <br> 5. Planner selects start and ending location. <br> 6. System accepts route returns to mainscreen. |
+| Scenario | 1. Planner logs in <br> 2. System shows current routes. <br> 3. Planner selects create new route option <br> 4. System starts new route steps. <br> 5. Planner selects start and ending location. <br> 6. System accepts route returns to mainscreen. |
 | Result |Planner created a route |
 | Exceptions |TBD  |
 | Extensions | N/A  |
 
-| Name | Set plane to route |
+| Name | Create a flight |
 | --- | --- |
 | Actor | Planner |
-| Description | Planner sets plane to Route|
+| Description | Planner creates a flight |
 | Precondition |  Planner must be logged in|
-| Scenario | 1. Planner selects route option <br> 2. System shows current routes. <br> 3. Planner selects edit route <br> 4. System starts edit route steps. <br> 5. Planner selects set plane to route. <br> 6. System displays plane selection screen. <br> 7. Planner sets plane to route. <br> 8. System accepts edit to route and returns to mainscreen. |
-| Result |Planner added plane to route |
+| Scenario | 1. Planner logs in <br> 2. System shows current routes. <br> 3. Planner selects create flight option <br> 4. System shows input fields for creating a flight <br> 5. Planner selects a date, route and a plane <br> 6. System creates new flight with selected data <br> 7. System returns back to current routes screen.
+| Result |Planner created a new flight |
 | Exceptions |TBD  |
 | Extensions | N/A  |
 
@@ -142,4 +167,15 @@
 | Scenario | 1.	Actor opens system <br> 2. Actor chooses to register a new account  <br> 3. System shows form to register a new customer <br> 4. System asks for customer data like a name, password and email address <br> 5. Customer enters name, password and email adress and clicks next <br> 6. System validates input if the following requirements are fulfilled: <ul><li>Users name only contains letters and is 1 to 24 characters long</li><li>The email address contains an @ sign and a domain name</li><li>The password is between 8 and 40 characters long, has at least one lowercase and one uppercase letter, a number and a special character</li><li>the address has a space between the street name and house number</li></ul>7. System returns conformation of new registered account |
 | Result | Actor registered successfully|
 | Exceptions | 6. Actor has already an account, go back to step 3 <br> 6. Input is invalid, go back to step 3 |
+| Extensions | N/A |
+
+
+| Name | Logout |
+| --- | --- |
+| Actor | System user |
+| Description | Actor logs out from the system |
+| Precondition | Actor is logged in |
+| Scenario | 1. Actor selects "Logout" option. <br> 2. System provides "main" view |
+| Result | Actor logged out successfully|
+| Exceptions | N/A |
 | Extensions | N/A |

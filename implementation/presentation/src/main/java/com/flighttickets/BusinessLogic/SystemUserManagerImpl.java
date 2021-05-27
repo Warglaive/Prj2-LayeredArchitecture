@@ -7,6 +7,7 @@ import com.flighttickets.Persistance.SystemUserStorageService;
 import javafx.fxml.FXML;
 
 import java.sql.SQLException;
+import java.util.Random;
 
 public class SystemUserManagerImpl implements SystemUserManager {
 
@@ -89,5 +90,19 @@ public class SystemUserManagerImpl implements SystemUserManager {
     public SystemUser login(String email, String password) throws ClassNotFoundException {
         //Retrieves system user from database based on email, password -JL
         return this.systemUserStorageService.retrieve(email, password);
+    }
+
+    /**
+     * @return random generated salesOfficer id
+     */
+    public int generateSalesOfficerId() {
+        int lowestSalesOfficerId = this.systemUserStorageService.getLowestSalesOfficerId();
+        int biggestSalesOfficerId = this.systemUserStorageService.getBiggestSalesOfficerId();
+
+        Random r = new Random();
+        int low = lowestSalesOfficerId;
+        int high = biggestSalesOfficerId;
+        int result = r.nextInt(high - low) + low;
+        return result;
     }
 }

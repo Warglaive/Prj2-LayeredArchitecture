@@ -1,9 +1,6 @@
 package com.flighttickets.BusinessLogic;
 
-import com.flighttickets.Entities.BookingRequestManager;
-import com.flighttickets.Entities.FlightManager;
-import com.flighttickets.Entities.RouteManager;
-import com.flighttickets.Entities.SystemUserManager;
+import com.flighttickets.Entities.*;
 import com.flighttickets.Persistance.PersistenceAPI;
 
 public class BusinessLogicAPIImpl implements BusinessLogicImplementationProvider, BusinessLogicAPI {
@@ -39,6 +36,13 @@ public class BusinessLogicAPIImpl implements BusinessLogicImplementationProvider
     }
 
     @Override
+    public BookingManager getBookingManager() {
+        BookingManager bookingManager = new BookingManagerImpl();
+        bookingManager.setBookingStorageService(this.persistenceAPI.getBookingStorageService());
+        return bookingManager;
+    }
+
+    @Override
     public FlightManager getFlightManager() {
         FlightManagerImpl flightManager = new FlightManagerImpl();
         flightManager.setFlightStorageService(this.persistenceAPI.getFlightStorageService());
@@ -51,5 +55,26 @@ public class BusinessLogicAPIImpl implements BusinessLogicImplementationProvider
         RouteManagerImpl routeManager = new RouteManagerImpl();
         routeManager.setRouteStorageService(this.persistenceAPI.getRouteStorageService());
         return routeManager;
+    }
+
+    @Override
+    public AirportManager getAirportManager() {
+        AirportManagerImpl airportManager = new AirportManagerImpl();
+        airportManager.setAirportStorageService(this.persistenceAPI.getAirportStorageService());
+        return airportManager;
+    }
+
+    @Override
+    public PlaneManager getPlaneManager() {
+        PlaneManager planeManager = new PlaneManagerImpl();
+        planeManager.setPlaneStorageService(this.persistenceAPI.getPlaneStorageService());
+        return planeManager;
+    }
+
+    @Override
+    public TicketManager getTicketManager() {
+        TicketManagerImpl ticketManager = new TicketManagerImpl();
+        ticketManager.setTicketStorageService(this.persistenceAPI.getTicketStorageService());
+        return ticketManager;
     }
 }

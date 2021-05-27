@@ -9,11 +9,14 @@ import nl.fontys.sebivenlo.dao.pg.PGDAOFactory;
 public class Main {
     public static void main(String[] args) {
 
-        PGDAOFactory daoFactory = new PGDAOFactory(PGDataSource.DATA_SOURCE);
-        PersistenceAPI persistenceAPI = PersistenceImplementationProvider.getImplementation(daoFactory);
-        BusinessLogicAPI businesslogicAPI = BusinessLogicImplementationProvider.getImplementation(persistenceAPI);
+        try {
+            PGDAOFactory daoFactory = new PGDAOFactory(PGDataSource.DATA_SOURCE);
+            PersistenceAPI persistenceAPI = PersistenceImplementationProvider.getImplementation(daoFactory);
+            BusinessLogicAPI businesslogicAPI = BusinessLogicImplementationProvider.getImplementation(persistenceAPI);
 
-        new GUIApp(businesslogicAPI).show();
-
+            new GUIApp(businesslogicAPI).show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

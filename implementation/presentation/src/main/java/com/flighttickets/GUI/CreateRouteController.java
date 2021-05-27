@@ -1,80 +1,98 @@
 
 package com.flighttickets.GUI;
 
-import com.flighttickets.Entities.Airport;
-import com.flighttickets.Entities.AirportManager;
-import com.flighttickets.GUIApp;
-import com.flighttickets.Entities.Route;
-import com.flighttickets.Entities.RouteManager;
 import com.flighttickets.Persistance.AirportStorageService;
 import com.flighttickets.Persistance.RouteStorageService;
+import com.flighttickets.Entities.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.function.Supplier;
 
 public class CreateRouteController implements Initializable {
 
     @FXML
-    private ListView<Airport> airportsListSt;
-
+    private TableView<Airport> airportsListSt;
     @FXML
-    private ListView<Airport> airportsListDest;
-
+    private TableView<Airport> airportsListDest;
+    @FXML
+    private TableColumn idCol;
+    @FXML
+    private TableColumn nameCol;
+    @FXML
+    private TableColumn cityCol;
+    @FXML
+    private TableColumn countryCol;
+    @FXML
+    private TableColumn idCol1;
+    @FXML
+    private TableColumn nameCol1;
+    @FXML
+    private TableColumn cityCol1;
+    @FXML
+    private TableColumn countryCol1;
+    /*
     @FXML
     private Button backButton;
-
     @FXML
     private Button submitButton;
+     */
 
     private final Supplier<SceneManager> sceneManagerSupplier;
     RouteManager routeManager;
-    RouteStorageService routeStorageService;
     AirportManager airportManager;
-    AirportStorageService airportStorageService;
+    SystemUser planner;
 
-    public CreateRouteController(Supplier<SceneManager> sceneManagerSupplier, RouteManager routeManager, RouteStorageService routeStorageService, AirportManager airportManager, AirportStorageService airportStorageService){
+    public CreateRouteController(Supplier<SceneManager> sceneManagerSupplier, SystemUser planner, RouteManager routeManager, AirportManager airportManager){
         this.sceneManagerSupplier = sceneManagerSupplier;
+        this.planner = planner;
         this.routeManager = routeManager;
-        this.routeStorageService = routeStorageService;
         this.airportManager = airportManager;
-        this.airportStorageService = airportStorageService;
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        List<Airport> listOfAirports = this.airportManager.getAirports();
+        ObservableList<Airport> observableList = FXCollections.observableList(listOfAirports);
+        this.airportsListSt.setItems(observableList);
+        this.airportsListDest.setItems(observableList);
 
+        this.idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
+        this.nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
+        this.countryCol.setCellValueFactory(new PropertyValueFactory<>("country"));
+        this.cityCol.setCellValueFactory(new PropertyValueFactory<>("city"));
+
+        this.idCol1.setCellValueFactory(new PropertyValueFactory<>("id"));
+        this.nameCol1.setCellValueFactory(new PropertyValueFactory<>("name"));
+        this.countryCol1.setCellValueFactory(new PropertyValueFactory<>("country"));
+        this.cityCol1.setCellValueFactory(new PropertyValueFactory<>("city"));
     }
 
     @FXML
-    private void setAirportsListSt(){
-        this.airportsListSt = (ListView<Airport>) FXCollections.observableArrayList();
-        this.airportsListSt.setItems((ObservableList<Airport>) this.airportManager.getAirports());
-    }
-
-    @FXML
-    private void setAirportsListDest(){
-        this.airportsListDest = (ListView<Airport>) FXCollections.observableArrayList();
-        this.airportsListDest.setItems((ObservableList<Airport>) this.airportManager.getAirports());
-    }
-
-    @FXML
-    public void createRouteHandler(ActionEvent event) throws IOException {
-        //this.airportsListSt.getSelectionModel().getSelectedItem();
-        //this.airportsListDest.getSelectionModel().getSelectedItem();
+    public void createRouteHandler(ActionEvent event) throws IOException, SQLException, ClassNotFoundException {
+        Integer initialId = 0;
+        Airport starting = airportsListSt.getSelectionModel().getSelectedItem();
+        Integer startingId = starting.getId();
+        Airport endPoint = airportsListDest.getSelectionModel().getSelectedItem();
+        Integer endId = endPoint.getId();
+        Integer idPlanner = this.planner.getId();
+        Route route = new Route(initialId, startingId, endId, idPlanner);
+        this.routeManager.add(route);
+        //this.sceneManagerSupplier.get().changeScene("currentRoutes");
     }
 
     @FXML
     public void backHandler(ActionEvent event) throws IOException {
-        this.sceneManagerSupplier.get().changeScene("currentRoute");
+        this.sceneManagerSupplier.get().changeScene("currentRoutes");
     }
-
 }
-

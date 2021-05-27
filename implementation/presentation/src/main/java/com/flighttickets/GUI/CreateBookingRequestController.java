@@ -4,22 +4,16 @@ import com.flighttickets.Entities.BookingRequest;
 import com.flighttickets.Entities.BookingRequestManager;
 import com.flighttickets.Entities.SystemUser;
 import com.flighttickets.Entities.SystemUserManager;
-import com.flighttickets.GUI.SceneManager;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
-import javafx.scene.control.TextFormatter;
 import javafx.scene.text.Text;
-import javafx.util.converter.NumberStringConverter;
 
 import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
-import java.util.Locale;
-import java.util.Random;
 import java.util.ResourceBundle;
 import java.util.function.Supplier;
 
@@ -70,11 +64,10 @@ public class CreateBookingRequestController implements Initializable {
      * create new BookingRequest object with assigned customer id
      * save it to db
      *
-     * @param event
      */
     @FXML
-    void submitRequest(ActionEvent event) throws SQLException, ClassNotFoundException {
-        int initialSalesOfficerId = assignRandomSalesOfficerId();
+    void submitRequest() throws SQLException, ClassNotFoundException {
+        int initialSalesOfficerId = this.systemUserManager.generateSalesOfficerId();
         int initialId = 0;
         String initialStatus = "Pending";
         //take values from fields
@@ -89,19 +82,5 @@ public class CreateBookingRequestController implements Initializable {
 
         BookingRequest bookingRequest = this.bookingRequestManager.createBookingRequest(initialId, this.customer.getId(), initialSalesOfficerId, departureDestination, destination, departureDate, returnDate, passengersAmount, initialStatus);
         this.bookingRequestManager.add(bookingRequest);
-    }
-
-    /**
-     * @return random generated salesOfficer id
-     */
-    private int assignRandomSalesOfficerId() {
-        int lowestSalesOfficerId = this.systemUserManager.getSystemUserStorageService().getLowestSalesOfficerId();
-        int biggestSalesOfficerId = this.systemUserManager.getSystemUserStorageService().getBiggestSalesOfficerId();
-
-        Random r = new Random();
-        int low = lowestSalesOfficerId;
-        int high = biggestSalesOfficerId;
-        int result = r.nextInt(high - low) + low;
-        return result;
     }
 }

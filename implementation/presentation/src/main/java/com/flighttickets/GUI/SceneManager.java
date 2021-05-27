@@ -23,7 +23,12 @@ public class SceneManager {
     }
 
     public final void changeScene(String view) {
-        scene.setRoot(views.computeIfAbsent(view, v -> loadScene(v)));
+        //TODO: get computeIfAbsent
+        /*var test = views.computeIfAbsent(view, v -> loadScene(v));scene*/
+
+        /*scene.setRoot(views.computeIfAbsent(view, v -> loadScene(v)));*/
+
+        scene.setRoot(loadScene(view));
     }
 
     private Parent loadScene(String fxml) {
