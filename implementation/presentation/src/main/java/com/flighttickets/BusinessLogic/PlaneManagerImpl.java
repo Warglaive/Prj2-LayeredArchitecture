@@ -2,7 +2,6 @@ package com.flighttickets.BusinessLogic;
 
 import com.flighttickets.Entities.Plane;
 import com.flighttickets.Entities.PlaneManager;
-import com.flighttickets.Entities.Route;
 import com.flighttickets.Persistance.PlaneStorageService;
 
 import java.sql.SQLException;

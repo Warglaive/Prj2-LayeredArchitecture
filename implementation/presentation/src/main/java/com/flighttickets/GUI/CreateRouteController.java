@@ -1,6 +1,8 @@
 
 package com.flighttickets.GUI;
 
+import com.flighttickets.Persistance.AirportStorageService;
+import com.flighttickets.Persistance.RouteStorageService;
 import com.flighttickets.Entities.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -8,7 +10,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;

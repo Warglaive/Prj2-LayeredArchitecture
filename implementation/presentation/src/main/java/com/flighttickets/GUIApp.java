@@ -22,7 +22,7 @@ public class GUIApp extends Application {
     /**
      * instantiate controller so I can take the logged in user when changing views
      */
-    SystemUserController systemUserController;
+    private SystemUserController systemUserController;
 
     /**
      * Need controller for ticket too, to get the current ticket. Don't know another way to do it.
@@ -67,7 +67,9 @@ public class GUIApp extends Application {
             case "com.flighttickets.GUI.BookingRequestHandleController":
                 return new BookingRequestHandleController(this::getSceneManager, this.bookingRequestOverviewController.getSelectedBookingRequest(), this.businessLogicAPI.getBookingManager());
             case "com.flighttickets.GUI.CustomerMainViewController":
-                return new CustomerMainViewController(this::getSceneManager, this.businessLogicAPI.getBookingRequestManager());
+                return new CustomerMainViewController(this::getSceneManager, this.systemUserController.getLoggedInCustomer(), this.businessLogicAPI.getBookingRequestManager());
+            case "com.flighttickets.GUI.AllBookingRequestsController":
+                return new AllBookingRequestsController(this::getSceneManager, this.systemUserController.getLoggedInCustomer(), this.businessLogicAPI.getBookingRequestManager(), this.businessLogicAPI.getSystemUserManager());
 
             //TODO: Add proper Default switch case
             default:
@@ -77,6 +79,10 @@ public class GUIApp extends Application {
 
     public GUIApp(BusinessLogicAPI businessLogicAPI) {
         this.businessLogicAPI = businessLogicAPI;
+    }
+
+    public GUIApp() {
+
     }
 
     public GUIApp show() {

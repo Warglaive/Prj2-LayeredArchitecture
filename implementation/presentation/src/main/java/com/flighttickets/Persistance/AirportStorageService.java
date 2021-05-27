@@ -1,6 +1,7 @@
 package com.flighttickets.Persistance;
 
-import com.flighttickets.Entities.*;
+import com.flighttickets.Entities.Airport;
+import com.flighttickets.Entities.AirportMapper;
 import com.flighttickets.PGDataSource;
 import nl.fontys.sebivenlo.dao.pg.PGDAO;
 import nl.fontys.sebivenlo.dao.pg.PGDAOFactory;

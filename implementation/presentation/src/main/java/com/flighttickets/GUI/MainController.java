@@ -25,12 +25,12 @@ public class MainController {
 
     @FXML
     void showLogin() {
-        this.sceneManagerSupplier.get().changeScene("login");
+        this.sceneManagerSupplier.get().changeScene("Login");
     }
 
     @FXML
     void showRegister() {
-        this.sceneManagerSupplier.get().changeScene("register");
+        this.sceneManagerSupplier.get().changeScene("Register");
     }
 
 }

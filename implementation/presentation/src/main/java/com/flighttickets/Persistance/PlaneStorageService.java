@@ -1,7 +1,6 @@
 package com.flighttickets.Persistance;
 
 
-import com.flighttickets.Entities.Airport;
 import com.flighttickets.Entities.Plane;
 import com.flighttickets.Entities.PlaneMapper;
 import com.flighttickets.PGDataSource;

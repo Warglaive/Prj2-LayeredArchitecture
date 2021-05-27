@@ -8,6 +8,9 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
 
+/**
+ * this class is used for Business logic and NO Sql is written here.
+ */
 public class BookingRequestManagerImpl implements BookingRequestManager {
 
 
@@ -30,6 +33,11 @@ public class BookingRequestManagerImpl implements BookingRequestManager {
     }
 
     @Override
+    public List<BookingRequest> getAllByCustomerId(int customerId) {
+        return this.bookingRequestStorageService.getAllByCustomerId(customerId);
+    }
+
+    @Override
     public List<BookingRequest> getPendingRequests() {
         return this.bookingRequestStorageService.getPendingRequests();
     }
@@ -38,7 +46,8 @@ public class BookingRequestManagerImpl implements BookingRequestManager {
     public void declineRequest(BookingRequest toBeDeclined) {
         this.bookingRequestStorageService.declineRequest(toBeDeclined);
     }
-
+	
+	@Override
     public BookingRequestStorageService getBookingRequestStorageService() {
         return bookingRequestStorageService;
     }
