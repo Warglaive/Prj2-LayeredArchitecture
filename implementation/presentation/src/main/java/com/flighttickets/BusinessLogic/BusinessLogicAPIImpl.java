@@ -56,4 +56,11 @@ public class BusinessLogicAPIImpl implements BusinessLogicImplementationProvider
         routeManager.setRouteStorageService(this.persistenceAPI.getRouteStorageService());
         return routeManager;
     }
+
+    @Override
+    public TicketManager getTicketManager() {
+        TicketManagerImpl ticketManager = new TicketManagerImpl();
+        ticketManager.setTicketStorageService(this.persistenceAPI.getTicketStorageService());
+        return ticketManager;
+    }
 }
