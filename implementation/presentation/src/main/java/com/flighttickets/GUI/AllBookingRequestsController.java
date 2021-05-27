@@ -10,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
 
 import java.net.URL;
@@ -182,7 +183,8 @@ public class AllBookingRequestsController implements Initializable {
         this.passengersAmountRight.setText("Passengers amount: " + this.bookingRequestRight.getPassengersAmount());
         this.statusRight.setText("Status: " + this.bookingRequestRight.getStatus());
 
-
+        //TODO: USe that for changing color
+        this.statusLeft.setFill(Paint.valueOf("green"));
         if (this.bookingRequestRight.getStatus().equalsIgnoreCase("approved")) {
             this.statusRight.setStyle("-fx-text-fill: green; -fx-font-size: 16px;");
         } else if (this.bookingRequestRight.getStatus().equalsIgnoreCase("declined")) {
