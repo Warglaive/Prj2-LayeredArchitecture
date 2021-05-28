@@ -17,7 +17,7 @@
             <Text fx:id="destinationLeft" strokeType="OUTSIDE" strokeWidth="0.0" text="destination:" />
             <Text fx:id="salesOfficerLeft" strokeType="OUTSIDE" strokeWidth="0.0" text="sales officer:" />
             <Text fx:id="passengersAmountLeft" strokeType="OUTSIDE" strokeWidth="0.0" text="passengers amount:" />
-            <Text fx:id="statusLeft" fill="#d74141" strokeType="OUTSIDE" strokeWidth="0.0" text="status:" wrappingWidth="153.212890625">
+            <Text fx:id="statusLeft" strokeType="OUTSIDE" strokeWidth="0.0" text="status:" wrappingWidth="153.212890625">
                <font>
                   <Font size="22.0" />
                </font>
@@ -51,7 +51,7 @@
             <Text fx:id="destinationRight" strokeType="OUTSIDE" strokeWidth="0.0" text="destination:" />
             <Text fx:id="salesOfficerRight" strokeType="OUTSIDE" strokeWidth="0.0" text="sales officer:" />
             <Text fx:id="passengersAmountRight" strokeType="OUTSIDE" strokeWidth="0.0" text="passengers amount:" />
-            <Text fx:id="statusRight" fill="#771717" strokeType="OUTSIDE" strokeWidth="0.0" text="status:" wrappingWidth="153.212890625">
+            <Text fx:id="statusRight" strokeType="OUTSIDE" strokeWidth="0.0" text="status:" wrappingWidth="153.212890625">
                <font>
                   <Font size="22.0" />
                </font>

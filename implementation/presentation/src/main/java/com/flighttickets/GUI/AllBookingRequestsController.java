@@ -184,13 +184,12 @@ public class AllBookingRequestsController implements Initializable {
         this.statusRight.setText("Status: " + this.bookingRequestRight.getStatus());
 
         //TODO: USe that for changing color
-        this.statusLeft.setFill(Paint.valueOf("green"));
         if (this.bookingRequestRight.getStatus().equalsIgnoreCase("approved")) {
-            this.statusRight.setStyle("-fx-text-fill: green; -fx-font-size: 16px;");
+            this.statusRight.setFill(Paint.valueOf("green"));
         } else if (this.bookingRequestRight.getStatus().equalsIgnoreCase("declined")) {
-            this.statusRight.setStyle("-fx-text-fill: green; -fx-font-size: 16px;");
+            this.statusRight.setFill(Paint.valueOf("red"));
         } else {
-            this.statusRight.setStyle("style: -fx-text-fill: yellow; -fx-font-size: 16px;");
+            this.statusRight.setFill(Paint.valueOf("orange"));
         }
     }
 
@@ -204,11 +203,11 @@ public class AllBookingRequestsController implements Initializable {
         this.statusMid.setText("Status: " + this.bookingRequestMid.getStatus());
 
         if (this.bookingRequestMid.getStatus().equalsIgnoreCase("approved")) {
-            this.statusMid.setStyle("-fx-text-fill: green; -fx-font-size: 16px;");
+            this.statusMid.setFill(Paint.valueOf("green"));
         } else if (this.bookingRequestMid.getStatus().equalsIgnoreCase("declined")) {
-            this.statusMid.setStyle("-fx-text-fill: green; -fx-font-size: 16px;");
+            this.statusMid.setFill(Paint.valueOf("red"));
         } else {
-            this.statusMid.setStyle("-fx-text-fill: yellow; -fx-font-size: 16px;");
+            this.statusMid.setFill(Paint.valueOf("yellow"));
         }
     }
 
@@ -223,11 +222,11 @@ public class AllBookingRequestsController implements Initializable {
 
 
         if (this.bookingRequestLeft.getStatus().equalsIgnoreCase("approved")) {
-            this.statusMid.setStyle("-fx-text-fill: green; -fx-font-size: 16px;");
+            this.statusMid.setFill(Paint.valueOf("green"));
         } else if (this.bookingRequestLeft.getStatus().equalsIgnoreCase("declined")) {
-            this.statusLeft.setStyle("-fx-text-fill: green; -fx-font-size: 16px;");
+            this.statusLeft.setFill(Paint.valueOf("red"));
         } else {
-            this.statusLeft.setStyle("-fx-text-fill: yellow; -fx-font-size: 16px;");
+            this.statusLeft.setFill(Paint.valueOf("yellow"));
         }
     }
 
