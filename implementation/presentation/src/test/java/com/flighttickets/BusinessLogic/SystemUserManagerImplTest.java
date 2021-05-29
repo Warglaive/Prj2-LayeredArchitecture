@@ -14,7 +14,6 @@ import org.junit.jupiter.api.Test;
 
 import javax.security.auth.login.AccountNotFoundException;
 import java.sql.SQLException;
-import java.util.List;
 import java.util.Random;
 
 import static org.assertj.core.api.Assertions.assertThat;
