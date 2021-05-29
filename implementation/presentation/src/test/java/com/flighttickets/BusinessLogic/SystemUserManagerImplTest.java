@@ -15,6 +15,9 @@ import org.junit.jupiter.api.Test;
 
 import javax.security.auth.login.AccountNotFoundException;
 
+import java.sql.SQLException;
+import java.util.Random;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatCode;
 
@@ -216,25 +219,44 @@ public class SystemUserManagerImplTest {
         assertThat(actual).usingRecursiveComparison().isEqualTo(expected);
 
     }
-/*
 
     @Test
-    void addTest() throws ClassNotFoundException {
-        String firstName = "1";
-        String lastName = "1";
-        String email = "1";
-        String password = "1";
-        String address = "1";
-        int level = 2;
-        //create new SystemUser
-        SystemUser(actual = this.SystemUserManager.createSystemUser(firstName, lastName, email, password, address, level);
-        //add SystemUser( to Storage
-        this.SystemUserManager.add(actual);
-        //get SystemUser
-        String emailExpected = actual.getEmail();
-        SystemUser expected = this.SystemUserManager.getByEmail(emailExpected);
-        assertThat(actual).isEqualToComparingFieldByField(expected);
+    void addTest() throws ClassNotFoundException, SystemUserStorageException, AccountNotFoundException, SQLException {
+        int id = 0;
+        String firstName = "Svetoslav";
+        String lastName = "Stoyanov";
+        String email = generateEmail();
+        String password = "1ASD!x_asd";
+        String address = "franciscanenstraat 10";
+        String role = "Customer";
+        //Create user
+        SystemUser expected = this.systemUserManager.createSystemUser(id, firstName, lastName, email, password, address, role);
+        //add to DB
+        this.systemUserManager.add(expected);
+        //get by Email
+        SystemUser actual = this.systemUserManager.getByEmail(email);
+        //check if properly added and getByEmail, comparing by Email because Id is autoincrement and wont work.
+        assertThat(actual.getEmail()).isEqualTo(expected.getEmail());
     }
+
+    /**
+     * TEST HELPER Method
+     * Generate random Email for test
+     *
+     * @return random Email
+     */
+    public String generateEmail() {
+        String SALTCHARS = "AaBbCcDdEeF";
+        StringBuilder salt = new StringBuilder();
+        Random rnd = new Random();
+        while (salt.length() < 18) { // length of the random string.
+            int index = (int) (rnd.nextFloat() * SALTCHARS.length());
+            salt.append(SALTCHARS.charAt(index));
+        }
+        String saltStr = salt.toString();
+        return saltStr + "@gmail.com";
+    }
+/*
 
     @Test
     void addTestException() throws ClassNotFoundException {
