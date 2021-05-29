@@ -1,5 +1,6 @@
 package com.flighttickets.BusinessLogic;
 
+import com.flighttickets.BusinessLogic.Exceptions.InvalidInputException;
 import com.flighttickets.Entities.*;
 import com.flighttickets.PGDataSource;
 import com.flighttickets.Persistance.PersistenceAPI;
@@ -29,7 +30,7 @@ public class SystemUserManagerImplTest {
 
     private SystemUserManager systemUserManager;
 
-@Test
+    @Test
     @BeforeEach
     void setUp() {
         PGDAOFactory daoFactory = new PGDAOFactory(PGDataSource.DATA_SOURCE);
@@ -40,12 +41,13 @@ public class SystemUserManagerImplTest {
         this.systemUserDAO = daoFactory.createDao(SystemUser.class);
 
 
-        this.persistenceAPI=PersistenceImplementationProvider.getImplementation(daoFactory);
+        this.persistenceAPI = PersistenceImplementationProvider.getImplementation(daoFactory);
         this.businesslogicAPI = BusinessLogicImplementationProvider.getImplementation(persistenceAPI);
 
 
         this.systemUserStorageService = this.persistenceAPI.getSystemUserStorageService();
         this.systemUserManager = this.businesslogicAPI.getSystemUserManager();
+        //Set storageService
         this.systemUserManager.setSystemUserStorageService(this.systemUserStorageService);
     }
 
@@ -56,31 +58,143 @@ public class SystemUserManagerImplTest {
 
     @Test
     void setSystemUserStorageService() {
-
-
-
         assertThat(this.systemUserManager.getSystemUserStorageService()).isExactlyInstanceOf(SystemUserStorageService.class);
     }
 
     /**
-     * test if SystemUser object is properly created
+     * test if SystemUser object is properly created only with valid input
      */
-
-/*
     @Test
-    void createSystemUserTest() {
-        String firstName = "1";
-        String lastName = "1";
-        String email = "1";
-        String password = "1";
-        String address = "1";
-        int level = 2;
+    void createSystemUserValidTest() {
+        int id = 1;
+        String firstName = "Svetoslav";
+        String lastName = "Stoyanov";
+        String email = "valid@abv.bg";
+        String password = "1ASD!x_asd";
+        String address = "franciscanenstraat 10";
+        String role = "Customer";
         //Check if it is not null rather than .class
-        assertThat(this.systemUserManager.createSystemUser(firstName, lastName, email, password, address, level))
+        assertThat(this.systemUserManager.createSystemUser(id, firstName, lastName, email, password, address, role))
                 .isExactlyInstanceOf(SystemUser.class);
     }
 
+    /**
+     * test if exception is thrown on invalid input
+     */
+    @Test
+    void createSystemUserFirstNameInvalidTest() {
+        int id = 1;
+        String firstName = "123";
+        String lastName = "Stoyanov";
+        String email = "valid@abv.bg";
+        String password = "1ASD!x_asd";
+        String address = "franciscanenstraat 10";
+        String role = "Customer";
+        //Check if it is not null rather than .class
 
+        ThrowableAssert.ThrowingCallable code = () -> {
+            this.systemUserManager.createSystemUser(id, firstName, lastName, email, password, address, role);
+        };
+
+        assertThatCode(code).isExactlyInstanceOf(InvalidInputException.class).hasMessage("Invalid first name!");
+    }
+
+    /**
+     * test if exception is thrown on invalid input
+     */
+    @Test
+    void createSystemUserLastNameInvalidTest() {
+        int id = 1;
+        String firstName = "Svetoslav";
+        String lastName = "123";
+        String email = "valid@abv.bg";
+        String password = "1ASD!x_asd";
+        String address = "franciscanenstraat 10";
+        String role = "Customer";
+        //Check if it is not null rather than .class
+
+        ThrowableAssert.ThrowingCallable code = () -> {
+            this.systemUserManager.createSystemUser(id, firstName, lastName, email, password, address, role);
+        };
+
+        assertThatCode(code).isExactlyInstanceOf(InvalidInputException.class).hasMessage("Invalid last name!");
+    }
+    /**
+     * test if exception is thrown on invalid input
+     */
+    @Test
+    void createSystemUserEmailInvalidTest() {
+        int id = 1;
+        String firstName = "Svetoslav";
+        String lastName = "Stoyanov";
+        String email = "123";
+        String password = "1ASD!x_asd";
+        String address = "franciscanenstraat 10";
+        String role = "Customer";
+        //Check if it is not null rather than .class
+
+        ThrowableAssert.ThrowingCallable code = () -> {
+            this.systemUserManager.createSystemUser(id, firstName, lastName, email, password, address, role);
+        };
+
+        assertThatCode(code).isExactlyInstanceOf(InvalidInputException.class).hasMessage("Invalid email address!");
+    }
+    /**
+     * test if exception is thrown on invalid input
+     */
+    @Test
+    void createSystemUserPasswordInvalidTest() {
+        int id = 1;
+        String firstName = "Svetoslav";
+        String lastName = "Stoyanov";
+        String email = "valid@abv.bg";
+        String password = "123";
+        String address = "franciscanenstraat 10";
+        String role = "Customer";
+        //Check if it is not null rather than .class
+
+        ThrowableAssert.ThrowingCallable code = () -> {
+            this.systemUserManager.createSystemUser(id, firstName, lastName, email, password, address, role);
+        };
+
+        assertThatCode(code).isExactlyInstanceOf(InvalidInputException.class).hasMessage("Invalid password!");
+    }
+
+    @Test
+    void createSystemUserAddressInvalidTest() {
+        int id = 1;
+        String firstName = "Svetoslav";
+        String lastName = "Stoyanov";
+        String email = "valid@abv.bg";
+        String password = "1ASD!x_asd";
+        String address = "123";
+        String role = "Customer";
+        //Check if it is not null rather than .class
+
+        ThrowableAssert.ThrowingCallable code = () -> {
+            this.systemUserManager.createSystemUser(id, firstName, lastName, email, password, address, role);
+        };
+
+        assertThatCode(code).isExactlyInstanceOf(InvalidInputException.class).hasMessage("Invalid address!");
+    }
+    @Test
+    void createSystemUserRoleInvalidTest() {
+        int id = 1;
+        String firstName = "Svetoslav";
+        String lastName = "Stoyanov";
+        String email = "valid@abv.bg";
+        String password = "1ASD!x_asd";
+        String address = "franciscanenstraat 10";
+        String role = "InvalidRole";
+        //Check if it is not null rather than .class
+
+        ThrowableAssert.ThrowingCallable code = () -> {
+            this.systemUserManager.createSystemUser(id, firstName, lastName, email, password, address, role);
+        };
+
+        assertThatCode(code).isExactlyInstanceOf(InvalidInputException.class).hasMessage("Invalid role!");
+    }
+/*
     @Test
     void getByEmailTest() throws ClassNotFoundException, SQLException {
         String firstName = "1";

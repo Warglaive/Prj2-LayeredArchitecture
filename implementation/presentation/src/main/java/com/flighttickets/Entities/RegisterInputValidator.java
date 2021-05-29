@@ -10,4 +10,5 @@ public interface RegisterInputValidator {
 
     boolean isAddressValid(String address);
 
+    boolean isRoleValid(String role);
 }

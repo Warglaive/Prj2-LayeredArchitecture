@@ -65,4 +65,17 @@ public class RegisterInputValidatorImpl implements RegisterInputValidator {
         Matcher matcher = pattern.matcher(address);
         return matcher.find();
     }
+
+    /**
+     *
+     * @param role - the only valid roles are hardcoded.
+     * @return
+     */
+    @Override
+    public boolean isRoleValid(String role) {
+        return role.equalsIgnoreCase("Customer")
+                || role.equalsIgnoreCase("SalesOfficer")
+                || role.equalsIgnoreCase("Planner")
+                || role.equalsIgnoreCase("SalesEmployee");
+    }
 }

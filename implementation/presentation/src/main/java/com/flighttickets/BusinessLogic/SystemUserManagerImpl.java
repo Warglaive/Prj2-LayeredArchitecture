@@ -41,6 +41,7 @@ public class SystemUserManagerImpl implements SystemUserManager {
         boolean isEmailValid = this.inputValidator.isEmailValid(email);
         boolean isPasswordValid = this.inputValidator.isPasswordValid(password);
         boolean isAddressValid = this.inputValidator.isAddressValid(address);
+        boolean isRoleValid = this.inputValidator.isRoleValid(role);
         boolean isAnyInvalid = false;
         //Add to string exception msg for each of the invalid input arguments
         String exceptionMessage = "";
@@ -48,20 +49,29 @@ public class SystemUserManagerImpl implements SystemUserManager {
             exceptionMessage += "Invalid first name!";
             isAnyInvalid = true;
         }
+
         if (!isLastNameValid) {
             exceptionMessage = "Invalid last name!";
             isAnyInvalid = true;
         }
+
         if (!isEmailValid) {
             exceptionMessage = "Invalid email address!";
             isAnyInvalid = true;
         }
+
         if (!isPasswordValid) {
             exceptionMessage = "Invalid password!";
             isAnyInvalid = true;
         }
+
         if (!isAddressValid) {
-            exceptionMessage = "Invalid address";
+            exceptionMessage = "Invalid address!";
+            isAnyInvalid = true;
+        }
+
+        if (!isRoleValid) {
+            exceptionMessage = "Invalid role!";
             isAnyInvalid = true;
         }
         if (isAnyInvalid) {
