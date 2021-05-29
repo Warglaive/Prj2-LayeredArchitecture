@@ -26,6 +26,10 @@ public class SystemUserStorageService {
         this.systemUserDAO = this.pgdaoFactory.createDao(SystemUser.class);
     }
 
+    public int getCount() {
+        return this.systemUserDAO.size();
+    }
+
     /**
      * Save a SystemUser object to the database using a DataAccessObject
      *
@@ -87,5 +91,10 @@ public class SystemUserStorageService {
         List<SystemUser> result = this.systemUserDAO.anyQuery(query);
 
         return result.get(0).getId();
+    }
+
+    public SystemUser getById(int id) {
+        List<SystemUser> customerList = systemUserDAO.anyQuery("SELECT * FROM " + this.tableName + " WHERE systemuserid= '" + id + "' ");
+        return customerList.get(0);
     }
 }

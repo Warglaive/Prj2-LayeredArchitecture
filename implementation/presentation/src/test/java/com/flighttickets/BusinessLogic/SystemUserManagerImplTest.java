@@ -1,10 +1,10 @@
 package com.flighttickets.BusinessLogic;
 
 import com.flighttickets.BusinessLogic.Exceptions.InvalidInputException;
+import com.flighttickets.BusinessLogic.Exceptions.SystemUserStorageException;
 import com.flighttickets.Entities.*;
 import com.flighttickets.PGDataSource;
 import com.flighttickets.Persistance.PersistenceAPI;
-import com.flighttickets.Persistance.PersistenceAPIImpl;
 import com.flighttickets.Persistance.PersistenceImplementationProvider;
 import com.flighttickets.Persistance.SystemUserStorageService;
 import nl.fontys.sebivenlo.dao.pg.PGDAO;
@@ -13,9 +13,11 @@ import org.assertj.core.api.ThrowableAssert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import javax.security.auth.login.AccountNotFoundException;
 import java.sql.SQLException;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatCode;
 
 public class SystemUserManagerImplTest {
 
@@ -119,6 +121,7 @@ public class SystemUserManagerImplTest {
 
         assertThatCode(code).isExactlyInstanceOf(InvalidInputException.class).hasMessage("Invalid last name!");
     }
+
     /**
      * test if exception is thrown on invalid input
      */
@@ -139,6 +142,7 @@ public class SystemUserManagerImplTest {
 
         assertThatCode(code).isExactlyInstanceOf(InvalidInputException.class).hasMessage("Invalid email address!");
     }
+
     /**
      * test if exception is thrown on invalid input
      */
@@ -160,6 +164,9 @@ public class SystemUserManagerImplTest {
         assertThatCode(code).isExactlyInstanceOf(InvalidInputException.class).hasMessage("Invalid password!");
     }
 
+    /**
+     * test if exception is thrown on invalid input
+     */
     @Test
     void createSystemUserAddressInvalidTest() {
         int id = 1;
@@ -177,6 +184,10 @@ public class SystemUserManagerImplTest {
 
         assertThatCode(code).isExactlyInstanceOf(InvalidInputException.class).hasMessage("Invalid address!");
     }
+
+    /**
+     * test if exception is thrown on invalid input
+     */
     @Test
     void createSystemUserRoleInvalidTest() {
         int id = 1;
@@ -194,26 +205,19 @@ public class SystemUserManagerImplTest {
 
         assertThatCode(code).isExactlyInstanceOf(InvalidInputException.class).hasMessage("Invalid role!");
     }
-/*
-    @Test
-    void getByEmailTest() throws ClassNotFoundException, SQLException {
-        String firstName = "1";
-        String lastName = "1";
-        String email = "1";
-        String password = "1";
-        String address = "1";
-        int level = 2;
-        //create new SystemUser
-        SystemUser actual = this.systemUserManager.createSystemUser(firstName, lastName, email, password, address, level);
-        //add SystemUser to Storage
-        this.systemUserManager.add(actual);
-        //get SystemUser
-        String emailExpected = actual.getEmail();
-        SystemUser expected = this.systemUserManager.getByEmail(emailExpected);
-        //.usingRecursiveComparison()
-        assertThat(actual).isEqualToComparingFieldByField(expected);
-    }
 
+
+    @Test
+    void getByEmailDataBaseTest() throws ClassNotFoundException, SQLException, SystemUserStorageException, AccountNotFoundException {
+        //TODO: DB Should not be empty! - Testing like this because insert and then getByEmail causes problems with the Id (because it is autoincrement in the code)
+        //Get very first system user by Id
+        SystemUser expected = this.systemUserManager.getById(1);
+        //Use the existing systemUser to test if getByEmail works
+        SystemUser actual = this.systemUserManager.getByEmail(expected.getEmail());
+        assertThat(actual).usingRecursiveComparison().isEqualTo(expected);
+
+    }
+/*
 
     @Test
     void addTest() throws ClassNotFoundException {

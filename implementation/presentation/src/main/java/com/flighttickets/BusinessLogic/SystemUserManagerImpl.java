@@ -1,12 +1,14 @@
 package com.flighttickets.BusinessLogic;
 
 import com.flighttickets.BusinessLogic.Exceptions.InvalidInputException;
+import com.flighttickets.BusinessLogic.Exceptions.SystemUserStorageException;
 import com.flighttickets.Entities.RegisterInputValidator;
 import com.flighttickets.Entities.SystemUser;
 import com.flighttickets.Entities.SystemUserManager;
 import com.flighttickets.Persistance.SystemUserStorageService;
 import javafx.fxml.FXML;
 
+import javax.security.auth.login.AccountNotFoundException;
 import java.sql.SQLException;
 import java.util.Random;
 
@@ -92,9 +94,12 @@ public class SystemUserManagerImpl implements SystemUserManager {
         this.systemUserStorageService.insert(systemUser);
     }
 
-    public SystemUser getByEmail(String email) throws ClassNotFoundException {
-        //TODO: Implement/See if its still needed - JL
-        return null;
+    public SystemUser getByEmail(String email) throws SystemUserStorageException, AccountNotFoundException {
+        return this.systemUserStorageService.getByEmail(email);
+    }
+
+    public SystemUser getById(int id) {
+        return this.systemUserStorageService.getById(id);
     }
 
     @FXML
@@ -115,5 +120,12 @@ public class SystemUserManagerImpl implements SystemUserManager {
         int high = biggestSalesOfficerId;
         int result = r.nextInt(high - low) + low;
         return result;
+    }
+
+    /**
+     * @return count of all registered users
+     */
+    public int getRegisteredUsersCount() {
+        return this.systemUserStorageService.getCount();
     }
 }
