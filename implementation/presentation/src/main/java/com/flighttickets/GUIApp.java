@@ -1,7 +1,7 @@
 package com.flighttickets;
 
 
-import com.flighttickets.BusinessLogic.BusinessLogicAPI;
+import com.flighttickets.Entities.BusinessLogicAPI;
 import com.flighttickets.GUI.*;
 import javafx.application.Application;
 import javafx.application.Platform;

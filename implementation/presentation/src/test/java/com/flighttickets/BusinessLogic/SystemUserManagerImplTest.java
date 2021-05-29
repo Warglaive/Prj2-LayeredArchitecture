@@ -1,8 +1,13 @@
 package com.flighttickets.BusinessLogic;
 
-import com.flighttickets.Entities.SystemUser;
-import com.flighttickets.Entities.SystemUserManager;
+import com.flighttickets.Entities.*;
+import com.flighttickets.PGDataSource;
+import com.flighttickets.Persistance.PersistenceAPI;
+import com.flighttickets.Persistance.PersistenceAPIImpl;
+import com.flighttickets.Persistance.PersistenceImplementationProvider;
 import com.flighttickets.Persistance.SystemUserStorageService;
+import nl.fontys.sebivenlo.dao.pg.PGDAO;
+import nl.fontys.sebivenlo.dao.pg.PGDAOFactory;
 import org.assertj.core.api.ThrowableAssert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,15 +18,35 @@ import static org.assertj.core.api.Assertions.*;
 
 public class SystemUserManagerImplTest {
 
-    private SystemUserStorageService SystemUserStorageService;
-    private SystemUserManager SystemUserManager;
 
+    private PGDAO<Integer, SystemUser> systemUserDAO;
+    private final String tableName = "systemUser";
 
+    private BusinessLogicAPI businesslogicAPI;
+    private PersistenceAPI persistenceAPI;
+
+    private SystemUserStorageService systemUserStorageService;
+
+    private SystemUserManager systemUserManager;
+
+@Test
     @BeforeEach
     void setUp() {
-        this.SystemUserManager = new SystemUserManagerImpl();
-        this.SystemUserStorageService = new SystemUserStorageService();
-        this.SystemUserManager.setSystemUserStorageService(this.SystemUserStorageService);
+        PGDAOFactory daoFactory = new PGDAOFactory(PGDataSource.DATA_SOURCE);
+
+        // Register mappers for the classes in this app
+        daoFactory.registerMapper(SystemUser.class, new SystemUserMapper());
+        // get a dao (no transactions yet).
+        this.systemUserDAO = daoFactory.createDao(SystemUser.class);
+
+
+        this.persistenceAPI=PersistenceImplementationProvider.getImplementation(daoFactory);
+        this.businesslogicAPI = BusinessLogicImplementationProvider.getImplementation(persistenceAPI);
+
+
+        this.systemUserStorageService = this.persistenceAPI.getSystemUserStorageService();
+        this.systemUserManager = this.businesslogicAPI.getSystemUserManager();
+        this.systemUserManager.setSystemUserStorageService(this.systemUserStorageService);
     }
 
     /**
@@ -31,14 +56,17 @@ public class SystemUserManagerImplTest {
 
     @Test
     void setSystemUserStorageService() {
-        assertThat(this.SystemUserManager.getSystemUserStorageService()).isExactlyInstanceOf(SystemUserStorageService.class);
+
+
+
+        assertThat(this.systemUserManager.getSystemUserStorageService()).isExactlyInstanceOf(SystemUserStorageService.class);
     }
 
     /**
      * test if SystemUser object is properly created
      */
 
-
+/*
     @Test
     void createSystemUserTest() {
         String firstName = "1";
@@ -48,7 +76,7 @@ public class SystemUserManagerImplTest {
         String address = "1";
         int level = 2;
         //Check if it is not null rather than .class
-        assertThat(this.SystemUserManager.createSystemUser(firstName, lastName, email, password, address, level))
+        assertThat(this.systemUserManager.createSystemUser(firstName, lastName, email, password, address, level))
                 .isExactlyInstanceOf(SystemUser.class);
     }
 
@@ -62,12 +90,12 @@ public class SystemUserManagerImplTest {
         String address = "1";
         int level = 2;
         //create new SystemUser
-        SystemUser actual = this.SystemUserManager.createSystemUser(firstName, lastName, email, password, address, level);
+        SystemUser actual = this.systemUserManager.createSystemUser(firstName, lastName, email, password, address, level);
         //add SystemUser to Storage
-        this.SystemUserManager.add(actual);
+        this.systemUserManager.add(actual);
         //get SystemUser
         String emailExpected = actual.getEmail();
-        SystemUser expected = this.SystemUserManager.getByEmail(emailExpected);
+        SystemUser expected = this.systemUserManager.getByEmail(emailExpected);
         //.usingRecursiveComparison()
         assertThat(actual).isEqualToComparingFieldByField(expected);
     }
@@ -82,7 +110,7 @@ public class SystemUserManagerImplTest {
         String address = "1";
         int level = 2;
         //create new SystemUser
-        SystemUser( actual = this.SystemUserManager.createSystemUser(firstName, lastName, email, password, address, level);
+        SystemUser(actual = this.SystemUserManager.createSystemUser(firstName, lastName, email, password, address, level);
         //add SystemUser( to Storage
         this.SystemUserManager.add(actual);
         //get SystemUser
@@ -112,5 +140,5 @@ public class SystemUserManagerImplTest {
         assertThatThrownBy(code).isExactlyInstanceOf(ClassNotFoundException.class).hasMessage("No SystemUser with such email address");
 
     }
-    //TODO: add test for login method
+    //TODO: add test for login method*/
 }

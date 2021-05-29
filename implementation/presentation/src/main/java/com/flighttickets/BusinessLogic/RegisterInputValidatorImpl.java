@@ -1,5 +1,7 @@
 package com.flighttickets.BusinessLogic;
 
+import com.flighttickets.Entities.RegisterInputValidator;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 

@@ -1,4 +1,4 @@
-package com.flighttickets.BusinessLogic;
+package com.flighttickets.Entities;
 
 public interface RegisterInputValidator {
 

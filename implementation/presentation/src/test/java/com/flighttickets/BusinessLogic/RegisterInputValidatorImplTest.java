@@ -1,5 +1,6 @@
 package com.flighttickets.BusinessLogic;
 
+import com.flighttickets.Entities.RegisterInputValidator;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;

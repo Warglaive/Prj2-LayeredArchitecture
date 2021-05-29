@@ -1,8 +1,6 @@
 
 package com.flighttickets.GUI;
 
-import com.flighttickets.BusinessLogic.BusinessLogicAPI;
-import com.flighttickets.Persistance.PersistenceAPI;
 import com.flighttickets.Entities.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
