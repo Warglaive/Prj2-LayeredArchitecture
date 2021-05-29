@@ -5,6 +5,7 @@ import com.flighttickets.Persistance.SystemUserStorageService;
 
 import javax.security.auth.login.AccountNotFoundException;
 import java.sql.SQLException;
+import java.util.List;
 
 public interface SystemUserManager {
     /**
@@ -44,4 +45,5 @@ public interface SystemUserManager {
     public int getRegisteredUsersCount();
 
     public SystemUser getById(int id);
+    public List<SystemUser> getAllByRole(String role);
 }

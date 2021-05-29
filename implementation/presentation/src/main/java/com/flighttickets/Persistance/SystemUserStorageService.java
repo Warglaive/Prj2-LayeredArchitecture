@@ -64,9 +64,19 @@ public class SystemUserStorageService {
         }
     }
 
+    /**
+     * @return all registered users as a List
+     */
     public List<SystemUser> getAll() {
         return this.systemUserDAO.getAll();
     }
+
+    public List<SystemUser> getAllByRole(String role) {
+        String query = "select * from systemuser \n" +
+                "where role =" + role;
+        return this.systemUserDAO.anyQuery(query);
+    }
+
 
     //TODO: Make method to retrieve lowest Id number and biggest Id number for salesOfficer
     public int getLowestSalesOfficerId() {
@@ -77,7 +87,6 @@ public class SystemUserStorageService {
                 "order by systemuserid asc\n" +
                 "limit 1\n";
         List<SystemUser> result = this.systemUserDAO.anyQuery(query);
-
         return result.get(0).getId();
     }
 

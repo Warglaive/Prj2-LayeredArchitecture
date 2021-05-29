@@ -14,6 +14,7 @@ import org.junit.jupiter.api.Test;
 
 import javax.security.auth.login.AccountNotFoundException;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Random;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -49,7 +50,6 @@ public class SystemUserManagerImplTest {
     }
 
 
-    @Test
     @BeforeEach
     void setUp() {
         PGDAOFactory daoFactory = new PGDAOFactory(PGDataSource.DATA_SOURCE);
@@ -252,7 +252,6 @@ public class SystemUserManagerImplTest {
         assertThat(actual.getEmail()).isEqualTo(expected.getEmail());
     }
 
-
     @Test
     public void loginDatabaseTest() throws SystemUserStorageException, ClassNotFoundException, AccountNotFoundException {
         //Need to exist in the DB
@@ -261,5 +260,13 @@ public class SystemUserManagerImplTest {
         SystemUser expected = this.systemUserManager.getByEmail(loginEmail);
         SystemUser actual = this.systemUserManager.login(loginEmail, loginPassword);
         assertThat(actual).usingRecursiveComparison().isEqualTo(expected);
+    }
+
+    @Test
+    public void generateSalesOfficerIdTest() {
+        int expectedLowest = this.systemUserStorageService.getLowestSalesOfficerId();
+        int expectedBiggest = this.systemUserStorageService.getBiggestSalesOfficerId();
+        int actual = this.systemUserManager.generateSalesOfficerId();
+        assertThat(actual).isBetween(expectedLowest,expectedBiggest);
     }
 }

@@ -9,6 +9,7 @@ import com.flighttickets.Persistance.SystemUserStorageService;
 
 import javax.security.auth.login.AccountNotFoundException;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Random;
 
 public class SystemUserManagerImpl implements SystemUserManager {
@@ -32,6 +33,16 @@ public class SystemUserManagerImpl implements SystemUserManager {
         return systemUserStorageService;
     }
 
+    /**
+     * @param id
+     * @param firstName
+     * @param lastName
+     * @param email
+     * @param password
+     * @param address
+     * @param role
+     * @return SystemUser Used by REGISTER Method
+     */
     @Override
     public SystemUser createSystemUser(int id, String firstName, String lastName, String email, String password, String address, String role) {
         //TODO: Validate each property of SystemUser and throw CUSTOM exception if something is wrong.
@@ -142,4 +153,14 @@ public class SystemUserManagerImpl implements SystemUserManager {
     public int getRegisteredUsersCount() {
         return this.systemUserStorageService.getCount();
     }
+
+    /**
+     * get users with role "SalesOfficer"
+     */
+    public List<SystemUser> getAllByRole(String role) {
+        return this.systemUserStorageService.getAllByRole(role);
+    }
+    /**
+     * get users with role "SalesOfficer"
+     */
 }
