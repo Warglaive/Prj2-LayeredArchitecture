@@ -4,7 +4,6 @@ import com.flighttickets.Entities.BookingRequest;
 import com.flighttickets.Entities.BookingRequestManager;
 import com.flighttickets.Entities.SystemUser;
 import com.flighttickets.Entities.SystemUserManager;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -123,12 +122,12 @@ public class AllBookingRequestsController implements Initializable {
     private Button cancelBtnRight;
 
     @FXML
-    void cancelBookingRequest(ActionEvent event) {
+    void cancelBookingRequest() {
 
     }
 
     @FXML
-    void finalizeBookingRequest(ActionEvent event) {
+    void finalizeBookingRequest() {
 
     }
 
@@ -160,11 +159,15 @@ public class AllBookingRequestsController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        this.anchor.resize(1200, 1200);
+//        this.anchor.setMinSize(1200, 1200);
+
         //TODO: 1. Get all 3 booking requests and assign to fields
         fillCustomer();
         fillLeftBookingRequest();
         fillMidBookingRequest();
         fillRightBookingRequest();
+
     }
 
     private void fillCustomer() {

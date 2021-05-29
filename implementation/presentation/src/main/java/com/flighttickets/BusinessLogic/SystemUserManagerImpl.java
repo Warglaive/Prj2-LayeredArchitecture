@@ -6,7 +6,6 @@ import com.flighttickets.Entities.RegisterInputValidator;
 import com.flighttickets.Entities.SystemUser;
 import com.flighttickets.Entities.SystemUserManager;
 import com.flighttickets.Persistance.SystemUserStorageService;
-import javafx.fxml.FXML;
 
 import javax.security.auth.login.AccountNotFoundException;
 import java.sql.SQLException;

@@ -50,7 +50,7 @@ public class GUIApp extends Application {
                 this.systemUserController = new SystemUserController(this::getSceneManager, this.businessLogicAPI.getSystemUserManager(), this.businessLogicAPI.getBookingRequestManager());
                 return this.systemUserController;
             case "com.flighttickets.GUI.BookingRequestOverviewController":
-              this.bookingRequestOverviewController = new BookingRequestOverviewController(this::getSceneManager, this.systemUserController.getLoggedInCustomer(), this.businessLogicAPI.getSystemUserManager(), this.businessLogicAPI.getBookingRequestManager());
+                this.bookingRequestOverviewController = new BookingRequestOverviewController(this::getSceneManager, this.systemUserController.getLoggedInCustomer(), this.businessLogicAPI.getSystemUserManager(), this.businessLogicAPI.getBookingRequestManager());
                 return this.bookingRequestOverviewController;
 
             case "com.flighttickets.GUI.RouteController":
@@ -59,8 +59,8 @@ public class GUIApp extends Application {
                 return new CreateRouteController(this::getSceneManager, this.systemUserController.getLoggedInCustomer(), this.businessLogicAPI.getRouteManager(), this.businessLogicAPI.getAirportManager());
             case "com.flighttickets.GUI.CreateFlightController":
                 return new CreateFlightController(this::getSceneManager, this.systemUserController.getLoggedInCustomer(), this.businessLogicAPI.getPlaneManager(), this.businessLogicAPI.getRouteManager(), this.businessLogicAPI.getFlightManager());
-          case "com.flighttickets.GUI.EditTicketController":
-                this.editTicketController =  new EditTicketController(this::getSceneManager, this.systemUserController.getLoggedInCustomer(), this.businessLogicAPI.getSystemUserManager(), this.businessLogicAPI.getTicketManager());
+            case "com.flighttickets.GUI.EditTicketController":
+                this.editTicketController = new EditTicketController(this::getSceneManager, this.systemUserController.getLoggedInCustomer(), this.businessLogicAPI.getSystemUserManager(), this.businessLogicAPI.getTicketManager());
                 return this.editTicketController;
             case "com.flighttickets.GUI.EditTicketDataController":
                 return new EditTicketDataController(this::getSceneManager, this.systemUserController.getLoggedInCustomer(), this.businessLogicAPI.getTicketManager(), this.editTicketController.getSelectedTicket());
@@ -120,7 +120,8 @@ public class GUIApp extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        sceneManager.displayOn(stage, 640, 480);
+        sceneManager.displayOn(stage, 1000, 650);
+
     }
 
     public SceneManager getSceneManager() {
