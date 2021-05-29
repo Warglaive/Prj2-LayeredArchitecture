@@ -7,14 +7,12 @@ import com.flighttickets.PGDataSource;
 import com.flighttickets.Persistance.PersistenceAPI;
 import com.flighttickets.Persistance.PersistenceImplementationProvider;
 import com.flighttickets.Persistance.SystemUserStorageService;
-import nl.fontys.sebivenlo.dao.pg.PGDAO;
 import nl.fontys.sebivenlo.dao.pg.PGDAOFactory;
 import org.assertj.core.api.ThrowableAssert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import javax.security.auth.login.AccountNotFoundException;
-
 import java.sql.SQLException;
 import java.util.Random;
 
@@ -24,15 +22,32 @@ import static org.assertj.core.api.Assertions.assertThatCode;
 public class SystemUserManagerImplTest {
 
 
-    private PGDAO<Integer, SystemUser> systemUserDAO;
-    private final String tableName = "systemUser";
-
     private BusinessLogicAPI businesslogicAPI;
     private PersistenceAPI persistenceAPI;
 
     private SystemUserStorageService systemUserStorageService;
 
     private SystemUserManager systemUserManager;
+
+
+    /**
+     * TEST HELPER Method
+     * Generate random Email for test
+     *
+     * @return random Email
+     */
+    public String generateEmail() {
+        String SALTCHARS = "AaBbCcDdEeF";
+        StringBuilder salt = new StringBuilder();
+        Random rnd = new Random();
+        while (salt.length() < 18) { // length of the random string.
+            int index = (int) (rnd.nextFloat() * SALTCHARS.length());
+            salt.append(SALTCHARS.charAt(index));
+        }
+        String saltStr = salt.toString();
+        return saltStr + "@gmail.com";
+    }
+
 
     @Test
     @BeforeEach
@@ -41,8 +56,6 @@ public class SystemUserManagerImplTest {
 
         // Register mappers for the classes in this app
         daoFactory.registerMapper(SystemUser.class, new SystemUserMapper());
-        // get a dao (no transactions yet).
-        this.systemUserDAO = daoFactory.createDao(SystemUser.class);
 
 
         this.persistenceAPI = PersistenceImplementationProvider.getImplementation(daoFactory);
@@ -239,45 +252,14 @@ public class SystemUserManagerImplTest {
         assertThat(actual.getEmail()).isEqualTo(expected.getEmail());
     }
 
-    /**
-     * TEST HELPER Method
-     * Generate random Email for test
-     *
-     * @return random Email
-     */
-    public String generateEmail() {
-        String SALTCHARS = "AaBbCcDdEeF";
-        StringBuilder salt = new StringBuilder();
-        Random rnd = new Random();
-        while (salt.length() < 18) { // length of the random string.
-            int index = (int) (rnd.nextFloat() * SALTCHARS.length());
-            salt.append(SALTCHARS.charAt(index));
-        }
-        String saltStr = salt.toString();
-        return saltStr + "@gmail.com";
-    }
-/*
 
     @Test
-    void addTestException() throws ClassNotFoundException {
-        String firstName = "1";
-        String lastName = "1";
-        String email = "1";
-        String password = "1";
-        String address = "1";
-        int level = 2;
-        //create new SystemUser
-        SystemUser actual = this.SystemUserManager.createSystemUser(firstName, lastName, email, password, address, level);
-        //add SystemUser to Storage
-        this.SystemUserManager.add(actual);
-        ThrowableAssert.ThrowingCallable code = () -> {
-            String emailExpected = "nonExistentEmail";
-            //get SystemUser
-            SystemUser expected = this.SystemUserManager.getByEmail(emailExpected);
-
-        };
-        assertThatThrownBy(code).isExactlyInstanceOf(ClassNotFoundException.class).hasMessage("No SystemUser with such email address");
-
+    public void loginDatabaseTest() throws SystemUserStorageException, ClassNotFoundException, AccountNotFoundException {
+        //Need to exist in the DB
+        String loginEmail = "asd@abv.bg";
+        String loginPassword = "n!k@sn1Kos";
+        SystemUser expected = this.systemUserManager.getByEmail(loginEmail);
+        SystemUser actual = this.systemUserManager.login(loginEmail, loginPassword);
+        assertThat(actual).usingRecursiveComparison().isEqualTo(expected);
     }
-    //TODO: add test for login method*/
 }

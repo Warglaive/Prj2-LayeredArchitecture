@@ -94,7 +94,6 @@ public class SystemUserManagerImpl implements SystemUserManager {
     }
 
     /**
-     *
      * @param email
      * @return SystemUser
      * @throws SystemUserStorageException
@@ -105,7 +104,6 @@ public class SystemUserManagerImpl implements SystemUserManager {
     }
 
     /**
-     *
      * @param id
      * @return
      */
@@ -114,7 +112,6 @@ public class SystemUserManagerImpl implements SystemUserManager {
     }
 
     /**
-     *
      * @param email
      * @param password
      * @return
