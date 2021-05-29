@@ -58,6 +58,20 @@ public class BusinessLogicAPIImpl implements BusinessLogicImplementationProvider
     }
 
     @Override
+    public AirportManager getAirportManager() {
+        AirportManagerImpl airportManager = new AirportManagerImpl();
+        airportManager.setAirportStorageService(this.persistenceAPI.getAirportStorageService());
+        return airportManager;
+    }
+
+    @Override
+    public PlaneManager getPlaneManager() {
+        PlaneManager planeManager = new PlaneManagerImpl();
+        planeManager.setPlaneStorageService(this.persistenceAPI.getPlaneStorageService());
+        return planeManager;
+    }
+
+    @Override
     public TicketManager getTicketManager() {
         TicketManagerImpl ticketManager = new TicketManagerImpl();
         ticketManager.setTicketStorageService(this.persistenceAPI.getTicketStorageService());

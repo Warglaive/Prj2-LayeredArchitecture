@@ -31,11 +31,24 @@ public interface BookingRequestManager {
     void setBookingRequestStorageService(BookingRequestStorageService bookingRequestStorageService);
 
     /**
-     * @param bookingRequest
+     * getter for BookingRequestStorageService
+     *
+     * @return BookingRequestStorageService
+     */
+    public BookingRequestStorageService getBookingRequestStorageService();
+
+    /**
+     * @param bookingRequest add to DB
      * @throws SQLException
      * @throws ClassNotFoundException
      */
     void add(BookingRequest bookingRequest) throws SQLException, ClassNotFoundException;
+
+    /**
+     * @param customerId - search by
+     * @return List of booking requests for current logged in customer
+     */
+    public List<BookingRequest> getAllByCustomerId(int customerId);
 
 
     /**
@@ -47,5 +60,4 @@ public interface BookingRequestManager {
      * @param toBeDeclined
      */
     void declineRequest(BookingRequest toBeDeclined);
-
 }

@@ -172,9 +172,9 @@ MULTANI TODO:
 | Description | Verify "Planner Create route" functionality |
 | Pre-steps | 1. Login |
 | Test steps | 
-	1. Planner selects "view current routes" option. <br>
- 	Expected: Planner receives current routes. <br> 
-	2. Planner selects "create new Route" option. <br>
+	1. Planner selects "create new route" option. <br>
+ 	Expected: Planner receives two tables with airports. <br> 
+	2. Planner selects two airports, each from a table <br>
 	3. Planner provides arguments(start and end locations). <br>
 		Start: Berlin, Germany
 		End:   Munich, Germany
@@ -183,19 +183,20 @@ MULTANI TODO:
 
 | Test ID | 6 |
 | --- | --- |
-| Test Case | Set plane to route |
-| Description | Verify "Set plane to route" functionality |
+| Test Case | create a flight |
+| Description | Verify "create new flight" functionality |
 | Pre-steps | 1. Login |
 | Test steps | 
-	1. Planner selects "view current routes" option. <br> 
-	Expected: Planner receives current routes. <br> 
-	2. Planner selects "edit route". <br> 
+	1. Planner selects "create new flight" option. <br> 
+	Expected: Planner receives datepicker, table of routes, table with planes <br> 
+	2. Planer selects a date <br>
+	selected date: 30.06.2021 <br>
+	3. Planner selects a route. <br> 
 	Selected route: Berlin to Munich <br>
-	3. Planner selects "set plane to route" for the chosen route <br> 
-	Expected: Planner receives planes view. <br> 
-	4. Planner sets plane to the route. <br> 
-	Selected plane: Airbus A300
-	Expected: Planner receives status message. <br> |
+	4. Planner selects a plane <br>
+	selected plane: Airbus A320 <br>	
+	5. Planner confirms choices and submits new flight <br>
+	Expected: Planner created a flight successfully <br> |
 | Exceptions |  Invalid arguments |
 
 ## SalesOfficer Tests

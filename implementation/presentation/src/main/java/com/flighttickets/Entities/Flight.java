@@ -10,9 +10,9 @@ public class Flight implements Entity2<Integer> {
     @ID(generated = true)
     int id;
 
-    LocalDate flight_date;
-    int route_id;
-    int plane_id;
+    LocalDate flightdate;
+    int routeid;
+    int planeid;
 
 
     /**
@@ -26,10 +26,10 @@ public class Flight implements Entity2<Integer> {
     public Flight(int id, LocalDate date, int routeId, int planeId) {
         this.id = id;
 
-        this.flight_date = date;
+        this.flightdate = date;
 
-        this.route_id = routeId;
-        this.plane_id = planeId;
+        this.routeid = routeId;
+        this.planeid = planeId;
 
     }
 
@@ -53,7 +53,7 @@ public class Flight implements Entity2<Integer> {
      */
     @Override
     public String toString() {
-        return "Flight{" + "flight_id=" + id + ", flight_date=" + flight_date.toString() + ", route_id=" + route_id +", plane_id="+ plane_id+'}';
+        return "Flight{" + "flight_id=" + id + ", flight_date=" + flightdate.toString() + ", route_id=" + routeid +", plane_id="+ planeid+'}';
     }
 
     /**
@@ -73,9 +73,9 @@ public class Flight implements Entity2<Integer> {
 
         return new Object[]{
                 this.id,
-                this.flight_date,
-                this.route_id,
-                this.plane_id
+                this.flightdate,
+                this.routeid,
+                this.planeid
         };
     }
 
@@ -87,26 +87,26 @@ public class Flight implements Entity2<Integer> {
     }
 
     public LocalDate getFlight_date() {
-        return flight_date;
+        return flightdate;
     }
 
     public void setFlight_date(LocalDate date) {
-        this.flight_date = date;
+        this.flightdate = date;
     }
 
     public int getRoute_id() {
-        return route_id;
+        return routeid;
     }
 
     public void setRoute_id(int routeId) {
-        this.route_id = routeId;
+        this.routeid = routeId;
     }
 
     public int getPlane_id() {
-        return plane_id;
+        return planeid;
     }
 
     public void setPlane_id(int planeId) {
-        this.plane_id = planeId;
+        this.planeid = planeId;
     }
 }

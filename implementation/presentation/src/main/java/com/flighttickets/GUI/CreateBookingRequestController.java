@@ -4,7 +4,6 @@ import com.flighttickets.Entities.BookingRequest;
 import com.flighttickets.Entities.BookingRequestManager;
 import com.flighttickets.Entities.SystemUser;
 import com.flighttickets.Entities.SystemUserManager;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -65,10 +64,9 @@ public class CreateBookingRequestController implements Initializable {
      * create new BookingRequest object with assigned customer id
      * save it to db
      *
-     * @param event
      */
     @FXML
-    void submitRequest(ActionEvent event) throws SQLException, ClassNotFoundException {
+    void submitRequest() throws SQLException, ClassNotFoundException {
         int initialSalesOfficerId = this.systemUserManager.generateSalesOfficerId();
         int initialId = 0;
         String initialStatus = "Pending";

@@ -1,7 +1,6 @@
 package com.flighttickets.Entities;
 
 import com.flighttickets.Persistance.AirportStorageService;
-import com.flighttickets.Persistance.PlaneStorageService;
 
 import java.sql.SQLException;
 import java.util.List;

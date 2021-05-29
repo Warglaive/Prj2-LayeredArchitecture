@@ -1,7 +1,6 @@
 package com.flighttickets.Persistance;
 
 
-import com.flighttickets.Entities.Airport;
 import com.flighttickets.Entities.Plane;
 import com.flighttickets.Entities.PlaneMapper;
 import com.flighttickets.PGDataSource;
@@ -28,7 +27,7 @@ public class PlaneStorageService {
      public List<Plane> getPlanes(){
          List<Plane> planesList = this.planeDAO.anyQuery("SELECT * FROM " + this.tableName);
          //result was found
-         System.out.println("Is a airport found?" + planesList.get(0).toString());
+         System.out.println("Is a plane found?" + planesList.get(0).toString());
          return planesList;
      }
 

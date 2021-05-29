@@ -1,6 +1,7 @@
 package com.flighttickets.Persistance;
 
-import com.flighttickets.Entities.*;
+import com.flighttickets.Entities.Airport;
+import com.flighttickets.Entities.AirportMapper;
 import com.flighttickets.PGDataSource;
 import nl.fontys.sebivenlo.dao.pg.PGDAO;
 import nl.fontys.sebivenlo.dao.pg.PGDAOFactory;
@@ -13,7 +14,7 @@ public class AirportStorageService {
     private final String tableName = "airport";
 
 
-    public AirportStorageService() {
+    public AirportStorageService(PGDAOFactory daoFactory) {
         // Use the provided data source
         PGDAOFactory pdaof = new PGDAOFactory(PGDataSource.DATA_SOURCE);
 
@@ -26,7 +27,7 @@ public class AirportStorageService {
     public List<Airport> getAirports() {
         List<Airport> airportsList = this.airportDAO.anyQuery("SELECT * FROM " + this.tableName);
         //result was found
-        System.out.println("Is a airport found?" + airportsList.get(0).toString());
+        System.out.println("Is a airport found? " + airportsList.get(0).toString());
         return airportsList;
     }
 

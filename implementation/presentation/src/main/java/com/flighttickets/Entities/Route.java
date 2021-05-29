@@ -65,4 +65,27 @@ public class Route implements Entity2<Integer> {
         this.id = id;
     }
 
+    public int getStart_airport() {
+        return start_airport;
+    }
+
+    public void setStart_airport(int start_airport) {
+        this.start_airport = start_airport;
+    }
+
+    public int getEnd_airport() {
+        return end_airport;
+    }
+
+    public void setEnd_airport(int end_airport) {
+        this.end_airport = end_airport;
+    }
+
+    public int getPlannerId() {
+        return plannerId;
+    }
+
+    public void setPlannerId(int plannerId) {
+        this.plannerId = plannerId;
+    }
 }
