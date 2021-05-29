@@ -94,15 +94,33 @@ public class SystemUserManagerImpl implements SystemUserManager {
         this.systemUserStorageService.insert(systemUser);
     }
 
+    /**
+     *
+     * @param email
+     * @return SystemUser
+     * @throws SystemUserStorageException
+     * @throws AccountNotFoundException
+     */
     public SystemUser getByEmail(String email) throws SystemUserStorageException, AccountNotFoundException {
         return this.systemUserStorageService.getByEmail(email);
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     public SystemUser getById(int id) {
         return this.systemUserStorageService.getById(id);
     }
 
-    @FXML
+    /**
+     *
+     * @param email
+     * @param password
+     * @return
+     * @throws ClassNotFoundException
+     */
     public SystemUser login(String email, String password) throws ClassNotFoundException {
         //Retrieves system user from database based on email, password -JL
         return this.systemUserStorageService.retrieve(email, password);

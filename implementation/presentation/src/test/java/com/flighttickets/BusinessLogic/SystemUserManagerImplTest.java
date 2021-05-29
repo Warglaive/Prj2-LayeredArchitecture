@@ -14,7 +14,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import javax.security.auth.login.AccountNotFoundException;
-import java.sql.SQLException;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatCode;
@@ -208,7 +207,7 @@ public class SystemUserManagerImplTest {
 
 
     @Test
-    void getByEmailDataBaseTest() throws ClassNotFoundException, SQLException, SystemUserStorageException, AccountNotFoundException {
+    void getByEmailDataBaseTest() throws ClassNotFoundException, SystemUserStorageException, AccountNotFoundException {
         //TODO: DB Should not be empty! - Testing like this because insert and then getByEmail causes problems with the Id (because it is autoincrement in the code)
         //Get very first system user by Id
         SystemUser expected = this.systemUserManager.getById(1);
