@@ -1,11 +1,13 @@
 package com.flighttickets.Persistance;
 
 
+import com.flighttickets.BusinessLogic.Exceptions.SystemUserStorageException;
 import com.flighttickets.Entities.SystemUser;
 import com.flighttickets.Entities.SystemUserMapper;
 import nl.fontys.sebivenlo.dao.pg.PGDAO;
 import nl.fontys.sebivenlo.dao.pg.PGDAOFactory;
 
+import javax.security.auth.login.AccountNotFoundException;
 import java.util.List;
 
 public class SystemUserStorageService {
@@ -31,6 +33,15 @@ public class SystemUserStorageService {
      */
     public void insert(SystemUser SystemUser) {
         this.systemUserDAO.save(SystemUser);
+    }
+
+    public SystemUser getByEmail(String email) throws AccountNotFoundException, SystemUserStorageException {
+        List<SystemUser> customerList = systemUserDAO.anyQuery("SELECT * FROM " + this.tableName + " WHERE email= '" + email + "' ");
+        if (customerList.isEmpty()) {
+            throw new AccountNotFoundException("no such " + email);
+        } else if (customerList.size() > 1) {
+            throw new SystemUserStorageException("Duplicate emails exist in the Database!");
+        } else return customerList.get(0);
     }
 
     public SystemUser retrieve(String email, String password) {
