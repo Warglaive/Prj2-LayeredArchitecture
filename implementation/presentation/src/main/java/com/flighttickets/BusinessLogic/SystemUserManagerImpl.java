@@ -12,7 +12,7 @@ import java.util.Random;
 public class SystemUserManagerImpl implements SystemUserManager {
 
     //TODO: Add validator class to validate user input
-    RegisterInputValidator inputValidator;
+    private  RegisterInputValidator inputValidator;
     //TODO: Add HashPassword method
     private SystemUserStorageService systemUserStorageService;
 
