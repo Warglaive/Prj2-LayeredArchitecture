@@ -10,6 +10,8 @@ public interface BusinessLogicAPI {
 
     BookingRequestManager getBookingRequestManager();
 
+    BookingManager getBookingManager();
+
     RouteManager getRouteManager();
 
     TicketManager getTicketManager();

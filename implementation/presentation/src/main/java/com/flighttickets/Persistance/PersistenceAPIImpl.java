@@ -25,6 +25,11 @@ public class PersistenceAPIImpl implements PersistenceImplementationProvider, Pe
     }
 
     @Override
+    public BookingStorageService getBookingStorageService() {
+        return new BookingStorageService(this.daoFactory);
+    }
+
+    @Override
     public RouteStorageService getRouteStorageService() {
         return new RouteStorageService(this.daoFactory);
     }

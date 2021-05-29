@@ -12,6 +12,7 @@ public interface PersistenceAPI {
 
     FlightStorageService getFlightStorageService();
     BookingRequestStorageService getBookingRequestStorageService();
+    BookingStorageService getBookingStorageService();
     RouteStorageService getRouteStorageService();
     PlaneStorageService getPlaneStorageService();
     AirportStorageService getAirportStorageService();
