@@ -160,7 +160,4 @@ public class SystemUserManagerImpl implements SystemUserManager {
     public List<SystemUser> getAllByRole(String role) {
         return this.systemUserStorageService.getAllByRole(role);
     }
-    /**
-     * get users with role "SalesOfficer"
-     */
 }

@@ -1,6 +1,5 @@
 package com.flighttickets.Persistance;
 
-
 import com.flighttickets.BusinessLogic.Exceptions.SystemUserStorageException;
 import com.flighttickets.Entities.SystemUser;
 import com.flighttickets.Entities.SystemUserMapper;
