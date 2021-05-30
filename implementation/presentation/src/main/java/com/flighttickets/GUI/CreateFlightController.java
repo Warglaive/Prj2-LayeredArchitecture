@@ -113,7 +113,7 @@ public class CreateFlightController implements Initializable {
 
     @FXML
     public void backHandler(ActionEvent event) throws IOException {
-        this.sceneManagerSupplier.get().changeScene("routesOverview");
+        this.sceneManagerSupplier.get().changeScene("currentRoutes");
     }
 
     @FXML
@@ -127,6 +127,6 @@ public class CreateFlightController implements Initializable {
 
         Flight createdFlight = new Flight(newFlightId, localDate, selectedRouteId, selectedPlaneId);
         this.flightManager.add(createdFlight);
-        this.sceneManagerSupplier.get().changeScene("routesOverview");
+        this.sceneManagerSupplier.get().changeScene("currentRoutes");
     }
 }

@@ -134,7 +134,7 @@ public class SystemUserController implements Initializable {
             this.sceneManagerSupplier.get().changeScene("salesOfficer");
 
         } else if (loggedInSystemUser.getRole().equals("Planner")) {
-            this.sceneManagerSupplier.get().changeScene("routesOverview");
+            this.sceneManagerSupplier.get().changeScene("currentRoutes");
 
         } else if (loggedInSystemUser.getRole().equals("SalesEmployee")) {
             this.sceneManagerSupplier.get().changeScene("BookingRequestOverview");

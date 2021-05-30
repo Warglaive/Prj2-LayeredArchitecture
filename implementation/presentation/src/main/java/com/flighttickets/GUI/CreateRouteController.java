@@ -86,11 +86,11 @@ public class CreateRouteController implements Initializable {
         Integer idPlanner = this.planner.getId();
         Route route = new Route(initialId, startingId, endId, idPlanner);
         this.routeManager.add(route);
-        this.sceneManagerSupplier.get().changeScene("routesOverview");
+        this.sceneManagerSupplier.get().changeScene("currentRoutes");
     }
 
     @FXML
     public void backHandler(ActionEvent event) throws IOException {
-        this.sceneManagerSupplier.get().changeScene("routesOverview");
+        this.sceneManagerSupplier.get().changeScene("currentRoutes");
     }
 }
