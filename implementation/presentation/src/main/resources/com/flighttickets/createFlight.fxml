@@ -11,13 +11,13 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="599.0" prefWidth="845.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.flighttickets.GUI.CreateFlightController">
    <children>
-      <Text layoutX="257.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create a flight" wrappingWidth="203.107421875">
+      <Text layoutX="329.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create a flight" wrappingWidth="203.107421875">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
       </Text>
       <Button fx:id="backButton" layoutX="31.0" layoutY="46.0" mnemonicParsing="false" onAction="#backHandler" text="Back" />
-      <Button fx:id="submitButton" layoutX="247.0" layoutY="550.0" mnemonicParsing="false" onAction="#submitHandler" prefHeight="25.0" prefWidth="85.0" text="Submit" />
+      <Button fx:id="submitButton" layoutX="389.0" layoutY="552.0" mnemonicParsing="false" onAction="#submitHandler" prefHeight="35.0" prefWidth="89.0" text="Submit" />
       <DatePicker fx:id="datePicker" layoutX="171.0" layoutY="97.0" />
       <Label layoutX="24.0" layoutY="101.0" text="Choose date for flight:" />
       <Label layoutX="24.0" layoutY="131.0" text="Choose  a route:" />
@@ -43,8 +43,8 @@
       </TableView>
       <TableView fx:id="airportsList" layoutX="431.0" layoutY="71.0" prefHeight="257.0" prefWidth="401.0">
         <columns>
-          <TableColumn fx:id="airportIdCol" prefWidth="38.0" text="id" />
-          <TableColumn fx:id="airportNameCol" prefWidth="126.0" text="name" />
+          <TableColumn fx:id="airportIdCol" prefWidth="51.0" text="id" />
+          <TableColumn fx:id="airportNameCol" prefWidth="113.0" text="name" />
             <TableColumn fx:id="airportCountryCol" prefWidth="117.0" text="country" />
             <TableColumn fx:id="airportCityCol" prefWidth="117.0" text="city" />
         </columns>

@@ -1,8 +1,5 @@
-
 package com.flighttickets.GUI;
 
-import com.flighttickets.Persistance.AirportStorageService;
-import com.flighttickets.Persistance.RouteStorageService;
 import com.flighttickets.Entities.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -41,6 +38,7 @@ public class CreateRouteController implements Initializable {
     private TableColumn cityCol1;
     @FXML
     private TableColumn countryCol1;
+
     /*
     @FXML
     private Button backButton;
@@ -88,11 +86,11 @@ public class CreateRouteController implements Initializable {
         Integer idPlanner = this.planner.getId();
         Route route = new Route(initialId, startingId, endId, idPlanner);
         this.routeManager.add(route);
-        //this.sceneManagerSupplier.get().changeScene("currentRoutes");
+        this.sceneManagerSupplier.get().changeScene("routesOverview");
     }
 
     @FXML
     public void backHandler(ActionEvent event) throws IOException {
-        this.sceneManagerSupplier.get().changeScene("currentRoutes");
+        this.sceneManagerSupplier.get().changeScene("routesOverview");
     }
 }

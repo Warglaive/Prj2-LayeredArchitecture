@@ -1,8 +1,6 @@
-
 package com.flighttickets.GUI;
 
 import com.flighttickets.Entities.*;
-import com.flighttickets.GUIApp;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -49,6 +47,16 @@ public class CreateFlightController implements Initializable {
     private TableColumn legroomCol;
     @FXML
     private TableColumn firstClassCol;
+    @FXML
+    private TableView<Airport> airportsList;
+    @FXML
+    private TableColumn airportIdCol;
+    @FXML
+    private TableColumn airportNameCol;
+    @FXML
+    private TableColumn airportCountryCol;
+    @FXML
+    private TableColumn airportCityCol;
     /*
     @FXML
     private Button backButton;
@@ -62,13 +70,15 @@ public class CreateFlightController implements Initializable {
     private PlaneManager planeManager;
     private RouteManager routeManager;
     private FlightManager flightManager;
+    private AirportManager airportManager;
 
-    public CreateFlightController(Supplier<SceneManager> sceneManagerSupplier, SystemUser planner, PlaneManager planeManager, RouteManager routeManager, FlightManager flightManager){
+    public CreateFlightController(Supplier<SceneManager> sceneManagerSupplier, SystemUser planner, PlaneManager planeManager, RouteManager routeManager, FlightManager flightManager, AirportManager airportManager){
         this.sceneManagerSupplier = sceneManagerSupplier;
         this.planner = planner;
         this.planeManager = planeManager;
         this.routeManager = routeManager;
         this.flightManager = flightManager;
+        this.airportManager = airportManager;
     }
 
     @Override
@@ -91,11 +101,19 @@ public class CreateFlightController implements Initializable {
         this.seatsCol.setCellValueFactory(new PropertyValueFactory<>("seats_on_board"));
         this.legroomCol.setCellValueFactory(new PropertyValueFactory<>("extra_legroom_seats"));
         this.firstClassCol.setCellValueFactory(new PropertyValueFactory<>("first_class_seats"));
+
+        List<Airport> listOfAirports = this.airportManager.getAirports();
+        ObservableList<Airport> observableList3 = FXCollections.observableList(listOfAirports);
+        this.airportsList.setItems(observableList3);
+        this.airportIdCol.setCellValueFactory(new PropertyValueFactory<>("id"));
+        this.airportNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
+        this.airportCountryCol.setCellValueFactory(new PropertyValueFactory<>("country"));
+        this.airportCityCol.setCellValueFactory(new PropertyValueFactory<>("city"));
     }
 
     @FXML
     public void backHandler(ActionEvent event) throws IOException {
-        this.sceneManagerSupplier.get().changeScene("currentRoutes");
+        this.sceneManagerSupplier.get().changeScene("routesOverview");
     }
 
     @FXML
@@ -109,6 +127,6 @@ public class CreateFlightController implements Initializable {
 
         Flight createdFlight = new Flight(newFlightId, localDate, selectedRouteId, selectedPlaneId);
         this.flightManager.add(createdFlight);
-        //this.sceneManagerSupplier.get().changeScene("currentRoutes");
+        this.sceneManagerSupplier.get().changeScene("routesOverview");
     }
 }

@@ -1,8 +1,5 @@
-
 package com.flighttickets.GUI;
 
-import com.flighttickets.BusinessLogic.BusinessLogicAPI;
-import com.flighttickets.Persistance.PersistenceAPI;
 import com.flighttickets.Entities.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -21,10 +18,8 @@ public class RouteController implements Initializable {
     /*
     @FXML
     private Button backButton;
-
     @FXML
     private Button createRouteButton;
-
     @FXML
     private Button createFlightButton;
     */
@@ -63,5 +58,4 @@ public class RouteController implements Initializable {
     public void backHandler(ActionEvent event) throws IOException {
         this.sceneManagerSupplier.get().changeScene("login");
     }
-
 }
