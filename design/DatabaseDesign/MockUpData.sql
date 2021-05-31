@@ -43,9 +43,9 @@ insert into systemuser
 values (4, 'Alexander', 'Cox', 'alexander@gmail.de', 'Alex,321', 'Pagstraat 85', 'Planner');
 
 insert into bookingrequest 
-values (1, 1, 2, 'Amsterdam', 'Dusseldorf', '2021-07-21', '2021-07-21', 4, 'available');
+values (1, 1, 2, 'Amsterdam', 'Dusseldorf', '2021-07-21', '2021-07-21', 4, 'Pending');
 insert into bookingrequest 
-values (2, 1, 2, 'Dusseldorf', 'Antwerpen', '2022-04-08', '2022-04-08', 2, 'available');
+values (2, 1, 2, 'Dusseldorf', 'Antwerpen', '2022-04-08', '2022-04-08', 2, 'Pending');
 
 insert into booking 
 values (1, 1, 2, '2021-04-26');
