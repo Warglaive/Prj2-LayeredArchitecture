@@ -10,7 +10,7 @@ values (4, 'DE-QFP', 'Airbus', 'Longdistance plane', 334, 175, 34);
 insert into airport 
 values (1, 'Schiphol', 'Netherlands', 'Amsterdam');
 insert into airport 
-values (2, 'Antwerpen Airport', 'Netherlands', 'Antwerpen');
+values (2, 'Antwerpen Airport', 'Belgium', 'Antwerpen');
 insert into airport 
 values (3, 'Dusseldorf International Airport', 'Germany', 'Dusseldorf');
 insert into airport 
