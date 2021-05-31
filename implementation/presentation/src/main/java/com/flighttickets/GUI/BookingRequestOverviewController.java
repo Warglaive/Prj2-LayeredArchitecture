@@ -89,6 +89,7 @@ public class BookingRequestOverviewController implements Initializable {
     public void declineRequestHandler(ActionEvent event) throws IOException {
         BookingRequest declined = selection_list.getSelectionModel().getSelectedItem();
         this.bookingRequestManager.declineRequest(declined);
+        //TODO Implement error if no request is selected - JL
         //TODO Implement popup window and refresh page to show deletion has been done - JL
     }
 
@@ -96,7 +97,7 @@ public class BookingRequestOverviewController implements Initializable {
     public void handleRequestHandler(ActionEvent event) throws IOException {
         //GUIApp.setRoot("setPlane");
         this.sceneManagerSupplier.get().changeScene("BookingRequestHandle");
-
+        //TODO Implement error if no request is selected - JL
 //        System.out.println("Handle Request" + tobeHandled);
     }
 
