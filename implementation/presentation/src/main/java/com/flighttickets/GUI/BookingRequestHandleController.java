@@ -78,12 +78,14 @@ public class BookingRequestHandleController implements Initializable {
     private final BookingRequest currentRequest;
     private final BookingManager bookingManager;
     private final TicketManager ticketManager;
+    private final BookingRequestManager bookingRequestManager;
 
-    public BookingRequestHandleController(Supplier<SceneManager> sceneManagerSupplier, BookingRequest selectedRequest, BookingManager bookingManager, TicketManager ticketManager){
+    public BookingRequestHandleController(Supplier<SceneManager> sceneManagerSupplier, BookingRequest selectedRequest, BookingManager bookingManager, TicketManager ticketManager, BookingRequestManager bookingRequestManager){
         this.sceneManagerSupplier = sceneManagerSupplier;
         this.currentRequest = selectedRequest;
         this.bookingManager = bookingManager;
         this.ticketManager = ticketManager;
+        this.bookingRequestManager = bookingRequestManager;
     }
 
     @Override
@@ -97,7 +99,7 @@ public class BookingRequestHandleController implements Initializable {
         passengerCount_label.setText(String.valueOf(currentRequest.getPassengersAmount()));
 
         //Todo Use Location to find tickets - JL
-        List<Ticket> depAllOpenTickets = this.ticketManager.getOpenTickets();
+        List<Ticket> depAllOpenTickets = this.ticketManager.getOpenTickets(currentRequest.getDepartureDestination());
         ObservableList<Ticket> departureObservableList = FXCollections.observableList(depAllOpenTickets);
 
         departure_ticket_view.setItems(departureObservableList);
@@ -106,7 +108,7 @@ public class BookingRequestHandleController implements Initializable {
         dep_seat_no.setCellValueFactory(new PropertyValueFactory<>("status"));
 
         //Todo Use Location to find tickets - JL
-        List<Ticket> reAllOpenTickets = this.ticketManager.getOpenTickets();
+        List<Ticket> reAllOpenTickets = this.ticketManager.getOpenTickets(currentRequest.getArrivalDestination());
         ObservableList<Ticket> returnObservableList = FXCollections.observableList(reAllOpenTickets);
 
         return_ticket_view.setItems(returnObservableList);
@@ -126,6 +128,12 @@ public class BookingRequestHandleController implements Initializable {
     }
 
     //TODO add decline here instead of Overview - JL
+    @FXML
+    public void declineRequestHandler(ActionEvent event) throws IOException {
+        BookingRequest declined = currentRequest;
+        this.bookingRequestManager.declineRequest(declined);
+        //TODO Implement popup window and redirect page to show deletion has been done - JL
+    }
 
 
     @FXML

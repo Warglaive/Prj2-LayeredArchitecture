@@ -24,8 +24,6 @@ public class BookingRequestOverviewController implements Initializable {
     @FXML
     private Button back_btn;
 
-    @FXML
-    private Button decline_btn;
 
     @FXML
     private Button handle_btn;
@@ -85,13 +83,6 @@ public class BookingRequestOverviewController implements Initializable {
         passenger_count_column.setCellValueFactory(new PropertyValueFactory<>("passengersAmount"));
     }
 
-    @FXML
-    public void declineRequestHandler(ActionEvent event) throws IOException {
-        BookingRequest declined = selection_list.getSelectionModel().getSelectedItem();
-        this.bookingRequestManager.declineRequest(declined);
-        //TODO Implement error if no request is selected - JL
-        //TODO Implement popup window and refresh page to show deletion has been done - JL
-    }
 
     @FXML
     public void handleRequestHandler(ActionEvent event) throws IOException {

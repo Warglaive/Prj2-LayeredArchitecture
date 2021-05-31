@@ -41,8 +41,8 @@ public class TicketManagerImpl implements TicketManager {
     }
 
     @Override
-    public List<Ticket> getOpenTickets() {
-        return ticketStorageService.getOpenTickets();
+    public List<Ticket> getOpenTickets(String destination) {
+        return ticketStorageService.getOpenTickets(destination);
     }
 
 

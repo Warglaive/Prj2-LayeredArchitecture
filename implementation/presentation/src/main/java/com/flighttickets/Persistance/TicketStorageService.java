@@ -32,7 +32,15 @@ public class TicketStorageService {
         this.ticketDAO.update(ticket);
     }
 
-    public List<Ticket> getOpenTickets() {
-        return ticketDAO.anyQuery("select * from ticket");
+    public List<Ticket> getOpenTickets(String destination) {
+        System.out.println("Returning tickets from " + destination);
+        return ticketDAO.anyQuery(
+                "select ticket.* from (((ticket INNER JOIN flight ON ticket.flightid = flight.flightid)" +
+                        "INNER JOIN route ON flight.routeid = route.routeid)" +
+                        "INNER JOIN airport ON route.start_airport = airport.airportid)" +
+                        "where ticket.status = 'ForSale' and airport.name = '"+destination+"'");
+
     }
+
+
 }
