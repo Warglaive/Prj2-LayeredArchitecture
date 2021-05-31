@@ -78,8 +78,8 @@ insert into flight
 values (4, '2021-06-02', 4, 4);
 
 insert into ticket 
-values (1, 200, 1, 1, 1, 'economy');
+values (1, 200, 1, 1, 1, 'ForSale');
 insert into ticket 
-values (2, 200, 2, 1, 1, 'economy');
+values (2, 200, 2, 1, 1, 'ForSale');
 insert into ticket 
-values (3, 250, 3, 2, 2, 'first class');
+values (3, 250, 3, 2, 2, 'ForSale');
