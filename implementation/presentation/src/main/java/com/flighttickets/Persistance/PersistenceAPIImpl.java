@@ -46,6 +46,6 @@ public class PersistenceAPIImpl implements PersistenceImplementationProvider, Pe
 
     @Override
     public TicketStorageService getTicketStorageService() {
-        return null;
+        return new TicketStorageService(this.daoFactory);
     }
 }
