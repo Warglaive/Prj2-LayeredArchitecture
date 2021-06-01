@@ -10,7 +10,7 @@ public class SystemUser implements Entity2<Integer> {
     @ID
     private int systemUserId;
     /**
-     * Fields to be used to encrypt pass, validate names etc.
+     * Fields to be used to encrypt pass, validateInput names etc.
      */
     private String firstName;
     private String lastName;
@@ -32,7 +32,7 @@ public class SystemUser implements Entity2<Integer> {
      */
     public SystemUser(int systemUserId, String firstName, String lastName, String email, String password, String address, String role) {
         //TODO: Validate
-        validate(firstName, lastName, email, password, address, role);
+        validateInput(firstName, lastName, email, password, address, role);
         this.systemUserId = systemUserId;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -42,7 +42,7 @@ public class SystemUser implements Entity2<Integer> {
         this.role = role;
     }
 
-    private void validate(String firstName, String lastName, String email, String password, String address, String role) {
+    private void validateInput(String firstName, String lastName, String email, String password, String address, String role) {
         RegisterInputValidator inputValidator = new RegisterInputValidatorImpl();
         //TODO: Validate each property of SystemUser and throw CUSTOM exception if something is wrong.
         //TODO: Make a array of boolean and throw exception for each isValid == false
