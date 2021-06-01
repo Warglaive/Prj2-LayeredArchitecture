@@ -122,12 +122,13 @@ public class BookingRequestHandleController implements Initializable {
         Booking newBooking = new Booking(0, 2,3,LocalDate.now());
         //Add booking to ticket.
         //Creating a new booking returns the id of that new booking. This is inserted to the tickets.
-        int result = this.bookingManager.add(newBooking);
+        int resultBookingId = this.bookingManager.add(newBooking);
         //Testing result
-        System.out.println("Booking made with id= " + result);
+        System.out.println("Booking made with id= " + resultBookingId);
         Ticket departureflight = departure_ticket_view.getSelectionModel().getSelectedItem();
         Ticket returnflight = return_ticket_view.getSelectionModel().getSelectedItem();
-        this.ticketManager.sell(result, departureflight);
+        this.ticketManager.sell(resultBookingId, departureflight);
+        this.ticketManager.sell(resultBookingId, returnflight);
         System.out.println(departureflight.toString());
         System.out.println(returnflight.toString());
         //this.sceneManagerSupplier.get().changeScene("BookingRequestOverview");

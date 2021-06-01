@@ -45,4 +45,6 @@ public interface TicketManager {
      * Get a list of all tickets unassigned
      */
     List<Ticket> getOpenTickets(String destination);
+
+    Ticket sell(int bookingId, Ticket toBeSold);
 }

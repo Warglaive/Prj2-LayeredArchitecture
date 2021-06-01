@@ -42,5 +42,12 @@ public class TicketStorageService {
 
     }
 
+    public Ticket sellTicket(int bookingId, Ticket toBeSold){
+        toBeSold.setBookingid(bookingId);
+        toBeSold.setStatus("Sold");
+        this.ticketDAO.update(toBeSold);
+        return toBeSold;
+    }
+
 
 }
