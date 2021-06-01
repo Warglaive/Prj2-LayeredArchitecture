@@ -31,7 +31,6 @@ public class SystemUser implements Entity2<Integer> {
      * @param role
      */
     public SystemUser(int systemUserId, String firstName, String lastName, String email, String password, String address, String role) {
-        //TODO: Validate
         validateInput(firstName, lastName, email, password, address, role);
         this.systemUserId = systemUserId;
         this.firstName = firstName;
@@ -44,9 +43,6 @@ public class SystemUser implements Entity2<Integer> {
 
     private void validateInput(String firstName, String lastName, String email, String password, String address, String role) {
         RegisterInputValidator inputValidator = new RegisterInputValidatorImpl();
-        //TODO: Validate each property of SystemUser and throw CUSTOM exception if something is wrong.
-        //TODO: Make a array of boolean and throw exception for each isValid == false
-
         boolean isFirstNameValid = inputValidator.isNameValid(firstName);
         boolean isLastNameValid = inputValidator.isNameValid(lastName);
         boolean isEmailValid = inputValidator.isEmailValid(email);
