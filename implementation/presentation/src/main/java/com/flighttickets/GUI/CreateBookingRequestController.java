@@ -19,6 +19,10 @@ import java.util.function.Supplier;
 
 public class CreateBookingRequestController implements Initializable {
     private final Supplier<SceneManager> sceneManagerSupplier;
+
+    @FXML
+    public Button backBtn;
+
     @FXML
     public DatePicker departureDate;
 
@@ -82,5 +86,8 @@ public class CreateBookingRequestController implements Initializable {
 
         BookingRequest bookingRequest = this.bookingRequestManager.createBookingRequest(initialId, this.customer.getId(), initialSalesOfficerId, departureDestination, destination, departureDate, returnDate, passengersAmount, initialStatus);
         this.bookingRequestManager.add(bookingRequest);
+    }
+    public void backToView() {
+        this.sceneManagerSupplier.get().changeScene("CustomerMainView");
     }
 }

@@ -4,6 +4,7 @@ import com.flighttickets.Entities.BookingRequest;
 import com.flighttickets.Entities.BookingRequestManager;
 import com.flighttickets.Entities.SystemUser;
 import com.flighttickets.Entities.SystemUserManager;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -18,6 +19,8 @@ import java.util.function.Supplier;
 
 
 public class AllBookingRequestsController implements Initializable {
+    @FXML
+    public Button backBtn;
 
     @FXML
     private AnchorPane anchor;
@@ -250,5 +253,9 @@ public class AllBookingRequestsController implements Initializable {
         } else {
             this.finalizeBtnLeft.setTextFill(Paint.valueOf("blue"));
         }
+    }
+
+    public void backToView() {
+        this.sceneManagerSupplier.get().changeScene("CustomerMainView");
     }
 }
