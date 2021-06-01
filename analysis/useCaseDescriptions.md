@@ -39,7 +39,7 @@
 | Actor | Customer |
 | Description | Customer Orders a Booking|
 | Precondition |  1. Customer must be logged in. <br> 2. Must have at least 1 approved booking request. |
-| Scenario | 1. Customer selects an approved booking request. <br> 2. The system redirects him to specified view to enter date of birth and EU Id Card/ Passport number. and submits it <br> 3. System performs check if the customer is allowed to fly ( old enought and valid documents). <br> 4. System creates a booking containing a ticket/boarding pass.<br> 5. Customer is redirected to a view with the option to download booking info (ticket/boarding pass included) |
+| Scenario | 1. Customer selects an approved booking request. <br>2. System calculates a ticket price to be approved by the customer <br>2.Customer approves ticket price<br> 2. The system redirects him to specified view to enter date of birth and EU Id Card/ Passport number. and submits it <br> 3. System performs check if the customer is allowed to fly ( old enought and valid documents). <br> 4. System creates a booking containing a ticket/boarding pass.<br> 5. Customer is redirected to a view with the option to download booking info (ticket/boarding pass included) |
 | Result | Booking successfully created |
 | Exceptions | Invalid documents, customer underaged, customer banned from flying |
 | Extensions | N/A  |
