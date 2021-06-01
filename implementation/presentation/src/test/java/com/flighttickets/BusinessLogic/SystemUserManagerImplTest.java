@@ -265,6 +265,6 @@ public class SystemUserManagerImplTest {
         int expectedLowest = this.systemUserStorageService.getLowestSalesOfficerId();
         int expectedBiggest = this.systemUserStorageService.getBiggestSalesOfficerId();
         int actual = this.systemUserManager.generateSalesOfficerId();
-        assertThat(actual).isBetween(expectedLowest,expectedBiggest);
+        assertThat(actual).isBetween(expectedLowest, expectedBiggest);
     }
 }
