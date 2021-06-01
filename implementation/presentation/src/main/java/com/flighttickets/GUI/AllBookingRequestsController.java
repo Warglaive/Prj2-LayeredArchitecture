@@ -160,11 +160,11 @@ public class AllBookingRequestsController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         this.anchor.resize(1200, 1200);
 
+        //Fill data
         fillCustomer();
         fillLeftBookingRequest();
         fillMidBookingRequest();
         fillRightBookingRequest();
-
     }
 
     private void fillCustomer() {
@@ -174,6 +174,7 @@ public class AllBookingRequestsController implements Initializable {
 
     }
 
+    //Change color depending on Status (Approved, Pending or Declined)
     private void changeStatusTextColor(String toCheckStatus, Text toFillStatus) {
         if (toCheckStatus.equalsIgnoreCase("approved")) {
             toFillStatus.setFill(Paint.valueOf("green"));
@@ -194,6 +195,12 @@ public class AllBookingRequestsController implements Initializable {
         this.statusRight.setText("Status: " + this.bookingRequestRight.getStatus());
 
         changeStatusTextColor(this.bookingRequestRight.getStatus(), this.statusRight);
+        //If NOT Approved = set finalize button to disabled, else make finalize blue
+        if (!this.bookingRequestRight.getStatus().equals("Approved")) {
+            this.finalizeBtnRight.setDisable(true);
+        } else {
+            this.finalizeBtnRight.setTextFill(Paint.valueOf("blue"));
+        }
 
     }
 
@@ -207,7 +214,16 @@ public class AllBookingRequestsController implements Initializable {
         this.passengersAmountMid.setText("Passengers amount: " + this.bookingRequestMid.getPassengersAmount());
         this.statusMid.setText("Status: " + this.bookingRequestMid.getStatus());
 
+        if (!this.bookingRequestMid.getStatus().equals("Approved")) {
+            this.finalizeBtnMid.setDisable(true);
+        }
         changeStatusTextColor(this.bookingRequestMid.getStatus(), this.statusMid);
+        //If NOT Approved = set finalize button to disabled, else make finalize blue
+        if (!this.bookingRequestMid.getStatus().equals("Approved")) {
+            this.finalizeBtnMid.setDisable(true);
+        } else {
+            this.finalizeBtnMid.setTextFill(Paint.valueOf("blue"));
+        }
     }
 
     private void fillLeftBookingRequest() {
@@ -219,6 +235,20 @@ public class AllBookingRequestsController implements Initializable {
         this.passengersAmountLeft.setText("Passengers amount: " + this.bookingRequestLeft.getPassengersAmount());
         this.statusLeft.setText("Status: " + this.bookingRequestLeft.getStatus());
 
+        if (!this.bookingRequestLeft.getStatus().equals("Approved")) {
+            this.finalizeBtnLeft.setDisable(true);
+        }
+
         changeStatusTextColor(this.bookingRequestLeft.getStatus(), this.statusLeft);
+        if (!this.bookingRequestLeft.getStatus().equals("Approved")) {
+            this.finalizeBtnLeft.setDisable(true);
+        }
+        changeStatusTextColor(this.bookingRequestLeft.getStatus(), this.statusLeft);
+        //If NOT Approved = set finalize button to disabled, else make finalize blue
+        if (!this.bookingRequestLeft.getStatus().equals("Approved")) {
+            this.finalizeBtnLeft.setDisable(true);
+        } else {
+            this.finalizeBtnLeft.setTextFill(Paint.valueOf("blue"));
+        }
     }
 }
