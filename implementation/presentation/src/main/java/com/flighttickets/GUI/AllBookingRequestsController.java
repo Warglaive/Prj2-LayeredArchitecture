@@ -150,7 +150,6 @@ public class AllBookingRequestsController implements Initializable {
         this.systemUserManager = systemUserManager;
 
 
-        //TODO: Find way to take data from DB without causing an exception.
         this.bookingRequestLeft = this.bookingRequestManager.getAllByCustomerId(this.loggedInCustomer.getId()).get(0);
         this.bookingRequestMid = this.bookingRequestManager.getAllByCustomerId(this.loggedInCustomer.getId()).get(1);
         this.bookingRequestRight = this.bookingRequestManager.getAllByCustomerId(this.loggedInCustomer.getId()).get(2);
@@ -160,9 +159,7 @@ public class AllBookingRequestsController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         this.anchor.resize(1200, 1200);
-//        this.anchor.setMinSize(1200, 1200);
 
-        //TODO: 1. Get all 3 booking requests and assign to fields
         fillCustomer();
         fillLeftBookingRequest();
         fillMidBookingRequest();
