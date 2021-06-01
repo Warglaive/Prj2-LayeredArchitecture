@@ -45,7 +45,7 @@ public class SystemUserManagerImpl implements SystemUserManager {
      */
     @Override
     public SystemUser createSystemUser(int id, String firstName, String lastName, String email, String password, String address, String role) {
-        //TODO: Validate each property of SystemUser and throw CUSTOM exception if something is wrong.
+      /*  //TODO: Validate each property of SystemUser and throw CUSTOM exception if something is wrong.
         //TODO: Make a array of boolean and throw exception for each isValid == false
 
         boolean isFirstNameValid = this.inputValidator.isNameValid(firstName);
@@ -88,7 +88,7 @@ public class SystemUserManagerImpl implements SystemUserManager {
         }
         if (isAnyInvalid) {
             throw new InvalidInputException(exceptionMessage);
-        }
+        }*/
         return new SystemUser(id, firstName, lastName, email, password, address, role);
     }
 

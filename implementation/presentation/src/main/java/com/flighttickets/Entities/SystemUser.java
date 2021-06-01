@@ -1,10 +1,12 @@
 package com.flighttickets.Entities;
 
+import com.flighttickets.BusinessLogic.Exceptions.InvalidInputException;
+import com.flighttickets.BusinessLogic.RegisterInputValidatorImpl;
 import nl.fontys.sebivenlo.dao.Entity2;
 import nl.fontys.sebivenlo.dao.ID;
 
-public class SystemUser implements Entity2<Integer> {
 
+public class SystemUser implements Entity2<Integer> {
     @ID
     private int systemUserId;
     /**
@@ -29,7 +31,8 @@ public class SystemUser implements Entity2<Integer> {
      * @param role
      */
     public SystemUser(int systemUserId, String firstName, String lastName, String email, String password, String address, String role) {
-        //No validation for input here, because it messes up the Mapping
+        //TODO: Validate
+        validate(firstName, lastName, email, password, address, role);
         this.systemUserId = systemUserId;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -38,6 +41,55 @@ public class SystemUser implements Entity2<Integer> {
         this.address = address;
         this.role = role;
     }
+
+    private void validate(String firstName, String lastName, String email, String password, String address, String role) {
+        RegisterInputValidator inputValidator = new RegisterInputValidatorImpl();
+        //TODO: Validate each property of SystemUser and throw CUSTOM exception if something is wrong.
+        //TODO: Make a array of boolean and throw exception for each isValid == false
+
+        boolean isFirstNameValid = inputValidator.isNameValid(firstName);
+        boolean isLastNameValid = inputValidator.isNameValid(lastName);
+        boolean isEmailValid = inputValidator.isEmailValid(email);
+        boolean isPasswordValid = inputValidator.isPasswordValid(password);
+        boolean isAddressValid = inputValidator.isAddressValid(address);
+        boolean isRoleValid = inputValidator.isRoleValid(role);
+        boolean isAnyInvalid = false;
+        //Add to string exception msg for each of the invalid input arguments
+        String exceptionMessage = "";
+        if (!isFirstNameValid) {
+            exceptionMessage += "Invalid first name!";
+            isAnyInvalid = true;
+        }
+
+        if (!isLastNameValid) {
+            exceptionMessage = "Invalid last name!";
+            isAnyInvalid = true;
+        }
+
+        if (!isEmailValid) {
+            exceptionMessage = "Invalid email address!";
+            isAnyInvalid = true;
+        }
+
+        if (!isPasswordValid) {
+            exceptionMessage = "Invalid password!";
+            isAnyInvalid = true;
+        }
+
+        if (!isAddressValid) {
+            exceptionMessage = "Invalid address!";
+            isAnyInvalid = true;
+        }
+
+        if (!isRoleValid) {
+            exceptionMessage = "Invalid role!";
+            isAnyInvalid = true;
+        }
+        if (isAnyInvalid) {
+            throw new InvalidInputException(exceptionMessage);
+        }
+    }
+
 
     /**
      * needed for the Mapper
