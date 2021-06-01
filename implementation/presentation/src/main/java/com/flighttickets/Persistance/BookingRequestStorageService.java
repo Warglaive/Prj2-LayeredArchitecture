@@ -58,13 +58,13 @@ public class BookingRequestStorageService {
     public void declineRequest(BookingRequest toBeDeclined){
         toBeDeclined.setStatus("Declined");
         this.bookingRequestDAO.update(toBeDeclined);
-        System.out.println("Booking request" + toBeDeclined.toString() + "is declined!");
+        System.out.println(toBeDeclined.toString() + "is declined!");
         //TODO Write message to user properly - JL
     }
 
     public void acceptRequest(BookingRequest toBeAccepted){
         toBeAccepted.setStatus("Accepted");
         this.bookingRequestDAO.update(toBeAccepted);
-        System.out.println("Booking request" + toBeAccepted.toString() + "is accepted!");
+        System.out.println(toBeAccepted.toString() + "is accepted!");
     }
 }
