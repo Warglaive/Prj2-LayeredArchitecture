@@ -99,6 +99,7 @@ public class BookingRequestOverviewController implements Initializable {
 
     public BookingRequest getSelectedBookingRequest(){
         BookingRequest tobeHandled = selection_list.getSelectionModel().getSelectedItem();
+        //Returns so it can be used in the next scene - JL
         return tobeHandled;
     }
 

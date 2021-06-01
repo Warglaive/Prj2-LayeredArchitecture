@@ -121,8 +121,15 @@ public class BookingRequestHandleController implements Initializable {
     public void requestHandler(ActionEvent event) throws IOException, SQLException, ClassNotFoundException {
         Booking newBooking = new Booking(0, 2,3,LocalDate.now());
         //Add booking to ticket.
-        this.bookingManager.add(newBooking);
-        System.out.println("added new booking");
+        //Creating a new booking returns the id of that new booking. This is inserted to the tickets.
+        int result = this.bookingManager.add(newBooking);
+        //Testing result
+        System.out.println("Booking made with id= " + result);
+        Ticket departureflight = departure_ticket_view.getSelectionModel().getSelectedItem();
+        Ticket returnflight = return_ticket_view.getSelectionModel().getSelectedItem();
+        this.ticketManager.sell(result, departureflight);
+        System.out.println(departureflight.toString());
+        System.out.println(returnflight.toString());
         //this.sceneManagerSupplier.get().changeScene("BookingRequestOverview");
         //TODO add actual available flights on date and tickets to db - JL
     }
