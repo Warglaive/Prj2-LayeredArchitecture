@@ -1,6 +1,5 @@
 package com.flighttickets.BusinessLogic;
 
-import com.flighttickets.BusinessLogic.Exceptions.InvalidInputException;
 import com.flighttickets.BusinessLogic.Exceptions.SystemUserStorageException;
 import com.flighttickets.Entities.RegisterInputValidator;
 import com.flighttickets.Entities.SystemUser;
@@ -12,6 +11,9 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * this class is used for Business logic and NO Sql is written here.
+ */
 public class SystemUserManagerImpl implements SystemUserManager {
 
     //TODO: Add validator class to validate user input
