@@ -220,7 +220,6 @@ public class SystemUserManagerImplTest {
         assertThatCode(code).isExactlyInstanceOf(InvalidInputException.class).hasMessage("Invalid role!");
     }
 
-
     @Test
     void getByEmailDataBaseTest() throws ClassNotFoundException, SystemUserStorageException, AccountNotFoundException {
         //TODO: DB Should not be empty! - Testing like this because insert and then getByEmail causes problems with the Id (because it is autoincrement in the code)
@@ -233,7 +232,7 @@ public class SystemUserManagerImplTest {
     }
 
     @Test
-    void addTest() throws ClassNotFoundException, SystemUserStorageException, AccountNotFoundException, SQLException {
+    void addDatabaseTest() throws ClassNotFoundException, SystemUserStorageException, AccountNotFoundException, SQLException {
         int id = 0;
         String firstName = "Svetoslav";
         String lastName = "Stoyanov";
