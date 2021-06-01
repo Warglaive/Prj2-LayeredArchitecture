@@ -210,7 +210,7 @@ public class AllBookingRequestsController implements Initializable {
         } else if (this.bookingRequestMid.getStatus().equalsIgnoreCase("declined")) {
             this.statusMid.setFill(Paint.valueOf("red"));
         } else {
-            this.statusMid.setFill(Paint.valueOf("yellow"));
+            this.statusMid.setFill(Paint.valueOf("orange"));
         }
     }
 
@@ -229,7 +229,7 @@ public class AllBookingRequestsController implements Initializable {
         } else if (this.bookingRequestLeft.getStatus().equalsIgnoreCase("declined")) {
             this.statusLeft.setFill(Paint.valueOf("red"));
         } else {
-            this.statusLeft.setFill(Paint.valueOf("yellow"));
+            this.statusLeft.setFill(Paint.valueOf("orange"));
         }
     }
 
