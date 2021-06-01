@@ -22,6 +22,7 @@ public class BookingRequestManagerImpl implements BookingRequestManager {
         return new BookingRequest(requestId, customerId, salesOfficerId, departureDestination, arrivalDestination, departureDate, returnDate, passengersAmount, status);
     }
 
+    @Override
     public void setBookingRequestStorageService(BookingRequestStorageService bookingRequestStorageService) {
         this.bookingRequestStorageService = bookingRequestStorageService;
 
@@ -46,8 +47,8 @@ public class BookingRequestManagerImpl implements BookingRequestManager {
     public void declineRequest(BookingRequest toBeDeclined) {
         this.bookingRequestStorageService.declineRequest(toBeDeclined);
     }
-	
-	@Override
+
+    @Override
     public BookingRequestStorageService getBookingRequestStorageService() {
         return bookingRequestStorageService;
     }
