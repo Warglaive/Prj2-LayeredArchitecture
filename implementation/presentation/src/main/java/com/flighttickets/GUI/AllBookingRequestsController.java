@@ -184,12 +184,16 @@ public class AllBookingRequestsController implements Initializable {
         this.statusRight.setText("Status: " + this.bookingRequestRight.getStatus());
 
         //TODO: USe that for changing color
-        if (this.bookingRequestRight.getStatus().equalsIgnoreCase("approved")) {
-            this.statusRight.setFill(Paint.valueOf("green"));
-        } else if (this.bookingRequestRight.getStatus().equalsIgnoreCase("declined")) {
-            this.statusRight.setFill(Paint.valueOf("red"));
+        setStatusColor(this.bookingRequestRight, this.statusRight, this.statusRight);
+    }
+
+    private void setStatusColor(BookingRequest bookingRequestRight, Text statusRight, Text statusRight2) {
+        if (bookingRequestRight.getStatus().equalsIgnoreCase("approved")) {
+            statusRight.setFill(Paint.valueOf("green"));
+        } else if (bookingRequestRight.getStatus().equalsIgnoreCase("declined")) {
+            statusRight2.setFill(Paint.valueOf("red"));
         } else {
-            this.statusRight.setFill(Paint.valueOf("orange"));
+            statusRight2.setFill(Paint.valueOf("orange"));
         }
     }
 
@@ -202,13 +206,7 @@ public class AllBookingRequestsController implements Initializable {
         this.passengersAmountMid.setText("Passengers amount: " + this.bookingRequestMid.getPassengersAmount());
         this.statusMid.setText("Status: " + this.bookingRequestMid.getStatus());
 
-        if (this.bookingRequestMid.getStatus().equalsIgnoreCase("approved")) {
-            this.statusMid.setFill(Paint.valueOf("green"));
-        } else if (this.bookingRequestMid.getStatus().equalsIgnoreCase("declined")) {
-            this.statusMid.setFill(Paint.valueOf("red"));
-        } else {
-            this.statusMid.setFill(Paint.valueOf("orange"));
-        }
+        setStatusColor(this.bookingRequestMid, this.statusMid, this.statusMid);
     }
 
     private void fillLeftBookingRequest() {
@@ -221,13 +219,7 @@ public class AllBookingRequestsController implements Initializable {
         this.statusLeft.setText("Status: " + this.bookingRequestLeft.getStatus());
 
 
-        if (this.bookingRequestLeft.getStatus().equalsIgnoreCase("approved")) {
-            this.statusMid.setFill(Paint.valueOf("green"));
-        } else if (this.bookingRequestLeft.getStatus().equalsIgnoreCase("declined")) {
-            this.statusLeft.setFill(Paint.valueOf("red"));
-        } else {
-            this.statusLeft.setFill(Paint.valueOf("orange"));
-        }
+        setStatusColor(this.bookingRequestLeft, this.statusLeft, this.statusLeft);
     }
 
 }
