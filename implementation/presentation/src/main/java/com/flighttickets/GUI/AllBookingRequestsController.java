@@ -174,6 +174,16 @@ public class AllBookingRequestsController implements Initializable {
 
     }
 
+    private void changeStatusTextColor(String toCheckStatus, Text toFillStatus) {
+        if (toCheckStatus.equalsIgnoreCase("approved")) {
+            toFillStatus.setFill(Paint.valueOf("green"));
+        } else if (toCheckStatus.equalsIgnoreCase("declined")) {
+            toFillStatus.setFill(Paint.valueOf("red"));
+        } else {
+            toFillStatus.setFill(Paint.valueOf("orange"));
+        }
+    }
+
     private void fillRightBookingRequest() {
         this.deptDateRight.setText("Departure date: " + this.bookingRequestRight.getDepartureDate());
         this.returnDateRight.setText("Return date: " + this.bookingRequestRight.getReturnDate());
@@ -183,19 +193,10 @@ public class AllBookingRequestsController implements Initializable {
         this.passengersAmountRight.setText("Passengers amount: " + this.bookingRequestRight.getPassengersAmount());
         this.statusRight.setText("Status: " + this.bookingRequestRight.getStatus());
 
-        //TODO: USe that for changing color
-        setStatusColor(this.bookingRequestRight, this.statusRight, this.statusRight);
+        changeStatusTextColor(this.bookingRequestRight.getStatus(), this.statusRight);
+
     }
 
-    private void setStatusColor(BookingRequest bookingRequestRight, Text statusRight, Text statusRight2) {
-        if (bookingRequestRight.getStatus().equalsIgnoreCase("approved")) {
-            statusRight.setFill(Paint.valueOf("green"));
-        } else if (bookingRequestRight.getStatus().equalsIgnoreCase("declined")) {
-            statusRight2.setFill(Paint.valueOf("red"));
-        } else {
-            statusRight2.setFill(Paint.valueOf("orange"));
-        }
-    }
 
     private void fillMidBookingRequest() {
         this.deptDateMid.setText("Departure date: " + this.bookingRequestMid.getDepartureDate());
@@ -206,7 +207,7 @@ public class AllBookingRequestsController implements Initializable {
         this.passengersAmountMid.setText("Passengers amount: " + this.bookingRequestMid.getPassengersAmount());
         this.statusMid.setText("Status: " + this.bookingRequestMid.getStatus());
 
-        setStatusColor(this.bookingRequestMid, this.statusMid, this.statusMid);
+        changeStatusTextColor(this.bookingRequestMid.getStatus(), this.statusMid);
     }
 
     private void fillLeftBookingRequest() {
@@ -218,8 +219,6 @@ public class AllBookingRequestsController implements Initializable {
         this.passengersAmountLeft.setText("Passengers amount: " + this.bookingRequestLeft.getPassengersAmount());
         this.statusLeft.setText("Status: " + this.bookingRequestLeft.getStatus());
 
-
-        setStatusColor(this.bookingRequestLeft, this.statusLeft, this.statusLeft);
+        changeStatusTextColor(this.bookingRequestLeft.getStatus(), this.statusLeft);
     }
-
 }
