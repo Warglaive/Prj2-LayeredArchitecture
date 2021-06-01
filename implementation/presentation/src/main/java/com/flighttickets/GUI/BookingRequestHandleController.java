@@ -119,20 +119,25 @@ public class BookingRequestHandleController implements Initializable {
 
     @FXML
     public void requestHandler(ActionEvent event) throws IOException, SQLException, ClassNotFoundException {
-        Booking newBooking = new Booking(0, 2,3,LocalDate.now());
+        Booking newBooking = new Booking(0, currentRequest.getCustomerId(),3,LocalDate.now());
         //Add booking to ticket.
-        //Creating a new booking returns the id of that new booking. This is inserted to the tickets.
+        //Creating a new booking returns the id of that new booking. This is inserted to the tickets. - JL
         int resultBookingId = this.bookingManager.add(newBooking);
         //Testing result
         System.out.println("Booking made with id= " + resultBookingId);
+        //Gets the selected tickets from the tableview - JL
         Ticket departureflight = departure_ticket_view.getSelectionModel().getSelectedItem();
         Ticket returnflight = return_ticket_view.getSelectionModel().getSelectedItem();
         this.ticketManager.sell(resultBookingId, departureflight);
         this.ticketManager.sell(resultBookingId, returnflight);
+        this.bookingRequestManager.acceptRequest(currentRequest);
+
+        //Testing if all worked - JL
         System.out.println(departureflight.toString());
         System.out.println(returnflight.toString());
-        //this.sceneManagerSupplier.get().changeScene("BookingRequestOverview");
-        //TODO add actual available flights on date and tickets to db - JL
+        //Return to main after handling request - JL
+        this.sceneManagerSupplier.get().changeScene("BookingRequestOverview");
+        //TODO add available tickets on date - JL
     }
 
     //TODO add decline here instead of Overview - JL
@@ -141,6 +146,7 @@ public class BookingRequestHandleController implements Initializable {
         BookingRequest declined = currentRequest;
         this.bookingRequestManager.declineRequest(declined);
         //TODO Implement popup window and redirect page to show deletion has been done - JL
+        this.sceneManagerSupplier.get().changeScene("BookingRequestOverview");
     }
 
 
