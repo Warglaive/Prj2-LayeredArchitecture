@@ -126,12 +126,28 @@ public class AllBookingRequestsController implements Initializable {
 
     @FXML
     void cancelBookingRequest() {
+        //TODO:
+    }
 
+    private BookingRequest toBeFinalized;
+
+
+    @FXML
+    public void finalizeBookingRequestLeft() {
+        this.toBeFinalized = this.bookingRequestLeft;
+        this.sceneManagerSupplier.get().changeScene("FinalizeBookingRequest");
     }
 
     @FXML
-    void finalizeBookingRequest() {
+    public void finalizeBookingRequestMid() {
+        this.toBeFinalized = this.bookingRequestMid;
+        this.sceneManagerSupplier.get().changeScene("FinalizeBookingRequest");
+    }
 
+    @FXML
+    public void finalizeBookingRequestRight() {
+        this.toBeFinalized = this.bookingRequestRight;
+        this.sceneManagerSupplier.get().changeScene("FinalizeBookingRequest");
     }
 
 
@@ -257,5 +273,13 @@ public class AllBookingRequestsController implements Initializable {
 
     public void backToView() {
         this.sceneManagerSupplier.get().changeScene("CustomerMainView");
+    }
+
+    public BookingRequest getToBeFinalized() {
+        return toBeFinalized;
+    }
+
+    public void setToBeFinalized(BookingRequest toBeFinalized) {
+        this.toBeFinalized = toBeFinalized;
     }
 }
