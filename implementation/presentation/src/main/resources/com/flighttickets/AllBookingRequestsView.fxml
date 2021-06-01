@@ -63,5 +63,5 @@
    <Text fx:id="fName" layoutX="331.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First name" />
    <Text fx:id="lName" layoutX="483.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name" />
    <Text fx:id="custEmail" layoutX="641.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" />
-   <Button fx:id="backBtn" layoutX="750.0" layoutY="494.0" mnemonicParsing="false" onAction="#backToView" text="Back" />
+   <Button fx:id="backBtn" layoutX="750.0" layoutY="494.0" mnemonicParsing="false" onAction="#backToView" text="Go Back" />
 </AnchorPane>
