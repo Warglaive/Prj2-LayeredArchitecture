@@ -1,7 +1,7 @@
 package com.flighttickets;
 
-import com.flighttickets.Entities.BusinessLogicAPI;
-import com.flighttickets.Entities.BusinessLogicImplementationProvider;
+import com.flighttickets.BusinessLogic.BusinessLogicAPI;
+import com.flighttickets.BusinessLogic.BusinessLogicImplementationProvider;
 import com.flighttickets.Persistance.PersistenceAPI;
 import com.flighttickets.Persistance.PersistenceImplementationProvider;
 import nl.fontys.sebivenlo.dao.pg.PGDAOFactory;
