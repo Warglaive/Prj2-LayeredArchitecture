@@ -19,7 +19,6 @@
                </columns></TableView>
             <Button fx:id="back_btn" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backHandler" text="Return to main" />
             <Button fx:id="handle_btn" layoutX="767.0" layoutY="519.0" mnemonicParsing="false" onAction="#handleRequestHandler" prefHeight="71.0" prefWidth="136.0" text="Handle request" />
-            <Button fx:id="decline_btn" layoutX="767.0" layoutY="437.0" mnemonicParsing="false" onAction="#declineRequestHandler" prefHeight="71.0" prefWidth="136.0" text="Decline request" />
          </children>
     </AnchorPane>
   </children>

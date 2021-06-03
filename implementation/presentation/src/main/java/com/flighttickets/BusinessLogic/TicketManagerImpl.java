@@ -40,5 +40,13 @@ public class TicketManagerImpl implements TicketManager {
         this.ticketStorageService = ticketStorageService;
     }
 
+    @Override
+    public List<Ticket> getOpenTickets(String destination) {
+        return ticketStorageService.getOpenTickets(destination);
+    }
+
+    @Override
+    public Ticket sell(int bookingId, Ticket toBeSold) { return ticketStorageService.sellTicket(bookingId, toBeSold);}
+
 
 }

@@ -1,9 +1,7 @@
-
 package com.flighttickets.GUI;
 
-import com.flighttickets.Entities.Route;
-import com.flighttickets.Entities.RouteManager;
-import com.flighttickets.Entities.SystemUser;
+
+import com.flighttickets.Entities.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -22,10 +20,8 @@ public class RouteController implements Initializable {
     /*
     @FXML
     private Button backButton;
-
     @FXML
     private Button createRouteButton;
-
     @FXML
     private Button createFlightButton;
     */
@@ -64,5 +60,4 @@ public class RouteController implements Initializable {
     public void backHandler(ActionEvent event) throws IOException {
         this.sceneManagerSupplier.get().changeScene("login");
     }
-
 }

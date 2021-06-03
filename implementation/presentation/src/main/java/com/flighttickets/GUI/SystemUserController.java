@@ -134,7 +134,6 @@ public class SystemUserController implements Initializable {
             this.sceneManagerSupplier.get().changeScene("salesOfficer");
 
         } else if (loggedInSystemUser.getRole().equals("Planner")) {
-            //TODO create customer main menu - jl
             this.sceneManagerSupplier.get().changeScene("currentRoutes");
 
         } else if (loggedInSystemUser.getRole().equals("SalesEmployee")) {
@@ -163,7 +162,6 @@ public class SystemUserController implements Initializable {
      */
     public void viewMain() {
         this.sceneManagerSupplier.get().changeScene("Main");
-
     }
 
     /**
@@ -174,7 +172,6 @@ public class SystemUserController implements Initializable {
     @FXML
     public void viewRegister() {
         this.sceneManagerSupplier.get().changeScene("Register");
-
     }
 
     /**

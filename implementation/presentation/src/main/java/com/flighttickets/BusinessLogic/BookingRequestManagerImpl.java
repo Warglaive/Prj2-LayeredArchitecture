@@ -49,6 +49,11 @@ public class BookingRequestManagerImpl implements BookingRequestManager {
     }
 
     @Override
+    public void acceptRequest(BookingRequest toBeAccepted) {
+        this.bookingRequestStorageService.acceptRequest(toBeAccepted);
+    }
+
+    @Override
     public BookingRequestStorageService getBookingRequestStorageService() {
         return bookingRequestStorageService;
     }

@@ -1,4 +1,3 @@
-
 package com.flighttickets.GUI;
 
 import com.flighttickets.Entities.*;
@@ -7,8 +6,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
@@ -40,6 +38,7 @@ public class CreateRouteController implements Initializable {
     private TableColumn cityCol1;
     @FXML
     private TableColumn countryCol1;
+
     /*
     @FXML
     private Button backButton;
@@ -87,7 +86,7 @@ public class CreateRouteController implements Initializable {
         Integer idPlanner = this.planner.getId();
         Route route = new Route(initialId, startingId, endId, idPlanner);
         this.routeManager.add(route);
-        //this.sceneManagerSupplier.get().changeScene("currentRoutes");
+        this.sceneManagerSupplier.get().changeScene("currentRoutes");
     }
 
     @FXML
