@@ -30,7 +30,7 @@ public class RouteManagerImpl implements RouteManager {
     }
 
     @Override
-    public void add(Route route) throws SQLException, ClassNotFoundException {
+    public void add(Route route) {
         this.routeStorageService.insert(route);
     }
 

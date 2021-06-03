@@ -77,7 +77,7 @@ public class CreateRouteController implements Initializable {
     }
 
     @FXML
-    public void createRouteHandler(ActionEvent event) throws IOException, SQLException, ClassNotFoundException {
+    public void createRouteHandler(ActionEvent event) throws IOException {
         Integer initialId = 0;
         Airport starting = airportsListSt.getSelectionModel().getSelectedItem();
         Integer startingId = starting.getId();

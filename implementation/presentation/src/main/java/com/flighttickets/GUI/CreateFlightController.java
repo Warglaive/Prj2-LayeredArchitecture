@@ -13,7 +13,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -85,7 +84,7 @@ public class CreateFlightController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        List<Route> listOfRoutes = this.routeManager.getByPlannerId(1);
+        List<Route> listOfRoutes = this.routeManager.getByPlannerId(this.planner.getId());
         ObservableList<Route> observableList = FXCollections.observableList(listOfRoutes);
         this.routesList.setItems(observableList);
         this.routeIdCol.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -119,7 +118,7 @@ public class CreateFlightController implements Initializable {
     }
 
     @FXML
-    public void submitHandler() throws SQLException, ClassNotFoundException {
+    public void submitHandler() throws IOException {
         int newFlightId = 0;
         LocalDate localDate = this.datePicker.getValue();
         Route selectedRoute = this.routesList.getSelectionModel().getSelectedItem();
@@ -127,8 +126,8 @@ public class CreateFlightController implements Initializable {
         Plane selectedPlane = this.planesList.getSelectionModel().getSelectedItem();
         int selectedPlaneId = selectedPlane.getId();
 
-        Flight createdFlight = new Flight(newFlightId, localDate, selectedRouteId, selectedPlaneId);
-        this.flightManager.add(createdFlight);
-        this.sceneManagerSupplier.get().changeScene("currentRoutes");
+            Flight createdFlight = new Flight(newFlightId, localDate, selectedRouteId, selectedPlaneId);
+            this.flightManager.add(createdFlight);
+            this.sceneManagerSupplier.get().changeScene("currentRoutes");
     }
 }

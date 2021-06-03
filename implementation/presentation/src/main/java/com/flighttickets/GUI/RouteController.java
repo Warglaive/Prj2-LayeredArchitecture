@@ -41,7 +41,7 @@ public class RouteController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        List<Route> listOfRoutes = this.routeManager.getByPlannerId(1);
+        List<Route> listOfRoutes = this.routeManager.getByPlannerId(this.planner.getId());
         ObservableList<Route> observableList = FXCollections.observableList(listOfRoutes);
         routesList.setItems(observableList);
     }
