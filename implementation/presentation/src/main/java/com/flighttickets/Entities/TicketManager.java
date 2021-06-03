@@ -40,4 +40,11 @@ public interface TicketManager {
     void edit(int id, Ticket ticket) throws SQLException, ClassNotFoundException;
 
     void setTicketStorageService(TicketStorageService ticketStorageService);
+
+    /**
+     * Get a list of all tickets unassigned
+     */
+    List<Ticket> getOpenTickets(String destination);
+
+    Ticket sell(int bookingId, Ticket toBeSold);
 }

@@ -16,5 +16,5 @@ public class BookingStorageService {
         this.bookingDAO = this.pgdaoFactory.createDao(Booking.class);
     }
 
-    public void insert(Booking booking) {this.bookingDAO.save(booking);}
+    public int insert(Booking booking) {this.bookingDAO.save(booking); return this.bookingDAO.lastId();}
 }

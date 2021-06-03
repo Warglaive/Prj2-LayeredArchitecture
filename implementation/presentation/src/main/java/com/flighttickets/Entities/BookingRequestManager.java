@@ -60,4 +60,6 @@ public interface BookingRequestManager {
      * @param toBeDeclined
      */
     void declineRequest(BookingRequest toBeDeclined);
+
+    void acceptRequest(BookingRequest toBeAccepted);
 }
