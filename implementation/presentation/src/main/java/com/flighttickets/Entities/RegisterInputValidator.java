@@ -1,4 +1,4 @@
-package com.flighttickets.BusinessLogic;
+package com.flighttickets.Entities;
 
 public interface RegisterInputValidator {
 
@@ -10,4 +10,5 @@ public interface RegisterInputValidator {
 
     boolean isAddressValid(String address);
 
+    boolean isRoleValid(String role);
 }

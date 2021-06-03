@@ -1,14 +1,16 @@
 package com.flighttickets.Entities;
 
+import com.flighttickets.BusinessLogic.Exceptions.InvalidInputException;
+import com.flighttickets.BusinessLogic.RegisterInputValidatorImpl;
 import nl.fontys.sebivenlo.dao.Entity2;
 import nl.fontys.sebivenlo.dao.ID;
 
-public class SystemUser implements Entity2<Integer> {
 
+public class SystemUser implements Entity2<Integer> {
     @ID
     private int systemUserId;
     /**
-     * Fields to be used to encrypt pass, validate names etc.
+     * Fields to be used to encrypt pass, validateInput names etc.
      */
     private String firstName;
     private String lastName;
@@ -29,7 +31,7 @@ public class SystemUser implements Entity2<Integer> {
      * @param role
      */
     public SystemUser(int systemUserId, String firstName, String lastName, String email, String password, String address, String role) {
-        //No validation for input here, because it messes up the Mapping
+        validateInput(firstName, lastName, email, password, address, role);
         this.systemUserId = systemUserId;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -38,6 +40,52 @@ public class SystemUser implements Entity2<Integer> {
         this.address = address;
         this.role = role;
     }
+
+    private void validateInput(String firstName, String lastName, String email, String password, String address, String role) {
+        RegisterInputValidator inputValidator = new RegisterInputValidatorImpl();
+        boolean isFirstNameValid = inputValidator.isNameValid(firstName);
+        boolean isLastNameValid = inputValidator.isNameValid(lastName);
+        boolean isEmailValid = inputValidator.isEmailValid(email);
+        boolean isPasswordValid = inputValidator.isPasswordValid(password);
+        boolean isAddressValid = inputValidator.isAddressValid(address);
+        boolean isRoleValid = inputValidator.isRoleValid(role);
+        boolean isAnyInvalid = false;
+        //Add to string exception msg for each of the invalid input arguments
+        String exceptionMessage = "";
+        if (!isFirstNameValid) {
+            exceptionMessage += "Invalid first name!";
+            isAnyInvalid = true;
+        }
+
+        if (!isLastNameValid) {
+            exceptionMessage = "Invalid last name!";
+            isAnyInvalid = true;
+        }
+
+        if (!isEmailValid) {
+            exceptionMessage = "Invalid email address!";
+            isAnyInvalid = true;
+        }
+
+        if (!isPasswordValid) {
+            exceptionMessage = "Invalid password!";
+            isAnyInvalid = true;
+        }
+
+        if (!isAddressValid) {
+            exceptionMessage = "Invalid address!";
+            isAnyInvalid = true;
+        }
+
+        if (!isRoleValid) {
+            exceptionMessage = "Invalid role!";
+            isAnyInvalid = true;
+        }
+        if (isAnyInvalid) {
+            throw new InvalidInputException(exceptionMessage);
+        }
+    }
+
 
     /**
      * needed for the Mapper

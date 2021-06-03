@@ -1,11 +1,12 @@
 package com.flighttickets.Persistance;
 
-
+import com.flighttickets.BusinessLogic.Exceptions.SystemUserStorageException;
 import com.flighttickets.Entities.SystemUser;
 import com.flighttickets.Entities.SystemUserMapper;
 import nl.fontys.sebivenlo.dao.pg.PGDAO;
 import nl.fontys.sebivenlo.dao.pg.PGDAOFactory;
 
+import javax.security.auth.login.AccountNotFoundException;
 import java.util.List;
 
 public class SystemUserStorageService {
@@ -24,6 +25,10 @@ public class SystemUserStorageService {
         this.systemUserDAO = this.pgdaoFactory.createDao(SystemUser.class);
     }
 
+    public int getCount() {
+        return this.systemUserDAO.size();
+    }
+
     /**
      * Save a SystemUser object to the database using a DataAccessObject
      *
@@ -31,6 +36,15 @@ public class SystemUserStorageService {
      */
     public void insert(SystemUser SystemUser) {
         this.systemUserDAO.save(SystemUser);
+    }
+
+    public SystemUser getByEmail(String email) throws AccountNotFoundException, SystemUserStorageException {
+        List<SystemUser> customerList = systemUserDAO.anyQuery("SELECT * FROM " + this.tableName + " WHERE email= '" + email + "' ");
+        if (customerList.isEmpty()) {
+            throw new AccountNotFoundException("no such " + email);
+        } else if (customerList.size() > 1) {
+            throw new SystemUserStorageException("Duplicate emails exist in the Database!");
+        } else return customerList.get(0);
     }
 
     public SystemUser retrieve(String email, String password) {
@@ -49,9 +63,19 @@ public class SystemUserStorageService {
         }
     }
 
+    /**
+     * @return all registered users as a List
+     */
     public List<SystemUser> getAll() {
         return this.systemUserDAO.getAll();
     }
+
+    public List<SystemUser> getAllByRole(String role) {
+        String query = "select * from systemuser \n" +
+                "where role =" + role;
+        return this.systemUserDAO.anyQuery(query);
+    }
+
 
     //TODO: Make method to retrieve lowest Id number and biggest Id number for salesOfficer
     public int getLowestSalesOfficerId() {
@@ -62,7 +86,6 @@ public class SystemUserStorageService {
                 "order by systemuserid asc\n" +
                 "limit 1\n";
         List<SystemUser> result = this.systemUserDAO.anyQuery(query);
-
         return result.get(0).getId();
     }
 
@@ -76,5 +99,10 @@ public class SystemUserStorageService {
         List<SystemUser> result = this.systemUserDAO.anyQuery(query);
 
         return result.get(0).getId();
+    }
+
+    public SystemUser getById(int id) {
+        List<SystemUser> customerList = systemUserDAO.anyQuery("SELECT * FROM " + this.tableName + " WHERE systemuserid= '" + id + "' ");
+        return customerList.get(0);
     }
 }

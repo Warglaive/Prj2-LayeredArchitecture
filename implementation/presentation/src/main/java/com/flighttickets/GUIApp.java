@@ -1,7 +1,7 @@
 package com.flighttickets;
 
 
-import com.flighttickets.BusinessLogic.BusinessLogicAPI;
+import com.flighttickets.Entities.BusinessLogicAPI;
 import com.flighttickets.GUI.*;
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -32,7 +32,7 @@ public class GUIApp extends Application {
      * instantiate controller so I can take the selected BkRequest when changing views
      */
     BookingRequestOverviewController bookingRequestOverviewController;
-
+    AllBookingRequestsController allBookingRequestsController;
 
     /**
      * Add arguments for each Controller, EntityManager
@@ -50,9 +50,8 @@ public class GUIApp extends Application {
                 this.systemUserController = new SystemUserController(this::getSceneManager, this.businessLogicAPI.getSystemUserManager(), this.businessLogicAPI.getBookingRequestManager());
                 return this.systemUserController;
             case "com.flighttickets.GUI.BookingRequestOverviewController":
-              this.bookingRequestOverviewController = new BookingRequestOverviewController(this::getSceneManager, this.systemUserController.getLoggedInCustomer(), this.businessLogicAPI.getSystemUserManager(), this.businessLogicAPI.getBookingRequestManager());
+                this.bookingRequestOverviewController = new BookingRequestOverviewController(this::getSceneManager, this.systemUserController.getLoggedInCustomer(), this.businessLogicAPI.getSystemUserManager(), this.businessLogicAPI.getBookingRequestManager());
                 return this.bookingRequestOverviewController;
-
             case "com.flighttickets.GUI.RouteController":
                 return new RouteController(this::getSceneManager, this.systemUserController.getLoggedInCustomer(), this.businessLogicAPI.getRouteManager());
             case "com.flighttickets.GUI.CreateRouteController":
@@ -69,8 +68,10 @@ public class GUIApp extends Application {
             case "com.flighttickets.GUI.CustomerMainViewController":
                 return new CustomerMainViewController(this::getSceneManager, this.systemUserController.getLoggedInCustomer(), this.businessLogicAPI.getBookingRequestManager());
             case "com.flighttickets.GUI.AllBookingRequestsController":
-                return new AllBookingRequestsController(this::getSceneManager, this.systemUserController.getLoggedInCustomer(), this.businessLogicAPI.getBookingRequestManager(), this.businessLogicAPI.getSystemUserManager());
-
+                this.allBookingRequestsController = new AllBookingRequestsController(this::getSceneManager, this.systemUserController.getLoggedInCustomer(), this.businessLogicAPI.getBookingRequestManager(), this.businessLogicAPI.getSystemUserManager());
+                return this.allBookingRequestsController;
+            case "com.flighttickets.GUI.FinalizeBookingRequestController":
+                return new FinalizeBookingRequestController(this::getSceneManager, this.systemUserController.getLoggedInCustomer(), this.allBookingRequestsController.getToBeFinalized(), this.businessLogicAPI.getBookingManager());
             //TODO: Add proper Default switch case
             default:
                 return new MainController(this::getSceneManager, this.businessLogicAPI.getSystemUserManager());
@@ -120,7 +121,8 @@ public class GUIApp extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        sceneManager.displayOn(stage, 640, 480);
+        sceneManager.displayOn(stage, 1000, 650);
+
     }
 
     public SceneManager getSceneManager() {

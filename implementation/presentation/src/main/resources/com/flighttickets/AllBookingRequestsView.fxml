@@ -7,66 +7,61 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="anchor" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.flighttickets.GUI.AllBookingRequestsController">
-   <children>
-      <VBox fx:id="vboxLeft" alignment="TOP_CENTER" layoutX="61.0" layoutY="268.0" prefHeight="226.0" prefWidth="191.0">
-         <children>
-            <Text fx:id="deptDateLeft" strokeType="OUTSIDE" strokeWidth="0.0" text="departure date: " />
-            <Text fx:id="returnDateLeft" strokeType="OUTSIDE" strokeWidth="0.0" text="return date: " />
-            <Text fx:id="departureDestinationLeft" strokeType="OUTSIDE" strokeWidth="0.0" text="departure from:" />
-            <Text fx:id="destinationLeft" strokeType="OUTSIDE" strokeWidth="0.0" text="destination:" />
-            <Text fx:id="salesOfficerLeft" strokeType="OUTSIDE" strokeWidth="0.0" text="sales officer:" />
-            <Text fx:id="passengersAmountLeft" strokeType="OUTSIDE" strokeWidth="0.0" text="passengers amount:" />
-            <Text fx:id="statusLeft" fill="#d74141" strokeType="OUTSIDE" strokeWidth="0.0" text="status:" wrappingWidth="153.212890625">
-               <font>
-                  <Font size="22.0" />
-               </font>
-            </Text>
-            <Button fx:id="finalizeBtnLeft" mnemonicParsing="false" onAction="#finalizeBookingRequest" text="Finalize" />
-            <Button fx:id="cancelBtnLeft" mnemonicParsing="false" onAction="#cancelBookingRequest" text="Cancel" />
-         </children>
-      </VBox>
-      <VBox fx:id="vboxMid" alignment="TOP_CENTER" layoutX="415.0" layoutY="268.0" prefHeight="226.0" prefWidth="191.0">
-         <children>
-            <Text fx:id="deptDateMid" strokeType="OUTSIDE" strokeWidth="0.0" text="departure date: " />
-            <Text fx:id="returnDateMid" strokeType="OUTSIDE" strokeWidth="0.0" text="return date: " />
-            <Text fx:id="departureDestinationMid" strokeType="OUTSIDE" strokeWidth="0.0" text="departure from:" />
-            <Text fx:id="destinationMid" strokeType="OUTSIDE" strokeWidth="0.0" text="destination:" />
-            <Text fx:id="salesOfficerMid" strokeType="OUTSIDE" strokeWidth="0.0" text="sales officer:" />
-            <Text fx:id="passengersAmountMid" strokeType="OUTSIDE" strokeWidth="0.0" text="passengers amount:" />
-            <Text fx:id="statusMid" strokeType="OUTSIDE" strokeWidth="0.0" text="status:" wrappingWidth="153.212890625">
-               <font>
-                  <Font size="22.0" />
-               </font>
-            </Text>
-            <Button fx:id="finalizeBtnMid" mnemonicParsing="false" onAction="#finalizeBookingRequest" text="Finalize" />
-            <Button fx:id="cancelBtnMid" mnemonicParsing="false" onAction="#cancelBookingRequest" text="Cancel" />
-         </children>
-      </VBox>
-      <VBox fx:id="vboxRight" alignment="TOP_CENTER" layoutX="706.0" layoutY="268.0" prefHeight="226.0" prefWidth="191.0">
-         <children>
-            <Text fx:id="deptDateRight" strokeType="OUTSIDE" strokeWidth="0.0" text="departure date: " />
-            <Text fx:id="returnDateRight" strokeType="OUTSIDE" strokeWidth="0.0" text="return date: " />
-            <Text fx:id="departureDestinationRight" strokeType="OUTSIDE" strokeWidth="0.0" text="departure from:" />
-            <Text fx:id="destinationRight" strokeType="OUTSIDE" strokeWidth="0.0" text="destination:" />
-            <Text fx:id="salesOfficerRight" strokeType="OUTSIDE" strokeWidth="0.0" text="sales officer:" />
-            <Text fx:id="passengersAmountRight" strokeType="OUTSIDE" strokeWidth="0.0" text="passengers amount:" />
-            <Text fx:id="statusRight" fill="#771717" strokeType="OUTSIDE" strokeWidth="0.0" text="status:" wrappingWidth="153.212890625">
-               <font>
-                  <Font size="22.0" />
-               </font>
-            </Text>
-            <Button fx:id="finalizeBtnRight" mnemonicParsing="false" onAction="#finalizeBookingRequest" text="Finalize" />
-            <Button fx:id="cancelBtnRight" mnemonicParsing="false" onAction="#cancelBookingRequest" text="Cancel" />
-         </children>
-      </VBox>
-      <Label layoutX="331.0" layoutY="14.0" text="All booking requests for" textAlignment="CENTER" underline="true">
+<AnchorPane fx:id="anchor" minHeight="800.0" minWidth="1200.0" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.flighttickets.GUI.AllBookingRequestsController">
+   <VBox fx:id="vboxLeft" alignment="TOP_CENTER" layoutX="61.0" layoutY="268.0" prefHeight="226.0" prefWidth="191.0">
+      <Text fx:id="deptDateLeft" strokeType="OUTSIDE" strokeWidth="0.0" text="departure date: " />
+      <Text fx:id="returnDateLeft" strokeType="OUTSIDE" strokeWidth="0.0" text="return date: " />
+      <Text fx:id="departureDestinationLeft" strokeType="OUTSIDE" strokeWidth="0.0" text="departure from:" />
+      <Text fx:id="destinationLeft" strokeType="OUTSIDE" strokeWidth="0.0" text="destination:" />
+      <Text fx:id="salesOfficerLeft" strokeType="OUTSIDE" strokeWidth="0.0" text="sales officer:" />
+      <Text fx:id="passengersAmountLeft" strokeType="OUTSIDE" strokeWidth="0.0" text="passengers amount:" />
+      <Text fx:id="statusLeft" strokeType="OUTSIDE" strokeWidth="0.0" text="status:" wrappingWidth="153.212890625">
          <font>
-            <Font size="32.0" />
+            <Font size="22.0" />
          </font>
-      </Label>
-      <Text fx:id="fName" layoutX="331.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First name" />
-      <Text fx:id="lName" layoutX="483.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name" />
-      <Text fx:id="custEmail" layoutX="641.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" />
-   </children>
+      </Text>
+      <Button fx:id="finalizeBtnLeft" mnemonicParsing="false" onAction="#finalizeBookingRequestLeft" text="Finalize" />
+      <Button fx:id="cancelBtnLeft" mnemonicParsing="false" onAction="#cancelBookingRequest" text="Cancel" />
+   </VBox>
+   <VBox fx:id="vboxMid" alignment="TOP_CENTER" layoutX="415.0" layoutY="268.0" prefHeight="226.0" prefWidth="191.0">
+      <Text fx:id="deptDateMid" strokeType="OUTSIDE" strokeWidth="0.0" text="departure date: " />
+      <Text fx:id="returnDateMid" strokeType="OUTSIDE" strokeWidth="0.0" text="return date: " />
+      <Text fx:id="departureDestinationMid" strokeType="OUTSIDE" strokeWidth="0.0" text="departure from:" />
+      <Text fx:id="destinationMid" strokeType="OUTSIDE" strokeWidth="0.0" text="destination:" />
+      <Text fx:id="salesOfficerMid" strokeType="OUTSIDE" strokeWidth="0.0" text="sales officer:" />
+      <Text fx:id="passengersAmountMid" strokeType="OUTSIDE" strokeWidth="0.0" text="passengers amount:" />
+      <Text fx:id="statusMid" strokeType="OUTSIDE" strokeWidth="0.0" text="status:" wrappingWidth="153.212890625">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Text>
+      <Button fx:id="finalizeBtnMid" mnemonicParsing="false" onAction="#finalizeBookingRequestMid" text="Finalize" />
+      <Button fx:id="cancelBtnMid" mnemonicParsing="false" onAction="#cancelBookingRequest" text="Cancel" />
+   </VBox>
+   <VBox fx:id="vboxRight" alignment="TOP_CENTER" layoutX="706.0" layoutY="268.0" prefHeight="226.0" prefWidth="191.0">
+      <children>
+         <Text fx:id="deptDateRight" strokeType="OUTSIDE" strokeWidth="0.0" text="departure date: " />
+         <Text fx:id="returnDateRight" strokeType="OUTSIDE" strokeWidth="0.0" text="return date: " />
+         <Text fx:id="departureDestinationRight" strokeType="OUTSIDE" strokeWidth="0.0" text="departure from:" />
+         <Text fx:id="destinationRight" strokeType="OUTSIDE" strokeWidth="0.0" text="destination:" />
+         <Text fx:id="salesOfficerRight" strokeType="OUTSIDE" strokeWidth="0.0" text="sales officer:" />
+         <Text fx:id="passengersAmountRight" strokeType="OUTSIDE" strokeWidth="0.0" text="passengers amount:" />
+         <Text fx:id="statusRight" strokeType="OUTSIDE" strokeWidth="0.0" text="status:" wrappingWidth="153.212890625">
+            <font>
+               <Font size="22.0" />
+            </font>
+         </Text>
+         <Button fx:id="finalizeBtnRight" mnemonicParsing="false" onAction="#finalizeBookingRequestRight" text="Finalize" />
+         <Button fx:id="cancelBtnRight" mnemonicParsing="false" onAction="#cancelBookingRequest" text="Cancel" />
+      </children>
+   </VBox>
+   <Label layoutX="331.0" layoutY="14.0" text="All booking requests for" textAlignment="CENTER" underline="true">
+      <font>
+         <Font size="32.0" />
+      </font>
+   </Label>
+   <Text fx:id="fName" layoutX="331.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First name" />
+   <Text fx:id="lName" layoutX="483.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name" />
+   <Text fx:id="custEmail" layoutX="641.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" />
+   <Button fx:id="backBtn" layoutX="750.0" layoutY="494.0" mnemonicParsing="false" onAction="#backToView" text="Go Back" />
 </AnchorPane>

@@ -9,7 +9,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import nl.fontys.sebivenlo.dao.ID;
-
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;

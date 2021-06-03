@@ -5,7 +5,7 @@ import com.flighttickets.Persistance.PersistenceAPI;
 
 public class BusinessLogicAPIImpl implements BusinessLogicImplementationProvider, BusinessLogicAPI {
 
-    final PersistenceAPI persistenceAPI;
+    private final PersistenceAPI persistenceAPI;
 
     /**
      * assign PersistenceAPI on creation

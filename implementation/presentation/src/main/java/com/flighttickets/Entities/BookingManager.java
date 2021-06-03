@@ -10,8 +10,10 @@ public interface BookingManager {
 
     void setBookingStorageService(BookingStorageService bookingStorageService);
 
+    double calculatePrice();
+    //Todo add descriptions
+  
     int add(Booking booking) throws SQLException, ClassNotFoundException;
     //Todo add descriptions -JL
-
 
 }

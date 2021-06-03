@@ -1,15 +1,16 @@
 
 package com.flighttickets.GUI;
 
-import com.flighttickets.Entities.*;
-import com.flighttickets.GUIApp;
+import com.flighttickets.Entities.BookingRequest;
+import com.flighttickets.Entities.BookingRequestManager;
+import com.flighttickets.Entities.SystemUser;
+import com.flighttickets.Entities.SystemUserManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;

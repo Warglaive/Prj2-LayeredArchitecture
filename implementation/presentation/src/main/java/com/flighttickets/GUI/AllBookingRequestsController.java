@@ -19,6 +19,8 @@ import java.util.function.Supplier;
 
 
 public class AllBookingRequestsController implements Initializable {
+    @FXML
+    public Button backBtn;
 
     @FXML
     private AnchorPane anchor;
@@ -123,13 +125,29 @@ public class AllBookingRequestsController implements Initializable {
     private Button cancelBtnRight;
 
     @FXML
-    void cancelBookingRequest(ActionEvent event) {
+    void cancelBookingRequest() {
+        //TODO:
+    }
 
+    private BookingRequest toBeFinalized;
+
+
+    @FXML
+    public void finalizeBookingRequestLeft() {
+        this.toBeFinalized = this.bookingRequestLeft;
+        this.sceneManagerSupplier.get().changeScene("FinalizeBookingRequest");
     }
 
     @FXML
-    void finalizeBookingRequest(ActionEvent event) {
+    public void finalizeBookingRequestMid() {
+        this.toBeFinalized = this.bookingRequestMid;
+        this.sceneManagerSupplier.get().changeScene("FinalizeBookingRequest");
+    }
 
+    @FXML
+    public void finalizeBookingRequestRight() {
+        this.toBeFinalized = this.bookingRequestRight;
+        this.sceneManagerSupplier.get().changeScene("FinalizeBookingRequest");
     }
 
 
@@ -151,7 +169,6 @@ public class AllBookingRequestsController implements Initializable {
         this.systemUserManager = systemUserManager;
 
 
-        //TODO: Find way to take data from DB without causing an exception.
         this.bookingRequestLeft = this.bookingRequestManager.getAllByCustomerId(this.loggedInCustomer.getId()).get(0);
         this.bookingRequestMid = this.bookingRequestManager.getAllByCustomerId(this.loggedInCustomer.getId()).get(1);
         this.bookingRequestRight = this.bookingRequestManager.getAllByCustomerId(this.loggedInCustomer.getId()).get(2);
@@ -160,7 +177,9 @@ public class AllBookingRequestsController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        //TODO: 1. Get all 3 booking requests and assign to fields
+        this.anchor.resize(1200, 1200);
+
+        //Fill data
         fillCustomer();
         fillLeftBookingRequest();
         fillMidBookingRequest();
@@ -174,6 +193,17 @@ public class AllBookingRequestsController implements Initializable {
 
     }
 
+    //Change color depending on Status (Approved, Pending or Declined)
+    private void changeStatusTextColor(String toCheckStatus, Text toFillStatus) {
+        if (toCheckStatus.equalsIgnoreCase("approved")) {
+            toFillStatus.setFill(Paint.valueOf("green"));
+        } else if (toCheckStatus.equalsIgnoreCase("declined")) {
+            toFillStatus.setFill(Paint.valueOf("red"));
+        } else {
+            toFillStatus.setFill(Paint.valueOf("orange"));
+        }
+    }
+
     private void fillRightBookingRequest() {
         this.deptDateRight.setText("Departure date: " + this.bookingRequestRight.getDepartureDate());
         this.returnDateRight.setText("Return date: " + this.bookingRequestRight.getReturnDate());
@@ -183,16 +213,16 @@ public class AllBookingRequestsController implements Initializable {
         this.passengersAmountRight.setText("Passengers amount: " + this.bookingRequestRight.getPassengersAmount());
         this.statusRight.setText("Status: " + this.bookingRequestRight.getStatus());
 
-        //TODO: USe that for changing color
-        this.statusLeft.setFill(Paint.valueOf("green"));
-        if (this.bookingRequestRight.getStatus().equalsIgnoreCase("approved")) {
-            this.statusRight.setStyle("-fx-text-fill: green; -fx-font-size: 16px;");
-        } else if (this.bookingRequestRight.getStatus().equalsIgnoreCase("declined")) {
-            this.statusRight.setStyle("-fx-text-fill: green; -fx-font-size: 16px;");
+        changeStatusTextColor(this.bookingRequestRight.getStatus(), this.statusRight);
+        //If NOT Approved = set finalize button to disabled, else make finalize blue
+        if (!this.bookingRequestRight.getStatus().equals("Approved")) {
+            this.finalizeBtnRight.setDisable(true);
         } else {
-            this.statusRight.setStyle("style: -fx-text-fill: yellow; -fx-font-size: 16px;");
+            this.finalizeBtnRight.setTextFill(Paint.valueOf("blue"));
         }
+
     }
+
 
     private void fillMidBookingRequest() {
         this.deptDateMid.setText("Departure date: " + this.bookingRequestMid.getDepartureDate());
@@ -203,12 +233,15 @@ public class AllBookingRequestsController implements Initializable {
         this.passengersAmountMid.setText("Passengers amount: " + this.bookingRequestMid.getPassengersAmount());
         this.statusMid.setText("Status: " + this.bookingRequestMid.getStatus());
 
-        if (this.bookingRequestMid.getStatus().equalsIgnoreCase("approved")) {
-            this.statusMid.setStyle("-fx-text-fill: green; -fx-font-size: 16px;");
-        } else if (this.bookingRequestMid.getStatus().equalsIgnoreCase("declined")) {
-            this.statusMid.setStyle("-fx-text-fill: green; -fx-font-size: 16px;");
+        if (!this.bookingRequestMid.getStatus().equals("Approved")) {
+            this.finalizeBtnMid.setDisable(true);
+        }
+        changeStatusTextColor(this.bookingRequestMid.getStatus(), this.statusMid);
+        //If NOT Approved = set finalize button to disabled, else make finalize blue
+        if (!this.bookingRequestMid.getStatus().equals("Approved")) {
+            this.finalizeBtnMid.setDisable(true);
         } else {
-            this.statusMid.setStyle("-fx-text-fill: yellow; -fx-font-size: 16px;");
+            this.finalizeBtnMid.setTextFill(Paint.valueOf("blue"));
         }
     }
 
@@ -221,14 +254,32 @@ public class AllBookingRequestsController implements Initializable {
         this.passengersAmountLeft.setText("Passengers amount: " + this.bookingRequestLeft.getPassengersAmount());
         this.statusLeft.setText("Status: " + this.bookingRequestLeft.getStatus());
 
+        if (!this.bookingRequestLeft.getStatus().equals("Approved")) {
+            this.finalizeBtnLeft.setDisable(true);
+        }
 
-        if (this.bookingRequestLeft.getStatus().equalsIgnoreCase("approved")) {
-            this.statusMid.setStyle("-fx-text-fill: green; -fx-font-size: 16px;");
-        } else if (this.bookingRequestLeft.getStatus().equalsIgnoreCase("declined")) {
-            this.statusLeft.setStyle("-fx-text-fill: green; -fx-font-size: 16px;");
+        changeStatusTextColor(this.bookingRequestLeft.getStatus(), this.statusLeft);
+        if (!this.bookingRequestLeft.getStatus().equals("Approved")) {
+            this.finalizeBtnLeft.setDisable(true);
+        }
+        changeStatusTextColor(this.bookingRequestLeft.getStatus(), this.statusLeft);
+        //If NOT Approved = set finalize button to disabled, else make finalize blue
+        if (!this.bookingRequestLeft.getStatus().equals("Approved")) {
+            this.finalizeBtnLeft.setDisable(true);
         } else {
-            this.statusLeft.setStyle("-fx-text-fill: yellow; -fx-font-size: 16px;");
+            this.finalizeBtnLeft.setTextFill(Paint.valueOf("blue"));
         }
     }
 
+    public void backToView() {
+        this.sceneManagerSupplier.get().changeScene("CustomerMainView");
+    }
+
+    public BookingRequest getToBeFinalized() {
+        return toBeFinalized;
+    }
+
+    public void setToBeFinalized(BookingRequest toBeFinalized) {
+        this.toBeFinalized = toBeFinalized;
+    }
 }

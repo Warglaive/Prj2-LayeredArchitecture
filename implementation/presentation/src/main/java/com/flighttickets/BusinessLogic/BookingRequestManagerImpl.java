@@ -22,6 +22,7 @@ public class BookingRequestManagerImpl implements BookingRequestManager {
         return new BookingRequest(requestId, customerId, salesOfficerId, departureDestination, arrivalDestination, departureDate, returnDate, passengersAmount, status);
     }
 
+    @Override
     public void setBookingRequestStorageService(BookingRequestStorageService bookingRequestStorageService) {
         this.bookingRequestStorageService = bookingRequestStorageService;
 

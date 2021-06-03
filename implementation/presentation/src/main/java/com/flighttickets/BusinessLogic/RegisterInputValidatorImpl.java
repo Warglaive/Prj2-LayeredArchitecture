@@ -1,5 +1,7 @@
 package com.flighttickets.BusinessLogic;
 
+import com.flighttickets.Entities.RegisterInputValidator;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -62,5 +64,18 @@ public class RegisterInputValidatorImpl implements RegisterInputValidator {
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(address);
         return matcher.find();
+    }
+
+    /**
+     *
+     * @param role - the only valid roles are hardcoded.
+     * @return
+     */
+    @Override
+    public boolean isRoleValid(String role) {
+        return role.equalsIgnoreCase("Customer")
+                || role.equalsIgnoreCase("SalesOfficer")
+                || role.equalsIgnoreCase("Planner")
+                || role.equalsIgnoreCase("SalesEmployee");
     }
 }

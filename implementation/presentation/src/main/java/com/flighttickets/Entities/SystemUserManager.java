@@ -1,8 +1,11 @@
 package com.flighttickets.Entities;
 
+import com.flighttickets.BusinessLogic.Exceptions.SystemUserStorageException;
 import com.flighttickets.Persistance.SystemUserStorageService;
 
+import javax.security.auth.login.AccountNotFoundException;
 import java.sql.SQLException;
+import java.util.List;
 
 public interface SystemUserManager {
     /**
@@ -14,7 +17,7 @@ public interface SystemUserManager {
      * @param role
      * @return SystemUser
      */
-    SystemUser createSystemUser(int id,String firstName, String lastName, String email, String password, String address, String role);
+    SystemUser createSystemUser(int id, String firstName, String lastName, String email, String password, String address, String role);
 
     /**
      * @param SystemUser
@@ -26,7 +29,7 @@ public interface SystemUserManager {
      * @param email
      * @return SystemUser
      */
-    SystemUser getByEmail(String email) throws ClassNotFoundException;
+    SystemUser getByEmail(String email) throws ClassNotFoundException, SystemUserStorageException, AccountNotFoundException;
 
     /**
      * setter for CustomerStorageService
@@ -38,4 +41,9 @@ public interface SystemUserManager {
     SystemUser login(String email, String password) throws ClassNotFoundException;
 
     int generateSalesOfficerId();
+
+    public int getRegisteredUsersCount();
+
+    public SystemUser getById(int id);
+    public List<SystemUser> getAllByRole(String role);
 }
