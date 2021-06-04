@@ -44,6 +44,9 @@ public class BookingManagerImpl implements BookingManager {
     private BookingStorageService bookingStorageService;
     private BookingRequest toBeFinalized;
 
+    /**
+     * used by GUIApp
+     */
     public BookingManagerImpl() {
     }
 
