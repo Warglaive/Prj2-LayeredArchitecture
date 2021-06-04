@@ -13,6 +13,7 @@ import java.io.IOException;
 /**
  * JavaFX GUIApp
  */
+//TODO: Move to GUI package
 public class GUIApp extends Application {
 
     private BusinessLogicAPI businessLogicAPI;
