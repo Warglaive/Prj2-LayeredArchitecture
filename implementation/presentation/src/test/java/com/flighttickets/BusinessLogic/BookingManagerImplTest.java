@@ -116,7 +116,7 @@ public class BookingManagerImplTest {
             "'South Sudan'",
             "'Central African Republic'",
             "'Mali'",
-            "'Afghanistan'",
+            "'Afghanistan', 'test'",
     })
     void calculatePriceRiskyCountryTest(String country) {
         //set arrivalDestination
@@ -127,4 +127,26 @@ public class BookingManagerImplTest {
         assertThat(actualPrice).as("Calculate price for risky country destination").isEqualTo(expectedPrice);
     }
 
+    /**
+     * Test if price is calculated correctly for countries that are NOT contained in the risky list
+     */
+    @ParameterizedTest
+    @CsvSource({"'Japan'",
+            "'USA'",
+            "'Australia'",
+            "'Austria'",
+            "'Nigeria'",
+            "'Oman'",
+            "'Serbia'",
+            "'Bulgaria'",
+            "'South Africa'",
+    })
+    void calculatePriceNonRiskyCountryTest(String country) {
+        //set arrivalDestination
+        this.toBeFinalized.setArrivalDestination(country);
+        //NonRisky country multiplier = 1
+        double expectedPrice = 100;
+        double actualPrice = this.bookingManager.calculatePrice();
+        assertThat(actualPrice).as("Calculate price for risky country destination").isEqualTo(expectedPrice);
+    }
 }
