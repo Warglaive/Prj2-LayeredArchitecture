@@ -57,9 +57,9 @@ public class BookingManagerImplTest {
      */
     @ParameterizedTest
     @CsvSource({"'03/06/2021'", "'01/06/2021'"})
-    void calculatePriceDaysMultipliersExpensiveTest(String departureDateExpensive) {
+    void calculatePriceDaysMultipliersExpensiveTest(String departureDate) {
         // parse input
-        this.parsed = formatter.parse(departureDateExpensive);
+        this.parsed = formatter.parse(departureDate);
         //set days
         this.toBeFinalized.setDepartureDate(LocalDate.from(parsed));
         //expensive values = 100 * 1.56
@@ -71,13 +71,13 @@ public class BookingManagerImplTest {
     /**
      * Test if price is calculated correctly for Monday and Wednesday
      *
-     * @param departureDateExpensive
+     * @param departureDate
      */
     @ParameterizedTest
     @CsvSource({"'31/05/2021'", "'02/06/2021'"})
-    void calculatePriceDaysMultipliersCheapTest(String departureDateExpensive) {
+    void calculatePriceDaysMultipliersCheapTest(String departureDate) {
         // parse input
-        this.parsed = formatter.parse(departureDateExpensive);
+        this.parsed = formatter.parse(departureDate);
         //set days
         this.toBeFinalized.setDepartureDate(LocalDate.from(parsed));
         //cheap values = 100 * 0.50
@@ -85,11 +85,17 @@ public class BookingManagerImplTest {
         double actualPrice = this.bookingManager.calculatePrice();
         assertThat(actualPrice).as("Calculate price for Tuesday and Thursday").isEqualTo(expectedPrice);
     }
+    /**
+     * Test if price is calculated correctly for Monday and Wednesday
+     *
+     * @param departureDate
+     */
+
     @ParameterizedTest
     @CsvSource({"'04/06/2021'", "'05/06/2021'", "'06/06/2021'"})
-    void calculatePriceDaysMultipliersNormalTest(String departureDateExpensive) {
+    void calculatePriceDaysMultipliersNormalTest(String departureDate) {
         // parse input
-        this.parsed = formatter.parse(departureDateExpensive);
+        this.parsed = formatter.parse(departureDate);
         //set days
         this.toBeFinalized.setDepartureDate(LocalDate.from(parsed));
         //normal values = 100 * 1
@@ -97,4 +103,7 @@ public class BookingManagerImplTest {
         double actualPrice = this.bookingManager.calculatePrice();
         assertThat(actualPrice).as("Calculate price for Friday, Saturday and Sunday").isEqualTo(expectedPrice);
     }
+
+
+
 }
