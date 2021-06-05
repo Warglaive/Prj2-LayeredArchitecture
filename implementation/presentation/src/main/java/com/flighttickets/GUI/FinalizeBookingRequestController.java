@@ -33,9 +33,9 @@ public class FinalizeBookingRequestController implements Initializable {
 
 
     private final Supplier<SceneManager> sceneManagerSupplier;
-    SystemUser loggedInCustomer;
-    BookingRequest toBeFinalized;
-    BookingManager bookingManager;
+    private SystemUser loggedInCustomer;
+    private BookingRequest toBeFinalized;
+    private BookingManager bookingManager;
 
     public FinalizeBookingRequestController(Supplier<SceneManager> getSceneManager, SystemUser loggedInCustomer, BookingRequest toBeFinalized, BookingManager bookingManager) {
         this.loggedInCustomer = loggedInCustomer;
