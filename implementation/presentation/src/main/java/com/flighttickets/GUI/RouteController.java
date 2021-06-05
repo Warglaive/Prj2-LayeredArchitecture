@@ -1,7 +1,9 @@
 package com.flighttickets.GUI;
 
 
-import com.flighttickets.Entities.*;
+import com.flighttickets.Entities.Route;
+import com.flighttickets.Entities.RouteManager;
+import com.flighttickets.Entities.SystemUser;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;

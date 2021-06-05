@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
-
+<?import javafx.scene.text.*?>
 <AnchorPane fx:id="anchor" minHeight="800.0" minWidth="1200.0" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.flighttickets.GUI.AllBookingRequestsController">
    <VBox fx:id="vboxLeft" alignment="TOP_CENTER" layoutX="61.0" layoutY="268.0" prefHeight="226.0" prefWidth="191.0">
       <Text fx:id="deptDateLeft" strokeType="OUTSIDE" strokeWidth="0.0" text="departure date: " />

@@ -1,16 +1,12 @@
 package com.flighttickets.BusinessLogic;
 
-import com.flighttickets.Entities.BookingRequest;
 import com.flighttickets.Entities.Booking;
-import com.flighttickets.Entities.BookingRequestManager;
-import org.junit.Assert.*;
-import org.assertj.core.api.Assertions;
-import static org.assertj.core.api.Assertions.*;
+import com.flighttickets.Entities.BookingRequest;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
 
 import java.time.LocalDate;
-import java.util.List;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class BookingRequestHandleTest {
     //BookingRequestManager test = BookingRequestManagerImpl();
