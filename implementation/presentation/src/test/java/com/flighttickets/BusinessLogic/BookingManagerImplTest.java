@@ -5,12 +5,19 @@ import com.flighttickets.Entities.BookingRequest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
+import java.time.temporal.TemporalAccessor;
+import java.util.Locale;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class BookingManagerImplTest {
 
-    BookingManager bookingManager;
-    BookingRequest toBeFinalized;
+    private BookingManager bookingManager;
+    private BookingRequest toBeFinalized;
 
 
     @BeforeEach
@@ -22,17 +29,38 @@ public class BookingManagerImplTest {
         String departureDestination = "Test";
         String arrivalDestination = "Test";
         LocalDate departureDate = LocalDate.now();
-        java.time.LocalDate returnDate = LocalDate.now().plusDays(1);
+        LocalDate returnDate = LocalDate.now().plusDays(1);
         int passengersAmount = 1;
         String status = "Pending";
         //
         this.toBeFinalized = new BookingRequest(bookingRequestId, customerId, salesOfficerId, departureDestination, arrivalDestination, departureDate, returnDate, passengersAmount, status);
-        BookingManager bookingManager = new BookingManagerImpl(this.toBeFinalized);
+        this.bookingManager = new BookingManagerImpl(this.toBeFinalized);
+
     }
 
 
+    /**
+     * Using getters and setters to change BookingRequest field values and make proper test.
+     */
     @Test
-    void calculatePriceTest() {
+    void calculatePriceDaysMultipliersTest() {
+
+        //SetUpFormatter
+        DateTimeFormatter formatter = new DateTimeFormatterBuilder()
+                .parseCaseInsensitive()
+                .append(DateTimeFormatter.ofPattern("dd/MM/yyyy"))
+                // use English Locale to correctly parse month and day of week
+                .toFormatter(Locale.ENGLISH);
+            // parse input
+        TemporalAccessor parsed = formatter.parse("01/06/2021");
+
+
+        //DayOfWeek.TUESDAY and DayOfWeek.THURSDAY are considered expensive and multiplied by expensiveDayMultiplier = 1.56
+        this.toBeFinalized.setDepartureDate(LocalDate.from(parsed));
+        //Ticket price(100) * 1.56 = 156
+        double expectedPrice = 156;
+        double actualPrice = this.bookingManager.calculatePrice();
+        assertThat(actualPrice).as("DayOfWeek.TUESDAY").isEqualTo(expectedPrice);
 
     }
 }
