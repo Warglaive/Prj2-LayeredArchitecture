@@ -4,6 +4,8 @@ import com.flighttickets.Entities.BookingManager;
 import com.flighttickets.Entities.BookingRequest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
@@ -42,9 +44,9 @@ public class BookingManagerImplTest {
     /**
      * Using getters and setters to change BookingRequest field values and make proper test.
      */
-    @Test
-    void calculatePriceDaysMultipliersTest() {
-
+    @ParameterizedTest
+    @CsvSource({"'03/06/2021'", "'01/06/2021'"})
+    void calculatePriceDaysMultipliersTest(String departureDate) {
         //SetUpFormatter
         DateTimeFormatter formatter = new DateTimeFormatterBuilder()
                 .parseCaseInsensitive()
@@ -52,7 +54,7 @@ public class BookingManagerImplTest {
                 // use English Locale to correctly parse month and day of week
                 .toFormatter(Locale.ENGLISH);
             // parse input
-        TemporalAccessor parsed = formatter.parse("01/06/2021");
+        TemporalAccessor parsed = formatter.parse(departureDate);
 
 
         //DayOfWeek.TUESDAY and DayOfWeek.THURSDAY are considered expensive and multiplied by expensiveDayMultiplier = 1.56
