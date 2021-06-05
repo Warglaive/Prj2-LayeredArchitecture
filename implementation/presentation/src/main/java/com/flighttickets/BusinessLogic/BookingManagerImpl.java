@@ -63,7 +63,6 @@ public class BookingManagerImpl implements BookingManager {
             add("Somalia");
             add("South Sudan");
             add("Central African Republic");
-            add("Part of the Congo");
             add("Mali");
             add("Afghanistan");
         }};

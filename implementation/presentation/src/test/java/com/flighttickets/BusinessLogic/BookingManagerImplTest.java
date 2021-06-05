@@ -53,7 +53,6 @@ public class BookingManagerImplTest {
     /**
      * Using getters and setters to change BookingRequest field values and make proper test.
      * Test if price is calculated correctly for Tuesday and Thursday
-     *
      */
     @ParameterizedTest
     @CsvSource({"'03/06/2021'", "'01/06/2021'"})
@@ -85,8 +84,9 @@ public class BookingManagerImplTest {
         double actualPrice = this.bookingManager.calculatePrice();
         assertThat(actualPrice).as("Calculate price for Tuesday and Thursday").isEqualTo(expectedPrice);
     }
+
     /**
-     * Test if price is calculated correctly for Monday and Wednesday
+     * Test if price is calculated correctly for Friday, Saturday and Sunday
      *
      * @param departureDate
      */
@@ -104,6 +104,27 @@ public class BookingManagerImplTest {
         assertThat(actualPrice).as("Calculate price for Friday, Saturday and Sunday").isEqualTo(expectedPrice);
     }
 
-
+    /**
+     * Test if price is calculated correctly for each of the countries contained in the riskyCountry list
+     */
+    @ParameterizedTest
+    @CsvSource({"'Libya'",
+            "'Syria'",
+            "'Iraq'",
+            "'Yemen'",
+            "'Somalia'",
+            "'South Sudan'",
+            "'Central African Republic'",
+            "'Mali'",
+            "'Afghanistan'",
+    })
+    void calculatePriceRiskyCountryTest(String country) {
+        //set arrivalDestination
+        this.toBeFinalized.setArrivalDestination(country);
+        //risky country multiplier = 2.12
+        double expectedPrice = 212;
+        double actualPrice = this.bookingManager.calculatePrice();
+        assertThat(actualPrice).as("Calculate price for risky country destination").isEqualTo(expectedPrice);
+    }
 
 }
