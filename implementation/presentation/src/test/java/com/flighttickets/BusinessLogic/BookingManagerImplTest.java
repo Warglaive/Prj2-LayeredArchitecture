@@ -20,7 +20,8 @@ public class BookingManagerImplTest {
 
     private BookingManager bookingManager;
     private BookingRequest toBeFinalized;
-
+    private TemporalAccessor parsed;
+    private DateTimeFormatter formatter;
 
     @BeforeEach
     void setUp() {
@@ -38,6 +39,13 @@ public class BookingManagerImplTest {
         this.toBeFinalized = new BookingRequest(bookingRequestId, customerId, salesOfficerId, departureDestination, arrivalDestination, departureDate, returnDate, passengersAmount, status);
         this.bookingManager = new BookingManagerImpl(this.toBeFinalized);
 
+        //SetUpFormatter
+        this.formatter = new DateTimeFormatterBuilder()
+                .parseCaseInsensitive()
+                .append(DateTimeFormatter.ofPattern("dd/MM/yyyy"))
+                // use English Locale to correctly parse month and day of week
+                .toFormatter(Locale.ENGLISH);
+
     }
 
 
@@ -47,14 +55,9 @@ public class BookingManagerImplTest {
     @ParameterizedTest
     @CsvSource({"'03/06/2021'", "'01/06/2021'"})
     void calculatePriceDaysMultipliersTest(String departureDate) {
-        //SetUpFormatter
-        DateTimeFormatter formatter = new DateTimeFormatterBuilder()
-                .parseCaseInsensitive()
-                .append(DateTimeFormatter.ofPattern("dd/MM/yyyy"))
-                // use English Locale to correctly parse month and day of week
-                .toFormatter(Locale.ENGLISH);
-            // parse input
-        TemporalAccessor parsed = formatter.parse(departureDate);
+
+        // parse input
+        this.parsed = formatter.parse(departureDate);
 
 
         //DayOfWeek.TUESDAY and DayOfWeek.THURSDAY are considered expensive and multiplied by expensiveDayMultiplier = 1.56
@@ -62,7 +65,7 @@ public class BookingManagerImplTest {
         //Ticket price(100) * 1.56 = 156
         double expectedPrice = 156;
         double actualPrice = this.bookingManager.calculatePrice();
-        assertThat(actualPrice).as("DayOfWeek.TUESDAY").isEqualTo(expectedPrice);
+        assertThat(actualPrice).as("Calculate price for Tuesday and Thursday").isEqualTo(expectedPrice);
 
     }
 }
