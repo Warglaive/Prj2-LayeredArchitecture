@@ -258,6 +258,7 @@ public class SystemUserManagerImplTest {
         //Need to exist in the DB
         String loginEmail = "asd@abv.bg";
         String loginPassword = "n!k@sn1Kos";
+        //check if the login is properly comparing input
         SystemUser expected = this.systemUserManager.getByEmail(loginEmail);
         SystemUser actual = this.systemUserManager.login(loginEmail, loginPassword);
         assertThat(actual).usingRecursiveComparison().isEqualTo(expected);
