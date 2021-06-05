@@ -2,6 +2,7 @@ package com.flighttickets.BusinessLogic;
 
 import com.flighttickets.Entities.BookingManager;
 import com.flighttickets.Entities.BookingRequest;
+import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -51,21 +52,37 @@ public class BookingManagerImplTest {
 
     /**
      * Using getters and setters to change BookingRequest field values and make proper test.
+     * Test if price is calculated correctly for Tuesday and Thursday
+     *
      */
     @ParameterizedTest
     @CsvSource({"'03/06/2021'", "'01/06/2021'"})
-    void calculatePriceDaysMultipliersTest(String departureDate) {
-
+    void calculatePriceDaysMultipliersExpensiveTest(String departureDateExpensive) {
         // parse input
-        this.parsed = formatter.parse(departureDate);
-
-
-        //DayOfWeek.TUESDAY and DayOfWeek.THURSDAY are considered expensive and multiplied by expensiveDayMultiplier = 1.56
+        this.parsed = formatter.parse(departureDateExpensive);
+        //set days
         this.toBeFinalized.setDepartureDate(LocalDate.from(parsed));
-        //Ticket price(100) * 1.56 = 156
+        //expensive values = 100 * 1.56
         double expectedPrice = 156;
         double actualPrice = this.bookingManager.calculatePrice();
         assertThat(actualPrice).as("Calculate price for Tuesday and Thursday").isEqualTo(expectedPrice);
+    }
 
+    /**
+     * Test if price is calculated correctly for Monday and Wednesday
+     *
+     * @param departureDateExpensive
+     */
+    @ParameterizedTest
+    @CsvSource({"'31/05/2021'", "'02/06/2021'"})
+    void calculatePriceDaysMultipliersCheapTest(String departureDateExpensive) {
+        // parse input
+        this.parsed = formatter.parse(departureDateExpensive);
+        //set days
+        this.toBeFinalized.setDepartureDate(LocalDate.from(parsed));
+        //cheap values = 100 * 0.50
+        double expectedPrice = 50;
+        double actualPrice = this.bookingManager.calculatePrice();
+        assertThat(actualPrice).as("Calculate price for Tuesday and Thursday").isEqualTo(expectedPrice);
     }
 }
