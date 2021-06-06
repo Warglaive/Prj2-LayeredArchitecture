@@ -1,3 +1,46 @@
+## Booking Request Tests
+
+|Test ID | 0 |
+| --- | --- |
+|Test Case | Calculate price for expensive days|
+|Description | Test if the ticket price is correctly calculated based on different dates(days)  |
+|Pre-steps | 1. Customer is logged in. <br> 2. Customer has at least 1 APPROVED booking request.<br> 3. Customer is reviewing all booking requests. |
+|Test steps | 1. Customer clicks on "Finalize" button. <br> 2. On click System receives Booking Request with date "03/06/2021". |
+|Exceptions |  registration constraints not fulfilled(short pass, illegal characters, etc. |
+
+
+
+
+
+
+|Test ID | -1 |
+| --- | --- |
+|Test Case | Create account(Register) for SalesOfficer INVALID|
+|Description |  |
+|Pre-steps | None |
+|Test steps | 1. Actor starts the application.<br>2. Actor clicks "Register" button.<br>Expected: Actor receives register input form.<br>3. Actor fills username with "Daniel".<br>4. Actor fills email with "daniel@gmail.com".<br>5. Actor fills password with "123"<br>6. Actor selects role "SalesOfficer" from a dropdown menu.<br>7. Actor clicks "Submit" button.<br>Expected: Test failed: Exception thrown expected with message "invalid password". |
+|Exceptions |  registration constraints not fulfilled(short pass, illegal characters, etc. |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## General Functionality
 
 |Test ID | -2 |
@@ -14,8 +57,6 @@
 |Pre-steps | None |
 |Test steps | 1. Actor starts the application.<br>2. Actor clicks "Register" button.<br>Expected: Actor receives register input form.<br>3. Actor fills username with "Daniel".<br>4. Actor fills email with "daniel@gmail.com".<br>5. Actor fills password with "123"<br>6. Actor selects role "SalesOfficer" from a dropdown menu.<br>7. Actor clicks "Submit" button.<br>Expected: Test failed: Exception thrown expected with message "invalid password". |
 |Exceptions |  registration constraints not fulfilled(short pass, illegal characters, etc. |
-
-
 
 
 |Test ID | 0 |
