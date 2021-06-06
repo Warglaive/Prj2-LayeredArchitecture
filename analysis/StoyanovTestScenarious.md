@@ -92,7 +92,7 @@
 |Test Case | Calculate ticket price for risky countries and cheap days |
 |Description | Test if the ticket price is correctly calculated based on different days and destinations |
 |Pre-steps | 1. Customer is logged in. <br> 2. Customer has at least 1 APPROVED booking request.<br> 3. Customer is reviewing all booking requests. |
-|Test steps | 1. Customer clicks on "Finalize" button. <br> 2. Expected result: System calculates the price for Booking Request with date "31/05/2021" and country "Libya" and returns the actual result.<br> 4. Expected result is 106 . <br> 5. Actual and expected results are equal - test passed |
+|Test steps | 1. Customer clicks on "Finalize" button. <br> 2. Expected result: System calculates the price for Booking Request with date "27/05/2021" and country "Somalia" and returns the actual result.<br> 4. Expected result is 106 . <br> 5. Actual and expected results are equal - test passed |
 |Exceptions |  N/A |
 
 |Test ID | 12 |
@@ -100,7 +100,7 @@
 |Test Case | Calculate ticket price for risky countries and normal days |
 |Description | Test if the ticket price is correctly calculated based on different days and destinations |
 |Pre-steps | 1. Customer is logged in. <br> 2. Customer has at least 1 APPROVED booking request.<br> 3. Customer is reviewing all booking requests. |
-|Test steps | 1. Customer clicks on "Finalize" button. <br> 2. Expected result: System calculates the price for Booking Request with date "04/06/2021" and country "Libya" and returns the actual result.<br> 4. Expected result is 112 . <br> 5. Actual and expected results are equal - test passed |
+|Test steps | 1. Customer clicks on "Finalize" button. <br> 2. Expected result: System calculates the price for Booking Request with date "01/06/2021" and country "Afghanistan" and returns the actual result.<br> 4. Expected result is 112 . <br> 5. Actual and expected results are equal - test passed |
 |Exceptions |  N/A |
 
 ### Non-risky country different days(expensive, cheap, normal)
