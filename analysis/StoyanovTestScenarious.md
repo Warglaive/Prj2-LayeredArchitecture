@@ -92,10 +92,16 @@
 |Test Case | Calculate ticket price for risky countries and expensive days |
 |Description | Test if the ticket price is correctly calculated based on different days and destinations |
 |Pre-steps | 1. Customer is logged in. <br> 2. Customer has at least 1 APPROVED booking request.<br> 3. Customer is reviewing all booking requests. |
-|Test steps | 1. Customer clicks on "Finalize" button. <br> 2. Expected result: System calculates the price for Booking Request with date "03/06/2021" and country "Libya" and returns the actual result.<br> 4. Expected result is 330.72. <br> 5. Actual and expected results are equal - test passed |
+|Test steps | 1. Customer clicks on "Finalize" button. <br> 2. Expected result: System calculates the price for Booking Request with date "03/06/2021" and country "Libya" and returns the actual result.<br> 4. Expected result is 330.72 . <br> 5. Actual and expected results are equal - test passed |
 |Exceptions |  N/A |
 
-
+|Test ID | 2C |
+| --- | --- |
+|Test Case | Calculate ticket price for risky countries and cheap days |
+|Description | Test if the ticket price is correctly calculated based on different days and destinations |
+|Pre-steps | 1. Customer is logged in. <br> 2. Customer has at least 1 APPROVED booking request.<br> 3. Customer is reviewing all booking requests. |
+|Test steps | 1. Customer clicks on "Finalize" button. <br> 2. Expected result: System calculates the price for Booking Request with date "31/05/2021" and country "Libya" and returns the actual result.<br> 4. Expected result is 106 . <br> 5. Actual and expected results are equal - test passed |
+|Exceptions |  N/A |
 
 
 
