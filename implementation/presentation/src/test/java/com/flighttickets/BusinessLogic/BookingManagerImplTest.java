@@ -79,7 +79,7 @@ public class BookingManagerImplTest {
         //cheap values = 100 * 0.50
         double expectedPrice = 50;
         double actualPrice = this.bookingManager.calculatePrice();
-        assertThat(actualPrice).as("Calculate price for Tuesday and Thursday").isEqualTo(expectedPrice);
+        assertThat(actualPrice).as("Calculate price for Monday and Wednesday").isEqualTo(expectedPrice);
     }
 
     /**
