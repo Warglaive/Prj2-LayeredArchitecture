@@ -149,7 +149,7 @@ public class BookingManagerImplTest {
 
     @ParameterizedTest
     @CsvSource({"'03/06/2021', 'Libya'",
-            "'01/06/2021', 'Somalia'",
+            "'27/05/2021', 'Somalia'",
             "'01/06/2021', 'Afghanistan'"})
     void riskyCountryExpensiveMultipliersTest(String departureDate, String country) {
         // parse input
