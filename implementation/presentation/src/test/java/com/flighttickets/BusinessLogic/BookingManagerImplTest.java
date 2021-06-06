@@ -43,7 +43,6 @@ public class BookingManagerImplTest {
                 .append(DateTimeFormatter.ofPattern("dd/MM/yyyy"))
                 // use English Locale to correctly parse month and day of week
                 .toFormatter(Locale.ENGLISH);
-
     }
 
 
@@ -146,4 +145,5 @@ public class BookingManagerImplTest {
         double actualPrice = this.bookingManager.calculatePrice();
         assertThat(actualPrice).as("Calculate price for risky country destination").isEqualTo(expectedPrice);
     }
+    //TODO: Add tests for country and day
 }
