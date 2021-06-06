@@ -2,7 +2,7 @@
 ### Expensive days
 |Test ID | 0 |
 | --- | --- |
-|Test Case | Calculate price for expensive days - Expensive day multiplier |
+|Test Case | Calculate ticket price for expensive days - Expensive day multiplier |
 |Description | Test if the ticket price is correctly calculated based on different days(Tuesday and Thursday)  |
 |Pre-steps | 1. Customer is logged in. <br> 2. Customer has at least 1 APPROVED booking request.<br> 3. Customer is reviewing all booking requests. |
 |Test steps | 1. Customer clicks on "Finalize" button. <br> 2. Expected result: System calculates the price for Booking Request with date "03/06/2021" and returns the actual result.<br> 4. Expected result is 156. <br> 5. Actual and expected results are equal - test passed |
@@ -10,18 +10,16 @@
 
 |Test ID | 0A |
 | --- | --- |
-|Test Case | Calculate price for expensive days - Expensive day multiplier |
+|Test Case | Calculate ticket price for expensive days - Expensive day multiplier |
 |Description | Test if the ticket price is correctly calculated based on different days(Tuesday and Thursday)  |
 |Pre-steps | 1. Customer is logged in. <br> 2. Customer has at least 1 APPROVED booking request.<br> 3. Customer is reviewing all booking requests. |
 |Test steps | 1. Customer clicks on "Finalize" button. <br> 2. Expected result: System calculates the price for Booking Request with date "01/06/2021" and returns the actual result.<br> 4. Expected result is 156. <br> 5. Actual and expected results are equal - test passed |
 |Exceptions |  Illegal date format |
 
-
-
 ### Cheap days
 |Test ID | 1 |
 | --- | --- |
-|Test Case | Calculate price for cheap days - Cheap day multiplier |
+|Test Case | Calculate ticket price for cheap days - Cheap day multiplier |
 |Description | Test if the ticket price is correctly calculated based on different days(Monday and Wednesday)  |
 |Pre-steps | 1. Customer is logged in. <br> 2. Customer has at least 1 APPROVED booking request.<br> 3. Customer is reviewing all booking requests. |
 |Test steps | 1. Customer clicks on "Finalize" button. <br> 2. Expected result: System calculates the price for Booking Request with date "31/05/2021" and returns the actual result.<br> 4. Expected result is 50. <br> 5. Actual and expected results are equal - test passed |
@@ -29,13 +27,105 @@
 
 |Test ID | 1A |
 | --- | --- |
-|Test Case | Calculate price for cheap days - Cheap day multiplier |
+|Test Case | Calculate ticket price for cheap days - Cheap day multiplier |
 |Description | Test if the ticket price is correctly calculated based on different days(Monday and Wednesday)  |
 |Pre-steps | 1. Customer is logged in. <br> 2. Customer has at least 1 APPROVED booking request.<br> 3. Customer is reviewing all booking requests. |
 |Test steps | 1. Customer clicks on "Finalize" button. <br> 2. Expected result: System calculates the price for Booking Request with date "02/06/2021" and returns the actual result.<br> 4. Expected result is 50. <br> 5. Actual and expected results are equal - test passed |
 |Exceptions |  Illegal date format |
 
+### Normal days
+|Test ID | 1 |
+| --- | --- |
+|Test Case | Calculate ticket price for normal days - normal day multiplier |
+|Description | Test if the ticket price is correctly calculated based on different days(Friday, Saturday and Sunday)  |
+|Pre-steps | 1. Customer is logged in. <br> 2. Customer has at least 1 APPROVED booking request.<br> 3. Customer is reviewing all booking requests. |
+|Test steps | 1. Customer clicks on "Finalize" button. <br> 2. Expected result: System calculates the price for Booking Request with date "04/06/2021" and returns the actual result.<br> 4. Expected result is 100. <br> 5. Actual and expected results are equal - test passed |
+|Exceptions |  Illegal date format |
 
+|Test ID | 1A |
+| --- | --- |
+|Test Case | Calculate ticket price for normal days - normal day multiplier |
+|Description | Test if the ticket price is correctly calculated based on different days(Friday, Saturday and Sunday)  |
+|Pre-steps | 1. Customer is logged in. <br> 2. Customer has at least 1 APPROVED booking request.<br> 3. Customer is reviewing all booking requests. |
+|Test steps | 1. Customer clicks on "Finalize" button. <br> 2. Expected result: System calculates the price for Booking Request with date "05/06/2021" and returns the actual result.<br> 4. Expected result is 100. <br> 5. Actual and expected results are equal - test passed |
+|Exceptions |  Illegal date format |
+
+|Test ID | 1B |
+| --- | --- |
+|Test Case | Calculate ticket price for normal days - normal day multiplier |
+|Description | Test if the ticket price is correctly calculated based on different days(Friday, Saturday and Sunday)  |
+|Pre-steps | 1. Customer is logged in. <br> 2. Customer has at least 1 APPROVED booking request.<br> 3. Customer is reviewing all booking requests. |
+|Test steps | 1. Customer clicks on "Finalize" button. <br> 2. Expected result: System calculates the price for Booking Request with date "06/06/2021" and returns the actual result.<br> 4. Expected result is 100. <br> 5. Actual and expected results are equal - test passed |
+|Exceptions |  Illegal date format |
+
+## Booking Request Price multipliers Tests
+### Risky country multiplier test
+
+|Test ID | 1C |
+| --- | --- |
+|Test Case | Calculate ticket price for risky countries |
+|Description | Test if the ticket price is correctly calculated based on different destinations |
+|Pre-steps | 1. Customer is logged in. <br> 2. Customer has at least 1 APPROVED booking request.<br> 3. Customer is reviewing all booking requests. |
+|Test steps | 1. Customer clicks on "Finalize" button. <br> 2. Expected result: System calculates the price for Booking Request with country "Libya" and returns the actual result.<br> 4. Expected result is 212. <br> 5. Actual and expected results are equal - test passed |
+|Exceptions |  N/A |
+
+### Non-risky country multiplier test
+|Test ID | 2A |
+| --- | --- |
+|Test Case | Calculate ticket price for non-risky countries |
+|Description | Test if the ticket price is correctly calculated based on different destinations |
+|Pre-steps | 1. Customer is logged in. <br> 2. Customer has at least 1 APPROVED booking request.<br> 3. Customer is reviewing all booking requests. |
+|Test steps | 1. Customer clicks on "Finalize" button. <br> 2. Expected result: System calculates the price for Booking Request with country "Japan" and returns the actual result.<br> 4. Expected result is 100. <br> 5. Actual and expected results are equal - test passed |
+|Exceptions |  N/A |
+
+### Risky country on different days(expensive, cheap, normal)
+|Test ID | 2B |
+| --- | --- |
+|Test Case | Calculate ticket price for risky countries and expensive days |
+|Description | Test if the ticket price is correctly calculated based on different days and destinations |
+|Pre-steps | 1. Customer is logged in. <br> 2. Customer has at least 1 APPROVED booking request.<br> 3. Customer is reviewing all booking requests. |
+|Test steps | 1. Customer clicks on "Finalize" button. <br> 2. Expected result: System calculates the price for Booking Request with date "03/06/2021" and country "Libya" and returns the actual result.<br> 4. Expected result is 330.72 . <br> 5. Actual and expected results are equal - test passed |
+|Exceptions |  N/A |
+
+|Test ID | 2C |
+| --- | --- |
+|Test Case | Calculate ticket price for risky countries and cheap days |
+|Description | Test if the ticket price is correctly calculated based on different days and destinations |
+|Pre-steps | 1. Customer is logged in. <br> 2. Customer has at least 1 APPROVED booking request.<br> 3. Customer is reviewing all booking requests. |
+|Test steps | 1. Customer clicks on "Finalize" button. <br> 2. Expected result: System calculates the price for Booking Request with date "31/05/2021" and country "Libya" and returns the actual result.<br> 4. Expected result is 106 . <br> 5. Actual and expected results are equal - test passed |
+|Exceptions |  N/A |
+
+|Test ID | 3 |
+| --- | --- |
+|Test Case | Calculate ticket price for risky countries and normal days |
+|Description | Test if the ticket price is correctly calculated based on different days and destinations |
+|Pre-steps | 1. Customer is logged in. <br> 2. Customer has at least 1 APPROVED booking request.<br> 3. Customer is reviewing all booking requests. |
+|Test steps | 1. Customer clicks on "Finalize" button. <br> 2. Expected result: System calculates the price for Booking Request with date "04/06/2021" and country "Libya" and returns the actual result.<br> 4. Expected result is 112 . <br> 5. Actual and expected results are equal - test passed |
+|Exceptions |  N/A |
+
+### Non-risky country different days(expensive, cheap, normal)
+|Test ID | 3B |
+| --- | --- |
+|Test Case | Calculate ticket price for risky countries and expensive days |
+|Description | Test if the ticket price is correctly calculated based on different days and destinations |
+|Pre-steps | 1. Customer is logged in. <br> 2. Customer has at least 1 APPROVED booking request.<br> 3. Customer is reviewing all booking requests. |
+|Test steps | 1. Customer clicks on "Finalize" button. <br> 2. Expected result: System calculates the price for Booking Request with date "03/06/2021" and country "Austria" and returns the actual result.<br> 4. Expected result is 156 . <br> 5. Actual and expected results are equal - test passed |
+|Exceptions |  N/A |
+
+|Test ID | 3C |
+| --- | --- |
+|Test Case | Calculate ticket price for risky countries and cheap days |
+|Description | Test if the ticket price is correctly calculated based on different days and destinations |
+|Pre-steps | 1. Customer is logged in. <br> 2. Customer has at least 1 APPROVED booking request.<br> 3. Customer is reviewing all booking requests. |
+|Test steps | 1. Customer clicks on "Finalize" button. <br> 2. Expected result: System calculates the price for Booking Request with date "31/05/2021" and country "Nigeria" and returns the actual result.<br> 4. Expected result is 50 . <br> 5. Actual and expected results are equal - test passed |
+|Exceptions |  N/A |
+
+|Test ID | 4 |
+| --- | --- |
+|Test Case | Calculate ticket price for risky countries and normal days |
+|Description | Test if the ticket price is correctly calculated based on different days and destinations |
+|Pre-steps | 1. Customer is logged in. <br> 2. Customer has at least 1 APPROVED booking request.<br> 3. Customer is reviewing all booking requests. |
+|Test steps | 1. Customer clicks on "Finalize" button. <br> 2. Expected result: System calculates the price for Booking Request with date "04/06/2021" and country "Japan" and returns the actual result.<br> 4. Expected result is 100 . <br> 5. Actual and expected results are equal - test passed |
 
 
 
