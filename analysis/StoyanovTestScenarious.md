@@ -1,5 +1,5 @@
 ## Booking Request Price multipliers Tests
-# Expensive days
+### Expensive days
 |Test ID | 0 |
 | --- | --- |
 |Test Case | Calculate price for expensive days - Expensive day multiplier |
@@ -18,7 +18,7 @@
 
 
 
-#Cheap days
+### Cheap days
 |Test ID | 1 |
 | --- | --- |
 |Test Case | Calculate price for cheap days - Cheap day multiplier |
