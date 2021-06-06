@@ -145,5 +145,21 @@ public class BookingManagerImplTest {
         double actualPrice = this.bookingManager.calculatePrice();
         assertThat(actualPrice).as("Calculate price for risky country destination").isEqualTo(expectedPrice);
     }
-    //TODO: Add tests for country and day
+    //TODO: Add tests for risky country and day
+
+    @ParameterizedTest
+    @CsvSource({"'03/06/2021', 'Libya'",
+            "'01/06/2021', 'Somalia'",
+            "'01/06/2021', 'Afghanistan'"})
+    void riskyCountryExpensiveMultipliersTest(String departureDate, String country) {
+        // parse input
+        this.parsed = formatter.parse(departureDate);
+        //set days
+        this.toBeFinalized.setDepartureDate(LocalDate.from(parsed));
+        this.toBeFinalized.setArrivalDestination(country);
+        //expensive values = 100 * 1.56(day) * 2.12(country) = 330.72
+        double expectedPrice = 330.72;
+        double actualPrice = this.bookingManager.calculatePrice();
+        assertThat(actualPrice).as("Calculate price for Tuesday and Thursday").isEqualTo(expectedPrice);
+    }
 }
