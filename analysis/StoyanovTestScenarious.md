@@ -58,8 +58,16 @@
 |Test steps | 1. Customer clicks on "Finalize" button. <br> 2. Expected result: System calculates the price for Booking Request with date "06/06/2021" and returns the actual result.<br> 4. Expected result is 100. <br> 5. Actual and expected results are equal - test passed |
 |Exceptions |  Illegal date format |
 
+## Booking Request Price multipliers Tests
+### Risky country miltiplier test
 
-
+|Test ID | 1B |
+| --- | --- |
+|Test Case | Calculate price for cheap days - Cheap day multiplier |
+|Description | Test if the ticket price is correctly calculated based on different days(Friday, Saturday and Sunday)  |
+|Pre-steps | 1. Customer is logged in. <br> 2. Customer has at least 1 APPROVED booking request.<br> 3. Customer is reviewing all booking requests. |
+|Test steps | 1. Customer clicks on "Finalize" button. <br> 2. Expected result: System calculates the price for Booking Request with date "06/06/2021" and returns the actual result.<br> 4. Expected result is 100. <br> 5. Actual and expected results are equal - test passed |
+|Exceptions |  Illegal date format |
 
 
 
