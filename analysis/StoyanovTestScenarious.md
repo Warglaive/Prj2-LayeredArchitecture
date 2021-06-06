@@ -2,11 +2,40 @@
 
 |Test ID | 0 |
 | --- | --- |
-|Test Case | Calculate price for expensive days - Valid test|
+|Test Case | Calculate price for expensive days - Expensive day multiplier |
 |Description | Test if the ticket price is correctly calculated based on different dates(days)  |
 |Pre-steps | 1. Customer is logged in. <br> 2. Customer has at least 1 APPROVED booking request.<br> 3. Customer is reviewing all booking requests. |
 |Test steps | 1. Customer clicks on "Finalize" button. <br> 2. Expected result: System calculates the price for Booking Request with date "03/06/2021" and returns the actual result.<br> 4. Expected result is 156. <br> 5. Actual and expected results are equal - test passed |
 |Exceptions |  Illegal date format |
+
+|Test ID | 0A |
+| --- | --- |
+|Test Case | Calculate price for expensive days - Expensive day multiplier |
+|Description | Test if the ticket price is correctly calculated based on different dates(days)  |
+|Pre-steps | 1. Customer is logged in. <br> 2. Customer has at least 1 APPROVED booking request.<br> 3. Customer is reviewing all booking requests. |
+|Test steps | 1. Customer clicks on "Finalize" button. <br> 2. Expected result: System calculates the price for Booking Request with date "01/06/2021" and returns the actual result.<br> 4. Expected result is 156. <br> 5. Actual and expected results are equal - test passed |
+|Exceptions |  Illegal date format |
+
+|Test ID | 1 |
+| --- | --- |
+|Test Case | Calculate price for expensive days - Cheap day multiplier |
+|Description | Test if the ticket price is correctly calculated based on different dates(days)  |
+|Pre-steps | 1. Customer is logged in. <br> 2. Customer has at least 1 APPROVED booking request.<br> 3. Customer is reviewing all booking requests. |
+|Test steps | 1. Customer clicks on "Finalize" button. <br> 2. Expected result: System calculates the price for Booking Request with date "01/06/2021" and returns the actual result.<br> 4. Expected result is 156. <br> 5. Actual and expected results are equal - test passed |
+|Exceptions |  Illegal date format |
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
