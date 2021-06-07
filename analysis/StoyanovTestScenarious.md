@@ -136,8 +136,21 @@
 |Test steps | 1. Actor submits valid arguments with only password "123"(Invalid). 2. Expected result is thrown InvalidInputException by SystemUser class with message "Invalid password!" | 
 |Exceptions |  N/A |
 
+|Test ID | 0 |
+| --- | --- |
+|Test Case | Invalid address test case |
+|Description | Exception expected when address is passed to createSystemUser method which calls SystemUser constructor|
+|Pre-steps | None |
+|Test steps | 1. Actor submits valid arguments with only address "123"(Invalid). 2. Expected result is thrown InvalidInputException by SystemUser class with message "Invalid address!" | 
+|Exceptions |  N/A |
 
-
+|Test ID | 0 |
+| --- | --- |
+|Test Case | Invalid role test case |
+|Description | Exception expected when address is passed to createSystemUser method which calls SystemUser constructor|
+|Pre-steps | None |
+|Test steps | 1. Actor submits valid arguments with only address "InvalidRole"(Invalid). 2. Expected result is thrown InvalidInputException by SystemUser class with message "Invalid role!" | 
+|Exceptions |  N/A |
 
 
 
