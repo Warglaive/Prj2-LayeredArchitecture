@@ -2,6 +2,7 @@ package com.flighttickets.Persistance;
 
 import com.flighttickets.BusinessLogic.Exceptions.SystemUserStorageException;
 import com.flighttickets.Entities.SystemUser;
+import com.flighttickets.Entities.SystemUserManager;
 import com.flighttickets.Entities.SystemUserMapper;
 import nl.fontys.sebivenlo.dao.pg.PGDAO;
 import nl.fontys.sebivenlo.dao.pg.PGDAOFactory;
@@ -104,6 +105,7 @@ public class SystemUserStorageService {
 
     public SystemUser getById(int id) {
         List<SystemUser> customerList = systemUserDAO.anyQuery("SELECT * FROM " + this.tableName + " WHERE systemuserid= '" + id + "' ");
+        //TODO: Validate and try catch
         return customerList.get(0);
     }
 }
