@@ -152,8 +152,14 @@
 |Test steps | 1. Actor submits valid arguments with only address "InvalidRole"(Invalid). 2. Expected result is thrown InvalidInputException by SystemUser class with message "Invalid role!" | 
 |Exceptions |  N/A |
 
-
-
+### Layers and DB Test 
+|Test ID | 0 |
+| --- | --- |
+|Test Case | Get SystemUser by Email from DB |
+|Description | a valid SystemUser object returned from DB on getBy(Email) method call|
+|Pre-steps | there MUST be a valid SystemUser entry in the DB with corresponding Email so the test works |
+|Test steps | 1. Actor calls getById and passes a email. <br> 2. Expected result is a SystemUserObject | 
+|Exceptions |  No user with such email, indexOutOfRange(Persistance layer exception) |
 
 
 
