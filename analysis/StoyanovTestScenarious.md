@@ -106,10 +106,10 @@
 ### System user manager test
 |Test ID | 0 |
 | --- | --- |
-|Test Case | xx |
-|Description | xx |
+|Test Case | Invalid first name test case |
+|Description | Exception expected when first name is passed to createSystemUser method |
 |Pre-steps | None |
-|Test steps | 1. Customer clicks on "Finalize" button. <br> 2. Expected result: System calculates the price for Booking Request with date "01/06/2021" and country "Afghanistan" and returns the actual result.<br> 4. Expected result is 112 . <br> 5. Actual and expected results are equal - test passed |
+|Test steps | 1. Actor submits valid arguments with only first name being "123" and invalid. 2. Expected result is thrown InvalidInputException by SystemUser class with message "Invalid first name!" | 
 |Exceptions |  N/A |
 
 
