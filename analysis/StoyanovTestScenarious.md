@@ -63,7 +63,7 @@
 
 |Test ID | 8 |
 | --- | --- |
-|Test Case | Calculate ticket price for risky countries |
+|Test Case | Calculate ticket price for risky countries on normal day(Friday, Saturday or Sunday)|
 |Description | Test if the ticket price is correctly calculated based on different destinations |
 |Pre-steps | 1. Customer is logged in. <br> 2. Customer has at least 1 APPROVED booking request.<br>. |
 |Test steps | 1. Customer clicks on "Finalize" button. <br> 2. Expected result: System calculates the price for Booking Request with country "Libya" and returns the actual result.<br> 4. Expected result is 212. <br> 5. Actual and expected results are equal - test passed |
