@@ -107,13 +107,34 @@
 |Test ID | 0 |
 | --- | --- |
 |Test Case | Invalid first name test case |
-|Description | Exception expected when first name is passed to createSystemUser method |
+|Description | Exception expected when first name is passed to createSystemUser method which calls SystemUser constructor |
 |Pre-steps | None |
-|Test steps | 1. Actor submits valid arguments with only first name being "123" and invalid. 2. Expected result is thrown InvalidInputException by SystemUser class with message "Invalid first name!" | 
+|Test steps | 1. Actor submits valid arguments with only first name being "123"(Invalid). 2. Expected result is thrown InvalidInputException by SystemUser class with message "Invalid first name!" | 
 |Exceptions |  N/A |
 
+|Test ID | 0 |
+| --- | --- |
+|Test Case | Invalid first name test case |
+|Description | Exception expected when first name is passed to createSystemUser method which calls SystemUser constructor |
+|Pre-steps | None |
+|Test steps | 1. Actor submits valid arguments with only last name being "123"(Invalid). 2. Expected result is thrown InvalidInputException by SystemUser class with message "Invalid last name!" | 
+|Exceptions |  N/A |
 
+|Test ID | 0 |
+| --- | --- |
+|Test Case | Invalid first name test case |
+|Description | Exception expected when last name is passed to createSystemUser method which calls SystemUser constructor |
+|Pre-steps | None |
+|Test steps | 1. Actor submits valid arguments with only address "123"(Invalid). 2. Expected result is thrown InvalidInputException by SystemUser class with message "Invalid email address!" | 
+|Exceptions |  N/A |
 
+|Test ID | 0 |
+| --- | --- |
+|Test Case | Invalid first name test case |
+|Description | Exception expected when email is passed to createSystemUser method which calls SystemUser constructor|
+|Pre-steps | None |
+|Test steps | 1. Actor submits valid arguments with only email "123"(Invalid). 2. Expected result is thrown InvalidInputException by SystemUser class with message "Invalid email address!" | 
+|Exceptions |  N/A |
 
 
 
@@ -132,26 +153,6 @@
 |Pre-steps | None |
 |Test steps | 1. Actor starts the application.<br>2. Actor clicks "Register" button.<br>Expected: Actor receives register input form.<br>3. Actor fills username with "Daniel".<br>4. Actor fills email with "daniel@gmail.com".<br>5. Actor fills password with "123"<br>6. Actor selects role "SalesOfficer" from a dropdown menu.<br>7. Actor clicks "Submit" button.<br>Expected: Test failed: Exception thrown expected with message "invalid password". |
 |Exceptions |  registration constraints not fulfilled(short pass, illegal characters, etc. |
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ## General Functionality
 
