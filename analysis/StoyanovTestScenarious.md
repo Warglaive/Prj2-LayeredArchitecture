@@ -114,26 +114,26 @@
 
 |Test ID | 0 |
 | --- | --- |
-|Test Case | Invalid first name test case |
-|Description | Exception expected when first name is passed to createSystemUser method which calls SystemUser constructor |
+|Test Case | Invalid last name test case |
+|Description | Exception expected when last name is passed to createSystemUser method which calls SystemUser constructor |
 |Pre-steps | None |
 |Test steps | 1. Actor submits valid arguments with only last name being "123"(Invalid). 2. Expected result is thrown InvalidInputException by SystemUser class with message "Invalid last name!" | 
 |Exceptions |  N/A |
 
 |Test ID | 0 |
 | --- | --- |
-|Test Case | Invalid first name test case |
-|Description | Exception expected when last name is passed to createSystemUser method which calls SystemUser constructor |
+|Test Case | Invalid email address test case |
+|Description | Exception expected when email is passed to createSystemUser method which calls SystemUser constructor |
 |Pre-steps | None |
 |Test steps | 1. Actor submits valid arguments with only address "123"(Invalid). 2. Expected result is thrown InvalidInputException by SystemUser class with message "Invalid email address!" | 
 |Exceptions |  N/A |
 
 |Test ID | 0 |
 | --- | --- |
-|Test Case | Invalid first name test case |
-|Description | Exception expected when email is passed to createSystemUser method which calls SystemUser constructor|
+|Test Case | Invalid password test case |
+|Description | Exception expected when password is passed to createSystemUser method which calls SystemUser constructor|
 |Pre-steps | None |
-|Test steps | 1. Actor submits valid arguments with only email "123"(Invalid). 2. Expected result is thrown InvalidInputException by SystemUser class with message "Invalid email address!" | 
+|Test steps | 1. Actor submits valid arguments with only password "123"(Invalid). 2. Expected result is thrown InvalidInputException by SystemUser class with message "Invalid password!" | 
 |Exceptions |  N/A |
 
 
