@@ -4,7 +4,7 @@
 | --- | --- |
 |Test Case | Calculate ticket price for expensive days - Expensive day multiplier |
 |Description | Test if the ticket price is correctly calculated based on different days(Tuesday and Thursday)  |
-|Pre-steps | 1. Customer is logged in. <br> 2. Customer has at least 1 APPROVED booking request.<br> 3. Customer is reviewing all booking requests. |
+|Pre-steps | 1. Customer is logged in. <br> 2. Customer has at least 1 APPROVED booking request.<br> |
 |Test steps | 1. Customer clicks on "Finalize" button. <br> 2. Expected result: System calculates the price for Booking Request with date "03/06/2021" and returns the actual result.<br> 4. Expected result is 156. <br> 5. Actual and expected results are equal - test passed |
 |Exceptions |  Illegal date format |
 
@@ -12,7 +12,7 @@
 | --- | --- |
 |Test Case | Calculate ticket price for expensive days - Expensive day multiplier |
 |Description | Test if the ticket price is correctly calculated based on different days(Tuesday and Thursday)  |
-|Pre-steps | 1. Customer is logged in. <br> 2. Customer has at least 1 APPROVED booking request.<br> 3. Customer is reviewing all booking requests. |
+|Pre-steps | 1. Customer is logged in. <br> 2. Customer has at least 1 APPROVED booking request.<br> |
 |Test steps | 1. Customer clicks on "Finalize" button. <br> 2. Expected result: System calculates the price for Booking Request with date "01/06/2021" and returns the actual result.<br> 4. Expected result is 156. <br> 5. Actual and expected results are equal - test passed |
 |Exceptions |  Illegal date format |
 
@@ -21,7 +21,7 @@
 | --- | --- |
 |Test Case | Calculate ticket price for cheap days - Cheap day multiplier |
 |Description | Test if the ticket price is correctly calculated based on different days(Monday and Wednesday)  |
-|Pre-steps | 1. Customer is logged in. <br> 2. Customer has at least 1 APPROVED booking request.<br> 3. Customer is reviewing all booking requests. |
+|Pre-steps | 1. Customer is logged in. <br> 2. Customer has at least 1 APPROVED booking request.<br> |
 |Test steps | 1. Customer clicks on "Finalize" button. <br> 2. Expected result: System calculates the price for Booking Request with date "31/05/2021" and returns the actual result.<br> 4. Expected result is 50. <br> 5. Actual and expected results are equal - test passed |
 |Exceptions |  Illegal date format |
 
@@ -29,7 +29,7 @@
 | --- | --- |
 |Test Case | Calculate ticket price for cheap days - Cheap day multiplier |
 |Description | Test if the ticket price is correctly calculated based on different days(Monday and Wednesday)  |
-|Pre-steps | 1. Customer is logged in. <br> 2. Customer has at least 1 APPROVED booking request.<br> 3. Customer is reviewing all booking requests. |
+|Pre-steps | 1. Customer is logged in. <br> 2. Customer has at least 1 APPROVED booking request.<br> |
 |Test steps | 1. Customer clicks on "Finalize" button. <br> 2. Expected result: System calculates the price for Booking Request with date "02/06/2021" and returns the actual result.<br> 4. Expected result is 50. <br> 5. Actual and expected results are equal - test passed |
 |Exceptions |  Illegal date format |
 
@@ -38,7 +38,7 @@
 | --- | --- |
 |Test Case | Calculate ticket price for normal days - normal day multiplier |
 |Description | Test if the ticket price is correctly calculated based on different days(Friday, Saturday and Sunday)  |
-|Pre-steps | 1. Customer is logged in. <br> 2. Customer has at least 1 APPROVED booking request.<br> 3. Customer is reviewing all booking requests. |
+|Pre-steps | 1. Customer is logged in. <br> 2. Customer has at least 1 APPROVED booking request.<br> |
 |Test steps | 1. Customer clicks on "Finalize" button. <br> 2. Expected result: System calculates the price for Booking Request with date "04/06/2021" and returns the actual result.<br> 4. Expected result is 100. <br> 5. Actual and expected results are equal - test passed |
 |Exceptions |  Illegal date format |
 
@@ -46,7 +46,7 @@
 | --- | --- |
 |Test Case | Calculate ticket price for normal days - normal day multiplier |
 |Description | Test if the ticket price is correctly calculated based on different days(Friday, Saturday and Sunday)  |
-|Pre-steps | 1. Customer is logged in. <br> 2. Customer has at least 1 APPROVED booking request.<br> 3. Customer is reviewing all booking requests. |
+|Pre-steps | 1. Customer is logged in. <br> 2. Customer has at least 1 APPROVED booking request.<br> |
 |Test steps | 1. Customer clicks on "Finalize" button. <br> 2. Expected result: System calculates the price for Booking Request with date "05/06/2021" and returns the actual result.<br> 4. Expected result is 100. <br> 5. Actual and expected results are equal - test passed |
 |Exceptions |  Illegal date format |
 
@@ -54,7 +54,7 @@
 | --- | --- |
 |Test Case | Calculate ticket price for normal days - normal day multiplier |
 |Description | Test if the ticket price is correctly calculated based on different days(Friday, Saturday and Sunday)  |
-|Pre-steps | 1. Customer is logged in. <br> 2. Customer has at least 1 APPROVED booking request.<br> 3. Customer is reviewing all booking requests. |
+|Pre-steps | 1. Customer is logged in. <br> 2. Customer has at least 1 APPROVED booking request.<br>  |
 |Test steps | 1. Customer clicks on "Finalize" button. <br> 2. Expected result: System calculates the price for Booking Request with date "06/06/2021" and returns the actual result.<br> 4. Expected result is 100. <br> 5. Actual and expected results are equal - test passed |
 |Exceptions |  Illegal date format |
 
@@ -63,9 +63,9 @@
 
 |Test ID | 8 |
 | --- | --- |
-|Test Case | Calculate ticket price for risky countries |
+|Test Case | Calculate ticket price for risky countries on normal day(Friday, Saturday or Sunday)|
 |Description | Test if the ticket price is correctly calculated based on different destinations |
-|Pre-steps | 1. Customer is logged in. <br> 2. Customer has at least 1 APPROVED booking request.<br> 3. Customer is reviewing all booking requests. |
+|Pre-steps | 1. Customer is logged in. <br> 2. Customer has at least 1 APPROVED booking request.<br>. |
 |Test steps | 1. Customer clicks on "Finalize" button. <br> 2. Expected result: System calculates the price for Booking Request with country "Libya" and returns the actual result.<br> 4. Expected result is 212. <br> 5. Actual and expected results are equal - test passed |
 |Exceptions |  N/A |
 
@@ -74,7 +74,7 @@
 | --- | --- |
 |Test Case | Calculate ticket price for non-risky countries |
 |Description | Test if the ticket price is correctly calculated based on different destinations |
-|Pre-steps | 1. Customer is logged in. <br> 2. Customer has at least 1 APPROVED booking request.<br> 3. Customer is reviewing all booking requests. |
+|Pre-steps | 1. Customer is logged in. <br> 2. Customer has at least 1 APPROVED booking request.<br>  |
 |Test steps | 1. Customer clicks on "Finalize" button. <br> 2. Expected result: System calculates the price for Booking Request with country "Japan" and returns the actual result.<br> 4. Expected result is 100. <br> 5. Actual and expected results are equal - test passed |
 |Exceptions |  N/A |
 
@@ -83,7 +83,7 @@
 | --- | --- |
 |Test Case | Calculate ticket price for risky countries and expensive days |
 |Description | Test if the ticket price is correctly calculated based on different days and destinations |
-|Pre-steps | 1. Customer is logged in. <br> 2. Customer has at least 1 APPROVED booking request.<br> 3. Customer is reviewing all booking requests. |
+|Pre-steps | 1. Customer is logged in. <br> 2. Customer has at least 1 APPROVED booking request.<br>  |
 |Test steps | 1. Customer clicks on "Finalize" button. <br> 2. Expected result: System calculates the price for Booking Request with date "03/06/2021" and country "Libya" and returns the actual result.<br> 4. Expected result is 330.72 . <br> 5. Actual and expected results are equal - test passed |
 |Exceptions |  N/A |
 
@@ -91,7 +91,7 @@
 | --- | --- |
 |Test Case | Calculate ticket price for risky countries and expensive days |
 |Description | Test if the ticket price is correctly calculated based on different days and destinations |
-|Pre-steps | 1. Customer is logged in. <br> 2. Customer has at least 1 APPROVED booking request.<br> 3. Customer is reviewing all booking requests. |
+|Pre-steps | 1. Customer is logged in. <br> 2. Customer has at least 1 APPROVED booking request.<br> |
 |Test steps | 1. Customer clicks on "Finalize" button. <br> 2. Expected result: System calculates the price for Booking Request with date "27/05/2021" and country "Somalia" and returns the actual result.<br> 4. Expected result is 106 . <br> 5. Actual and expected results are equal - test passed |
 |Exceptions |  N/A |
 
@@ -99,17 +99,58 @@
 | --- | --- |
 |Test Case | Calculate ticket price for risky countries and expensive days |
 |Description | Test if the ticket price is correctly calculated based on different days and destinations |
-|Pre-steps | 1. Customer is logged in. <br> 2. Customer has at least 1 APPROVED booking request.<br> 3. Customer is reviewing all booking requests. |
+|Pre-steps | 1. Customer is logged in. <br> 2. Customer has at least 1 APPROVED booking request.<br>  |
 |Test steps | 1. Customer clicks on "Finalize" button. <br> 2. Expected result: System calculates the price for Booking Request with date "01/06/2021" and country "Afghanistan" and returns the actual result.<br> 4. Expected result is 112 . <br> 5. Actual and expected results are equal - test passed |
 |Exceptions |  N/A |
 
+### System user manager test
+|Test ID | 13 |
+| --- | --- |
+|Test Case | Invalid first name test case |
+|Description | Exception expected when first name is passed to createSystemUser method which calls SystemUser constructor |
+|Pre-steps | None |
+|Test steps | 1. Actor submits valid arguments with only first name being "123"(Invalid). 2. Expected result is thrown InvalidInputException by SystemUser class with message "Invalid first name!" | 
+|Exceptions |  N/A |
 
+|Test ID | 14 |
+| --- | --- |
+|Test Case | Invalid last name test case |
+|Description | Exception expected when last name is passed to createSystemUser method which calls SystemUser constructor |
+|Pre-steps | None |
+|Test steps | 1. Actor submits valid arguments with only last name being "123"(Invalid). 2. Expected result is thrown InvalidInputException by SystemUser class with message "Invalid last name!" | 
+|Exceptions |  N/A |
 
+|Test ID | 15 |
+| --- | --- |
+|Test Case | Invalid email address test case |
+|Description | Exception expected when email is passed to createSystemUser method which calls SystemUser constructor |
+|Pre-steps | None |
+|Test steps | 1. Actor submits valid arguments with only address "123"(Invalid). 2. Expected result is thrown InvalidInputException by SystemUser class with message "Invalid email address!" | 
+|Exceptions |  N/A |
 
+|Test ID | 16 |
+| --- | --- |
+|Test Case | Invalid password test case |
+|Description | Exception expected when password is passed to createSystemUser method which calls SystemUser constructor|
+|Pre-steps | None |
+|Test steps | 1. Actor submits valid arguments with only password "123"(Invalid). 2. Expected result is thrown InvalidInputException by SystemUser class with message "Invalid password!" | 
+|Exceptions |  N/A |
 
+|Test ID | 17 |
+| --- | --- |
+|Test Case | Invalid address test case |
+|Description | Exception expected when address is passed to createSystemUser method which calls SystemUser constructor|
+|Pre-steps | None |
+|Test steps | 1. Actor submits valid arguments with only address "123"(Invalid). 2. Expected result is thrown InvalidInputException by SystemUser class with message "Invalid address!" | 
+|Exceptions |  N/A |
 
-
-
+|Test ID | 18 |
+| --- | --- |
+|Test Case | Invalid role test case |
+|Description | Exception expected when address is passed to createSystemUser method which calls SystemUser constructor|
+|Pre-steps | None |
+|Test steps | 1. Actor submits valid arguments with only address "InvalidRole"(Invalid). 2. Expected result is thrown InvalidInputException by SystemUser class with message "Invalid role!" | 
+|Exceptions |  N/A |
 
 
 
@@ -125,26 +166,6 @@
 |Pre-steps | None |
 |Test steps | 1. Actor starts the application.<br>2. Actor clicks "Register" button.<br>Expected: Actor receives register input form.<br>3. Actor fills username with "Daniel".<br>4. Actor fills email with "daniel@gmail.com".<br>5. Actor fills password with "123"<br>6. Actor selects role "SalesOfficer" from a dropdown menu.<br>7. Actor clicks "Submit" button.<br>Expected: Test failed: Exception thrown expected with message "invalid password". |
 |Exceptions |  registration constraints not fulfilled(short pass, illegal characters, etc. |
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ## General Functionality
 
