@@ -112,11 +112,15 @@ public class BookingManagerImplTest {
             "'South Sudan'",
             "'Central African Republic'",
             "'Mali'",
-            "'Afghanistan', 'test'",
+            "'Afghanistan'",
     })
-    void calculatePriceRiskyCountryTest(String country) {
+    void calculatePriceRiskyCountryNormPriceTest(String country) {
         //set arrivalDestination
         this.toBeFinalized.setArrivalDestination(country);
+        // parse input
+        this.parsed = formatter.parse("05/06/2021");
+        //set days
+        this.toBeFinalized.setDepartureDate(LocalDate.from(parsed));
         //risky country multiplier = 2.12
         double expectedPrice = 212;
         double actualPrice = this.bookingManager.calculatePrice();
@@ -137,9 +141,15 @@ public class BookingManagerImplTest {
             "'Bulgaria'",
             "'South Africa'",
     })
-    void calculatePriceNonRiskyCountryTest(String country) {
+    void calculatePriceNonRiskyNormDayCountryTest(String country) {
         //set arrivalDestination
         this.toBeFinalized.setArrivalDestination(country);
+        //set arrivalDestination
+        this.toBeFinalized.setArrivalDestination(country);
+        // parse input
+        this.parsed = formatter.parse("05/06/2021");
+        //set days
+        this.toBeFinalized.setDepartureDate(LocalDate.from(parsed));
         //NonRisky country multiplier = 1
         double expectedPrice = 100;
         double actualPrice = this.bookingManager.calculatePrice();
