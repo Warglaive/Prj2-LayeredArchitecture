@@ -63,6 +63,6 @@ public class FinalizeBookingRequestController implements Initializable {
 
     @FXML
     public void backToView() {
-        this.sceneManagerSupplier.get().changeScene("CustomerMainView");
+        this.sceneManagerSupplier.get().changeScene("AllBookingRequestsView");
     }
 }
