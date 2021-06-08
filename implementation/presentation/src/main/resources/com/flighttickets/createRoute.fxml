@@ -1,21 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="403.0" prefWidth="890.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.flighttickets.GUI.CreateRouteController">
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="403.0" prefWidth="813.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.flighttickets.GUI.CreateRouteController">
+
    <children>
-      <Text layoutX="381.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create new route">
+      <Text layoutX="309.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create new route">
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font name="System Bold" size="24.0" />
          </font>
       </Text>
-      <Text layoutX="179.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="starting location:" />
-      <Text layoutX="601.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="destination location:" />
-      <Button fx:id="backButton" layoutX="366.0" layoutY="339.0" mnemonicParsing="false" onAction="#backHandler" prefHeight="25.0" prefWidth="57.0" text="Back" />
-      <Button fx:id="submitButton" layoutX="451.0" layoutY="339.0" mnemonicParsing="false" onAction="#createRouteHandler" text="Submit" />
-      <TableView fx:id="airportsListSt" layoutX="19.0" layoutY="114.0" prefHeight="200.0" prefWidth="409.0">
+      <Text layoutX="159.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="starting location:" />
+      <Text layoutX="544.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="destination location:" />
+      <Button fx:id="backButton" layoutX="332.0" layoutY="364.0" mnemonicParsing="false" onAction="#backHandler" prefHeight="25.0" prefWidth="57.0" text="Back" />
+      <Button fx:id="submitButton" layoutX="413.0" layoutY="364.0" mnemonicParsing="false" onAction="#createRouteHandler" text="Submit" />
+      <TableView fx:id="airportsListSt" layoutX="19.0" layoutY="114.0" prefHeight="200.0" prefWidth="370.0">
         <columns>
           <TableColumn fx:id="idCol" prefWidth="49.0" text="id" />
           <TableColumn fx:id="nameCol" prefWidth="128.0" text="name" />
@@ -23,7 +28,7 @@
             <TableColumn fx:id="countryCol" prefWidth="76.0" text="country" />
         </columns>
       </TableView>
-      <TableView fx:id="airportsListDest" layoutX="451.0" layoutY="114.0" prefHeight="200.0" prefWidth="409.0">
+      <TableView fx:id="airportsListDest" layoutX="413.0" layoutY="114.0" prefHeight="200.0" prefWidth="370.0">
          <columns>
             <TableColumn fx:id="idCol1" prefWidth="49.0" text="id" />
             <TableColumn fx:id="nameCol1" prefWidth="128.0" text="name" />
@@ -31,5 +36,6 @@
             <TableColumn fx:id="countryCol1" prefWidth="76.0" text="country" />
          </columns>
       </TableView>
+      <Label fx:id="labelFail" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="280.0" layoutY="329.0" prefHeight="17.0" prefWidth="235.0" textFill="#d71313" />
    </children>
 </AnchorPane>

@@ -8,10 +8,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-
 import java.io.IOException;
 import java.net.URL;
-import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.function.Supplier;
@@ -38,6 +36,8 @@ public class CreateRouteController implements Initializable {
     private TableColumn cityCol1;
     @FXML
     private TableColumn countryCol1;
+    @FXML
+    private Label labelFail;
 
     /*
     @FXML
@@ -84,9 +84,13 @@ public class CreateRouteController implements Initializable {
         Airport endPoint = airportsListDest.getSelectionModel().getSelectedItem();
         Integer endId = endPoint.getId();
         Integer idPlanner = this.planner.getId();
-        Route route = new Route(initialId, startingId, endId, idPlanner);
-        this.routeManager.add(route);
-        this.sceneManagerSupplier.get().changeScene("currentRoutes");
+        if(startingId != endId) {
+            Route route = new Route(initialId, startingId, endId, idPlanner);
+            this.routeManager.add(route);
+            this.sceneManagerSupplier.get().changeScene("currentRoutes");
+        } else {
+            labelFail.setText("Start and end airport cannot be same!");
+        }
     }
 
     @FXML
