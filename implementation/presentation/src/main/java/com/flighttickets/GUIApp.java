@@ -60,7 +60,7 @@ public class GUIApp extends Application {
             case "com.flighttickets.GUI.CreateFlightController":
                 return new CreateFlightController(this::getSceneManager, this.systemUserController.getLoggedInCustomer(), this.businessLogicAPI.getPlaneManager(), this.businessLogicAPI.getRouteManager(), this.businessLogicAPI.getFlightManager(), this.businessLogicAPI.getAirportManager());
             case "com.flighttickets.GUI.EditTicketController":
-                this.editTicketController =  new EditTicketController(this::getSceneManager, this.systemUserController.getLoggedInCustomer(), this.businessLogicAPI.getSystemUserManager(), this.businessLogicAPI.getTicketManager());
+                this.editTicketController = new EditTicketController(this::getSceneManager, this.systemUserController.getLoggedInCustomer(), this.businessLogicAPI.getSystemUserManager(), this.businessLogicAPI.getTicketManager());
                 return this.editTicketController;
             case "com.flighttickets.GUI.EditTicketDataController":
                 return new EditTicketDataController(this::getSceneManager, this.systemUserController.getLoggedInCustomer(), this.businessLogicAPI.getTicketManager(), this.editTicketController.getSelectedTicket());
