@@ -60,7 +60,7 @@ public class SystemUserManagerImplTest {
         daoFactory.registerMapper(SystemUser.class, new SystemUserMapper());
 
 
-        this.persistenceAPI = PersistenceImplementationProvider.getImplementation(daoFactory);
+        this.persistenceAPI = PersistenceImplementationProvider.getPersistenceImplementation(daoFactory);
         this.businesslogicAPI = BusinessLogicImplementationProvider.getImplementation(persistenceAPI);
 
 

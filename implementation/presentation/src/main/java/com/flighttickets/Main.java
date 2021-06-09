@@ -11,7 +11,7 @@ public class Main {
 
         try {
             PGDAOFactory daoFactory = new PGDAOFactory(PGDataSource.DATA_SOURCE);
-            PersistenceAPI persistenceAPI = PersistenceImplementationProvider.getImplementation(daoFactory);
+            PersistenceAPI persistenceAPI = PersistenceImplementationProvider.getPersistenceImplementation(daoFactory);
             BusinessLogicAPI businesslogicAPI = BusinessLogicImplementationProvider.getImplementation(persistenceAPI);
 
             new GUIApp(businesslogicAPI).show();
