@@ -47,6 +47,9 @@ public class BookingRequestHandleController implements Initializable {
     private Label passengerCount_label;
 
     @FXML
+    private Label alert_label;
+
+    @FXML
     private TableView<Ticket> departure_ticket_view;
 
     @FXML
@@ -118,25 +121,29 @@ public class BookingRequestHandleController implements Initializable {
 
     @FXML
     public void requestHandler(ActionEvent event) throws IOException{
-        Booking newBooking = new Booking(0, currentRequest.getCustomerId(),3,LocalDate.now());
-        //Add booking to ticket.
-        //Creating a new booking returns the id of that new booking. This is inserted to the tickets. - JL
-        int resultBookingId = this.bookingManager.add(newBooking);
-        //Testing result
-        System.out.println("Booking made with id= " + resultBookingId);
         //Gets the selected tickets from the tableview - JL
         Ticket departureflight = departure_ticket_view.getSelectionModel().getSelectedItem();
         Ticket returnflight = return_ticket_view.getSelectionModel().getSelectedItem();
-        this.ticketManager.sell(resultBookingId, departureflight);
-        this.ticketManager.sell(resultBookingId, returnflight);
-        this.bookingRequestManager.acceptRequest(currentRequest);
+        if(departureflight == null || returnflight == null){
+            alert_label.setText("Please select a ticket first!");
+        } else {
+            //Creating a new booking returns the id of that new booking. This is inserted to the tickets. - JL
+            Booking newBooking = new Booking(0, currentRequest.getCustomerId(),3,LocalDate.now());
+            int resultBookingId = this.bookingManager.add(newBooking);
+            //Testing result
+            System.out.println("Booking made with id= " + resultBookingId);
+            //Add booking to ticket.
+            this.ticketManager.sell(resultBookingId, departureflight);
+            this.ticketManager.sell(resultBookingId, returnflight);
+            this.bookingRequestManager.acceptRequest(currentRequest);
 
-        //Testing if all worked - JL
-        System.out.println(departureflight.toString());
-        System.out.println(returnflight.toString());
-        //Return to main after handling request - JL
-        this.sceneManagerSupplier.get().changeScene("BookingRequestOverview");
-        //TODO add available tickets on date - JL
+            //Testing if all worked - JL
+            System.out.println(departureflight.toString());
+            System.out.println(returnflight.toString());
+            //Return to main after handling request - JL
+            this.sceneManagerSupplier.get().changeScene("BookingRequestOverview");
+            //TODO add available tickets on date - JL
+        }
     }
 
     //TODO add decline here instead of Overview - JL
