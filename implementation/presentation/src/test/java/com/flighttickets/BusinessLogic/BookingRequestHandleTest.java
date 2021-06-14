@@ -1,11 +1,19 @@
 package com.flighttickets.BusinessLogic;
 
-import com.flighttickets.Entities.BookingRequest;
-import com.flighttickets.Entities.Booking;
-import com.flighttickets.Entities.BookingRequestManager;
+import com.flighttickets.Entities.*;
+import com.flighttickets.PGDataSource;
+import com.flighttickets.Persistance.BookingRequestStorageService;
+import com.flighttickets.Persistance.BookingStorageService;
+import com.flighttickets.Persistance.PersistenceAPI;
+import com.flighttickets.Persistance.PersistenceImplementationProvider;
+import nl.fontys.sebivenlo.dao.pg.PGDAOFactory;
 import org.junit.Assert.*;
 import org.assertj.core.api.Assertions;
 import static org.assertj.core.api.Assertions.*;
+
+import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 
@@ -13,7 +21,36 @@ import java.time.LocalDate;
 import java.util.List;
 
 public class BookingRequestHandleTest {
-    //BookingRequestManager test = BookingRequestManagerImpl();
+    private BusinessLogicAPI bookingbusinessLogicAPI;
+    private PersistenceAPI bookingpersistenceAPI;
+    private BusinessLogicAPI bookingRequestbusinessLogicAPI;
+    private PersistenceAPI bookingRequestpersistenceAPI;
+    private BookingStorageService bookingStorageService;
+    private BookingRequestStorageService bookingRequestStorageService;
+    private BookingRequestManager bookingRequestManager;
+    private BookingManager bookingManager;
+
+    @BeforeEach
+    void setUp(){
+        PGDAOFactory daoFactoryBooking = new PGDAOFactory(PGDataSource.DATA_SOURCE);
+        PGDAOFactory daoFactoryBookingRequest = new PGDAOFactory(PGDataSource.DATA_SOURCE);
+        // Register mappers for the classes in this app
+        daoFactoryBooking.registerMapper(Booking.class, new BookingMapper());
+        daoFactoryBookingRequest.registerMapper(BookingRequest.class, new BookingRequestMapper());
+
+        //Gets&Sets Booking Persistance and Business for test also sets storage
+        this.bookingpersistenceAPI = PersistenceImplementationProvider.getImplementation(daoFactoryBooking);
+        this.bookingbusinessLogicAPI = BusinessLogicImplementationProvider.getImplementation(bookingpersistenceAPI);
+        this.bookingStorageService = this.bookingpersistenceAPI.getBookingStorageService();
+        this.bookingManager = this.bookingbusinessLogicAPI.getBookingManager();
+        this.bookingManager.setBookingStorageService(this.bookingStorageService);
+        //Gets&Sets BookingRequest Persistance and business for test also sets storage
+        this.bookingRequestpersistenceAPI = PersistenceImplementationProvider.getImplementation(daoFactoryBookingRequest);
+        this.bookingRequestbusinessLogicAPI = BusinessLogicImplementationProvider.getImplementation(bookingRequestpersistenceAPI);
+        this.bookingRequestStorageService = this.bookingRequestpersistenceAPI.getBookingRequestStorageService();
+        this.bookingRequestManager = this.bookingRequestbusinessLogicAPI.getBookingRequestManager();
+        this.bookingRequestManager.setBookingRequestStorageService(this.bookingRequestStorageService);
+    }
 
     @Test
     public void BookingTestConstructor(){
@@ -42,8 +79,14 @@ public class BookingRequestHandleTest {
         assertThat(testRequest.getStatus()).isEqualTo("Pending");
     }
 
+    //@Disabled
     @Test void ReceiveBookingRequestListTest(){
-        //List<BookingRequest> testList = this.bookingRequestManager.getPendingRequests();
+        List<BookingRequest> testList = this.bookingRequestManager.getPendingRequests();
+        assertThat(testList).isNotNull();
+    }
+
+    @Test void TestBookingReceive(){
+        //this.bookingManager.
     }
 
     @Test
@@ -53,6 +96,16 @@ public class BookingRequestHandleTest {
 
     @Test
     public void BookingRequestHandleAcceptTest(){
+
+    }
+
+    @Test
+    public void BookingRequestBusinessLogicTest(){
+
+    }
+
+    @Test
+    public void BookingBusinessLogicTest(){
 
     }
 }

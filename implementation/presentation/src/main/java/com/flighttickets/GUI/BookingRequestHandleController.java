@@ -117,7 +117,7 @@ public class BookingRequestHandleController implements Initializable {
     }
 
     @FXML
-    public void requestHandler(ActionEvent event) throws IOException, SQLException, ClassNotFoundException {
+    public void requestHandler(ActionEvent event) throws IOException{
         Booking newBooking = new Booking(0, currentRequest.getCustomerId(),3,LocalDate.now());
         //Add booking to ticket.
         //Creating a new booking returns the id of that new booking. This is inserted to the tickets. - JL

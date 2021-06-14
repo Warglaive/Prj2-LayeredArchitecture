@@ -75,7 +75,7 @@ public class BookingManagerImpl implements BookingManager {
     }
 
     @Override
-    public int add(Booking booking) throws SQLException, ClassNotFoundException {
+    public int add(Booking booking){
         return this.bookingStorageService.insert(booking);
     }
 
