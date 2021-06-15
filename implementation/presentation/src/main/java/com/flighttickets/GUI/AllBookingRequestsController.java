@@ -4,7 +4,6 @@ import com.flighttickets.Entities.BookingRequest;
 import com.flighttickets.Entities.BookingRequestManager;
 import com.flighttickets.Entities.SystemUser;
 import com.flighttickets.Entities.SystemUserManager;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;

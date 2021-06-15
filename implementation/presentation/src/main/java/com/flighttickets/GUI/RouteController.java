@@ -1,5 +1,6 @@
 package com.flighttickets.GUI;
 
+
 import com.flighttickets.Entities.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

@@ -1,6 +1,5 @@
 package com.flighttickets.Persistance;
 
-import com.flighttickets.Entities.Booking;
 import com.flighttickets.Entities.Ticket;
 import com.flighttickets.Entities.TicketMapper;
 import nl.fontys.sebivenlo.dao.pg.PGDAO;

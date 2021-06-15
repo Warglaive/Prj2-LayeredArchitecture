@@ -15,6 +15,8 @@ import java.util.List;
  * this class is used for Business logic and NO Sql is written here.
  */
 public class BookingManagerImpl implements BookingManager {
+
+
     /**
      * Tuesday and Thursday are to be expensive days
      */
@@ -39,11 +41,14 @@ public class BookingManagerImpl implements BookingManager {
     private double ticketPrice = 100;
 
 
-    List<String> riskyDestinationsList;
+    private List<String> riskyDestinationsList;
 
     private BookingStorageService bookingStorageService;
     private BookingRequest toBeFinalized;
 
+    /**
+     * used by GUIApp
+     */
     public BookingManagerImpl() {
     }
 
@@ -58,7 +63,6 @@ public class BookingManagerImpl implements BookingManager {
             add("Somalia");
             add("South Sudan");
             add("Central African Republic");
-            add("Part of the Congo");
             add("Mali");
             add("Afghanistan");
         }};
@@ -100,5 +104,41 @@ public class BookingManagerImpl implements BookingManager {
             this.ticketPrice *= this.riskyNationMultiplier;
         }
         return this.ticketPrice;
+    }
+
+
+    /**
+     * Getters and setters for easier testing
+     */
+    public double getExpensiveDayMultiplier() {
+        return expensiveDayMultiplier;
+    }
+
+    public double getCheapDayMultiplier() {
+        return cheapDayMultiplier;
+    }
+
+    public int getNormalDayMultiplier() {
+        return normalDayMultiplier;
+    }
+
+    public double getRiskyNationMultiplier() {
+        return riskyNationMultiplier;
+    }
+
+    public double getTicketPrice() {
+        return ticketPrice;
+    }
+
+    public List<String> getRiskyDestinationsList() {
+        return riskyDestinationsList;
+    }
+
+    public BookingStorageService getBookingStorageService() {
+        return bookingStorageService;
+    }
+
+    public BookingRequest getToBeFinalized() {
+        return toBeFinalized;
     }
 }

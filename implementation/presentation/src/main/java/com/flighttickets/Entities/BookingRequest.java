@@ -92,6 +92,10 @@ public class BookingRequest implements Entity2<Integer> {
         };
     }
 
+    /**
+     * getters and setters for easier testing
+     *
+     */
     public int getBookingRequestId() {
         return bookingRequestId;
     }

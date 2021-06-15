@@ -1,6 +1,6 @@
-package com.flighttickets.Entities;
+package com.flighttickets.BusinessLogic;
 
-import com.flighttickets.BusinessLogic.BusinessLogicAPIImpl;
+import com.flighttickets.Entities.BusinessLogicAPI;
 import com.flighttickets.Persistance.PersistenceAPI;
 
 public interface BusinessLogicImplementationProvider extends BusinessLogicAPI {
