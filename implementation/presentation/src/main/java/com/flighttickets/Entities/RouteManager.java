@@ -19,7 +19,7 @@ public interface RouteManager {
      * @param route
      * @return Route
      */
-    void add(Route route) throws SQLException, ClassNotFoundException;
+    void add(Route route);
 
     /**
      * @param plannerId

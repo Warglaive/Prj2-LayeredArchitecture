@@ -5,8 +5,9 @@ import nl.fontys.sebivenlo.dao.ID;
 
 public class Airport implements Entity2<Integer> {
 
-    @ID(generated = true)
+    @ID
     int id;
+
     /**
      * Fields to be used to encrypt pass, validate names etc.
      */
@@ -32,10 +33,10 @@ public class Airport implements Entity2<Integer> {
 
     @Override
     public String toString() {
-        return "id: " + id +
-                ", name: " + name +
-                ", country: " + country  +
-                ", city: " + city;
+        return "id " + id +
+                ", name " + name +
+                ", country " + country  +
+                ", city " + city;
     }
 
     /**

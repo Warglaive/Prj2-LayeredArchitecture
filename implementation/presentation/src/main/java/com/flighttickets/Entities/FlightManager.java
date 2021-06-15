@@ -17,7 +17,7 @@ public interface FlightManager {
     /**
      * @param flight the flight to add
      */
-    void add(Flight flight) throws SQLException, ClassNotFoundException;
+    void add(Flight flight);
 
     /**
      * setter for FlightStorageService

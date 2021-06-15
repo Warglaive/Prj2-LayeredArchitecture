@@ -16,7 +16,7 @@ public class FlightManagerImpl implements FlightManager {
     }
 
     @Override
-    public void add(Flight flight) throws SQLException, ClassNotFoundException {
+    public void add(Flight flight){
         this.flightStorageService.insert(flight);
     }
 

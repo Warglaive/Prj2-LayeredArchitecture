@@ -3,8 +3,6 @@ package com.flighttickets.BusinessLogic;
 import com.flighttickets.Entities.Route;
 import com.flighttickets.Entities.RouteManager;
 import com.flighttickets.Persistance.RouteStorageService;
-
-import java.sql.SQLException;
 import java.util.List;
 
 public class RouteManagerImpl implements RouteManager {
@@ -30,7 +28,7 @@ public class RouteManagerImpl implements RouteManager {
     }
 
     @Override
-    public void add(Route route) throws SQLException, ClassNotFoundException {
+    public void add(Route route) {
         this.routeStorageService.insert(route);
     }
 

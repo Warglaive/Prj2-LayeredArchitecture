@@ -7,13 +7,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-
 import java.io.IOException;
 import java.net.URL;
-import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -26,8 +25,6 @@ public class CreateFlightController implements Initializable {
     @FXML
     private TableView<Route> routesList;
     @FXML
-    private TableView<Plane> planesList;
-    @FXML
     private TableColumn routeIdCol;
     @FXML
     private TableColumn startIdCol;
@@ -35,6 +32,8 @@ public class CreateFlightController implements Initializable {
     private TableColumn endIdCol;
     @FXML
     private TableColumn plannerIdCol;
+    @FXML
+    private TableView<Plane> planesList;
     @FXML
     private TableColumn planeIdCol;
     @FXML
@@ -59,10 +58,12 @@ public class CreateFlightController implements Initializable {
     private TableColumn airportCountryCol;
     @FXML
     private TableColumn airportCityCol;
+    @FXML
+    private Label failLabel;
+
     /*
     @FXML
     private Button backButton;
-
     @FXML
     private Button SubmitButton;
     */
@@ -85,7 +86,7 @@ public class CreateFlightController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        List<Route> listOfRoutes = this.routeManager.getByPlannerId(1);
+        List<Route> listOfRoutes = this.routeManager.getByPlannerId(this.planner.getId());
         ObservableList<Route> observableList = FXCollections.observableList(listOfRoutes);
         this.routesList.setItems(observableList);
         this.routeIdCol.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -119,16 +120,21 @@ public class CreateFlightController implements Initializable {
     }
 
     @FXML
-    public void submitHandler() throws SQLException, ClassNotFoundException {
+    public void submitHandler() throws IOException {
         int newFlightId = 0;
+        LocalDate today = LocalDate.now();
         LocalDate localDate = this.datePicker.getValue();
         Route selectedRoute = this.routesList.getSelectionModel().getSelectedItem();
         int selectedRouteId = selectedRoute.getId();
         Plane selectedPlane = this.planesList.getSelectionModel().getSelectedItem();
         int selectedPlaneId = selectedPlane.getId();
 
-        Flight createdFlight = new Flight(newFlightId, localDate, selectedRouteId, selectedPlaneId);
-        this.flightManager.add(createdFlight);
-        this.sceneManagerSupplier.get().changeScene("currentRoutes");
+        if (localDate.isBefore(today)) {
+            failLabel.setText("Date cannot be in the past!");
+        } else {
+            Flight createdFlight = new Flight(newFlightId, localDate, selectedRouteId, selectedPlaneId);
+            this.flightManager.add(createdFlight);
+            this.sceneManagerSupplier.get().changeScene("currentRoutes");
+        }
     }
 }

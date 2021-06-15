@@ -7,7 +7,7 @@ import java.time.LocalDate;
 
 public class Flight implements Entity2<Integer> {
 
-    @ID(generated = true)
+    @ID
     int id;
 
     LocalDate flightdate;
@@ -25,12 +25,9 @@ public class Flight implements Entity2<Integer> {
      */
     public Flight(int id, LocalDate date, int routeId, int planeId) {
         this.id = id;
-
         this.flightdate = date;
-
         this.routeid = routeId;
         this.planeid = planeId;
-
     }
 
     /**
