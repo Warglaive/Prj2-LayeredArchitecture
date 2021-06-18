@@ -1,5 +1,6 @@
 package com.flighttickets.GUI;
 
+import com.flighttickets.BusinessLogic.Exceptions.DateOutOfBoundException;
 import com.flighttickets.Entities.BookingRequest;
 import com.flighttickets.Entities.BookingRequestManager;
 import com.flighttickets.Entities.SystemUser;
@@ -70,7 +71,7 @@ public class CreateBookingRequestController implements Initializable {
      *
      */
     @FXML
-    void submitRequest() throws SQLException, ClassNotFoundException {
+    void submitRequest() throws SQLException, ClassNotFoundException, DateOutOfBoundException {
         int initialSalesOfficerId = this.systemUserManager.generateSalesOfficerId();
         int initialId = 0;
         String initialStatus = "Pending";
