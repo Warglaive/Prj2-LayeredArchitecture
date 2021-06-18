@@ -1,5 +1,6 @@
 package com.flighttickets.Entities;
 
+import com.flighttickets.BusinessLogic.Exceptions.TicketAlreadySoldException;
 import com.flighttickets.Persistance.TicketStorageService;
 
 import java.sql.SQLException;
@@ -44,7 +45,7 @@ public interface TicketManager {
     /**
      * Get a list of all tickets unassigned
      */
-    List<Ticket> getOpenTickets(String destination);
+    List<Ticket> getOpenTickets(String departure, String destination);
 
-    Ticket sell(int bookingId, Ticket toBeSold);
+    Ticket sell(int bookingId, Ticket toBeSold) throws TicketAlreadySoldException;
 }

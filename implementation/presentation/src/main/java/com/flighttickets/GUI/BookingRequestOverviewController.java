@@ -11,6 +11,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -28,6 +29,9 @@ public class BookingRequestOverviewController implements Initializable {
 
     @FXML
     private Button handle_btn;
+
+    @FXML
+    private Label alert_label;
 
     @FXML
     private TableView<BookingRequest> selection_list;
@@ -88,7 +92,11 @@ public class BookingRequestOverviewController implements Initializable {
     @FXML
     public void handleRequestHandler(ActionEvent event) throws IOException {
         //GUIApp.setRoot("setPlane");
-        this.sceneManagerSupplier.get().changeScene("BookingRequestHandle");
+        if(selection_list.getSelectionModel().getSelectedItem() == null){
+            alert_label.setText("Please select a request first!");
+        } else {
+            this.sceneManagerSupplier.get().changeScene("BookingRequestHandle");
+        }
         //TODO Implement error if no request is selected - JL
 //        System.out.println("Handle Request" + tobeHandled);
     }

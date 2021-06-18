@@ -3,6 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 <VBox prefHeight="604.0" prefWidth="934.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.flighttickets.GUI.BookingRequestOverviewController">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="638.0" prefWidth="970.0" VBox.vgrow="ALWAYS">
@@ -17,6 +18,11 @@
                   <TableColumn fx:id="return_date_column" prefWidth="87.0" text="Return date" />
                   <TableColumn fx:id="passenger_count_column" prefWidth="105.0" text="Passenger Count" />
                </columns></TableView>
+             <Label fx:id="alert_label" layoutX="200.0" layoutY="525.0" prefHeight="50.0" prefWidth="500.0" textFill="#ff0404">
+                 <font>
+                     <Font size="24.0" />
+                 </font>
+             </Label>
             <Button fx:id="back_btn" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backHandler" text="Return to main" />
             <Button fx:id="handle_btn" layoutX="767.0" layoutY="519.0" mnemonicParsing="false" onAction="#handleRequestHandler" prefHeight="71.0" prefWidth="136.0" text="Handle request" />
          </children>

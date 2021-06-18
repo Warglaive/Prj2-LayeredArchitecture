@@ -1,5 +1,6 @@
 package com.flighttickets.GUI;
 
+import com.flighttickets.BusinessLogic.Exceptions.TicketAlreadySoldException;
 import com.flighttickets.Entities.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -101,7 +102,7 @@ public class BookingRequestHandleController implements Initializable {
         passengerCount_label.setText(String.valueOf(currentRequest.getPassengersAmount()));
 
         //Todo Use Location to find tickets - JL
-        List<Ticket> depAllOpenTickets = this.ticketManager.getOpenTickets(currentRequest.getDepartureDestination());
+        List<Ticket> depAllOpenTickets = this.ticketManager.getOpenTickets(currentRequest.getDepartureDestination(), currentRequest.getArrivalDestination());
         ObservableList<Ticket> departureObservableList = FXCollections.observableList(depAllOpenTickets);
 
         departure_ticket_view.setItems(departureObservableList);
@@ -110,7 +111,7 @@ public class BookingRequestHandleController implements Initializable {
         dep_seat_no.setCellValueFactory(new PropertyValueFactory<>("status"));
 
         //Todo Use Location to find tickets - JL
-        List<Ticket> reAllOpenTickets = this.ticketManager.getOpenTickets(currentRequest.getArrivalDestination());
+        List<Ticket> reAllOpenTickets = this.ticketManager.getOpenTickets(currentRequest.getArrivalDestination(), currentRequest.getDepartureDestination());
         ObservableList<Ticket> returnObservableList = FXCollections.observableList(reAllOpenTickets);
 
         return_ticket_view.setItems(returnObservableList);
@@ -120,7 +121,7 @@ public class BookingRequestHandleController implements Initializable {
     }
 
     @FXML
-    public void requestHandler(ActionEvent event) throws IOException{
+    public void requestHandler(ActionEvent event) throws IOException, TicketAlreadySoldException {
         //Gets the selected tickets from the tableview - JL
         Ticket departureflight = departure_ticket_view.getSelectionModel().getSelectedItem();
         Ticket returnflight = return_ticket_view.getSelectionModel().getSelectedItem();

@@ -81,32 +81,32 @@ public class BookingRequestHandleTest {
         assertThat(testRequest).isExactlyInstanceOf(BookingRequest.class);
     }
 
-
-    @Test void TestBookingReceive(){
-        //this.bookingManager.
-
-    }
-
-    @Test
-    public void BookingRequestHandleDeclineTest(){
-        //Create stub.
-
-        //this.bookingRequestManager.declineRequest(testRequest);
-
-    }
-
-    @Test
-    public void BookingRequestHandleAcceptTest(){
-
-    }
-
-    @Test
-    public void BookingRequestBusinessLogicTest(){
-
-    }
-
-    @Test
-    public void BookingBusinessLogicTest(){
-
-    }
+//
+//    @Test void TestBookingReceive(){
+//        //this.bookingManager.
+//
+//    }
+//
+//    @Test
+//    public void BookingRequestHandleDeclineTest(){
+//        //Create stub.
+//
+//        //this.bookingRequestManager.declineRequest(testRequest);
+//
+//    }
+//
+//    @Test
+//    public void BookingRequestHandleAcceptTest(){
+//
+//    }
+//
+//    @Test
+//    public void BookingRequestBusinessLogicTest(){
+//
+//    }
+//
+//    @Test
+//    public void BookingBusinessLogicTest(){
+//
+//    }
 }

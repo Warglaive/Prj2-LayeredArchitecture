@@ -31,14 +31,14 @@ public class TicketStorageService {
         this.ticketDAO.update(ticket);
     }
 
-    public List<Ticket> getOpenTickets(String destination) {
-        System.out.println("Returning tickets from " + destination);
+    public List<Ticket> getOpenTickets(String departure, String destination) {
+        System.out.println("Displaying tickets from " + departure + " to " +destination);
         return ticketDAO.anyQuery(
-                "select ticket.* from (((ticket INNER JOIN flight ON ticket.flightid = flight.flightid)" +
+                "select ticket.* from ((((ticket INNER JOIN flight ON ticket.flightid = flight.flightid)" +
                         "INNER JOIN route ON flight.routeid = route.routeid)" +
-                        "INNER JOIN airport ON route.start_airport = airport.airportid)" +
-                        "where ticket.status = 'ForSale' and airport.name = '"+destination+"'");
-
+                        "INNER JOIN airport as airportStart ON route.start_airport = airportStart.airportid)" +
+                        "INNER JOIN airport as airportEnd ON route.end_airport = airportEnd.airportid)" +
+                        "where ticket.status = 'ForSale' and airportStart.name = '"+departure+"' and airportEnd.name = '"+destination+"'");
     }
 
     public Ticket sellTicket(int bookingId, Ticket toBeSold){

@@ -1,5 +1,6 @@
 package com.flighttickets.BusinessLogic;
 
+import com.flighttickets.BusinessLogic.Exceptions.TicketAlreadySoldException;
 import com.flighttickets.Entities.Ticket;
 import com.flighttickets.Entities.TicketManager;
 import com.flighttickets.Persistance.TicketStorageService;
@@ -41,12 +42,16 @@ public class TicketManagerImpl implements TicketManager {
     }
 
     @Override
-    public List<Ticket> getOpenTickets(String destination) {
-        return ticketStorageService.getOpenTickets(destination);
+    public List<Ticket> getOpenTickets(String departure, String destination) {
+        return ticketStorageService.getOpenTickets(departure, destination);
     }
 
     @Override
-    public Ticket sell(int bookingId, Ticket toBeSold) { return ticketStorageService.sellTicket(bookingId, toBeSold);}
-
-
+    public Ticket sell(int bookingId, Ticket toBeSold) throws TicketAlreadySoldException {
+        if (toBeSold.getStatus().equals("Sold")) {
+            throw new TicketAlreadySoldException();
+        } else {
+            return ticketStorageService.sellTicket(bookingId, toBeSold);
+        }
+    }
 }

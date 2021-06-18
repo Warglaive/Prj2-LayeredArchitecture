@@ -1,26 +1,17 @@
 package com.flighttickets.BusinessLogic;
 import com.flighttickets.BusinessLogic.Exceptions.DateOutOfBoundException;
+import com.flighttickets.BusinessLogic.Exceptions.TicketAlreadySoldException;
 import com.flighttickets.Entities.*;
-import com.flighttickets.Persistance.BookingRequestStorageService;
-import com.flighttickets.Persistance.BookingStorageService;
-import org.assertj.core.api.ThrowableAssert;
 import org.assertj.core.api.ThrowableAssert.ThrowingCallable;
-import org.junit.Before;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.mockito.Mockito;
-
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatCode;
 import static org.mockito.Mockito.*;
-
-import java.awt.print.Book;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class BookingRequestManagerImplTest {
@@ -48,15 +39,11 @@ public class BookingRequestManagerImplTest {
     Booking bookingSecond = new Booking(1,2,3,LocalDate.of(2022, 1,27));
     Booking bookingThird = new Booking(1,2,3,LocalDate.of(2022, 1,27));
 
-    Ticket ticketBase =  new Ticket();
-    Ticket ticketSecond = new Ticket();
-    Ticket ticketThird = new Ticket();
+    Ticket ticketBase =  new Ticket(1, 200, 1, 1, 1, "ForSale");
+    Ticket ticketSecond = new Ticket(2, 400, 2, 2, 1, "ForSale");
+    Ticket ticketThird = new Ticket(3, 150, 3, 3, 1, "ForSale");
 
 
-    @Before
-    public void setup(){
-
-    }
 
     //Testing service declineBookingRequest
     @Test
@@ -108,7 +95,7 @@ public class BookingRequestManagerImplTest {
 
     //Create a working booking request
     @Test
-    public void createBookingRequestTest() throws DateOutOfBoundException, SQLException, ClassNotFoundException {
+    public void createBookingRequestNoExceptionTest() throws DateOutOfBoundException, SQLException, ClassNotFoundException {
         BookingRequest goodRequest = new BookingRequest(1,2,3,
                 "Schiphol", "Fraport",
                 LocalDate.of(2022,1,10), LocalDate.of(2022, 1,27),
@@ -142,5 +129,52 @@ public class BookingRequestManagerImplTest {
 
         assertThatCode(code).doesNotThrowAnyException();
         verify(bookingMock).add(bookingBase);
+    }
+
+    @Test
+    public void soldTicketExceptionTest() throws TicketAlreadySoldException{
+        Ticket soldTicket = new Ticket(2, 400, 2, 2, 1, "Sold");
+        int fakeBookingId = 1;
+
+        doThrow(TicketAlreadySoldException.class)
+                .when(ticketMock)
+                .sell(fakeBookingId,soldTicket);
+
+        ThrowingCallable code = () -> {
+            ticketMock.sell(fakeBookingId, soldTicket);
+        };
+
+        assertThatCode(code)
+                .isInstanceOf(Exception.class)
+                .isExactlyInstanceOf(TicketAlreadySoldException.class);
+
+        verify(ticketMock).sell(fakeBookingId,soldTicket);
+
+    }
+
+    @Test
+    public void sellTicketNoExceptionTest() throws TicketAlreadySoldException{
+        Ticket soldTicket = new Ticket(2, 400, 2, 2, 1, "ForSale");
+        int fakeBookingId = 1;
+
+        ThrowingCallable code = () -> {
+            ticketMock.sell(fakeBookingId, soldTicket);
+        };
+
+        assertThatCode(code)
+                .doesNotThrowAnyException();
+
+        verify(ticketMock).sell(fakeBookingId,soldTicket);
+
+    }
+
+    @Test
+    public void newTicketTest() throws SQLException, ClassNotFoundException {
+        ThrowingCallable code = () -> {
+            ticketMock.add(ticketBase);
+        };
+
+        assertThatCode(code).doesNotThrowAnyException();
+        verify(ticketMock).add(ticketBase);
     }
 }
