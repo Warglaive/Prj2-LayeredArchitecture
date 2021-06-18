@@ -191,7 +191,7 @@ MULTANI TODO:
 | --- | --- |
 | Test Case | Verify booking(request) date. not in the past |
 | Description | Verify "Booking(Request) date" functionality |
-| Pre-steps | 1. Login |
+| Pre-steps | 1. Sales Employee is logged in |
 | Test steps | 1. Sales Employee opens booking handle window from the Overview with a request selected <br> Expected: System Recognizes booking request is in the past/outdated throws exception/error message <br> 2. Sales Employee declines Booking Request|
 
 | Test ID | 15 |
