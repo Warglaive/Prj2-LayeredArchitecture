@@ -164,3 +164,46 @@ MULTANI TODO:
 | Description | Verify "Put ticket on sale" functionality |
 | Pre-steps | 1. Login |
 | Test steps | 1. SalesOfficer selects "view all tickets" <br> Expected: SalesOfficer receives all tickets. <br> 2. SalesOfficer selects "put a ticket on sale" <br>Selected Ticket: Berlin to Munich on 25.03.2021 at 14:00h <br> Expected: SalesOfficer gets possibility to write down the price of the ticket. <br>3. SalesOfficer inputs arguments about "ticketOnSale". <br> Price: -100€ <br>Expected: SalesOfficer receives Status message "invalid price!"|
+
+## Sales Employee Test
+| Test ID | 11 |
+| --- | --- |
+| Test Case | Receive a list of Open booking request|
+| Description | Verify "Put ticket on sale" functionality |
+| Pre-steps | 1. Sales employee is logged in |
+| Test steps | 1. Sales Employee logs in and  "view all booking request" <br> Expected: Sales Employee receives a list of open BookingRequest. <br> 2. Sales Employee selects "Handle Request" <br>Selected request: Sent to handleBookingRequest <br> Expected: Sales Employee gets selected Booking Request to handle in the next step.<br>3. Sales Employee forgets to select a Request. <br> Expected: SalesOfficer receives Status message "No BookingRequest selected!"|
+
+| Test ID | 12 |
+| --- | --- |
+| Test Case | Create Booking from booking request |
+| Description | Verify "Create Booking" functionality |
+| Pre-steps | 1. Login |
+| Test steps | 1. SalesOfficer selects "view all tickets" <br> Expected: SalesOfficer receives all tickets. <br> 2. SalesOfficer selects "put a ticket on sale" <br>Selected Ticket: Berlin to Munich on 25.03.2021 at 14:00h <br> Expected: SalesOfficer gets possibility to write down the price of the ticket. <br>3. SalesOfficer inputs arguments about "ticketOnSale". <br> Price: -100€ <br>Expected: SalesOfficer receives Status message "invalid price!"|
+
+| Test ID | 13 |
+| --- | --- |
+| Test Case | Decline Booking Request |
+| Description | Verify "Put ticket on sale" functionality |
+| Pre-steps | 1. Login |
+| Test steps | 1. SalesOfficer selects a booking request <br> Expected: SalesOfficer receives all tickets. <br> 2. SalesOfficer selects "put a ticket on sale" <br>Selected Ticket: Berlin to Munich on 25.03.2021 at 14:00h <br> Expected: SalesOfficer gets possibility to write down the price of the ticket. <br>3. SalesOfficer inputs arguments about "ticketOnSale". <br> Price: -100€ <br>Expected: SalesOfficer receives Status message "invalid price!"|
+
+| Test ID | 14 |
+| --- | --- |
+| Test Case | Accept Booking Request |
+| Description | Verify "Put ticket on sale" functionality |
+| Pre-steps | 1. Login |
+| Test steps | 1. SalesOfficer selects "view all tickets" <br> Expected: SalesOfficer receives all tickets. <br> 2. SalesOfficer selects "put a ticket on sale" <br>Selected Ticket: Berlin to Munich on 25.03.2021 at 14:00h <br> Expected: SalesOfficer gets possibility to write down the price of the ticket. <br>3. SalesOfficer inputs arguments about "ticketOnSale". <br> Price: -100€ <br>Expected: SalesOfficer receives Status message "invalid price!"|
+
+| Test ID | 15 |
+| --- | --- |
+| Test Case | Verify booking(request) date. not in the past |
+| Description | Verify "Put ticket on sale" functionality |
+| Pre-steps | 1. Login |
+| Test steps | 1. SalesOfficer selects "view all tickets" <br> Expected: SalesOfficer receives all tickets. <br> 2. SalesOfficer selects "put a ticket on sale" <br>Selected Ticket: Berlin to Munich on 25.03.2021 at 14:00h <br> Expected: SalesOfficer gets possibility to write down the price of the ticket. <br>3. SalesOfficer inputs arguments about "ticketOnSale". <br> Price: -100€ <br>Expected: SalesOfficer receives Status message "invalid price!"|
+
+| Test ID | 16 |
+| --- | --- |
+| Test Case | Verify Login as sales Employee |
+| Description | Verify "Put ticket on sale" functionality |
+| Pre-steps | 1. Login |
+| Test steps | 1. SalesOfficer selects "view all tickets" <br> Expected: SalesOfficer receives all tickets. <br> 2. SalesOfficer selects "put a ticket on sale" <br>Selected Ticket: Berlin to Munich on 25.03.2021 at 14:00h <br> Expected: SalesOfficer gets possibility to write down the price of the ticket. <br>3. SalesOfficer inputs arguments about "ticketOnSale". <br> Price: -100€ <br>Expected: SalesOfficer receives Status message "invalid price!"|
