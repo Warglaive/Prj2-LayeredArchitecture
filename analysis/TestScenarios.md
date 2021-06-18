@@ -169,7 +169,7 @@ MULTANI TODO:
 | Test ID | 11 |
 | --- | --- |
 | Test Case | Receive a list of Open booking request|
-| Description | Verify "Put ticket on sale" functionality |
+| Description | Verify "Open Booking Request List" functionality "Select Request Functionality" with "None selected exception"|
 | Pre-steps | 1. Sales employee is logged in |
 | Test steps | 1. Sales Employee logs in and  "view all booking request" <br> Expected: Sales Employee receives a list of open BookingRequest. <br> 2. Sales Employee selects "Handle Request" <br>Selected request: Sent to handleBookingRequest <br> Expected: Sales Employee gets selected Booking Request to handle in the next step.<br>3. Sales Employee forgets to select a Request. <br> Expected: SalesOfficer receives Status message "No BookingRequest selected!"|
 
@@ -177,33 +177,26 @@ MULTANI TODO:
 | --- | --- |
 | Test Case | Create Booking from booking request |
 | Description | Verify "Create Booking" functionality |
-| Pre-steps | 1. Login |
-| Test steps | 1. SalesOfficer selects "view all tickets" <br> Expected: SalesOfficer receives all tickets. <br> 2. SalesOfficer selects "put a ticket on sale" <br>Selected Ticket: Berlin to Munich on 25.03.2021 at 14:00h <br> Expected: SalesOfficer gets possibility to write down the price of the ticket. <br>3. SalesOfficer inputs arguments about "ticketOnSale". <br> Price: -100€ <br>Expected: SalesOfficer receives Status message "invalid price!"|
+| Pre-steps | 1. Sales Employee is logged in |
+| Test steps | 1. Sales Employee opens booking handle window from the Overview with a request selected <br> Expected: Sales Employee receives all tickets available for that request. <br> 2. Sales Employee selects tickets available <br> Sales Employee Accepts BookingRequest <br> Expected: System accepts and creates a booking and attaches tickets to it. <br>3. Sales Employee didnt select a ticket. <br> Expected: Sales Employee receives message "No tickets selected!"|
 
 | Test ID | 13 |
 | --- | --- |
 | Test Case | Decline Booking Request |
-| Description | Verify "Put ticket on sale" functionality |
-| Pre-steps | 1. Login |
-| Test steps | 1. SalesOfficer selects a booking request <br> Expected: SalesOfficer receives all tickets. <br> 2. SalesOfficer selects "put a ticket on sale" <br>Selected Ticket: Berlin to Munich on 25.03.2021 at 14:00h <br> Expected: SalesOfficer gets possibility to write down the price of the ticket. <br>3. SalesOfficer inputs arguments about "ticketOnSale". <br> Price: -100€ <br>Expected: SalesOfficer receives Status message "invalid price!"|
+| Description | Verify "Decline Booking Request" functionality |
+| Pre-steps | 1. Sales Employee is logged in |
+| Test steps | 1. Sales Employee opens booking handle window from the Overview with a request selected <br> Expected: Sales Employee receives all tickets available for that request.<br> Expected: Sales Employee has no tickets to fill request. <br>3. Sales Employee selects decline request. <br> System updates request status with "Declined" |
 
 | Test ID | 14 |
 | --- | --- |
-| Test Case | Accept Booking Request |
-| Description | Verify "Put ticket on sale" functionality |
+| Test Case | Verify booking(request) date. not in the past |
+| Description | Verify "Booking(Request) date" functionality |
 | Pre-steps | 1. Login |
-| Test steps | 1. SalesOfficer selects "view all tickets" <br> Expected: SalesOfficer receives all tickets. <br> 2. SalesOfficer selects "put a ticket on sale" <br>Selected Ticket: Berlin to Munich on 25.03.2021 at 14:00h <br> Expected: SalesOfficer gets possibility to write down the price of the ticket. <br>3. SalesOfficer inputs arguments about "ticketOnSale". <br> Price: -100€ <br>Expected: SalesOfficer receives Status message "invalid price!"|
+| Test steps | 1. Sales Employee opens booking handle window from the Overview with a request selected <br> Expected: System Recognizes booking request is in the past/outdated throws exception/error message <br> 2. Sales Employee declines Booking Request|
 
 | Test ID | 15 |
 | --- | --- |
-| Test Case | Verify booking(request) date. not in the past |
-| Description | Verify "Put ticket on sale" functionality |
-| Pre-steps | 1. Login |
-| Test steps | 1. SalesOfficer selects "view all tickets" <br> Expected: SalesOfficer receives all tickets. <br> 2. SalesOfficer selects "put a ticket on sale" <br>Selected Ticket: Berlin to Munich on 25.03.2021 at 14:00h <br> Expected: SalesOfficer gets possibility to write down the price of the ticket. <br>3. SalesOfficer inputs arguments about "ticketOnSale". <br> Price: -100€ <br>Expected: SalesOfficer receives Status message "invalid price!"|
-
-| Test ID | 16 |
-| --- | --- |
 | Test Case | Verify Login as sales Employee |
 | Description | Verify "Put ticket on sale" functionality |
-| Pre-steps | 1. Login |
-| Test steps | 1. SalesOfficer selects "view all tickets" <br> Expected: SalesOfficer receives all tickets. <br> 2. SalesOfficer selects "put a ticket on sale" <br>Selected Ticket: Berlin to Munich on 25.03.2021 at 14:00h <br> Expected: SalesOfficer gets possibility to write down the price of the ticket. <br>3. SalesOfficer inputs arguments about "ticketOnSale". <br> Price: -100€ <br>Expected: SalesOfficer receives Status message "invalid price!"|
+| Pre-steps | User is registered |
+| Test steps | 1. SalesOfficer enters his user/password <br> Expected: System receives systemuser. <br> 2. System checks what the system user role is and redirects <br> Expected role = " SalesEmployee "|
