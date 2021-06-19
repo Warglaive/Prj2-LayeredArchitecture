@@ -99,14 +99,34 @@
 | Extensions | N/A  |
 
 ## Sales Employee
+| Name | View and Select booking requests |
+| --- | --- |
+| Actor | Sales Employee |
+| Description | Sales Employee looks at overview of bookingRequest |
+| Precondition | Sales Employee must be logged in |
+| Scenario | 1. Sales Employee logs in<br> 2. System shows all booking requests that aren't handled yet <br> 3. Sales Employee selects a specific booking request <br> 4. System sends the request to the handling page |
+| Result | A selected booking request |
+| Exceptions | No selected booking request |
+| Extensions | N/A |
+
 | Name | Approve booking request |
 | --- | --- |
 | Actor | Sales Employee |
 | Description | Sales Employee approves a bookingRequest |
 | Precondition | Sales Employee must be logged in |
-| Scenario | 1. Sales Employee logs in<br> 2. System shows all booking requests <br> 3. Sales Employee selects a specific booking request <br> 4. System displays a specific view for the selected request with available tickets with APPROVE/REJECT options <br> 5. Sales Employee selects available tickets and submits it <br> 6. System sets the status of the request to Accepted and creates a booking with the tickets assigned to it.<br> 7. System sets the Id of the current SalesEmployee to the BookingRequest handled by him |
-| Result | successfully approved booking request |
-| Exceptions | N/A |
+| Scenario | 1. Sales Employee logs in<br> 2. System shows all booking requests that aren't handled yet <br> 3. Sales Employee selects a specific booking request <br> 4. System sends bookingRequest to handling Page and continues to handling page <br> 5. System searches for available tickets based on Departure and destination. <br> 6. User selects the found tickets by the system and clicks accept. <br> 7. System creates a new Booking <br> 8. System sets selected tickets to newly created booking. <br> 9. System sets bookingRequest status to: Accepted <br> 10. System returns to overview |
+| Result | A booking, Sold Tickets, And a accepted bookingRequest |
+| Exceptions | No selected booking request |
+| Extensions | N/A |
+
+| Name | Decline booking request |
+| --- | --- |
+| Actor | Sales Employee |
+| Description | Sales Employee declines a bookingRequest |
+| Precondition | Sales Employee must be logged in |
+| Scenario | 1. Sales Employee logs in<br> 2. System shows all booking requests that aren't handled yet <br> 3. Sales Employee selects a specific booking request <br> 4. System sends bookingRequest to handling Page and continues to handling page <br> 5. System searches for available tickets based on Departure and destination. <br> 6. User sees there is no tickets available and clicks decline request <br> 7. System sets bookingRequest status to: Declined <br> 8. System returns to overview |
+| Result | A declined bookingRequest |
+| Exceptions | No selected booking request |
 | Extensions | N/A |
 
 ## Sales Officer
