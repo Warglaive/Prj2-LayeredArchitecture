@@ -240,11 +240,14 @@ public class SystemUserManagerImplTest {
     void getByEmailDataBaseTest() throws ClassNotFoundException, SystemUserStorageException, AccountNotFoundException {
         //TODO: DB Should not be empty! - Testing like this because insert and then getByEmail causes problems with the Id (because it is autoincrement in the code)
         //Get very first system user by Id
-   /*     SystemUser expected = this.systemUserManager.getById(1);
+        SystemUser expected = this.systemUserManager.getById(1);
         //Use the existing systemUser to test if getByEmail works
         SystemUser actual = this.systemUserManager.getByEmail(expected.getEmail());
-        assertThat(actual).usingRecursiveComparison().isEqualTo(expected);*/
-///////////////////
+        assertThat(actual).usingRecursiveComparison().isEqualTo(expected);
+    }
+
+    @Test
+    void getByEmailNoDBTest() throws SystemUserStorageException, AccountNotFoundException, ClassNotFoundException {
         SystemUser expected = new SystemUser(1, "test", "test", "uniqueMail@abv.bg", "n!k@sn1Kos", "franciscanenstraat 10", "Customer");
 
         //Train the mock
@@ -253,10 +256,9 @@ public class SystemUserManagerImplTest {
         //Assign mocked service to SUT
         this.systemUserManager.setSystemUserStorageService(this.systemUserStorageServiceMock);
 
-        assertThat(this.systemUserManager.login("asd@abv.bg", "n!k@sn1Kos")).isEqualTo(expected);
+        assertThat(this.systemUserManager.getByEmail("uniqueMail@abv.bg")).isEqualTo(expected);
         //verify that retrieve is called at least once
-        verify(this.systemUserStorageServiceMock).retrieve("asd@abv.bg", "n!k@sn1Kos");
-
+        verify(this.systemUserStorageServiceMock).getByEmail("uniqueMail@abv.bg");
     }
 
     /**
@@ -286,6 +288,11 @@ public class SystemUserManagerImplTest {
         assertThat(actual.getEmail()).isEqualTo(expected.getEmail());
     }
 
+    /**
+     * Test if login is called and is returning correct user
+     *
+     * @throws ClassNotFoundException
+     */
     @Test
     public void loginTest() throws ClassNotFoundException {
         SystemUser expected = new SystemUser(1, "test", "test", "asd@abv.bg", "n!k@sn1Kos", "franciscanenstraat 10", "Customer");
