@@ -21,8 +21,7 @@ import javax.security.auth.login.AccountNotFoundException;
 import java.sql.SQLException;
 import java.util.Random;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatCode;
+import static org.assertj.core.api.Assertions.*;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -261,16 +260,16 @@ public class SystemUserManagerImplTest {
     }
 
     @Test
-    public void loginTest() throws SystemUserStorageException, ClassNotFoundException, AccountNotFoundException {
+    public void loginTest() throws ClassNotFoundException {
         //Need to exist in the DB
-        SystemUser expected = new SystemUser(1,"test","test","asd@abv.bg", "n!k@sn1Kos","test 123 test", "Customer");
+        SystemUser expected = new SystemUser(1, "test", "test", "asd@abv.bg", "n!k@sn1Kos", "franciscanenstraat 10", "Customer");
 
-        when(this.systemUserStorageServiceMock.retrieve("asd@abv.bg","n!k@sn1Kos")).thenReturn(expected);
+        when(this.systemUserStorageServiceMock.retrieve("asd@abv.bg", "n!k@sn1Kos")).thenReturn(expected);
 
         this.systemUserManager.setSystemUserStorageService(this.systemUserStorageServiceMock);
 
-        assertThat(this.systemUserManager.login("asd@abv.bg","n!k@sn1Kos")).isEqualTo(expected);
-        verify(this.systemUserStorageServiceMock).retrieve("asd@abv.bg","n!k@sn1Kos");
+        assertThat(this.systemUserManager.login("asd@abv.bg", "n!k@sn1Kos")).isEqualTo(expected);
+        verify(this.systemUserStorageServiceMock).retrieve("asd@abv.bg", "n!k@sn1Kos");
 
         /*String loginEmail = "asd@abv.bg";
         String loginPassword = "n!k@sn1Kos";
