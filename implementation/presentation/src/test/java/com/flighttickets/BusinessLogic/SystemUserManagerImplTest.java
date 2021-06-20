@@ -229,17 +229,44 @@ public class SystemUserManagerImplTest {
         assertThatCode(code).isExactlyInstanceOf(InvalidInputException.class).hasMessage("Invalid role!");
     }
 
+    /**
+     * Test is DEPENDENT and specific for the current Database
+     *
+     * @throws ClassNotFoundException
+     * @throws SystemUserStorageException
+     * @throws AccountNotFoundException
+     */
     @Test
     void getByEmailDataBaseTest() throws ClassNotFoundException, SystemUserStorageException, AccountNotFoundException {
         //TODO: DB Should not be empty! - Testing like this because insert and then getByEmail causes problems with the Id (because it is autoincrement in the code)
         //Get very first system user by Id
-        SystemUser expected = this.systemUserManager.getById(1);
+   /*     SystemUser expected = this.systemUserManager.getById(1);
         //Use the existing systemUser to test if getByEmail works
         SystemUser actual = this.systemUserManager.getByEmail(expected.getEmail());
-        assertThat(actual).usingRecursiveComparison().isEqualTo(expected);
+        assertThat(actual).usingRecursiveComparison().isEqualTo(expected);*/
+///////////////////
+        SystemUser expected = new SystemUser(1, "test", "test", "uniqueMail@abv.bg", "n!k@sn1Kos", "franciscanenstraat 10", "Customer");
+
+        //Train the mock
+        when(this.systemUserStorageServiceMock.getByEmail("uniqueMail@abv.bg")).thenReturn(expected);
+
+        //Assign mocked service to SUT
+        this.systemUserManager.setSystemUserStorageService(this.systemUserStorageServiceMock);
+
+        assertThat(this.systemUserManager.login("asd@abv.bg", "n!k@sn1Kos")).isEqualTo(expected);
+        //verify that retrieve is called at least once
+        verify(this.systemUserStorageServiceMock).retrieve("asd@abv.bg", "n!k@sn1Kos");
 
     }
 
+    /**
+     * Test is DEPENDENT and specific for the current Database
+     *
+     * @throws ClassNotFoundException
+     * @throws SystemUserStorageException
+     * @throws AccountNotFoundException
+     * @throws SQLException
+     */
     @Test
     void addDatabaseTest() throws ClassNotFoundException, SystemUserStorageException, AccountNotFoundException, SQLException {
         int id = 0;
