@@ -316,7 +316,14 @@ public class SystemUserManagerImplTest {
         SystemUser actual = this.systemUserManager.login(loginEmail, loginPassword);
         assertThat(actual).usingRecursiveComparison().isEqualTo(expected);*/
     }
-
+@Test
+void loginDbTest() throws ClassNotFoundException {
+              String loginEmail = "asd@abv.bg";
+        String loginPassword = "n!k@sn1Kos";
+        //check if the login is properly comparing input
+        SystemUser actual = this.systemUserManager.login(loginEmail, loginPassword);
+        assertThat(actual).usingRecursiveComparison().isEqualTo(expected);
+}
     @Test
     public void generateSalesOfficerIdTest() {
         int expectedLowest = this.systemUserStorageService.getLowestSalesOfficerId();
