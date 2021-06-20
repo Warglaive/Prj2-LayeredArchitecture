@@ -61,6 +61,7 @@ public class BookingRequestOverviewController implements Initializable {
 
     private final Supplier<SceneManager> sceneManagerSupplier;
     private BookingRequestManager bookingRequestManager;
+    //TODO Implement movement of EmployeeToHandleRequest - JL
     private SystemUserManager systemUserManager;
     private SystemUser salesEmployee;
 
@@ -75,7 +76,7 @@ public class BookingRequestOverviewController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //Retrieves booking requests pending from the booking request manager. -jl
         List<BookingRequest> pendingRequests = this.bookingRequestManager.getPendingRequests();
-        //Sets them all into an observable list
+        //Sets them all into an observable list - JL
         ObservableList<BookingRequest> observableList = FXCollections.observableList(pendingRequests);
 
         selection_list.setItems(observableList);
@@ -97,8 +98,6 @@ public class BookingRequestOverviewController implements Initializable {
         } else {
             this.sceneManagerSupplier.get().changeScene("BookingRequestHandle");
         }
-        //TODO Implement error if no request is selected - JL
-//        System.out.println("Handle Request" + tobeHandled);
     }
 
     @FXML
