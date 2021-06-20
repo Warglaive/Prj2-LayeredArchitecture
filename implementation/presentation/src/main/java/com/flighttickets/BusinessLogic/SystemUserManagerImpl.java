@@ -86,7 +86,7 @@ public class SystemUserManagerImpl implements SystemUserManager {
      * @return
      * @throws ClassNotFoundException
      */
-    public SystemUser login(String email, String password) throws ClassNotFoundException {
+    public SystemUser login(String email, String password) throws ClassNotFoundException,SystemUserStorageException, AccountNotFoundException{
         //Retrieves system user from database based on email, password -JL
         return this.systemUserStorageService.retrieve(email, password);
     }

@@ -30,11 +30,11 @@ public class BookingRequestManagerImpl implements BookingRequestManager {
     }
 
     @Override
-    public void add(BookingRequest bookingRequest) throws SQLException, ClassNotFoundException, DateOutOfBoundException {
+    public BookingRequest add(BookingRequest bookingRequest) throws SQLException, ClassNotFoundException, DateOutOfBoundException {
         if (bookingRequest.getDepartureDate().isBefore(LocalDate.now())){
             throw new DateOutOfBoundException("Departure Date has already been");
         } else {
-            this.bookingRequestStorageService.insert(bookingRequest);
+            return this.bookingRequestStorageService.insert(bookingRequest);
         }
     }
 
@@ -49,7 +49,7 @@ public class BookingRequestManagerImpl implements BookingRequestManager {
     }
 
     @Override
-    public BookingRequest declineRequest(BookingRequest toBeDeclined) {
+    public BookingRequest declineRequest(BookingRequest toBeDeclined)  { //throws wrongStateException
         toBeDeclined.setStatus("Declined");
         System.out.println(toBeDeclined.toString() + "is declined!");
         return this.bookingRequestStorageService.updateRequest(toBeDeclined);

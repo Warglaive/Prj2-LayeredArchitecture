@@ -34,9 +34,11 @@ public class BookingRequestStorageService {
      * Save a BookingRequest object to the database using a DataAccessObject
      *
      * @param bookingRequest
+     * @return
      */
-    public void insert(BookingRequest bookingRequest) {
+    public BookingRequest insert(BookingRequest bookingRequest) {
         this.bookingRequestDAO.save(bookingRequest);
+        return bookingRequest;
     }
 
     /**

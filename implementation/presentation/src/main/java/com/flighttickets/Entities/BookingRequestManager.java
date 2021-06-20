@@ -42,8 +42,9 @@ public interface BookingRequestManager {
      * @param bookingRequest add to DB
      * @throws SQLException
      * @throws ClassNotFoundException
+     * @return
      */
-    void add(BookingRequest bookingRequest) throws SQLException, ClassNotFoundException, DateOutOfBoundException;
+    BookingRequest add(BookingRequest bookingRequest) throws SQLException, ClassNotFoundException, DateOutOfBoundException;
 
     /**
      * @param customerId - search by

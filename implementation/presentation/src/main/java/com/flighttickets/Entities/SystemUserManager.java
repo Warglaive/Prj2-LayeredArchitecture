@@ -38,7 +38,7 @@ public interface SystemUserManager {
 
     SystemUserStorageService getSystemUserStorageService();
 
-    SystemUser login(String email, String password) throws ClassNotFoundException;
+    SystemUser login(String email, String password) throws ClassNotFoundException, SystemUserStorageException, AccountNotFoundException;
 
     int generateSalesOfficerId();
 

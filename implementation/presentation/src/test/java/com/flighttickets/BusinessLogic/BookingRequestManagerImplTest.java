@@ -1,11 +1,17 @@
 package com.flighttickets.BusinessLogic;
 import com.flighttickets.BusinessLogic.Exceptions.DateOutOfBoundException;
+import com.flighttickets.BusinessLogic.Exceptions.SystemUserStorageException;
 import com.flighttickets.BusinessLogic.Exceptions.TicketAlreadySoldException;
 import com.flighttickets.Entities.*;
+import com.flighttickets.Persistance.*;
 import org.assertj.core.api.ThrowableAssert.ThrowingCallable;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.mockito.Mock;
 import org.mockito.Mockito;
+
+import javax.security.auth.login.AccountNotFoundException;
+
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatCode;
 import static org.mockito.Mockito.*;
@@ -16,12 +22,21 @@ import java.util.List;
 
 public class BookingRequestManagerImplTest {
 
-    BookingRequestManagerImpl serviceMock  = Mockito.mock(BookingRequestManagerImpl.class);
+    @Mock
+    BookingRequestStorageService bookingRequestStorageServiceMock = Mockito.mock(BookingRequestStorageService.class);
 
-    BookingManagerImpl bookingMock = Mockito.mock(BookingManagerImpl.class);
 
-    TicketManagerImpl ticketMock = Mockito.mock(TicketManagerImpl.class);
+    @Mock
+    BookingStorageService bookingStorageServiceMock = Mockito.mock(BookingStorageService.class);
 
+
+    @Mock
+    TicketStorageService ticketStorageServiceMock = Mockito.mock(TicketStorageService.class);
+
+    @Mock
+    SystemUserStorageService systemUserStorageServiceMock = Mockito.mock(SystemUserStorageService.class);
+
+    //LIST OF OBJECTS THAT CAN BE USED FOR TESTING
     BookingRequest base = new BookingRequest(1,2,3,
             "Schiphol", "Fraport",
             LocalDate.of(2021,9,24), LocalDate.of(2021, 9,27),
@@ -44,7 +59,6 @@ public class BookingRequestManagerImplTest {
     Ticket ticketThird = new Ticket(3, 150, 3, 3, 1, "ForSale");
 
 
-
     //Testing service declineBookingRequest
     @Test
     public void declineBookingRequestMockTest(){
@@ -52,9 +66,16 @@ public class BookingRequestManagerImplTest {
                 "Schiphol", "Fraport",
                 LocalDate.of(2021,9,24), LocalDate.of(2021, 9,27),
                 1, "Declined");
-        when(serviceMock.declineRequest(base)).thenReturn(expected);
-        assertThat(serviceMock.declineRequest(base).getStatus()).isEqualTo("Declined");
-        verify(serviceMock).declineRequest(base);
+
+        when(bookingRequestStorageServiceMock.updateRequest(base)).thenReturn(expected);
+
+        BookingRequestManagerImpl testManager = new BookingRequestManagerImpl();
+
+        testManager.setBookingRequestStorageService(bookingRequestStorageServiceMock);
+
+        assertThat(testManager.declineRequest(base).getStatus()).isEqualTo("Declined");
+
+        verify(bookingRequestStorageServiceMock).updateRequest(base);
     }
 
     //Testing service acceptBookingRequest
@@ -64,10 +85,18 @@ public class BookingRequestManagerImplTest {
                 "Schiphol", "Fraport",
                 LocalDate.of(2021,9,24), LocalDate.of(2021, 9,27),
                 1, "Accepted");
-        when(serviceMock.acceptRequest(base)).thenReturn(expected);
-        assertThat(serviceMock.acceptRequest(base).getStatus()).isEqualTo("Accepted");
-        verify(serviceMock).acceptRequest(base);
+
+        when(bookingRequestStorageServiceMock.updateRequest(base)).thenReturn(expected);
+
+        BookingRequestManagerImpl testManager = new BookingRequestManagerImpl();
+
+        testManager.setBookingRequestStorageService(bookingRequestStorageServiceMock);
+
+        assertThat(testManager.acceptRequest(base).getStatus()).isEqualTo("Accepted");
+
+        verify(bookingRequestStorageServiceMock).updateRequest(base);
     }
+
 
     //Create a failing booking Request
     @Test
@@ -78,35 +107,38 @@ public class BookingRequestManagerImplTest {
                 LocalDate.of(2021,1,10), LocalDate.of(2021, 1,27),
                 1, "Pending");
 
-        doThrow(DateOutOfBoundException.class)
-                .when(serviceMock)
-                .add(badRequest);
+        BookingRequestManagerImpl testManager = new BookingRequestManagerImpl();
+        testManager.setBookingRequestStorageService(bookingRequestStorageServiceMock);
+        //Test werkt Komt niet door tot de storage service - JL
 
         ThrowingCallable code = () -> {
-            serviceMock.add(badRequest);
+            testManager.add(badRequest);
         };
 
         assertThatCode(code)
                 .isInstanceOf(Exception.class)
                 .isExactlyInstanceOf(DateOutOfBoundException.class);
-
-        verify(serviceMock).add(badRequest);
     }
 
     //Create a working booking request
     @Test
-    public void createBookingRequestNoExceptionTest() throws DateOutOfBoundException, SQLException, ClassNotFoundException {
+    public void createBookingRequestNoExceptionTest() {
         BookingRequest goodRequest = new BookingRequest(1,2,3,
                 "Schiphol", "Fraport",
                 LocalDate.of(2022,1,10), LocalDate.of(2022, 1,27),
                 1, "Pending");
 
+        when(bookingRequestStorageServiceMock.insert(goodRequest)).thenReturn(goodRequest);
+
+        BookingRequestManagerImpl testManager = new BookingRequestManagerImpl();
+        testManager.setBookingRequestStorageService(bookingRequestStorageServiceMock);
+
         ThrowingCallable code = () -> {
-            serviceMock.add(goodRequest);
+            testManager.add(goodRequest);
         };
 
         assertThatCode(code).doesNotThrowAnyException();
-        verify(serviceMock).add(goodRequest);
+        verify(bookingRequestStorageServiceMock).insert(goodRequest);
     }
 
     @Test
@@ -116,19 +148,45 @@ public class BookingRequestManagerImplTest {
         test.add(second);
         test.add(third);
 
-        when(serviceMock.getPendingRequests()).thenReturn(test);
-        assertThat(serviceMock.getPendingRequests()).isNotNull();
-        verify(serviceMock).getPendingRequests();
+        when(bookingRequestStorageServiceMock.getPendingRequests()).thenReturn(test);
+
+        BookingRequestManagerImpl testManager = new BookingRequestManagerImpl();
+        testManager.setBookingRequestStorageService(bookingRequestStorageServiceMock);
+
+        assertThat(testManager.getPendingRequests()).isNotNull();
+
+        verify(bookingRequestStorageServiceMock).getPendingRequests();
+    }
+
+    @Test
+    public void openBookingRequestByIdListTest(){
+        List<BookingRequest> test = new ArrayList();
+        test.add(base);
+        test.add(second);
+        test.add(third);
+
+        when(bookingRequestStorageServiceMock.getAllByCustomerId(1)).thenReturn(test);
+
+        BookingRequestManagerImpl testManager = new BookingRequestManagerImpl();
+        testManager.setBookingRequestStorageService(bookingRequestStorageServiceMock);
+
+        assertThat(testManager.getAllByCustomerId(1)).isNotNull();
+
+        verify(bookingRequestStorageServiceMock).getAllByCustomerId(1);
     }
 
     @Test
     public void newBookingTest(){
+        when(bookingStorageServiceMock.insert(bookingBase)).thenReturn(1);
+        BookingManagerImpl testManager = new BookingManagerImpl();
+        testManager.setBookingStorageService(bookingStorageServiceMock);
+
         ThrowingCallable code = () -> {
-            bookingMock.add(bookingBase);
+            testManager.add(bookingBase);
         };
 
         assertThatCode(code).doesNotThrowAnyException();
-        verify(bookingMock).add(bookingBase);
+        verify(bookingStorageServiceMock).insert(bookingBase);
     }
 
     @Test
@@ -136,45 +194,95 @@ public class BookingRequestManagerImplTest {
         Ticket soldTicket = new Ticket(2, 400, 2, 2, 1, "Sold");
         int fakeBookingId = 1;
 
-        doThrow(TicketAlreadySoldException.class)
-                .when(ticketMock)
-                .sell(fakeBookingId,soldTicket);
+        TicketManagerImpl testManager = new TicketManagerImpl();
 
         ThrowingCallable code = () -> {
-            ticketMock.sell(fakeBookingId, soldTicket);
+            testManager.sell(fakeBookingId, soldTicket);
         };
 
         assertThatCode(code)
                 .isInstanceOf(Exception.class)
                 .isExactlyInstanceOf(TicketAlreadySoldException.class);
 
-        verify(ticketMock).sell(fakeBookingId,soldTicket);
-
     }
 
     @Test
     public void sellTicketNoExceptionTest() throws TicketAlreadySoldException{
-        Ticket soldTicket = new Ticket(2, 400, 2, 2, 1, "ForSale");
+        Ticket notSoldTicket = new Ticket(2, 400, 2, 2, 1, "ForSale");
         int fakeBookingId = 1;
 
+        when(ticketStorageServiceMock.sellTicket(fakeBookingId, notSoldTicket)).thenReturn(notSoldTicket);
+
+        TicketManagerImpl testManager = new TicketManagerImpl();
+        testManager.setTicketStorageService(ticketStorageServiceMock);
+
         ThrowingCallable code = () -> {
-            ticketMock.sell(fakeBookingId, soldTicket);
+            testManager.sell(fakeBookingId, notSoldTicket);
         };
 
         assertThatCode(code)
                 .doesNotThrowAnyException();
 
-        verify(ticketMock).sell(fakeBookingId,soldTicket);
-
+        verify(ticketStorageServiceMock).sellTicket(fakeBookingId,notSoldTicket);
     }
 
     @Test
-    public void newTicketTest() throws SQLException, ClassNotFoundException {
+    public void LoginTestNoExceptionTest() throws AccountNotFoundException, SystemUserStorageException{
+        SystemUser testUser = new SystemUser(1,"Jasper", "Lamers", "Jasper-l@live.nl", "Southpark1!", "Lindeboom 79 Mook", "Customer");
+        when(systemUserStorageServiceMock.retrieve("Jasper-l@live.nl", "Southpark1")).thenReturn(testUser);
+
+        SystemUserManagerImpl testManager = new SystemUserManagerImpl();
+        testManager.setSystemUserStorageService(systemUserStorageServiceMock);
         ThrowingCallable code = () -> {
-            ticketMock.add(ticketBase);
+            testManager.login("Jasper-l@live.nl", "Southpark1");
         };
 
-        assertThatCode(code).doesNotThrowAnyException();
-        verify(ticketMock).add(ticketBase);
+        assertThatCode(code)
+                .doesNotThrowAnyException();
+
+        verify(systemUserStorageServiceMock).retrieve("Jasper-l@live.nl", "Southpark1");
     }
+
+    @Test
+    public void LoginTestAccountNotFoundExceptionTest() throws AccountNotFoundException, SystemUserStorageException{
+        SystemUser testUser = new SystemUser(1,"Jasper", "Lamers", "Jasper-l@live.nl", "Southpark1!", "Lindeboom 79 Mook", "Customer");
+        doThrow(AccountNotFoundException.class)
+                .when(systemUserStorageServiceMock)
+                .retrieve("JasperFake@live.nl", "NotSouthpark1");
+
+        SystemUserManagerImpl testManager = new SystemUserManagerImpl();
+        testManager.setSystemUserStorageService(systemUserStorageServiceMock);
+
+        ThrowingCallable code = () -> {
+            testManager.login("JasperFake@live.nl", "NotSouthpark1");
+        };
+
+        assertThatCode(code)
+                .isInstanceOf(Exception.class)
+                .isExactlyInstanceOf(AccountNotFoundException.class);
+
+        verify(systemUserStorageServiceMock).retrieve("JasperFake@live.nl", "NotSouthpark1");
+    }
+
+    @Test
+    public void LoginTestMultipleAccountsExceptionTest() throws AccountNotFoundException, SystemUserStorageException{
+        SystemUser testUser = new SystemUser(1,"Jasper", "Lamers", "Jasper-l@live.nl", "Southpark1!", "Lindeboom 79 Mook", "Customer");
+        doThrow(SystemUserStorageException.class)
+                .when(systemUserStorageServiceMock)
+                .retrieve("JasperFake@live.nl", "NotSouthpark1");
+
+        SystemUserManagerImpl testManager = new SystemUserManagerImpl();
+        testManager.setSystemUserStorageService(systemUserStorageServiceMock);
+
+        ThrowingCallable code = () -> {
+            testManager.login("JasperFake@live.nl", "NotSouthpark1");
+        };
+
+        assertThatCode(code)
+                .isInstanceOf(Exception.class)
+                .isExactlyInstanceOf(SystemUserStorageException.class);
+
+        verify(systemUserStorageServiceMock).retrieve("JasperFake@live.nl", "NotSouthpark1");
+    }
+
 }

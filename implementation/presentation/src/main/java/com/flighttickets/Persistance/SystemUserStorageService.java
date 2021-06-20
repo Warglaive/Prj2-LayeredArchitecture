@@ -47,19 +47,17 @@ public class SystemUserStorageService {
         } else return customerList.get(0);
     }
 
-    public SystemUser retrieve(String email, String password) {
-        //SystemUser c = customerDAO.get(1).get();
-        //TODO This works as soon as database name for customer_id is changed to customerid -JL
+    public SystemUser retrieve(String email, String password) throws SystemUserStorageException, AccountNotFoundException {
         List<SystemUser> customerList = systemUserDAO.anyQuery("SELECT * FROM " + this.tableName + " WHERE email= '" + email + "' and password= '" + password + "' ");
         //Test if an actual SystemUser is found
         //System.out.println("The customers found is = " + customerList.size());
         //If statement looks if one SystemUser is found. More customers by the same email or 0 customers will result in a fail
         if (customerList.size() == 1) {
             return customerList.get(0);
+        } else if(customerList.size() > 1){
+            throw new SystemUserStorageException("There is multiple users found by that combination");
         } else {
-            System.out.println("No SystemUser found by that Email/Pass");
-            //Implement error for user trying to login
-            return null;
+            throw new AccountNotFoundException("No such user found with that combination");
         }
     }
 
