@@ -2,7 +2,10 @@ package com.flighttickets.BusinessLogic;
 
 import com.flighttickets.BusinessLogic.Exceptions.InvalidInputException;
 import com.flighttickets.BusinessLogic.Exceptions.SystemUserStorageException;
-import com.flighttickets.Entities.*;
+import com.flighttickets.Entities.BusinessLogicAPI;
+import com.flighttickets.Entities.SystemUser;
+import com.flighttickets.Entities.SystemUserManager;
+import com.flighttickets.Entities.SystemUserMapper;
 import com.flighttickets.PGDataSource;
 import com.flighttickets.Persistance.PersistenceAPI;
 import com.flighttickets.Persistance.PersistenceImplementationProvider;
@@ -57,7 +60,7 @@ public class SystemUserManagerImplTest {
         daoFactory.registerMapper(SystemUser.class, new SystemUserMapper());
 
 
-        this.persistenceAPI = PersistenceImplementationProvider.getImplementation(daoFactory);
+        this.persistenceAPI = PersistenceImplementationProvider.getPersistenceImplementation(daoFactory);
         this.businesslogicAPI = BusinessLogicImplementationProvider.getImplementation(persistenceAPI);
 
 
@@ -255,6 +258,7 @@ public class SystemUserManagerImplTest {
         //Need to exist in the DB
         String loginEmail = "asd@abv.bg";
         String loginPassword = "n!k@sn1Kos";
+        //check if the login is properly comparing input
         SystemUser expected = this.systemUserManager.getByEmail(loginEmail);
         SystemUser actual = this.systemUserManager.login(loginEmail, loginPassword);
         assertThat(actual).usingRecursiveComparison().isEqualTo(expected);

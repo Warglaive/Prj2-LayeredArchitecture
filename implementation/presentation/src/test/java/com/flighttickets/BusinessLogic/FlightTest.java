@@ -1,0 +1,97 @@
+package com.flighttickets.BusinessLogic;
+
+import com.flighttickets.Entities.Flight;
+import com.flighttickets.Entities.Plane;
+import net.bytebuddy.asm.Advice;
+import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+
+import java.time.LocalDate;
+
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+
+public class FlightTest {
+
+    @Test
+    public void constructorTest(){
+        int flightId = 666;
+        LocalDate localDate = LocalDate.now();
+        int routeId = 234;
+        int planeId = 1234;
+        Flight flight = new Flight(flightId, localDate, routeId, planeId);
+        assertThat(flight).as("Flight object is created properly").isExactlyInstanceOf(Flight.class);
+    }
+
+    @Test
+    public void getIdTest(){
+        int flightId = 666;
+        LocalDate localDate = LocalDate.now();
+        int routeId = 234;
+        int planeId = 1234;
+        Flight flight = new Flight(flightId, localDate, routeId, planeId);
+        Assertions.assertEquals(666, flight.getId(), "should be 666");
+    }
+
+    @Test
+    public void getFlight_dateTest(){
+        int flightId = 666;
+        LocalDate localDate = LocalDate.now();
+        int routeId = 234;
+        int planeId = 1234;
+        Flight flight = new Flight(flightId, localDate, routeId, planeId);
+        Assertions.assertEquals(LocalDate.now(), flight.getFlight_date(), "should be LocalDate.now()");
+    }
+
+    @Test
+    public void getRoute_idTest(){
+        int flightId = 666;
+        LocalDate localDate = LocalDate.now();
+        int routeId = 234;
+        int planeId = 1234;
+        Flight flight = new Flight(flightId, localDate, routeId, planeId);
+        Assertions.assertEquals(234, flight.getRoute_id(), "should be 234");
+    }
+
+    @Test
+    public void getPlane_idTest(){
+        int flightId = 666;
+        LocalDate localDate = LocalDate.now();
+        int routeId = 234;
+        int planeId = 1234;
+        Flight flight = new Flight(flightId, localDate, routeId, planeId);
+        Assertions.assertEquals(1234, flight.getPlane_id(), "should be 1234");
+    }
+
+    @Test
+    public void setIdTest(){
+        int flightId = 666;
+        LocalDate localDate = LocalDate.now();
+        int routeId = 234;
+        int planeId = 1234;
+        Flight flight = new Flight(flightId, localDate, routeId, planeId);
+        flight.setId(777);
+        Assertions.assertEquals(777, flight.getId(), "should be 777");
+    }
+
+    @Test
+    public void setRoute_idTest(){
+        int flightId = 666;
+        LocalDate localDate = LocalDate.now();
+        int routeId = 234;
+        int planeId = 1234;
+        Flight flight = new Flight(flightId, localDate, routeId, planeId);
+        flight.setRoute_id(345);
+        Assertions.assertEquals(345, flight.getRoute_id(), "should be 345");
+    }
+
+    @Test
+    public void setPlane_idTest(){
+        int flightId = 666;
+        LocalDate localDate = LocalDate.now();
+        int routeId = 234;
+        int planeId = 1234;
+        Flight flight = new Flight(flightId, localDate, routeId, planeId);
+        flight.setPlane_id(9876);
+        Assertions.assertEquals(9876, flight.getPlane_id(), "should be 9876");
+    }
+}

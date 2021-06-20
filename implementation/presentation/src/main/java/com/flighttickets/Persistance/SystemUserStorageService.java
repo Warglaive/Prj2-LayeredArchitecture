@@ -39,6 +39,7 @@ public class SystemUserStorageService {
     }
 
     public SystemUser getByEmail(String email) throws AccountNotFoundException, SystemUserStorageException {
+        //TODO: Catch exceptions and make proper handling
         List<SystemUser> customerList = systemUserDAO.anyQuery("SELECT * FROM " + this.tableName + " WHERE email= '" + email + "' ");
         if (customerList.isEmpty()) {
             throw new AccountNotFoundException("no such " + email);
@@ -101,6 +102,7 @@ public class SystemUserStorageService {
 
     public SystemUser getById(int id) {
         List<SystemUser> customerList = systemUserDAO.anyQuery("SELECT * FROM " + this.tableName + " WHERE systemuserid= '" + id + "' ");
+        //TODO: Validate and try catch
         return customerList.get(0);
     }
 }

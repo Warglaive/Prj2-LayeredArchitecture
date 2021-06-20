@@ -1,7 +1,6 @@
 package com.flighttickets.BusinessLogic;
 
 import com.flighttickets.BusinessLogic.Exceptions.SystemUserStorageException;
-import com.flighttickets.Entities.RegisterInputValidator;
 import com.flighttickets.Entities.SystemUser;
 import com.flighttickets.Entities.SystemUserManager;
 import com.flighttickets.Persistance.SystemUserStorageService;
@@ -16,14 +15,11 @@ import java.util.Random;
  */
 public class SystemUserManagerImpl implements SystemUserManager {
 
-    //TODO: Add validator class to validate user input
-    private RegisterInputValidator inputValidator;
     //TODO: Add HashPassword method
     private SystemUserStorageService systemUserStorageService;
 
     public void setSystemUserStorageService(SystemUserStorageService systemUserStorageService) {
         this.systemUserStorageService = systemUserStorageService;
-        this.inputValidator = new RegisterInputValidatorImpl();
     }
 
     /**
