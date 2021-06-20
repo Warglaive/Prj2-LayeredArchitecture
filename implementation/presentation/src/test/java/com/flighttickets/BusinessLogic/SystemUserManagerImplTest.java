@@ -246,28 +246,23 @@ public class SystemUserManagerImplTest {
         assertThat(actual).usingRecursiveComparison().isEqualTo(expected);
     }
 
+
+    /**
+     * Test is DEPENDENT and specific for the current Database
+     */
     @Test
-    void getByEmailNoDBTest() throws SystemUserStorageException, AccountNotFoundException, ClassNotFoundException {
-        SystemUser expected = new SystemUser(1, "test", "test", "uniqueMail@abv.bg", "n!k@sn1Kos", "franciscanenstraat 10", "Customer");
-
-        //Train the mock
-        when(this.systemUserStorageServiceMock.getByEmail("uniqueMail@abv.bg")).thenReturn(expected);
-
-        //Assign mocked service to SUT
-        this.systemUserManager.setSystemUserStorageService(this.systemUserStorageServiceMock);
-
-        assertThat(this.systemUserManager.getByEmail("uniqueMail@abv.bg")).isEqualTo(expected);
-        //verify that retrieve is called at least once
-        verify(this.systemUserStorageServiceMock).getByEmail("uniqueMail@abv.bg");
+    void loginDbTest() throws ClassNotFoundException, SystemUserStorageException, AccountNotFoundException {
+        //Need to exist in the DB
+        String loginEmail = "asd@abv.bg";
+        String loginPassword = "n!k@sn1Kos";
+        //check if the login is properly comparing input
+        SystemUser expected = this.systemUserManager.getByEmail(loginEmail);
+        SystemUser actual = this.systemUserManager.login(loginEmail, loginPassword);
+        assertThat(actual).usingRecursiveComparison().isEqualTo(expected);
     }
 
     /**
      * Test is DEPENDENT and specific for the current Database
-     *
-     * @throws ClassNotFoundException
-     * @throws SystemUserStorageException
-     * @throws AccountNotFoundException
-     * @throws SQLException
      */
     @Test
     void addDatabaseTest() throws ClassNotFoundException, SystemUserStorageException, AccountNotFoundException, SQLException {
@@ -290,8 +285,7 @@ public class SystemUserManagerImplTest {
 
     /**
      * Test if login is called and is returning correct user
-     *
-     * @throws ClassNotFoundException
+     * Mock
      */
     @Test
     public void loginTest() throws ClassNotFoundException {
@@ -306,24 +300,28 @@ public class SystemUserManagerImplTest {
         assertThat(this.systemUserManager.login("asd@abv.bg", "n!k@sn1Kos")).isEqualTo(expected);
         //verify that retrieve is called at least once
         verify(this.systemUserStorageServiceMock).retrieve("asd@abv.bg", "n!k@sn1Kos");
-
-
-        //Need to exist in the DB
-
-        /*String loginEmail = "asd@abv.bg";
-        String loginPassword = "n!k@sn1Kos";
-        //check if the login is properly comparing input
-        SystemUser actual = this.systemUserManager.login(loginEmail, loginPassword);
-        assertThat(actual).usingRecursiveComparison().isEqualTo(expected);*/
     }
-@Test
-void loginDbTest() throws ClassNotFoundException {
-              String loginEmail = "asd@abv.bg";
-        String loginPassword = "n!k@sn1Kos";
-        //check if the login is properly comparing input
-        SystemUser actual = this.systemUserManager.login(loginEmail, loginPassword);
-        assertThat(actual).usingRecursiveComparison().isEqualTo(expected);
-}
+
+    /**
+     * Test if getByEmail is called and is returning correct user
+     * Mock
+     */
+    @Test
+    void getByEmailNoDBTest() throws SystemUserStorageException, AccountNotFoundException, ClassNotFoundException {
+        SystemUser expected = new SystemUser(1, "test", "test", "uniqueMail@abv.bg", "n!k@sn1Kos", "franciscanenstraat 10", "Customer");
+
+        //Train the mock
+        when(this.systemUserStorageServiceMock.getByEmail("uniqueMail@abv.bg")).thenReturn(expected);
+
+        //Assign mocked service to SUT
+        this.systemUserManager.setSystemUserStorageService(this.systemUserStorageServiceMock);
+
+        assertThat(this.systemUserManager.getByEmail("uniqueMail@abv.bg")).isEqualTo(expected);
+        //verify that retrieve is called at least once
+        verify(this.systemUserStorageServiceMock).getByEmail("uniqueMail@abv.bg");
+    }
+
+
     @Test
     public void generateSalesOfficerIdTest() {
         int expectedLowest = this.systemUserStorageService.getLowestSalesOfficerId();
