@@ -261,15 +261,20 @@ public class SystemUserManagerImplTest {
 
     @Test
     public void loginTest() throws ClassNotFoundException {
-        //Need to exist in the DB
         SystemUser expected = new SystemUser(1, "test", "test", "asd@abv.bg", "n!k@sn1Kos", "franciscanenstraat 10", "Customer");
 
+        //Train the mock
         when(this.systemUserStorageServiceMock.retrieve("asd@abv.bg", "n!k@sn1Kos")).thenReturn(expected);
 
+        //Assign mocked service to SUT
         this.systemUserManager.setSystemUserStorageService(this.systemUserStorageServiceMock);
 
         assertThat(this.systemUserManager.login("asd@abv.bg", "n!k@sn1Kos")).isEqualTo(expected);
+        //verify that retrieve is called at least once
         verify(this.systemUserStorageServiceMock).retrieve("asd@abv.bg", "n!k@sn1Kos");
+
+
+        //Need to exist in the DB
 
         /*String loginEmail = "asd@abv.bg";
         String loginPassword = "n!k@sn1Kos";
