@@ -1,3 +1,4 @@
+/*
 package com.flighttickets.BusinessLogic;
 
 import com.flighttickets.Entities.Plane;
@@ -6,10 +7,15 @@ import org.junit.jupiter.api.Assertions;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
+*/
+/**
+ * NOT MY STUFF - Stoyanov
+ *//*
+
 public class PlaneTest {
 
     @Test
-    public void constructorTest(){
+    public void constructorTest() {
         int id = 555;
         String registration = "ABCDE";
         String brand = "Airbus";
@@ -35,7 +41,7 @@ public class PlaneTest {
     }
 
     @Test
-    public void getRegistrationTest(){
+    public void getRegistrationTest() {
         int id = 555;
         String registration = "ABCDE";
         String brand = "Airbus";
@@ -48,7 +54,7 @@ public class PlaneTest {
     }
 
     @Test
-    public void getBrandTest(){
+    public void getBrandTest() {
         int id = 555;
         String registration = "ABCDE";
         String brand = "Airbus";
@@ -61,7 +67,7 @@ public class PlaneTest {
     }
 
     @Test
-    public void getTypeTest(){
+    public void getTypeTest() {
         int id = 555;
         String registration = "ABCDE";
         String brand = "Airbus";
@@ -74,7 +80,7 @@ public class PlaneTest {
     }
 
     @Test
-    public void getSeats_on_boardTest(){
+    public void getSeats_on_boardTest() {
         int id = 555;
         String registration = "ABCDE";
         String brand = "Airbus";
@@ -87,7 +93,7 @@ public class PlaneTest {
     }
 
     @Test
-    public void getExtra_legroom_seatsTest(){
+    public void getExtra_legroom_seatsTest() {
         int id = 555;
         String registration = "ABCDE";
         String brand = "Airbus";
@@ -100,7 +106,7 @@ public class PlaneTest {
     }
 
     @Test
-    public void getFirst_class_seatsTest(){
+    public void getFirst_class_seatsTest() {
         int id = 555;
         String registration = "ABCDE";
         String brand = "Airbus";
@@ -113,7 +119,7 @@ public class PlaneTest {
     }
 
     @Test
-    public void setIdTest(){
+    public void setIdTest() {
         int id = 555;
         String registration = "ABCDE";
         String brand = "Airbus";
@@ -127,7 +133,7 @@ public class PlaneTest {
     }
 
     @Test
-    public void setRegistrationTest(){
+    public void setRegistrationTest() {
         int id = 555;
         String registration = "ABCDE";
         String brand = "Airbus";
@@ -141,7 +147,7 @@ public class PlaneTest {
     }
 
     @Test
-    public void setBrandTest(){
+    public void setBrandTest() {
         int id = 555;
         String registration = "ABCDE";
         String brand = "Airbus";
@@ -155,7 +161,7 @@ public class PlaneTest {
     }
 
     @Test
-    public void setTypeTest(){
+    public void setTypeTest() {
         int id = 555;
         String registration = "ABCDE";
         String brand = "Airbus";
@@ -169,7 +175,7 @@ public class PlaneTest {
     }
 
     @Test
-    public void setSeats_on_boardTest(){
+    public void setSeats_on_boardTest() {
         int id = 555;
         String registration = "ABCDE";
         String brand = "Airbus";
@@ -183,7 +189,7 @@ public class PlaneTest {
     }
 
     @Test
-    public void setExtra_Legroom_seatsTest(){
+    public void setExtra_Legroom_seatsTest() {
         int id = 555;
         String registration = "ABCDE";
         String brand = "Airbus";
@@ -197,7 +203,7 @@ public class PlaneTest {
     }
 
     @Test
-    public void setFirst_class_seatsTest(){
+    public void setFirst_class_seatsTest() {
         int id = 555;
         String registration = "ABCDE";
         String brand = "Airbus";
@@ -210,3 +216,4 @@ public class PlaneTest {
         Assertions.assertEquals(49, plane.getFirst_class_seats(), "First class seats should be 49");
     }
 }
+*/
