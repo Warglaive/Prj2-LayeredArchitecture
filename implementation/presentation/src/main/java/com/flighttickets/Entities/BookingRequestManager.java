@@ -1,5 +1,6 @@
 package com.flighttickets.Entities;
 
+import com.flighttickets.BusinessLogic.Exceptions.DateOutOfBoundException;
 import com.flighttickets.Persistance.BookingRequestStorageService;
 
 import java.sql.SQLException;
@@ -41,8 +42,9 @@ public interface BookingRequestManager {
      * @param bookingRequest add to DB
      * @throws SQLException
      * @throws ClassNotFoundException
+     * @return
      */
-    void add(BookingRequest bookingRequest) throws SQLException, ClassNotFoundException;
+    BookingRequest add(BookingRequest bookingRequest) throws SQLException, ClassNotFoundException, DateOutOfBoundException;
 
     /**
      * @param customerId - search by
@@ -59,7 +61,7 @@ public interface BookingRequestManager {
     /**
      * @param toBeDeclined
      */
-    void declineRequest(BookingRequest toBeDeclined);
+    BookingRequest declineRequest(BookingRequest toBeDeclined);
 
-    void acceptRequest(BookingRequest toBeAccepted);
+    BookingRequest acceptRequest(BookingRequest toBeAccepted);
 }

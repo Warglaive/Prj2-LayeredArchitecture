@@ -1,4 +1,6 @@
-package com.flighttickets.Entities;
+package com.flighttickets.BusinessLogic;
+
+import com.flighttickets.Entities.*;
 
 public interface BusinessLogicAPI {
 

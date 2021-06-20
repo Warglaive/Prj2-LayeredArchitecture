@@ -1,5 +1,6 @@
 package com.flighttickets.GUI;
 
+import com.flighttickets.BusinessLogic.Exceptions.TicketAlreadySoldException;
 import com.flighttickets.Entities.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -48,6 +49,9 @@ public class BookingRequestHandleController implements Initializable {
 
     @FXML
     private Label passengerCount_label;
+
+    @FXML
+    private Label alert_label;
 
     @FXML
     private TableView<Ticket> departure_ticket_view;
@@ -101,7 +105,7 @@ public class BookingRequestHandleController implements Initializable {
         passengerCount_label.setText(String.valueOf(currentRequest.getPassengersAmount()));
 
         //Todo Use Location to find tickets - JL
-        List<Ticket> depAllOpenTickets = this.ticketManager.getOpenTickets(currentRequest.getDepartureDestination());
+        List<Ticket> depAllOpenTickets = this.ticketManager.getOpenTickets(currentRequest.getDepartureDestination(), currentRequest.getArrivalDestination());
         ObservableList<Ticket> departureObservableList = FXCollections.observableList(depAllOpenTickets);
 
         departure_ticket_view.setItems(departureObservableList);
@@ -110,7 +114,7 @@ public class BookingRequestHandleController implements Initializable {
         dep_seat_no.setCellValueFactory(new PropertyValueFactory<>("status"));
 
         //Todo Use Location to find tickets - JL
-        List<Ticket> reAllOpenTickets = this.ticketManager.getOpenTickets(currentRequest.getArrivalDestination());
+        List<Ticket> reAllOpenTickets = this.ticketManager.getOpenTickets(currentRequest.getArrivalDestination(), currentRequest.getDepartureDestination());
         ObservableList<Ticket> returnObservableList = FXCollections.observableList(reAllOpenTickets);
 
         return_ticket_view.setItems(returnObservableList);
@@ -120,26 +124,30 @@ public class BookingRequestHandleController implements Initializable {
     }
 
     @FXML
-    public void requestHandler(ActionEvent event) throws IOException, SQLException, ClassNotFoundException {
-        Booking newBooking = new Booking(0, currentRequest.getCustomerId(),3,LocalDate.now());
-        //Add booking to ticket.
-        //Creating a new booking returns the id of that new booking. This is inserted to the tickets. - JL
-        int resultBookingId = this.bookingManager.add(newBooking);
-        //Testing result
-        System.out.println("Booking made with id= " + resultBookingId);
+    public void requestHandler(ActionEvent event) throws IOException, TicketAlreadySoldException {
         //Gets the selected tickets from the tableview - JL
         Ticket departureflight = departure_ticket_view.getSelectionModel().getSelectedItem();
         Ticket returnflight = return_ticket_view.getSelectionModel().getSelectedItem();
-        this.ticketManager.sell(resultBookingId, departureflight);
-        this.ticketManager.sell(resultBookingId, returnflight);
-        this.bookingRequestManager.acceptRequest(currentRequest);
+        if(departureflight == null || returnflight == null){
+            alert_label.setText("Please select a ticket first!");
+        } else {
+            //Creating a new booking returns the id of that new booking. This is inserted to the tickets. - JL
+            Booking newBooking = new Booking(0, currentRequest.getCustomerId(),3,LocalDate.now());
+            int resultBookingId = this.bookingManager.add(newBooking);
+            //Testing result
+            System.out.println("Booking made with id= " + resultBookingId);
+            //Add booking to ticket.
+            this.ticketManager.sell(resultBookingId, departureflight);
+            this.ticketManager.sell(resultBookingId, returnflight);
+            this.bookingRequestManager.acceptRequest(currentRequest);
 
-        //Testing if all worked - JL
-        System.out.println(departureflight.toString());
-        System.out.println(returnflight.toString());
-        //Return to main after handling request - JL
-        this.sceneManagerSupplier.get().changeScene("BookingRequestOverview");
-        //TODO add available tickets on date - JL
+            //Testing if all worked - JL
+            System.out.println(departureflight.toString());
+            System.out.println(returnflight.toString());
+            //Return to main after handling request - JL
+            this.sceneManagerSupplier.get().changeScene("BookingRequestOverview");
+            //TODO add available tickets on date - JL
+        }
     }
 
     //TODO add decline here instead of Overview - JL

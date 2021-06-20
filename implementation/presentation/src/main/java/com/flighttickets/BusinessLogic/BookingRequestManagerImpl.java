@@ -1,5 +1,6 @@
 package com.flighttickets.BusinessLogic;
 
+import com.flighttickets.BusinessLogic.Exceptions.DateOutOfBoundException;
 import com.flighttickets.Entities.BookingRequest;
 import com.flighttickets.Entities.BookingRequestManager;
 import com.flighttickets.Persistance.BookingRequestStorageService;
@@ -29,8 +30,12 @@ public class BookingRequestManagerImpl implements BookingRequestManager {
     }
 
     @Override
-    public void add(BookingRequest bookingRequest) throws SQLException, ClassNotFoundException {
-        this.bookingRequestStorageService.insert(bookingRequest);
+    public BookingRequest add(BookingRequest bookingRequest) throws SQLException, ClassNotFoundException, DateOutOfBoundException {
+        if (bookingRequest.getDepartureDate().isBefore(LocalDate.now())){
+            throw new DateOutOfBoundException("Departure Date has already been");
+        } else {
+            return this.bookingRequestStorageService.insert(bookingRequest);
+        }
     }
 
     @Override
@@ -44,13 +49,17 @@ public class BookingRequestManagerImpl implements BookingRequestManager {
     }
 
     @Override
-    public void declineRequest(BookingRequest toBeDeclined) {
-        this.bookingRequestStorageService.declineRequest(toBeDeclined);
+    public BookingRequest declineRequest(BookingRequest toBeDeclined)  { //throws wrongStateException
+        toBeDeclined.setStatus("Declined");
+        System.out.println(toBeDeclined.toString() + "is declined!");
+        return this.bookingRequestStorageService.updateRequest(toBeDeclined);
     }
 
     @Override
-    public void acceptRequest(BookingRequest toBeAccepted) {
-        this.bookingRequestStorageService.acceptRequest(toBeAccepted);
+    public BookingRequest acceptRequest(BookingRequest toBeAccepted) {
+        toBeAccepted.setStatus("Accepted");
+        System.out.println(toBeAccepted.toString() + "is accepted!");
+        return this.bookingRequestStorageService.updateRequest(toBeAccepted);
     }
 
     @Override
