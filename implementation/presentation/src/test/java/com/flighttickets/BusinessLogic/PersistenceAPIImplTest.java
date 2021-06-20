@@ -14,15 +14,19 @@ import static org.mockito.Mockito.when;
 
 public class PersistenceAPIImplTest {
 
-    @Mock
-    PersistenceAPIImpl persistenceAPI;
     PGDAOFactory pgdaoFactory = new PGDAOFactory(PGDataSource.DATA_SOURCE);
 
 
+    @Mock
+    PersistenceAPIImpl persistenceAPI = Mockito.mock(PersistenceAPIImpl.class);
+
+    /**
+     * mock persistenceAPI in order to test if storageServices are provided properly
+     */
     @Test
     @BeforeEach
     void setUp() {
-      //  this.persistenceAPI = (PersistenceAPIImpl) Mockito.doCallRealMethod(this.persistenceAPI.getSystemUserStorageService());
+
     }
 
     @Test

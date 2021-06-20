@@ -14,6 +14,8 @@ import nl.fontys.sebivenlo.dao.pg.PGDAOFactory;
 import org.assertj.core.api.ThrowableAssert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
+import org.mockito.Mockito;
 
 import javax.security.auth.login.AccountNotFoundException;
 import java.sql.SQLException;
@@ -21,6 +23,8 @@ import java.util.Random;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatCode;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 public class SystemUserManagerImplTest {
 
@@ -29,6 +33,9 @@ public class SystemUserManagerImplTest {
     private PersistenceAPI persistenceAPI;
 
     private SystemUserStorageService systemUserStorageService;
+
+    @Mock
+    SystemUserStorageService systemUserMock = Mockito.mock(SystemUserStorageService.class);
 
     private SystemUserManager systemUserManager;
 
@@ -256,12 +263,20 @@ public class SystemUserManagerImplTest {
     @Test
     public void loginDatabaseTest() throws SystemUserStorageException, ClassNotFoundException, AccountNotFoundException {
         //Need to exist in the DB
-        String loginEmail = "asd@abv.bg";
+        SystemUser expected = new SystemUser(1,"test","test","asd@abv.bg", "n!k@sn1Kos","test 123 test", "Customer");
+
+        when(systemUserMock.retrieve("asd@abv.bg","n!k@sn1Kos")).thenReturn(expected);
+        SystemUserManagerImpl testManager = new SystemUserManagerImpl();
+        testManager.setSystemUserStorageService(systemUserMock);
+
+        assertThat(testManager.login("asd@abv.bg","n!k@sn1Kos")).isEqualTo(expected);
+        verify(systemUserMock).retrieve("asd@abv.bg","n!k@sn1Kos");
+
+        /*String loginEmail = "asd@abv.bg";
         String loginPassword = "n!k@sn1Kos";
         //check if the login is properly comparing input
-        SystemUser expected = this.systemUserManager.getByEmail(loginEmail);
         SystemUser actual = this.systemUserManager.login(loginEmail, loginPassword);
-        assertThat(actual).usingRecursiveComparison().isEqualTo(expected);
+        assertThat(actual).usingRecursiveComparison().isEqualTo(expected);*/
     }
 
     @Test
