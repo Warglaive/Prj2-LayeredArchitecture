@@ -3,7 +3,7 @@ package com.flighttickets.BusinessLogic;
 import com.flighttickets.Entities.*;
 import com.flighttickets.Persistance.PersistenceAPI;
 
-public class BusinessLogicAPIImpl implements BusinessLogicImplementationProvider, BusinessLogicAPI {
+    public class BusinessLogicAPIImpl implements BusinessLogicImplementationProvider, BusinessLogicAPI {
 
     private final PersistenceAPI persistenceAPI;
 
