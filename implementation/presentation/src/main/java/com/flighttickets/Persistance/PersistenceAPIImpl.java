@@ -48,4 +48,11 @@ public class PersistenceAPIImpl implements PersistenceImplementationProvider, Pe
     public TicketStorageService getTicketStorageService() {
         return new TicketStorageService(this.daoFactory);
     }
+
+    @Override
+    public String toString() {
+        return "PersistenceAPIImpl{" +
+                "daoFactory=" + daoFactory +
+                '}';
+    }
 }
