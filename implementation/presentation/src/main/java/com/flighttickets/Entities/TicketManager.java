@@ -34,6 +34,8 @@ public interface TicketManager {
      */
     List<Ticket> getAll();
 
+    Ticket getById(int id);
+
     /**
      * Edit a ticket
      */

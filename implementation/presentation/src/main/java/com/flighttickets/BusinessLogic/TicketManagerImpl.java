@@ -28,6 +28,11 @@ public class TicketManagerImpl implements TicketManager {
         return this.ticketStorageService.getAll();
     }
 
+    @Override
+    public Ticket getById(int id) {
+        return this.ticketStorageService.getById(id);
+    }
+
 
     @Override
     public void edit(int id, Ticket ticket) throws SQLException, ClassNotFoundException {
@@ -39,6 +44,8 @@ public class TicketManagerImpl implements TicketManager {
     public void setTicketStorageService(TicketStorageService ticketStorageService) {
         this.ticketStorageService = ticketStorageService;
     }
+
+
 
     @Override
     public List<Ticket> getOpenTickets(String destination) {

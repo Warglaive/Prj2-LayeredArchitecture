@@ -16,4 +16,6 @@ public interface BookingManager {
     int add(Booking booking) throws SQLException, ClassNotFoundException;
     //Todo add descriptions -JL
 
+    Booking getBooking(int bookingId);
+
 }

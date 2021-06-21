@@ -31,6 +31,12 @@ public class RouteStorageService {
         System.out.println("Is a route found?" + routeList.get(0).toString());
         return routeList;
     }
+    public Route getRoute(int routeId){
+        List<Route> routeList = this.routeDAO.anyQuery("SELECT * FROM "+this.tableName+ " WHERE routeid = '"+routeId+"' LIMIT 1");
+        System.out.println("Is a route found?" + routeList.get(0).toString());
+
+        return routeList.get(0);
+    }
 
     /**
      * Save of Route

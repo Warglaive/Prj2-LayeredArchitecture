@@ -26,5 +26,9 @@ public interface AirportManager {
      */
     List<Airport> getAirports();
 
+    Airport getAirport(int airportId);
+
     void setAirportStorageService(AirportStorageService airportStorageService);
+    public AirportStorageService getAirportStorageService();
+    public Airport createAirport(int id, String name, String country, String city);
 }

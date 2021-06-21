@@ -5,6 +5,8 @@ import com.flighttickets.Entities.BookingMapper;
 import nl.fontys.sebivenlo.dao.pg.PGDAO;
 import nl.fontys.sebivenlo.dao.pg.PGDAOFactory;
 
+import java.util.List;
+
 public class BookingStorageService {
     private final PGDAOFactory pgdaoFactory;
     private final PGDAO<Integer, Booking> bookingDAO;
@@ -17,4 +19,10 @@ public class BookingStorageService {
     }
 
     public int insert(Booking booking) {this.bookingDAO.save(booking); return this.bookingDAO.lastId();}
+
+    public Booking get(int id){
+        List<Booking> booking =this.bookingDAO.anyQuery("SELECT * FROM "+tableName+" WHERE bookingid = '"+id+"' LIMIT 1");
+        System.out.println(booking);
+        return booking.get(0);
+    }
 }

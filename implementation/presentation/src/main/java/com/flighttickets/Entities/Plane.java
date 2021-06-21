@@ -7,7 +7,7 @@ public class Plane implements Entity2<Integer> {
 
 
     @ID
-    int id;
+    int planeid;
     /**
      * Fields to be used to encrypt pass, validate names etc.
      */
@@ -32,7 +32,7 @@ public class Plane implements Entity2<Integer> {
      */
 
     public Plane(int id, String registration, String brand, String type, int seatsOnBoard, int extraLegroomSeats, int firstClassSeats){
-        this.id = id;
+        this.planeid = id;
         this.registration = registration;
         this.brand = brand;
         this.type = type;
@@ -43,7 +43,7 @@ public class Plane implements Entity2<Integer> {
 
     @Override
     public String toString() {
-        return "plane id = " + this.id + ", registration: " + this.registration + ", brand: " + this.brand + ", type: " + this.type + ", seats on board: " + this.seats_on_board +
+        return "planeid = " + this.planeid + ", registration: " + this.registration + ", brand: " + this.brand + ", type: " + this.type + ", seats on board: " + this.seats_on_board +
                 ", extra legroom seats: " + this.extra_legroom_seats + ", first class seats: " + this.first_class_seats;
     }
 
@@ -54,7 +54,7 @@ public class Plane implements Entity2<Integer> {
     Object[] asParts() {
 
         return new Object[]{
-                this.id,
+                this.planeid,
                 this.registration,
                 this.brand,
                 this.type,
@@ -66,16 +66,18 @@ public class Plane implements Entity2<Integer> {
 
     @Override
     public Integer getNaturalId() {
-        return this.id;
+        return this.planeid;
     }
 
     @Override
     public int getId() {
-        return this.id;
+        return this.planeid;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public int getPlaneid(){return this.planeid;}
+
+    public void setPlaneid(int id) {
+        this.planeid = id;
     }
 
     public String getRegistration() {

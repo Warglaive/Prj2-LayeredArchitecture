@@ -83,6 +83,11 @@ public class BookingManagerImpl implements BookingManager {
         return this.bookingStorageService.insert(booking);
     }
 
+    @Override
+    public Booking getBooking(int bookingId) {
+        return this.bookingStorageService.get(bookingId);
+    }
+
     /**
      * @return calculated price based on several factors (age, day of week, destination, discount coupon)
      */
@@ -110,7 +115,7 @@ public class BookingManagerImpl implements BookingManager {
     /**
      * Getters and setters for easier testing
      */
-    public double getExpensiveDayMultiplier() {
+ /*   public double getExpensiveDayMultiplier() {
         return expensiveDayMultiplier;
     }
 
@@ -140,5 +145,5 @@ public class BookingManagerImpl implements BookingManager {
 
     public BookingRequest getToBeFinalized() {
         return toBeFinalized;
-    }
+    }*/
 }

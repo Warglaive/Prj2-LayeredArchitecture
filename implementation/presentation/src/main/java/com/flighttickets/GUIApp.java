@@ -13,7 +13,6 @@ import java.io.IOException;
 /**
  * JavaFX GUIApp
  */
-//TODO: Move to GUI package
 public class GUIApp extends Application {
 
     private BusinessLogicAPI businessLogicAPI;
@@ -60,7 +59,7 @@ public class GUIApp extends Application {
             case "com.flighttickets.GUI.CreateFlightController":
                 return new CreateFlightController(this::getSceneManager, this.systemUserController.getLoggedInCustomer(), this.businessLogicAPI.getPlaneManager(), this.businessLogicAPI.getRouteManager(), this.businessLogicAPI.getFlightManager(), this.businessLogicAPI.getAirportManager());
             case "com.flighttickets.GUI.EditTicketController":
-                this.editTicketController = new EditTicketController(this::getSceneManager, this.systemUserController.getLoggedInCustomer(), this.businessLogicAPI.getSystemUserManager(), this.businessLogicAPI.getTicketManager());
+                this.editTicketController =  new EditTicketController(this::getSceneManager, this.systemUserController.getLoggedInCustomer(), this.businessLogicAPI.getSystemUserManager(), this.businessLogicAPI.getTicketManager(),this.businessLogicAPI.getFlightManager(), this.businessLogicAPI.getRouteManager(), this.businessLogicAPI.getAirportManager(), this.businessLogicAPI.getBookingManager());
                 return this.editTicketController;
             case "com.flighttickets.GUI.EditTicketDataController":
                 return new EditTicketDataController(this::getSceneManager, this.systemUserController.getLoggedInCustomer(), this.businessLogicAPI.getTicketManager(), this.editTicketController.getSelectedTicket());
@@ -122,8 +121,7 @@ public class GUIApp extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        sceneManager.displayOn(stage, 1000, 650);
-
+        sceneManager.displayOn(stage, 640, 480);
     }
 
     public SceneManager getSceneManager() {

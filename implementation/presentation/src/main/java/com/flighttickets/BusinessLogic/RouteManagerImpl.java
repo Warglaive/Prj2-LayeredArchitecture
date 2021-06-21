@@ -13,13 +13,9 @@ public class RouteManagerImpl implements RouteManager {
         this.routeStorageService = routeStorageService;
     }
 
-    /**
-     * Test helper method
-     *
-     * @return
-     */
+    @Override
     public RouteStorageService getRouteStorageService() {
-        return routeStorageService;
+        return this.routeStorageService;
     }
 
     @Override
@@ -37,5 +33,9 @@ public class RouteManagerImpl implements RouteManager {
         return this.routeStorageService.getRoutes(plannerId);
     }
 
+    @Override
+    public Route getByRouteId(int routeId) {
+        return this.routeStorageService.getRoute(routeId);
+    }
 }
 

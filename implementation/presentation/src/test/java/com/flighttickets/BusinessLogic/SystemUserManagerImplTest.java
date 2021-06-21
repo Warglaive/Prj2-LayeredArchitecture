@@ -17,6 +17,7 @@ import org.junit.jupiter.api.Test;
 
 import javax.security.auth.login.AccountNotFoundException;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Random;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -256,8 +257,8 @@ public class SystemUserManagerImplTest {
     @Test
     public void loginDatabaseTest() throws SystemUserStorageException, ClassNotFoundException, AccountNotFoundException {
         //Need to exist in the DB
-        String loginEmail = "asd@abv.bg";
-        String loginPassword = "n!k@sn1Kos";
+        String loginEmail = "marcus@gmail.nl";
+        String loginPassword = "Marcus123!";
         //check if the login is properly comparing input
         SystemUser expected = this.systemUserManager.getByEmail(loginEmail);
         SystemUser actual = this.systemUserManager.login(loginEmail, loginPassword);
@@ -270,5 +271,19 @@ public class SystemUserManagerImplTest {
         int expectedBiggest = this.systemUserStorageService.getBiggestSalesOfficerId();
         int actual = this.systemUserManager.generateSalesOfficerId();
         assertThat(actual).isBetween(expectedLowest, expectedBiggest);
+    }
+
+    @Test
+    public void getUserCountTest(){
+        int expected = this.systemUserStorageService.getAll().size();
+        int actual = this.systemUserManager.getRegisteredUsersCount();
+        assertThat(actual).as("user count test").isEqualTo(expected);
+    }
+    @Test
+    public void getAllByRoleTest(){
+        List<SystemUser> allUsers = this.systemUserStorageService.getAll();
+        allUsers.removeIf(user -> !(user.getRole().equalsIgnoreCase("Planner")));
+        List<SystemUser> actual = this.systemUserManager.getAllByRole("Planner");
+        assertThat(actual).as("Get all by role test").usingRecursiveComparison().isEqualTo(allUsers);
     }
 }

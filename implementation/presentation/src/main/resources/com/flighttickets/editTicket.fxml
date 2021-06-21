@@ -17,6 +17,16 @@
       <Button fx:id="editBtn" layoutX="14.0" layoutY="543.0" mnemonicParsing="false" onAction="#editTicketPopup" text="Edit ticket" />
       <Button fx:id="addDiscountBtn" layoutX="95.0" layoutY="543.0" mnemonicParsing="false" onAction="#addDiscountDiag" text="Add discount" />
       <Button fx:id="editDiscountBtn" layoutX="189.0" layoutY="543.0" mnemonicParsing="false" onAction="#editDiscountDiag" text="Edit discount" />
-      <ListView fx:id="ticketView" layoutX="14.0" layoutY="148.0" prefHeight="382.0" prefWidth="773.0" />
+      <TableView fx:id="ticketView" layoutX="14.0" layoutY="155.0" prefHeight="380.0" prefWidth="777.0">
+        <columns>
+          <TableColumn fx:id="ticketId" prefWidth="75.0" text="TicketId" />
+          <TableColumn fx:id="ticketStatus" prefWidth="75.0" text="Status" />
+            <TableColumn fx:id="ticketPassenger" prefWidth="75.0" text="Passenger" />
+            <TableColumn fx:id="ticketBooking" prefWidth="75.0" text="Booking" />
+            <TableColumn fx:id="ticketRouteStart" prefWidth="93.0" text="Start location" />
+            <TableColumn fx:id="ticketRouteEnd" text="End location" />
+            <TableColumn fx:id="ticketPrice" prefWidth="98.0" text="Price" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>

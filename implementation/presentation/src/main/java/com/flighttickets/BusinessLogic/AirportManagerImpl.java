@@ -10,15 +10,16 @@ import java.util.List;
 public class AirportManagerImpl implements AirportManager {
 
     private AirportStorageService airportStorageService;
-
+    @Override
     public void setAirportStorageService(AirportStorageService airportStorageService) {
         this.airportStorageService = airportStorageService;
     }
-
+    @Override
     public AirportStorageService getAirportStorageService() {
         return this.airportStorageService;
     }
 
+    @Override
     public Airport createAirport(int id, String name, String country, String city){
         return new Airport(id, name, country, city);
     }
@@ -28,8 +29,13 @@ public class AirportManagerImpl implements AirportManager {
         this.airportStorageService.insert(airport);
     }
 
-    //@Override
+    @Override
     public List<Airport> getAirports() {
         return this.airportStorageService.getAirports();
+    }
+
+    @Override
+    public Airport getAirport(int airportId) {
+        return this.airportStorageService.getAirport(airportId);
     }
 }

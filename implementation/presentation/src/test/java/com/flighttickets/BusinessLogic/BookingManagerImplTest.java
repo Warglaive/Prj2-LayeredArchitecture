@@ -1,11 +1,19 @@
 package com.flighttickets.BusinessLogic;
 
-import com.flighttickets.Entities.BookingManager;
-import com.flighttickets.Entities.BookingRequest;
+import com.flighttickets.Entities.*;
+import com.flighttickets.PGDataSource;
+import com.flighttickets.Persistance.BookingStorageService;
+import com.flighttickets.Persistance.PersistenceAPI;
+import com.flighttickets.Persistance.PersistenceImplementationProvider;
+import com.flighttickets.Persistance.SystemUserStorageService;
+import nl.fontys.sebivenlo.dao.pg.PGDAOFactory;
+import org.checkerframework.common.value.qual.StaticallyExecutable;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
@@ -21,8 +29,26 @@ public class BookingManagerImplTest {
     private TemporalAccessor parsed;
     private DateTimeFormatter formatter;
 
+    private BookingStorageService bookingStorageService;
+
+    private BusinessLogicAPI businesslogicAPI;
+    private PersistenceAPI persistenceAPI;
+
     @BeforeEach
     void setUp() {
+        PGDAOFactory daoFactory = new PGDAOFactory(PGDataSource.DATA_SOURCE);
+
+        // Register mappers for the classes in this app
+        daoFactory.registerMapper(Booking.class, new BookingMapper());
+
+
+        this.persistenceAPI = PersistenceImplementationProvider.getPersistenceImplementation(daoFactory);
+        this.businesslogicAPI = BusinessLogicImplementationProvider.getImplementation(persistenceAPI);
+
+        this.bookingManager = this.businesslogicAPI.getBookingManager();
+
+
+
         //arguments to create BookingRequest with test values
         int bookingRequestId = 1;
         int customerId = 1;
@@ -33,9 +59,13 @@ public class BookingManagerImplTest {
         LocalDate returnDate = LocalDate.now().plusDays(1);
         int passengersAmount = 1;
         String status = "Pending";
-        //
+
+        //Honestly, this implementation is not what I would have done but I noticed it way after merge.
         this.toBeFinalized = new BookingRequest(bookingRequestId, customerId, salesOfficerId, departureDestination, arrivalDestination, departureDate, returnDate, passengersAmount, status);
         this.bookingManager = new BookingManagerImpl(this.toBeFinalized);
+
+        this.bookingManager.setBookingStorageService(this.persistenceAPI.getBookingStorageService());
+        this.bookingStorageService = this.persistenceAPI.getBookingStorageService();
 
         //SetUpFormatter
         this.formatter = new DateTimeFormatterBuilder()
@@ -171,4 +201,45 @@ public class BookingManagerImplTest {
         double actualPrice = this.bookingManager.calculatePrice();
         assertThat(actualPrice).as("Calculate price for Tuesday and Thursday").isEqualTo(expectedPrice);
     }
+    @Test
+    public void constructorNoArgumentsTest(){
+        assertThat(new BookingManagerImpl()).as("constructorNoArgs").isInstanceOf(BookingManager.class);
+    }
+    @Test
+    public void createBookingTest(){
+        Booking actual = this.bookingManager.createBooking(1, 1, 1, LocalDate.of(2021, 4, 1));
+        Booking expected = new Booking(1,1,1,LocalDate.of(2021,4,1));
+
+        assertThat(actual).as("Bookings creation works").usingRecursiveComparison().isEqualTo(expected);
+    }
+    @ParameterizedTest
+    @CsvSource({"'1', '1', '03/02/2021'",
+            "'2', '1', '06/02/2021'",
+            "'1', '2', '08/02/2021'",
+            "'2', '2', '01/05/2021'",
+            "'1', '3', '04/06/2021'"})
+    public void addTest(int salesOfficerId, int customerId, String date) throws SQLException, ClassNotFoundException {
+        int id = 1;
+        Booking booking = this.bookingManager.createBooking(id, salesOfficerId, customerId, LocalDate.from(formatter.parse(date)));
+        id = this.bookingManager.add(booking);
+        Booking Actual = this.bookingStorageService.get(id);
+
+        assertThat(Actual).isExactlyInstanceOf(Booking.class);
+
+    }
+    @Test
+    public void getBookingTest(){
+        Booking Actual = this.bookingManager.getBooking(1);
+        Booking Expected = this.bookingStorageService.get(1);
+
+        assertThat(Actual).usingRecursiveComparison().isEqualTo(Expected);
+    }
+    @Test
+    public void getBookingFailTest(){
+        Booking Actual = this.bookingManager.getBooking(1);
+        Booking Expected = this.bookingStorageService.get(2);
+
+        assertThat(Actual).usingRecursiveComparison().isNotEqualTo(Expected);
+    }
+
 }

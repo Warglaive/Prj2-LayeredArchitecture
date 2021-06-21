@@ -73,7 +73,7 @@ public class SystemUserStorageService {
 
     public List<SystemUser> getAllByRole(String role) {
         String query = "select * from systemuser \n" +
-                "where role =" + role;
+                "where role ='" + role+"'";
         return this.systemUserDAO.anyQuery(query);
     }
 

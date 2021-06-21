@@ -8,7 +8,7 @@ import java.time.LocalDate;
 public class Flight implements Entity2<Integer> {
 
     @ID
-    int id;
+    int flightid;
 
     LocalDate flightdate;
     int routeid;
@@ -24,7 +24,7 @@ public class Flight implements Entity2<Integer> {
      * @param planeId
      */
     public Flight(int id, LocalDate date, int routeId, int planeId) {
-        this.id = id;
+        this.flightid = id;
         this.flightdate = date;
         this.routeid = routeId;
         this.planeid = planeId;
@@ -36,12 +36,16 @@ public class Flight implements Entity2<Integer> {
      */
     @Override
     public Integer getNaturalId() {
-        return this.id;
+        return this.flightid;
     }
 
     @Override
     public int getId() {
-        return this.id;
+        return this.flightid;
+    }
+
+    public int getFlightid(){
+        return this.flightid;
     }
 
     /**
@@ -50,7 +54,7 @@ public class Flight implements Entity2<Integer> {
      */
     @Override
     public String toString() {
-        return "Flight{" + "flight_id=" + id + ", flight_date=" + flightdate.toString() + ", route_id=" + routeid +", plane_id="+ planeid+'}';
+        return "Flight{" + "flightid=" + flightid + ", flight_date=" + flightdate.toString() + ", route_id=" + routeid +", plane_id="+ planeid+'}';
     }
 
     /**
@@ -69,7 +73,7 @@ public class Flight implements Entity2<Integer> {
     Object[] asParts() {
 
         return new Object[]{
-                this.id,
+                this.flightid,
                 this.flightdate,
                 this.routeid,
                 this.planeid
@@ -80,30 +84,30 @@ public class Flight implements Entity2<Integer> {
      * Getters and setters for each field
      */
     public void setId(int id) {
-        this.id = id;
+        this.flightid = id;
     }
 
-    public LocalDate getFlight_date() {
+    public LocalDate getFlightdate() {
         return flightdate;
     }
 
-    public void setFlight_date(LocalDate date) {
+    public void setFlightdate(LocalDate date) {
         this.flightdate = date;
     }
 
-    public int getRoute_id() {
+    public int getRouteid() {
         return routeid;
     }
 
-    public void setRoute_id(int routeId) {
+    public void setRouteid(int routeId) {
         this.routeid = routeId;
     }
 
-    public int getPlane_id() {
+    public int getPlaneid() {
         return planeid;
     }
 
-    public void setPlane_id(int planeId) {
+    public void setPlaneid(int planeId) {
         this.planeid = planeId;
     }
 }

@@ -6,7 +6,7 @@ import nl.fontys.sebivenlo.dao.ID;
 public class Airport implements Entity2<Integer> {
 
     @ID
-    int id;
+    int airportid;
 
     /**
      * Fields to be used to encrypt pass, validate names etc.
@@ -25,7 +25,7 @@ public class Airport implements Entity2<Integer> {
      */
 
     public Airport(int id, String name, String country, String city){
-        this.id = id;
+        this.airportid = id;
         this.name = name;
         this.country = country;
         this.city = city;
@@ -33,7 +33,7 @@ public class Airport implements Entity2<Integer> {
 
     @Override
     public String toString() {
-        return "id " + id +
+        return "airportid " + airportid +
                 ", name " + name +
                 ", country " + country  +
                 ", city " + city;
@@ -46,7 +46,7 @@ public class Airport implements Entity2<Integer> {
     Object[] asParts() {
 
         return new Object[]{
-                this.id,
+                this.airportid,
                 this.name,
                 this.country,
                 this.city
@@ -54,13 +54,12 @@ public class Airport implements Entity2<Integer> {
     }
 
     @Override
-    public Integer getNaturalId() {return this.id;}
+    public Integer getNaturalId() {return this.airportid;}
 
-    @Override
-    public int getId() {return this.id;}
+    public int getAirportid() {return this.airportid;}
 
-    public void setId(int id) {
-        this.id = id;
+    public void setAirportid(int id) {
+        this.airportid = id;
     }
 
     public String getName() {
@@ -85,5 +84,10 @@ public class Airport implements Entity2<Integer> {
 
     public void setCity(String city) {
         this.city = city;
+    }
+
+    @Override
+    public int getId() {
+        return this.airportid;
     }
 }

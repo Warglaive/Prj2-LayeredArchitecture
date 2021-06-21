@@ -31,4 +31,5 @@ public interface PlaneManager {
     List<Plane> getPlanes();
 
     void setPlaneStorageService(PlaneStorageService planeStorageService);
+    PlaneStorageService getPlaneStorageService();
 }

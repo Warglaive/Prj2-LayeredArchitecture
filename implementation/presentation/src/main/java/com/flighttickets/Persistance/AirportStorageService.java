@@ -30,6 +30,12 @@ public class AirportStorageService {
         System.out.println("Is a airport found? " + airportsList.get(0).toString());
         return airportsList;
     }
+    public Airport getAirport(int airportId){
+        List<Airport> airportsList = this.airportDAO.anyQuery("SELECT * FROM " + this.tableName + " WHERE airportid = '"+airportId+"' LIMIT 1");
+        //result was found
+        System.out.println("Is a airport found? " + airportsList.get(0).toString());
+        return airportsList.get(0);
+    }
 
     /**
      * Save of Airport

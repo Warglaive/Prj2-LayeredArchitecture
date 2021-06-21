@@ -27,5 +27,9 @@ public interface RouteManager {
      */
     List<Route> getByPlannerId(int plannerId);
 
+    Route getByRouteId(int routeId);
+
     void setRouteStorageService(RouteStorageService routeStorageService);
+
+    RouteStorageService getRouteStorageService();
 }

@@ -19,6 +19,8 @@ public interface FlightManager {
      */
     void add(Flight flight);
 
+    Flight getFlightById(int id);
+
     /**
      * setter for FlightStorageService
      */

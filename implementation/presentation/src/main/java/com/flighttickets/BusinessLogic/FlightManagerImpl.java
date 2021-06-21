@@ -21,6 +21,11 @@ public class FlightManagerImpl implements FlightManager {
     }
 
     @Override
+    public Flight getFlightById(int id) {
+        return this.flightStorageService.retrieve(id);
+    }
+
+    @Override
     public void setFlightStorageService(FlightStorageService flightStorage) {
         this.flightStorageService = flightStorage;
     }

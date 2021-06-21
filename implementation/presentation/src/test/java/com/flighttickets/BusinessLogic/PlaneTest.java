@@ -122,7 +122,7 @@ public class PlaneTest {
         int extra_legroom_seats = 100;
         int first_class_seats = 50;
         Plane plane = new Plane(id, registration, brand, type, seats_on_board, extra_legroom_seats, first_class_seats);
-        plane.setId(666);
+        plane.setPlaneid(666);
         Assertions.assertEquals(666, plane.getId(), "Id should be 666");
     }
 

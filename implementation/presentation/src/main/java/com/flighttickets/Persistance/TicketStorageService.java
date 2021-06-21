@@ -39,6 +39,9 @@ public class TicketStorageService {
                         "where ticket.status = 'ForSale' and airport.name = '"+destination+"'");
 
     }
+    public Ticket getById(int id){
+        return ticketDAO.anyQuery("SELECT * FROM "+tableName+" WHERE ticketid = '"+id+"'").get(0);
+    }
 
     public Ticket sellTicket(int bookingId, Ticket toBeSold){
         toBeSold.setBookingid(bookingId);

@@ -39,7 +39,7 @@ public class FlightTest {
         int routeId = 234;
         int planeId = 1234;
         Flight flight = new Flight(flightId, localDate, routeId, planeId);
-        Assertions.assertEquals(LocalDate.now(), flight.getFlight_date(), "should be LocalDate.now()");
+        Assertions.assertEquals(LocalDate.now(), flight.getFlightdate(), "should be LocalDate.now()");
     }
 
     @Test
@@ -49,7 +49,7 @@ public class FlightTest {
         int routeId = 234;
         int planeId = 1234;
         Flight flight = new Flight(flightId, localDate, routeId, planeId);
-        Assertions.assertEquals(234, flight.getRoute_id(), "should be 234");
+        Assertions.assertEquals(234, flight.getRouteid(), "should be 234");
     }
 
     @Test
@@ -59,7 +59,7 @@ public class FlightTest {
         int routeId = 234;
         int planeId = 1234;
         Flight flight = new Flight(flightId, localDate, routeId, planeId);
-        Assertions.assertEquals(1234, flight.getPlane_id(), "should be 1234");
+        Assertions.assertEquals(1234, flight.getPlaneid(), "should be 1234");
     }
 
     @Test
@@ -80,8 +80,8 @@ public class FlightTest {
         int routeId = 234;
         int planeId = 1234;
         Flight flight = new Flight(flightId, localDate, routeId, planeId);
-        flight.setRoute_id(345);
-        Assertions.assertEquals(345, flight.getRoute_id(), "should be 345");
+        flight.setRouteid(345);
+        Assertions.assertEquals(345, flight.getRouteid(), "should be 345");
     }
 
     @Test
@@ -91,7 +91,7 @@ public class FlightTest {
         int routeId = 234;
         int planeId = 1234;
         Flight flight = new Flight(flightId, localDate, routeId, planeId);
-        flight.setPlane_id(9876);
-        Assertions.assertEquals(9876, flight.getPlane_id(), "should be 9876");
+        flight.setPlaneid(9876);
+        Assertions.assertEquals(9876, flight.getPlaneid(), "should be 9876");
     }
 }

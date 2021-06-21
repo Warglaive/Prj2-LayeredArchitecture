@@ -6,7 +6,7 @@ import nl.fontys.sebivenlo.dao.ID;
 public class Route implements Entity2<Integer> {
 
     @ID
-    int id;
+    private int id;
     /**
      * Fields to be used to encrypt pass, validate names etc.
      */
