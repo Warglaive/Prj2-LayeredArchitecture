@@ -20,7 +20,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BookingRequestManagerImplTest {
+public class BookingRequestTicketLoginMockTest {
 
     @Mock
     BookingRequestStorageService bookingRequestStorageServiceMock = Mockito.mock(BookingRequestStorageService.class);
@@ -32,6 +32,7 @@ public class BookingRequestManagerImplTest {
 
     @Mock
     TicketStorageService ticketStorageServiceMock = Mockito.mock(TicketStorageService.class);
+
 
     @Mock
     SystemUserStorageService systemUserStorageServiceMock = Mockito.mock(SystemUserStorageService.class);
@@ -66,9 +67,9 @@ public class BookingRequestManagerImplTest {
                 "Schiphol", "Fraport",
                 LocalDate.of(2021,9,24), LocalDate.of(2021, 9,27),
                 1, "Declined");
-
+        //Doc
         when(bookingRequestStorageServiceMock.updateRequest(base)).thenReturn(expected);
-
+        //Sut
         BookingRequestManagerImpl testManager = new BookingRequestManagerImpl();
 
         testManager.setBookingRequestStorageService(bookingRequestStorageServiceMock);
@@ -109,7 +110,7 @@ public class BookingRequestManagerImplTest {
 
         BookingRequestManagerImpl testManager = new BookingRequestManagerImpl();
         testManager.setBookingRequestStorageService(bookingRequestStorageServiceMock);
-        //Test werkt Komt niet door tot de storage service - JL
+        //Datum is al verstreken
 
         ThrowingCallable code = () -> {
             testManager.add(badRequest);
@@ -241,6 +242,25 @@ public class BookingRequestManagerImplTest {
                 .doesNotThrowAnyException();
 
         verify(systemUserStorageServiceMock).retrieve("Jasper-l@live.nl", "Southpark1");
+    }
+
+    @Test
+    public void LoginTestRoleGetting() throws AccountNotFoundException, SystemUserStorageException{
+        SystemUser testUser = new SystemUser(1,"Jasper", "Lamers", "Jasper-l@live.nl", "Southpark1!", "Lindeboom 79 Mook", "SalesOfficer");
+        when(systemUserStorageServiceMock.retrieve("Jasper-l@live.nl", "Southpark1")).thenReturn(testUser);
+
+        SystemUserManagerImpl testManager = new SystemUserManagerImpl();
+        testManager.setSystemUserStorageService(systemUserStorageServiceMock);
+        ThrowingCallable code = () -> {
+            testManager.login("Jasper-l@live.nl", "Southpark1");
+        };
+
+        assertThatCode(code)
+                .doesNotThrowAnyException();
+
+        verify(systemUserStorageServiceMock).retrieve("Jasper-l@live.nl", "Southpark1");
+
+        assertThat(systemUserStorageServiceMock.retrieve("Jasper-l@live.nl", "Southpark1").getRole()).isEqualTo("SalesOfficer");
     }
 
     @Test

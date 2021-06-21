@@ -87,7 +87,7 @@ public class CreateBookingRequestController implements Initializable {
 
         BookingRequest bookingRequest = this.bookingRequestManager.createBookingRequest(initialId, this.customer.getId(), initialSalesOfficerId, departureDestination, destination, departureDate, returnDate, passengersAmount, initialStatus);
         this.bookingRequestManager.add(bookingRequest);
-        this.sceneManagerSupplier.get().changeScene("AllBookingRequestsView");
+        //this.sceneManagerSupplier.get().changeScene("AllBookingRequestsView");
     }
     public void backToView() {
         this.sceneManagerSupplier.get().changeScene("CustomerMainView");
