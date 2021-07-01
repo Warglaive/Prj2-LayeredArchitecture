@@ -3,8 +3,8 @@ package com.flighttickets.Persistance;
 import nl.fontys.sebivenlo.dao.pg.PGDAOFactory;
 
 public class PersistenceAPIImpl implements PersistenceImplementationProvider, PersistenceAPI {
-    private final PGDAOFactory daoFactory;
-
+    private PGDAOFactory daoFactory;
+   // public PersistenceAPIImpl(){};
     public PersistenceAPIImpl(PGDAOFactory daoFactory) {
         this.daoFactory = daoFactory;
     }
@@ -47,5 +47,12 @@ public class PersistenceAPIImpl implements PersistenceImplementationProvider, Pe
     @Override
     public TicketStorageService getTicketStorageService() {
         return new TicketStorageService(this.daoFactory);
+    }
+
+    @Override
+    public String toString() {
+        return "PersistenceAPIImpl{" +
+                "daoFactory=" + daoFactory +
+                '}';
     }
 }

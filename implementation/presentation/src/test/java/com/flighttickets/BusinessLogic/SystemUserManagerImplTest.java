@@ -14,13 +14,16 @@ import nl.fontys.sebivenlo.dao.pg.PGDAOFactory;
 import org.assertj.core.api.ThrowableAssert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
+import org.mockito.Mockito;
 
 import javax.security.auth.login.AccountNotFoundException;
 import java.sql.SQLException;
 import java.util.Random;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatCode;
+import static org.assertj.core.api.Assertions.*;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 public class SystemUserManagerImplTest {
 
@@ -29,6 +32,9 @@ public class SystemUserManagerImplTest {
     private PersistenceAPI persistenceAPI;
 
     private SystemUserStorageService systemUserStorageService;
+
+    @Mock
+    SystemUserStorageService systemUserStorageServiceMock = Mockito.mock(SystemUserStorageService.class);
 
     private SystemUserManager systemUserManager;
 
@@ -223,6 +229,13 @@ public class SystemUserManagerImplTest {
         assertThatCode(code).isExactlyInstanceOf(InvalidInputException.class).hasMessage("Invalid role!");
     }
 
+    /**
+     * Test is DEPENDENT and specific for the current Database
+     *
+     * @throws ClassNotFoundException
+     * @throws SystemUserStorageException
+     * @throws AccountNotFoundException
+     */
     @Test
     void getByEmailDataBaseTest() throws ClassNotFoundException, SystemUserStorageException, AccountNotFoundException {
         //TODO: DB Should not be empty! - Testing like this because insert and then getByEmail causes problems with the Id (because it is autoincrement in the code)
@@ -231,9 +244,26 @@ public class SystemUserManagerImplTest {
         //Use the existing systemUser to test if getByEmail works
         SystemUser actual = this.systemUserManager.getByEmail(expected.getEmail());
         assertThat(actual).usingRecursiveComparison().isEqualTo(expected);
-
     }
 
+
+    /**
+     * Test is DEPENDENT and specific for the current Database
+     */
+    @Test
+    void loginDbTest() throws ClassNotFoundException, SystemUserStorageException, AccountNotFoundException {
+        //Need to exist in the DB
+        String loginEmail = "asd@abv.bg";
+        String loginPassword = "n!k@sn1Kos";
+        //check if the login is properly comparing input
+        SystemUser expected = this.systemUserManager.getByEmail(loginEmail);
+        SystemUser actual = this.systemUserManager.login(loginEmail, loginPassword);
+        assertThat(actual).usingRecursiveComparison().isEqualTo(expected);
+    }
+
+    /**
+     * Test is DEPENDENT and specific for the current Database
+     */
     @Test
     void addDatabaseTest() throws ClassNotFoundException, SystemUserStorageException, AccountNotFoundException, SQLException {
         int id = 0;
@@ -253,16 +283,44 @@ public class SystemUserManagerImplTest {
         assertThat(actual.getEmail()).isEqualTo(expected.getEmail());
     }
 
+    /**
+     * Test if login is called and is returning correct user
+     * Mock
+     */
     @Test
-    public void loginDatabaseTest() throws SystemUserStorageException, ClassNotFoundException, AccountNotFoundException {
-        //Need to exist in the DB
-        String loginEmail = "asd@abv.bg";
-        String loginPassword = "n!k@sn1Kos";
-        //check if the login is properly comparing input
-        SystemUser expected = this.systemUserManager.getByEmail(loginEmail);
-        SystemUser actual = this.systemUserManager.login(loginEmail, loginPassword);
-        assertThat(actual).usingRecursiveComparison().isEqualTo(expected);
+    public void loginTest() throws ClassNotFoundException {
+        SystemUser expected = new SystemUser(1, "test", "test", "asd@abv.bg", "n!k@sn1Kos", "franciscanenstraat 10", "Customer");
+
+        //Train the mock
+        when(this.systemUserStorageServiceMock.retrieve("asd@abv.bg", "n!k@sn1Kos")).thenReturn(expected);
+
+        //Assign mocked service to SUT
+        this.systemUserManager.setSystemUserStorageService(this.systemUserStorageServiceMock);
+
+        assertThat(this.systemUserManager.login("asd@abv.bg", "n!k@sn1Kos")).isEqualTo(expected);
+        //verify that retrieve is called at least once
+        verify(this.systemUserStorageServiceMock).retrieve("asd@abv.bg", "n!k@sn1Kos");
     }
+
+    /**
+     * Test if getByEmail is called and is returning correct user
+     * Mock
+     */
+    @Test
+    void getByEmailNoDBTest() throws SystemUserStorageException, AccountNotFoundException, ClassNotFoundException {
+        SystemUser expected = new SystemUser(1, "test", "test", "uniqueMail@abv.bg", "n!k@sn1Kos", "franciscanenstraat 10", "Customer");
+
+        //Train the mock
+        when(this.systemUserStorageServiceMock.getByEmail("uniqueMail@abv.bg")).thenReturn(expected);
+
+        //Assign mocked service to SUT
+        this.systemUserManager.setSystemUserStorageService(this.systemUserStorageServiceMock);
+
+        assertThat(this.systemUserManager.getByEmail("uniqueMail@abv.bg")).isEqualTo(expected);
+        //verify that retrieve is called at least once
+        verify(this.systemUserStorageServiceMock).getByEmail("uniqueMail@abv.bg");
+    }
+
 
     @Test
     public void generateSalesOfficerIdTest() {
