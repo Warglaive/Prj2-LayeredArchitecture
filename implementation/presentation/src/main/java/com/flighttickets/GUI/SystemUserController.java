@@ -1,5 +1,6 @@
 package com.flighttickets.GUI;
 
+import com.flighttickets.BusinessLogic.Exceptions.SystemUserStorageException;
 import com.flighttickets.Entities.BookingRequestManager;
 import com.flighttickets.Entities.SystemUser;
 import com.flighttickets.Entities.SystemUserManager;
@@ -9,9 +10,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
+import javax.security.auth.login.AccountNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.sql.SQLOutput;
 import java.util.ResourceBundle;
 import java.util.function.Supplier;
 
@@ -71,6 +74,9 @@ public class SystemUserController implements Initializable {
     @FXML
     private ChoiceBox<String> rolePickCheckBox;
 
+    @FXML
+    private Label alert_label;
+
     /**
      * use BusinessLogicAPIImpl to create CustomerManager
      */
@@ -122,30 +128,41 @@ public class SystemUserController implements Initializable {
     }
 
     @FXML
-    void handleLogin() throws ClassNotFoundException, IOException {
+    void handleLogin() throws ClassNotFoundException, IOException, SystemUserStorageException, AccountNotFoundException {
         String loginEmail = emailTextBox.getText();
         String loginPassword = passwordTextBox.getText();
+        String errorMsg = null;
         //Take current user and pass it to the view
-
+        try {
         this.loggedInSystemUser = this.systemUserManager.login(loginEmail, loginPassword);
-        System.out.println("The customer received after logging in = " + loggedInSystemUser.getEmail() + " Role = " + loggedInSystemUser.getRole());
+        } catch (AccountNotFoundException e){
+            //Account not found exception
+            System.out.println(e);
+            errorMsg = e.getMessage();
+        } catch (SystemUserStorageException e){
+            //SomeHow there is 2 accounts on the same email/password contact the administrator!
+            System.out.println(e);
+            errorMsg = e.getMessage();
+        }
 
-        if (loggedInSystemUser.getRole().equals("SalesOfficer")) {
-            this.sceneManagerSupplier.get().changeScene("salesOfficer");
-
-        } else if (loggedInSystemUser.getRole().equals("Planner")) {
-            this.sceneManagerSupplier.get().changeScene("currentRoutes");
-
-        } else if (loggedInSystemUser.getRole().equals("SalesEmployee")) {
-            this.sceneManagerSupplier.get().changeScene("BookingRequestOverview");
-
-        } else if (loggedInSystemUser.getRole().equals("Customer")) {
-            this.sceneManagerSupplier.get().changeScene("CustomerMainView");
-
+        if(loggedInSystemUser != null){
+            if (loggedInSystemUser.getRole().equals("SalesOfficer")) {
+                this.sceneManagerSupplier.get().changeScene("salesOfficer");
+                System.out.println("The user received after logging in = " + loggedInSystemUser.getEmail() + " Role = " + loggedInSystemUser.getRole());
+            } else if (loggedInSystemUser.getRole().equals("Planner")) {
+                this.sceneManagerSupplier.get().changeScene("currentRoutes");
+                System.out.println("The user received after logging in = " + loggedInSystemUser.getEmail() + " Role = " + loggedInSystemUser.getRole());
+            } else if (loggedInSystemUser.getRole().equals("SalesEmployee")) {
+                this.sceneManagerSupplier.get().changeScene("BookingRequestOverview");
+                System.out.println("The user received after logging in = " + loggedInSystemUser.getEmail() + " Role = " + loggedInSystemUser.getRole());
+            } else if (loggedInSystemUser.getRole().equals("Customer")) {
+                this.sceneManagerSupplier.get().changeScene("CustomerMainView");
+                System.out.println("The user received after logging in = " + loggedInSystemUser.getEmail() + " Role = " + loggedInSystemUser.getRole());
+            }
         } else {
             //TODO Implement wrong username error thrown in fxml - jl
-            this.sceneManagerSupplier.get().changeScene("Main");
-
+            alert_label.setText("There was an error: " + errorMsg);
+            //this.sceneManagerSupplier.get().changeScene("Main");
         }
     }
 

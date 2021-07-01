@@ -83,6 +83,7 @@ public class SystemUserManagerImpl implements SystemUserManager {
      * @throws
      */
     public SystemUser login(String email, String password)  {
+
         //Retrieves system user from database based on email, password -JL
         return this.systemUserStorageService.retrieve(email, password);
     }

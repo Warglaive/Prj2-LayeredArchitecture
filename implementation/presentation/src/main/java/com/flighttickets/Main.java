@@ -1,7 +1,9 @@
 package com.flighttickets;
 
+import com.flighttickets.BusinessLogic.BusinessLogicAPI;
 import com.flighttickets.BusinessLogic.BusinessLogicImplementationProvider;
-import com.flighttickets.Entities.BusinessLogicAPI;
+//import com.flighttickets.Entities.BusinessLogicAPI; If you didnt move the businesslogic api to businesslogic activate this - JL merge 21juni
+
 import com.flighttickets.Persistance.PersistenceAPI;
 import com.flighttickets.Persistance.PersistenceImplementationProvider;
 import nl.fontys.sebivenlo.dao.pg.PGDAOFactory;

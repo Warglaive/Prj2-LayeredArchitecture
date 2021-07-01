@@ -13,7 +13,7 @@ public interface BookingManager {
     double calculatePrice();
     //Todo add descriptions
   
-    int add(Booking booking) throws SQLException, ClassNotFoundException;
+    int add(Booking booking);
     //Todo add descriptions -JL
 
 }
