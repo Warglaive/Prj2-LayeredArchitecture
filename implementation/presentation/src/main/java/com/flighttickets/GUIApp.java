@@ -43,15 +43,27 @@ public class GUIApp extends Application {
         switch (c.getName()) {
             case "com.flighttickets.GUI.MainController":
                 return new MainController(this::getSceneManager, this.businessLogicAPI.getSystemUserManager());
+
+
             case "com.flighttickets.GUI.SalesOfficerController":
                 return new SalesOfficerController(this::getSceneManager, this.systemUserController.getLoggedInCustomer());
+
+
             case "com.flighttickets.GUI.CreateBookingRequestController":
-                return new CreateBookingRequestController(this::getSceneManager, this.systemUserController.getLoggedInCustomer(), this.businessLogicAPI.getBookingRequestManager(), this.businessLogicAPI.getSystemUserManager());
+                return new CreateBookingRequestController(this::getSceneManager, this.systemUserController.getLoggedInCustomer(),
+                        this.businessLogicAPI.getBookingRequestManager(), this.businessLogicAPI.getSystemUserManager());
+
+
             case "com.flighttickets.GUI.SystemUserController":
                 this.systemUserController = new SystemUserController(this::getSceneManager, this.businessLogicAPI.getSystemUserManager(), this.businessLogicAPI.getBookingRequestManager());
                 return this.systemUserController;
+
+
             case "com.flighttickets.GUI.BookingRequestOverviewController":
-                this.bookingRequestOverviewController = new BookingRequestOverviewController(this::getSceneManager, this.systemUserController.getLoggedInCustomer(), this.businessLogicAPI.getSystemUserManager(), this.businessLogicAPI.getBookingRequestManager());
+                this.bookingRequestOverviewController = new BookingRequestOverviewController(this::getSceneManager, this.systemUserController.getLoggedInCustomer(),
+                        this.businessLogicAPI.getSystemUserManager(), this.businessLogicAPI.getBookingRequestManager());
+
+
                 return this.bookingRequestOverviewController;
             case "com.flighttickets.GUI.RouteController":
                 return new RouteController(this::getSceneManager, this.systemUserController.getLoggedInCustomer(), this.businessLogicAPI.getRouteManager());
