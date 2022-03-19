@@ -2,7 +2,7 @@ package com.flighttickets.BusinessLogic;
 
 import com.flighttickets.BusinessLogic.Exceptions.InvalidInputException;
 import com.flighttickets.BusinessLogic.Exceptions.SystemUserStorageException;
-import com.flighttickets.Entities.BusinessLogicAPI;
+//import com.flighttickets.Entities.BusinessLogicAPI;
 import com.flighttickets.Entities.SystemUser;
 import com.flighttickets.Entities.SystemUserManager;
 import com.flighttickets.Entities.SystemUserMapper;
@@ -288,7 +288,7 @@ public class SystemUserManagerImplTest {
      * Mock
      */
     @Test
-    public void loginTest() throws ClassNotFoundException {
+    public void loginTest() throws ClassNotFoundException, SystemUserStorageException, AccountNotFoundException {
         SystemUser expected = new SystemUser(1, "test", "test", "asd@abv.bg", "n!k@sn1Kos", "franciscanenstraat 10", "Customer");
 
         //Train the mock
